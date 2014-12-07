@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FirstLineOfCode_Android.iml" filepath="$PROJECT_DIR$/FirstLineOfCode_Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" filepath="$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activitytest/activitytest.iml" filepath="$PROJECT_DIR$/activitytest/activitytest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" filepath="$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/broadcasttest/broadcasttest.iml" filepath="$PROJECT_DIR$/broadcasttest/broadcasttest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" filepath="$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentbestpractice/fragmentbestpractice.iml" filepath="$PROJECT_DIR$/fragmentbestpractice/fragmentbestpractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmenttest/fragmenttest.iml" filepath="$PROJECT_DIR$/fragmenttest/fragmenttest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listviewteset/listviewtest.iml" filepath="$PROJECT_DIR$/listviewteset/listviewtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uibestpractice/uibestpractice.iml" filepath="$PROJECT_DIR$/uibestpractice/uibestpractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uicustomviews/uicustomviews.iml" filepath="$PROJECT_DIR$/uicustomviews/uicustomviews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uilayouttest/uilayouttest.iml" filepath="$PROJECT_DIR$/uilayouttest/uilayouttest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uisizetest/uisizetest.iml" filepath="$PROJECT_DIR$/uisizetest/uisizetest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uiwidgetteset/uiwidgettest.iml" filepath="$PROJECT_DIR$/uiwidgetteset/uiwidgettest.iml" />
+    </modules>
+  </component>
+</project>
+

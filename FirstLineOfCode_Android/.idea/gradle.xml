@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.2" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/activitylifecycletest" />
+            <option value="$PROJECT_DIR$/activitytest" />
+            <option value="$PROJECT_DIR$/broadcastbestpractice" />
+            <option value="$PROJECT_DIR$/broadcasttest" />
+            <option value="$PROJECT_DIR$/broadcasttest2" />
+            <option value="$PROJECT_DIR$/fragmentbestpractice" />
+            <option value="$PROJECT_DIR$/fragmenttest" />
+            <option value="$PROJECT_DIR$/listviewteset" />
+            <option value="$PROJECT_DIR$/uibestpractice" />
+            <option value="$PROJECT_DIR$/uicustomviews" />
+            <option value="$PROJECT_DIR$/uilayouttest" />
+            <option value="$PROJECT_DIR$/uisizetest" />
+            <option value="$PROJECT_DIR$/uiwidgetteset" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
+

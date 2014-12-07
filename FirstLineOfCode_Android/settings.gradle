@@ -1,0 +1,1 @@
+include ':activitytest', ':activitylifecycletest', ':uiwidgetteset', ':uilayouttest', ':uicustomviews', ':listviewteset', ':uisizetest', ':uibestpractice', ':fragmenttest', ':fragmentbestpractice', ':broadcasttest', ':broadcasttest2', ':broadcastbestpractice'

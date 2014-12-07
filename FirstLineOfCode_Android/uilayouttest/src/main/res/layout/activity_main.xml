@@ -1,0 +1,53 @@
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent">-->
+
+<!--<Button--><!--android:id="@+id/button3"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_centerInParent="true"--><!--android:text="Button 3" />-->
+
+<!--<Button--><!--android:id="@+id/button1"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_above="@id/button3"--><!--android:layout_toLeftOf="@id/button3"--><!--android:text="Button 1" />-->
+
+<!--<Button--><!--android:id="@+id/button2"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_above="@id/button3"--><!--android:layout_toRightOf="@id/button3"--><!--android:text="Button 2" />-->
+
+<!--<Button--><!--android:id="@+id/button4"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_below="@id/button3"--><!--android:layout_toLeftOf="@id/button3"--><!--android:text="Button 4" />-->
+
+<!--<Button--><!--android:id="@+id/button5"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_below="@id/button3"--><!--android:layout_toRightOf="@id/button3"--><!--android:text="Button 5" />-->
+
+<!--</RelativeLayout>-->
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">
+
+    <TableRow>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="Account:" />
+
+        <EditText
+            android:id="@+id/account"
+            android:layout_height="wrap_content"
+            android:hint="Input your account" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:text="Password:" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:text="Login" />
+    </TableRow>
+
+</TableLayout>
