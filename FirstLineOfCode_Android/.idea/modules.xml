@@ -8,14 +8,24 @@
       <module fileurl="file://$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" filepath="$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcasttest/broadcasttest.iml" filepath="$PROJECT_DIR$/broadcasttest/broadcasttest.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" filepath="$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/choosepictest/choosepictest.iml" filepath="$PROJECT_DIR$/choosepictest/choosepictest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/contactstest/contactstest.iml" filepath="$PROJECT_DIR$/contactstest/contactstest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/databasetest/databasetest.iml" filepath="$PROJECT_DIR$/databasetest/databasetest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/filepersistencetest/filepersistencetest.iml" filepath="$PROJECT_DIR$/filepersistencetest/filepersistencetest.iml" />
       <module fileurl="file://$PROJECT_DIR$/fragmentbestpractice/fragmentbestpractice.iml" filepath="$PROJECT_DIR$/fragmentbestpractice/fragmentbestpractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/fragmenttest/fragmenttest.iml" filepath="$PROJECT_DIR$/fragmenttest/fragmenttest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/listviewteset/listviewtest.iml" filepath="$PROJECT_DIR$/listviewteset/listviewtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listviewteset/listviewteset.iml" filepath="$PROJECT_DIR$/listviewteset/listviewteset.iml" />
+      <module fileurl="file://$PROJECT_DIR$/notificationtest/notificationtest.iml" filepath="$PROJECT_DIR$/notificationtest/notificationtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playaudiotest/playaudiotest.iml" filepath="$PROJECT_DIR$/playaudiotest/playaudiotest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playvideotest/playvideotest.iml" filepath="$PROJECT_DIR$/playvideotest/playvideotest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/providertest/providertest.iml" filepath="$PROJECT_DIR$/providertest/providertest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharedpreferencestest/sharedpreferencestest.iml" filepath="$PROJECT_DIR$/sharedpreferencestest/sharedpreferencestest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smstest/smstest.iml" filepath="$PROJECT_DIR$/smstest/smstest.iml" />
       <module fileurl="file://$PROJECT_DIR$/uibestpractice/uibestpractice.iml" filepath="$PROJECT_DIR$/uibestpractice/uibestpractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/uicustomviews/uicustomviews.iml" filepath="$PROJECT_DIR$/uicustomviews/uicustomviews.iml" />
       <module fileurl="file://$PROJECT_DIR$/uilayouttest/uilayouttest.iml" filepath="$PROJECT_DIR$/uilayouttest/uilayouttest.iml" />
       <module fileurl="file://$PROJECT_DIR$/uisizetest/uisizetest.iml" filepath="$PROJECT_DIR$/uisizetest/uisizetest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/uiwidgetteset/uiwidgettest.iml" filepath="$PROJECT_DIR$/uiwidgetteset/uiwidgettest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uiwidgetteset/uiwidgetteset.iml" filepath="$PROJECT_DIR$/uiwidgetteset/uiwidgetteset.iml" />
     </modules>
   </component>
 </project>

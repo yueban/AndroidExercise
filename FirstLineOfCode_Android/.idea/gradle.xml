@@ -5,7 +5,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.2" />
+        <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.2.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -14,9 +14,19 @@
             <option value="$PROJECT_DIR$/broadcastbestpractice" />
             <option value="$PROJECT_DIR$/broadcasttest" />
             <option value="$PROJECT_DIR$/broadcasttest2" />
+            <option value="$PROJECT_DIR$/choosepictest" />
+            <option value="$PROJECT_DIR$/contactstest" />
+            <option value="$PROJECT_DIR$/databasetest" />
+            <option value="$PROJECT_DIR$/filepersistencetest" />
             <option value="$PROJECT_DIR$/fragmentbestpractice" />
             <option value="$PROJECT_DIR$/fragmenttest" />
             <option value="$PROJECT_DIR$/listviewteset" />
+            <option value="$PROJECT_DIR$/notificationtest" />
+            <option value="$PROJECT_DIR$/playaudiotest" />
+            <option value="$PROJECT_DIR$/playvideotest" />
+            <option value="$PROJECT_DIR$/providertest" />
+            <option value="$PROJECT_DIR$/sharedpreferencestest" />
+            <option value="$PROJECT_DIR$/smstest" />
             <option value="$PROJECT_DIR$/uibestpractice" />
             <option value="$PROJECT_DIR$/uicustomviews" />
             <option value="$PROJECT_DIR$/uilayouttest" />
