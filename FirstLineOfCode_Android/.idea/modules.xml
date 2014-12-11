@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/FirstLineOfCode_Android.iml" filepath="$PROJECT_DIR$/FirstLineOfCode_Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" filepath="$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" />
       <module fileurl="file://$PROJECT_DIR$/activitytest/activitytest.iml" filepath="$PROJECT_DIR$/activitytest/activitytest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidthreadtest/androidthreadtest.iml" filepath="$PROJECT_DIR$/androidthreadtest/androidthreadtest.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" filepath="$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcasttest/broadcasttest.iml" filepath="$PROJECT_DIR$/broadcasttest/broadcasttest.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" filepath="$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" />
@@ -19,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/playaudiotest/playaudiotest.iml" filepath="$PROJECT_DIR$/playaudiotest/playaudiotest.iml" />
       <module fileurl="file://$PROJECT_DIR$/playvideotest/playvideotest.iml" filepath="$PROJECT_DIR$/playvideotest/playvideotest.iml" />
       <module fileurl="file://$PROJECT_DIR$/providertest/providertest.iml" filepath="$PROJECT_DIR$/providertest/providertest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servicetest/servicetest.iml" filepath="$PROJECT_DIR$/servicetest/servicetest.iml" />
       <module fileurl="file://$PROJECT_DIR$/sharedpreferencestest/sharedpreferencestest.iml" filepath="$PROJECT_DIR$/sharedpreferencestest/sharedpreferencestest.iml" />
       <module fileurl="file://$PROJECT_DIR$/smstest/smstest.iml" filepath="$PROJECT_DIR$/smstest/smstest.iml" />
       <module fileurl="file://$PROJECT_DIR$/uibestpractice/uibestpractice.iml" filepath="$PROJECT_DIR$/uibestpractice/uibestpractice.iml" />
