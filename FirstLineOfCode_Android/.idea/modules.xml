@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/playaudiotest/playaudiotest.iml" filepath="$PROJECT_DIR$/playaudiotest/playaudiotest.iml" />
       <module fileurl="file://$PROJECT_DIR$/playvideotest/playvideotest.iml" filepath="$PROJECT_DIR$/playvideotest/playvideotest.iml" />
       <module fileurl="file://$PROJECT_DIR$/providertest/providertest.iml" filepath="$PROJECT_DIR$/providertest/providertest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servicebestpractice/servicebestpractice.iml" filepath="$PROJECT_DIR$/servicebestpractice/servicebestpractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/servicetest/servicetest.iml" filepath="$PROJECT_DIR$/servicetest/servicetest.iml" />
       <module fileurl="file://$PROJECT_DIR$/sharedpreferencestest/sharedpreferencestest.iml" filepath="$PROJECT_DIR$/sharedpreferencestest/sharedpreferencestest.iml" />
       <module fileurl="file://$PROJECT_DIR$/smstest/smstest.iml" filepath="$PROJECT_DIR$/smstest/smstest.iml" />
