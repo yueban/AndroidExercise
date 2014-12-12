@@ -6,6 +6,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,10 +15,13 @@ import android.widget.Button;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
+    public static final String TAG = "MainActivity";
+
     private Button startService;
     private Button stopService;
     private Button bindService;
     private Button unbindService;
+    private Button startIntentService;
 
     private MyService.DownloadBinder downloadBinder;
 
@@ -44,11 +48,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         stopService = (Button) findViewById(R.id.stop_service);
         bindService = (Button) findViewById(R.id.bind_service);
         unbindService = (Button) findViewById(R.id.unbind_service);
+        startIntentService = (Button) findViewById(R.id.start_intent_service);
 
         startService.setOnClickListener(this);
         stopService.setOnClickListener(this);
         bindService.setOnClickListener(this);
         unbindService.setOnClickListener(this);
+        startIntentService.setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +77,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             case R.id.unbind_service:
                 unbindService(connection);
+                break;
+
+            case R.id.start_intent_service:
+                Log.d(TAG, "Thread id is " + Thread.currentThread().getId());
+                Intent intentService = new Intent(this, MyIntentService.class);
+                startService(intentService);
                 break;
 
             default:
