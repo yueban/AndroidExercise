@@ -35,6 +35,7 @@
             <option value="$PROJECT_DIR$/uilayouttest" />
             <option value="$PROJECT_DIR$/uisizetest" />
             <option value="$PROJECT_DIR$/uiwidgetteset" />
+            <option value="$PROJECT_DIR$/webviewtest" />
           </set>
         </option>
       </GradleProjectSettings>
