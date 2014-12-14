@@ -11,11 +11,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import javax.xml.parsers.SAXParserFactory;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
@@ -55,11 +69,92 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.send_request:
-                sendRequestWithHttpURLConnection();
+                sendRequestWithHttpClient();
+//                sendRequestWithHttpURLConnection();
                 break;
 
             default:
                 break;
+        }
+    }
+
+    private void sendRequestWithHttpClient() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    HttpClient httpClient = new DefaultHttpClient();
+                    HttpGet httpGet = new HttpGet("https://raw.githubusercontent.com/yueban/AndroidExercise/master/get_data.xml");
+                    HttpResponse httpResponse = httpClient.execute(httpGet);
+                    if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                        HttpEntity entity = httpResponse.getEntity();
+                        String response = EntityUtils.toString(entity, "utf-8");
+//                        parseXMLWithPull(response);
+                        parseXMLWithSAX(response);
+
+//                        Message message = new Message();
+//                        message.what = SHOW_RESPONSE;
+//                        message.obj = response;
+//                        handler.sendMessage(message);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void parseXMLWithPull(String xmlData) {
+        try {
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser xmlPullParser = factory.newPullParser();
+            xmlPullParser.setInput(new StringReader(xmlData));
+            int eventType;
+            String id = "";
+            String name = "";
+            String version = "";
+            while ((eventType = xmlPullParser.next()) != XmlPullParser.END_DOCUMENT) {
+                String nodeName = xmlPullParser.getName();
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                        switch(nodeName){
+                            case "id":
+                                id = xmlPullParser.nextText();
+                                break;
+
+                            case "name":
+                                name = xmlPullParser.nextText();
+                                break;
+
+                            case "version":
+                                version = xmlPullParser.nextText();
+                                break;
+                        }
+                        break;
+
+                    case XmlPullParser.END_TAG:
+                        if ("app".equals(nodeName)) {
+                            Log.d(TAG, "id is " + id);
+                            Log.d(TAG, "name is " + name);
+                            Log.d(TAG, "version is " + version);
+                        }
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseXMLWithSAX(String xmlData) {
+        try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            XMLReader xmlReader = factory.newSAXParser().getXMLReader();
+            ContentHandler contentHandler = new ContentHandler();
+            xmlReader.setContentHandler(contentHandler);
+            xmlReader.parse(new InputSource(new StringReader(xmlData)));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -69,13 +164,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             public void run() {
                 HttpURLConnection connection = null;
                 try {
-                    Log.d(TAG, "connection");
                     URL url = new URL("http://www.baidu.com");
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setConnectTimeout(8000);
                     connection.setReadTimeout(8000);
-                    Log.d(TAG, "response");
+
                     InputStream in = connection.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                     StringBuilder response = new StringBuilder();
@@ -83,7 +177,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     while ((line = reader.readLine()) != null) {
                         response.append(line);
                     }
-                    Log.d(TAG, "show");
+
                     Message message = new Message();
                     message.obj = response.toString();
                     handler.sendMessage(message);
