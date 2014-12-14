@@ -1,6 +1,8 @@
 package com.bigfat.fragmenttest;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,24 +25,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-//                AnotherRightFragment fragment = new AnotherRightFragment();
-//                FragmentManager fragmentManager = getFragmentManager();
-//                FragmentTransaction transaction = fragmentManager.beginTransaction();
-//                transaction.replace(R.id.right_layout, fragment);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
+                AnotherRightFragment fragment = new AnotherRightFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.right_layout, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
                 break;
             default:
                 break;
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
-        } else {
-            super.onBackPressed();
         }
     }
 
