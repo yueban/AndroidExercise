@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" filepath="$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" />
       <module fileurl="file://$PROJECT_DIR$/activitytest/activitytest.iml" filepath="$PROJECT_DIR$/activitytest/activitytest.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidthreadtest/androidthreadtest.iml" filepath="$PROJECT_DIR$/androidthreadtest/androidthreadtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baidumaptest/baidumaptest.iml" filepath="$PROJECT_DIR$/baidumaptest/baidumaptest.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" filepath="$PROJECT_DIR$/broadcastbestpractice/broadcastbestpractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcasttest/broadcasttest.iml" filepath="$PROJECT_DIR$/broadcasttest/broadcasttest.iml" />
       <module fileurl="file://$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" filepath="$PROJECT_DIR$/broadcasttest2/broadcasttest2.iml" />
