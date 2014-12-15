@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FirstLineOfCode_Android.iml" filepath="$PROJECT_DIR$/FirstLineOfCode_Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/accelerometersensortest/accelerometersensortest.iml" filepath="$PROJECT_DIR$/accelerometersensortest/accelerometersensortest.iml" />
       <module fileurl="file://$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" filepath="$PROJECT_DIR$/activitylifecycletest/activitylifecycletest.iml" />
       <module fileurl="file://$PROJECT_DIR$/activitytest/activitytest.iml" filepath="$PROJECT_DIR$/activitytest/activitytest.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidthreadtest/androidthreadtest.iml" filepath="$PROJECT_DIR$/androidthreadtest/androidthreadtest.iml" />
@@ -16,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/filepersistencetest/filepersistencetest.iml" filepath="$PROJECT_DIR$/filepersistencetest/filepersistencetest.iml" />
       <module fileurl="file://$PROJECT_DIR$/fragmentbestpractice/fragmentbestpractice.iml" filepath="$PROJECT_DIR$/fragmentbestpractice/fragmentbestpractice.iml" />
       <module fileurl="file://$PROJECT_DIR$/fragmenttest/fragmenttest.iml" filepath="$PROJECT_DIR$/fragmenttest/fragmenttest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lightsensortest/lightsensortest.iml" filepath="$PROJECT_DIR$/lightsensortest/lightsensortest.iml" />
       <module fileurl="file://$PROJECT_DIR$/listviewteset/listviewteset.iml" filepath="$PROJECT_DIR$/listviewteset/listviewteset.iml" />
       <module fileurl="file://$PROJECT_DIR$/locationtest/locationtest.iml" filepath="$PROJECT_DIR$/locationtest/locationtest.iml" />
       <module fileurl="file://$PROJECT_DIR$/networkbestpractice/networkbestpractice.iml" filepath="$PROJECT_DIR$/networkbestpractice/networkbestpractice.iml" />

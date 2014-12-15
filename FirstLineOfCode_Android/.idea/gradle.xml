@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/accelerometersensortest" />
             <option value="$PROJECT_DIR$/activitylifecycletest" />
             <option value="$PROJECT_DIR$/activitytest" />
             <option value="$PROJECT_DIR$/androidthreadtest" />
@@ -22,6 +23,7 @@
             <option value="$PROJECT_DIR$/filepersistencetest" />
             <option value="$PROJECT_DIR$/fragmentbestpractice" />
             <option value="$PROJECT_DIR$/fragmenttest" />
+            <option value="$PROJECT_DIR$/lightsensortest" />
             <option value="$PROJECT_DIR$/listviewteset" />
             <option value="$PROJECT_DIR$/locationtest" />
             <option value="$PROJECT_DIR$/networkbestpractice" />
