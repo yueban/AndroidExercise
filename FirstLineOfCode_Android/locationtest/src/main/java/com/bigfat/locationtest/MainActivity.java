@@ -4,6 +4,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -11,12 +13,22 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
 
     public static final String TAG = "MainActivity";
+    public static final int SHOW_LOCATION = 0;
 
     private TextView positionTextView;
 
@@ -80,11 +92,62 @@ public class MainActivity extends ActionBarActivity {
         }
     };
 
-    private void showLocation(Location location) {
-        String currentPosition = "latitude is " + location.getLatitude() + "\n" + "longitude is " + location.getLongitude();
-        Log.d(TAG, currentPosition);
-        positionTextView.setText(currentPosition);
+    private void showLocation(final Location location) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //组装反向地理编码的接口地址
+                    StringBuilder url = new StringBuilder();
+                    url.append("http://maps.googleapis.com/maps/api/geocode/json?latlng=");
+                    url.append(location.getLatitude());
+                    url.append(",");
+                    url.append(location.getLongitude());
+                    url.append("&sensor=false");
+                    //发送请求
+                    HttpClient client = new DefaultHttpClient();
+                    HttpGet httpGet = new HttpGet(url.toString());
+                    //在请求消息头中指定语言，保证服务器会返回中文数据
+                    httpGet.addHeader("Accept-Language", "zh-CN");
+                    HttpResponse httpResponse = client.execute(httpGet);
+                    if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                        HttpEntity entity = httpResponse.getEntity();
+                        String response = EntityUtils.toString(entity);
+//                        Log.d(TAG, "response--->" + response);
+                        JSONObject jsonObject = new JSONObject(response);
+                        //获取resultArray节点下的位置信息
+                        JSONArray resultArray = jsonObject.getJSONArray("results");
+//                        Log.d(TAG, "resultArray.length()--->" + resultArray.length());
+                        if (resultArray.length() > 0) {
+                            JSONObject subObject = resultArray.getJSONObject(0);
+                            //取出格式化后的位置信息
+                            String formatted_address = subObject.getString("formatted_address");
+//                            Log.d(TAG, "formatted_address--->" + formatted_address);
+                            Message message = new Message();
+                            message.what = SHOW_LOCATION;
+                            message.obj = formatted_address;
+                            handler.handleMessage(message);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
+
+    private Handler handler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SHOW_LOCATION:
+                    String currentPosition = (String) msg.obj;
+                    positionTextView.setText(currentPosition);
+                    break;
+            }
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
