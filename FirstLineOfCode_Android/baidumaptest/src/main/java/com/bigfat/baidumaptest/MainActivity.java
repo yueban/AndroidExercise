@@ -12,8 +12,10 @@ import android.widget.Toast;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 
 import java.util.List;
 
@@ -78,10 +80,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void navigateTo(Location location) {
-        Log.d(TAG, "Latitude：" + location.getLatitude() + "Longitude：" + location.getLongitude());
-        baiduMap.setMyLocationEnabled(true);
-        MyLocationData locationData = new MyLocationData.Builder().latitude(location.getLatitude() * 1E6).longitude(location.getLongitude() * 1E6).build();
-        baiduMap.setMyLocationData(locationData);
+        if (location != null) {
+            Log.d(TAG, "Latitude：" + location.getLatitude() + "Longitude：" + location.getLongitude());
+            LatLng p = new LatLng(location.getLatitude(), location.getLongitude());
+            MapStatus mapStatus = new MapStatus.Builder(baiduMap.getMapStatus()).zoom(14).target(p).build();
+            baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(mapStatus));
+        }
     }
 
     @Override
