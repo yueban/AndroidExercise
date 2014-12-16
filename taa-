@@ -1,0 +1,168 @@
+[33mcommit 8807c777fa0959c37389ae2f91ca286dabbd7289[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Tue Dec 16 16:06:17 2014 +0800
+
+    新建数据库帮助类，以及各表对应的实体类
+
+[33mcommit 6ce71c4a2d93b215d8e0d797dc8e86352b2fa424[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Tue Dec 16 15:13:02 2014 +0800
+
+    add application CoolWeather
+
+[33mcommit 6c52f7775a7658c3d8a45f48b5bb716f6714a288[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Tue Dec 16 11:20:46 2014 +0800
+
+    modify module BroadcastBestPractice
+
+[33mcommit 68febaf9afbd717bce6019afb0eaf26231717c35[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Tue Dec 16 10:47:08 2014 +0800
+
+    modify module NetworkBestPractice
+
+[33mcommit 06a170f55b89cc6bb7632195da1ce6952de74148[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Tue Dec 16 10:17:28 2014 +0800
+
+    modify module CompassTest
+
+[33mcommit b822bd228c95c8bea949e2210ee21e95baa516ad[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Tue Dec 16 08:16:38 2014 +0800
+
+    add module CompassTest
+
+[33mcommit 575233b7d95a800e49901b55537dfe0e964e2144[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Mon Dec 15 21:59:42 2014 +0800
+
+    add module AccelerometerSensorTest
+
+[33mcommit f2e51e3a5612b57eccc73f8cfeb2314c7b8db96e[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Mon Dec 15 20:59:17 2014 +0800
+
+    modify module BaiduMapTest
+
+[33mcommit d75c0da3261261781e7de4a0a0fb0c00b7c63b3e[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Mon Dec 15 11:56:21 2014 +0800
+
+    modify module BaiduMapTest
+
+[33mcommit 32e327554ac8e1b75f1d81e7adb1272d205dae99[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Mon Dec 15 09:53:41 2014 +0800
+
+    add module BaiduMapTest
+
+[33mcommit 67330ea0bf3aabdf95b4ca6ed6d02e349d78251a[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Mon Dec 15 09:38:06 2014 +0800
+
+    modify module LocationTest
+
+[33mcommit 207a029b0bb1576776957d2dbc11a9b61ab27917[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 14 21:41:22 2014 +0800
+
+    modify module FragmentTest
+    add module LocationTest
+
+[33mcommit dc1ac063ad5616f895f0ad92736369041ea82bde[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 14 15:23:06 2014 +0800
+
+    add module networkbestpractice
+
+[33mcommit 7282961335ca60e329a7e67152342b6caf46f5b2[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 14 14:58:34 2014 +0800
+
+    finish module networktest
+
+[33mcommit 2df2aee553afd39ce2aa16eac00fcfb0b93ac4b3[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 14 11:38:12 2014 +0800
+
+    add get_data.json
+
+[33mcommit 67186b47e7f868b69af534d6a45e5b4a66584c39[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 14 11:35:47 2014 +0800
+
+    modefied module networktest
+
+[33mcommit 592e31771a35c6254f96b3c8d4f32619bf6c47af[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 14 11:35:28 2014 +0800
+
+    modefied module networktest
+
+[33mcommit 00580f70d2024a4baa2cc590814f8f9080b92009[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 14 10:06:11 2014 +0800
+
+    add get_data.xml
+
+[33mcommit 9641f240d89441c83137e14e16b40aae99488c88[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Fri Dec 12 21:32:53 2014 +0800
+
+    add module networktest
+
+[33mcommit 25cadec916c6399c1d01c416e8f77d725979e3cb[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Fri Dec 12 19:51:32 2014 +0800
+
+    add module webviewtest
+
+[33mcommit 8ef7d69b486ec23da0726dc21a34de9529c4a0e0[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Fri Dec 12 19:09:07 2014 +0800
+
+    add module servicebestpractice
+
+[33mcommit 156de63fcb6dcf9eb585bed4fdd52fd8a776a0fe[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Fri Dec 12 11:33:35 2014 +0800
+
+    finish module servicetest
+
+[33mcommit 142aa3a441fd975666ad8b3f1ada24035cfd69c5[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Thu Dec 11 21:55:35 2014 +0800
+
+    modefied module servicetest
+
+[33mcommit 0b97fc90df67e2e0188af11313c4ba2f9174dcbb[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Thu Dec 11 20:25:11 2014 +0800
+
+    add module servicetest
+
+[33mcommit 07fef0e9079f4254cf2e1a5059c851e53ff0de6b[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Thu Dec 11 19:47:01 2014 +0800
+
+    add module androidthreadtest
+
+[33mcommit d83ad2af3bb1d2165db7be66914984fdfcf985a7[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Thu Dec 11 17:32:17 2014 +0800
+
+    add:code from chapter 6 to 8
+
+[33mcommit f2b3e4385909b7679823fa4da7d93ca760d5fa45[m
+Author: fanbaizhou <fbzhh007@gmail.com>
+Date:   Sun Dec 7 17:36:23 2014 +0800
+
+    add:code from chapter 1 to 5
+
+[33mcommit aae159bc1a048139b968ba15294b6b3677a7ddfd[m
+Author: baizhoufan <fbzhh007@gmail.com>
+Date:   Tue Dec 2 18:02:21 2014 +0800
+
+    Initial commit
