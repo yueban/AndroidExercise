@@ -10,10 +10,12 @@ import java.util.List;
  * @since 2014/12/7
  */
 public class ActivityCollector {
-    private static List<Activity> activities = new ArrayList<>();
+    public static List<Activity> activities = new ArrayList<>();
 
     public static void addActivity(Activity activity) {
-        activities.add(activity);
+        if (!activities.contains(activity)) {
+            activities.add(activity);
+        }
     }
 
     public static void removeActivity(Activity activity) {
