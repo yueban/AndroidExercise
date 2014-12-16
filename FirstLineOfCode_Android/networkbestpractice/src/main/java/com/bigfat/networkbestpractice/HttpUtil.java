@@ -1,5 +1,10 @@
 package com.bigfat.networkbestpractice;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,6 +17,10 @@ import java.net.URL;
  */
 public class HttpUtil {
     public static void sendHttpRequest(final String address, final HttpCallbackListener listener) {
+        if (!isNetworkAvailable()) {
+            Toast.makeText(MyApplication.getContext(), "network is unavailable", Toast.LENGTH_SHORT).show();
+            return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -46,5 +55,20 @@ public class HttpUtil {
                 }
             }
         }).start();
+    }
+
+    public static boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) MyApplication.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null) {
+            NetworkInfo[] infos = connectivityManager.getAllNetworkInfo();
+            if (infos != null) {
+                for (NetworkInfo info : infos) {
+                    if (info.getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
