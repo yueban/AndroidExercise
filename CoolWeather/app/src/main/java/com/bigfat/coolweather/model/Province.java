@@ -6,8 +6,8 @@ package com.bigfat.coolweather.model;
  */
 public class Province {
     private int id;
-    private String provinceName;
-    private String provinceCode;
+    private String quName;
+    private String pyName;
 
     public int getId() {
         return id;
@@ -17,19 +17,19 @@ public class Province {
         this.id = id;
     }
 
-    public String getProvinceName() {
-        return provinceName;
+    public String getQuName() {
+        return quName;
     }
 
-    public void setProvinceName(String provinceName) {
-        this.provinceName = provinceName;
+    public void setQuName(String quName) {
+        this.quName = quName;
     }
 
-    public String getProvinceCode() {
-        return provinceCode;
+    public String getPyName() {
+        return pyName;
     }
 
-    public void setProvinceCode(String provinceCode) {
-        this.provinceCode = provinceCode;
+    public void setPyName(String pyName) {
+        this.pyName = pyName;
     }
 }

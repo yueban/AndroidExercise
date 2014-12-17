@@ -121,7 +121,7 @@ public class ChooseAreaActivity extends Activity {
         if (provinceList.size() > 0) {
             dataList.clear();
             for (Province province : provinceList) {
-                dataList.add(province.getProvinceName());
+                dataList.add(province.getQuName());
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
@@ -140,14 +140,14 @@ public class ChooseAreaActivity extends Activity {
         if (cityList.size() > 0) {
             dataList.clear();
             for (City city : cityList) {
-                dataList.add(city.getCityName());
+                dataList.add(city.getCityname());
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            titleText.setText(selectedProvince.getProvinceName());
+            titleText.setText(selectedProvince.getQuName());
             currentLevel = LEVEL_CITY;
         } else {
-            queryFromServer(selectedProvince.getProvinceCode(), "city");
+            queryFromServer(selectedProvince.getPyName(), "city");
         }
     }
 
@@ -159,14 +159,14 @@ public class ChooseAreaActivity extends Activity {
         if (countryList.size() > 0) {
             dataList.clear();
             for (Country country : countryList) {
-                dataList.add(country.getCountryName());
+                dataList.add(country.getCityname());
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            titleText.setText(selectedCity.getCityName());
+            titleText.setText(selectedCity.getCityname());
             currentLevel = LEVEL_COUNTRY;
         } else {
-            queryFromServer(selectedCity.getCityCode(), "country");
+            queryFromServer(selectedCity.getPyName(), "country");
         }
     }
 

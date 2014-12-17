@@ -6,8 +6,8 @@ package com.bigfat.coolweather.model;
  */
 public class Country {
     private int id;
-    private String countryName;
-    private String countryCode;
+    private String cityname;
+    private String url;
     private int cityId;
 
     public int getId() {
@@ -18,20 +18,20 @@ public class Country {
         this.id = id;
     }
 
-    public String getCountryName() {
-        return countryName;
+    public String getCityname() {
+        return cityname;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setCityname(String cityname) {
+        this.cityname = cityname;
     }
 
-    public String getCountryCode() {
-        return countryCode;
+    public String getUrl() {
+        return url;
     }
 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public int getCityId() {
