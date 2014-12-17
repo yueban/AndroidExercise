@@ -1,7 +1,6 @@
 package com.bigfat.coolweather.util;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.bigfat.coolweather.db.CoolWeatherDB;
 import com.bigfat.coolweather.model.City;
@@ -14,7 +13,10 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
@@ -29,17 +31,16 @@ public class Utility {
      */
     public synchronized static boolean handleProvincesResponse(CoolWeatherDB coolWeatherDB, String response) {
         if (!TextUtils.isEmpty(response)) {
-            String[] allProvinces = response.split(",");
-            if (allProvinces != null && allProvinces.length > 0) {
-                for (String p : allProvinces) {
-                    String[] array = p.split("\\|");
+            List<HashMap<String, String>> list = parseXMLWithDom(response);
+            if (list != null && list.size() > 0) {
+                for (HashMap<String, String> map : list) {
                     Province province = new Province();
-                    province.setPyName(array[0]);
-                    province.setQuName(array[1]);
+                    province.setPyName(map.get("pyName"));
+                    province.setQuName(map.get("quName"));
                     coolWeatherDB.saveProvince(province);
                 }
-                return true;
             }
+            return true;
         }
         return false;
     }
@@ -47,60 +48,68 @@ public class Utility {
     /**
      * 解析和处理服务器返回的市级数据
      */
-    public static boolean handleCitiesResponse(CoolWeatherDB coolWeatherDB, String response, int provinceId) {
+    public synchronized static boolean handleCitiesResponse(CoolWeatherDB coolWeatherDB, String response, int provinceId) {
         if (!TextUtils.isEmpty(response)) {
-            String[] allCities = response.split(",");
-            if (allCities != null && allCities.length > 0) {
-                for (String c : allCities) {
-                    String[] array = c.split("\\|");
+            List<HashMap<String, String>> list = parseXMLWithDom(response);
+            if (list != null && list.size() > 0) {
+                for (HashMap<String, String> map : list) {
                     City city = new City();
-                    city.setPyName(array[0]);
-                    city.setCityname(array[1]);
+                    city.setCityname(map.get("cityname"));
+                    city.setPyName(map.get("pyName"));
+                    city.setUrl(map.get("url"));
                     city.setProvinceId(provinceId);
                     coolWeatherDB.saveCity(city);
                 }
-                return true;
             }
+            return true;
         }
         return false;
     }
 
-    public static boolean handleCountriesResponse(CoolWeatherDB coolWeatherDB, String response, int cityId) {
+    /**
+     * 解析和处理服务器返回的县级数据
+     */
+    public synchronized static boolean handleCountriesResponse(CoolWeatherDB coolWeatherDB, String response, int cityId) {
         if (!TextUtils.isEmpty(response)) {
-            String[] allCountries = response.split(",");
-            if (allCountries != null && allCountries.length > 0) {
-                for (String c : allCountries) {
-                    String[] array = c.split("\\|");
+            List<HashMap<String, String>> list = parseXMLWithDom(response);
+            if (list != null && list.size() > 0) {
+                for (HashMap<String, String> map : list) {
                     Country country = new Country();
-                    country.setUrl(array[0]);
-                    country.setCityname(array[1]);
+                    country.setCityname(map.get("cityname"));
+                    country.setUrl(map.get("url"));
                     country.setCityId(cityId);
                     coolWeatherDB.saveCountry(country);
                 }
-                return true;
             }
+            return true;
         }
         return false;
     }
 
-    public static void parseXMLWithDom(String xmlData) {
+    /**
+     * 将xml数据解析为List<HashMap<String, String>>集合
+     */
+    public static List<HashMap<String, String>> parseXMLWithDom(String xmlData) {
         SAXReader reader = new SAXReader();
         Document document = null;
         try {
+            List<HashMap<String, String>> list = new ArrayList<>();
             document = reader.read(new StringReader(xmlData));
             //获取根节点
             Element elementRoot = document.getRootElement();
-            Log.d(TAG, "根节点：" + elementRoot.getName());
             for (Iterator<Element> elementIterator = elementRoot.elementIterator(); elementIterator.hasNext(); ) {
+                HashMap<String, String> map = new HashMap<>();
                 Element element = elementIterator.next();
-                Log.d(TAG, "节点：" + element.getName());
                 for (Iterator<Attribute> attrIterator = element.attributeIterator(); attrIterator.hasNext(); ) {
                     Attribute attribute = attrIterator.next();
-                    Log.d(TAG, "属性：" + attribute.getName() + "\t值：" + attribute.getValue());
+                    map.put(attribute.getName(), attribute.getValue());
                 }
+                list.add(map);
             }
+            return list;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

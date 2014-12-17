@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -75,42 +77,30 @@ public class ChooseAreaActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.choose_area);
 
-        HttpUtil.sendHttpRequest("http://flash.weather.com.cn/wmaps/xml/china.xml", new HttpCallbackListener() {
-            @Override
-            public void onFinish(String response) {
-                Utility.parseXMLWithDom(response);
-            }
+        listView = (ListView) findViewById(R.id.list_view);
+        titleText = (TextView) findViewById(R.id.title_text);
 
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
+        listView.setAdapter(adapter);
+        coolWeatherDB = CoolWeatherDB.getInstance(this);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onError(Exception e) {
-                e.printStackTrace();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (currentLevel) {
+                    case LEVEL_PROVINCE:
+                        selectedProvince = provinceList.get(position);
+                        queryCities();
+                        break;
+
+                    case LEVEL_CITY:
+                        selectedCity = cityList.get(position);
+                        queryCountries();
+                        break;
+                }
             }
         });
 
-//        listView = (ListView) findViewById(R.id.list_view);
-//        titleText = (TextView) findViewById(R.id.title_text);
-
-//        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
-//        listView.setAdapter(adapter);
-//        coolWeatherDB = CoolWeatherDB.getInstance(this);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                switch (currentLevel) {
-//                    case LEVEL_PROVINCE:
-//                        selectedProvince = provinceList.get(position);
-//                        queryCities();
-//                        break;
-//
-//                    case LEVEL_CITY:
-//                        selectedCity = cityList.get(position);
-//                        queryCountries();
-//                        break;
-//                }
-//            }
-//        });
-//
-//        queryProvinces();
+        queryProvinces();
     }
 
     /**
@@ -173,12 +163,12 @@ public class ChooseAreaActivity extends Activity {
     /**
      * 根据传入的代号和类型从服务器上查询省市县的数据
      */
-    private void queryFromServer(final String code, final String type) {
+    private void queryFromServer(final String pyName, final String type) {
         String address;
-        if (!TextUtils.isEmpty(code)) {
-            address = "http://www.weather.com.cn/data/list3/city" + code + ".xml";
+        if (!TextUtils.isEmpty(pyName)) {
+            address = "http://flash.weather.com.cn/wmaps/xml/" + pyName + ".xml";
         } else {
-            address = "http://www.weather.com.cn/data;/list3/city.xml";
+            address = "http://flash.weather.com.cn/wmaps/xml/china.xml";
         }
         showProgressDialog();
         HttpUtil.sendHttpRequest(address, new HttpCallbackListener() {
