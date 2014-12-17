@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -20,6 +21,7 @@ import com.bigfat.coolweather.model.Province;
 import com.bigfat.coolweather.util.HttpCallbackListener;
 import com.bigfat.coolweather.util.HttpUtil;
 import com.bigfat.coolweather.util.Utility;
+import com.bigfat.coolweather.util.WeatherApiUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,8 @@ import java.util.List;
  * @since 2014/12/16
  */
 public class ChooseAreaActivity extends Activity {
+
+    public static final String TAG = "ChooseAreaActivity";
 
     public static final int LEVEL_PROVINCE = 0;
     public static final int LEVEL_CITY = 1;
@@ -76,6 +80,20 @@ public class ChooseAreaActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.choose_area);
+
+        String url = WeatherApiUtil.getWeatherUrl("101010100", "index_f");
+        Log.d(TAG, "url--->" + url);
+        HttpUtil.sendHttpRequest(url, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                Log.d(TAG, "response--->" + response);
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
 
         listView = (ListView) findViewById(R.id.list_view);
         titleText = (TextView) findViewById(R.id.title_text);
