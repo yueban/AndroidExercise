@@ -5,17 +5,8 @@ package com.bigfat.coolweather.model;
  * @since 2014/12/18
  */
 public class City {
-    private String DistrictEn;
     private String DistrictCn;
-    private String ProvEn;
-
-    public String getDistrictEn() {
-        return DistrictEn;
-    }
-
-    public void setDistrictEn(String districtEn) {
-        DistrictEn = districtEn;
-    }
+    private String ProvCn;
 
     public String getDistrictCn() {
         return DistrictCn;
@@ -25,11 +16,11 @@ public class City {
         DistrictCn = districtCn;
     }
 
-    public String getProvEn() {
-        return ProvEn;
+    public String getProvCn() {
+        return ProvCn;
     }
 
-    public void setProvEn(String provEn) {
-        ProvEn = provEn;
+    public void setProvCn(String provCn) {
+        ProvCn = provCn;
     }
 }

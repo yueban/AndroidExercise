@@ -2,43 +2,34 @@ package com.bigfat.coolweather.model;
 
 /**
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
- * @since 2014/12/16
+ * @since 2014/12/18
  */
 public class Country {
-    private int id;
-    private String cityname;
-    private String url;
-    private int cityId;
+    private String areaId;
+    private String nameCn;
+    private String DistrictCn;
 
-    public int getId() {
-        return id;
+    public String getAreaId() {
+        return areaId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAreaId(String areaId) {
+        this.areaId = areaId;
     }
 
-    public String getCityname() {
-        return cityname;
+    public String getNameCn() {
+        return nameCn;
     }
 
-    public void setCityname(String cityname) {
-        this.cityname = cityname;
+    public void setNameCn(String nameCn) {
+        this.nameCn = nameCn;
     }
 
-    public String getUrl() {
-        return url;
+    public String getDistrictCn() {
+        return DistrictCn;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public int getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(int cityId) {
-        this.cityId = cityId;
+    public void setDistrictCn(String districtCn) {
+        DistrictCn = districtCn;
     }
 }

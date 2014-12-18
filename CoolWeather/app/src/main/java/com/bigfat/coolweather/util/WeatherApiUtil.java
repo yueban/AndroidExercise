@@ -46,6 +46,55 @@ public class WeatherApiUtil {
     }
 
     /**
+     * 根据气象编号获取气象中文名称
+     *
+     * @param weatherId 气象编号
+     * @return 气象中文名称
+     */
+    public static String getWeatherById(String weatherId) {
+        switch (weatherId) {
+            case "00":
+                return "晴";
+
+            case "01":
+                return "多云";
+
+            case "02":
+                return "阴";
+
+            case "03":
+                return "阵雨";
+
+            case "04":
+                return "雷阵雨";
+
+            case "05":
+                return "雷阵雨伴有冰雹";
+
+            case "06":
+                return "雨夹雪";
+
+            case "07":
+                return "小雨";
+
+            case "08":
+                return "中雨";
+
+            case "09":
+                return "大雨";
+
+            case "10":
+                return "暴雨";
+
+            case "11":
+                return "大暴雨";
+
+            default:
+                return "";
+        }
+    }
+
+    /**
      * 获取当前时间：yyyyMMddHHmm
      *
      * @return String

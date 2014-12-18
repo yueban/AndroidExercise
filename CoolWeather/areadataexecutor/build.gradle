@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.bigfat.coolweather"
+        applicationId "com.bigfat.areadataexecutor"
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
@@ -22,5 +22,4 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
-    compile files('libs/dom4j-2.0.0-ALPHA-2.jar')
 }

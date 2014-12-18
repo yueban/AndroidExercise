@@ -1,22 +1,20 @@
 package com.bigfat.coolweather.util;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
-import com.bigfat.coolweather.db.CoolWeatherDB;
-import com.bigfat.coolweather.model.City;
-import com.bigfat.coolweather.model.Country;
-import com.bigfat.coolweather.model.Province;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import org.dom4j.Attribute;
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
-
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
@@ -27,89 +25,81 @@ public class Utility {
     public static final String TAG = "Utility";
 
     /**
-     * 解析和处理服务器返回的省级数据
+     * 解析服务器返回的天气json数据，并将解析出的数据存到本地
      */
-    public synchronized static boolean handleProvincesResponse(CoolWeatherDB coolWeatherDB, String response) {
-        if (!TextUtils.isEmpty(response)) {
-            List<HashMap<String, String>> list = parseXMLWithDom(response);
-            if (list != null && list.size() > 0) {
-                for (HashMap<String, String> map : list) {
-                    Province province = new Province();
-                    province.setPyName(map.get("pyName"));
-                    province.setQuName(map.get("quName"));
-                    coolWeatherDB.saveProvince(province);
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 解析和处理服务器返回的市级数据
-     */
-    public synchronized static boolean handleCitiesResponse(CoolWeatherDB coolWeatherDB, String response, int provinceId) {
-        if (!TextUtils.isEmpty(response)) {
-            List<HashMap<String, String>> list = parseXMLWithDom(response);
-            if (list != null && list.size() > 0) {
-                for (HashMap<String, String> map : list) {
-                    City city = new City();
-                    city.setCityname(map.get("cityname"));
-                    city.setPyName(map.get("pyName"));
-                    city.setUrl(map.get("url"));
-                    city.setProvinceId(provinceId);
-                    coolWeatherDB.saveCity(city);
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 解析和处理服务器返回的县级数据
-     */
-    public synchronized static boolean handleCountriesResponse(CoolWeatherDB coolWeatherDB, String response, int cityId) {
-        if (!TextUtils.isEmpty(response)) {
-            List<HashMap<String, String>> list = parseXMLWithDom(response);
-            if (list != null && list.size() > 0) {
-                for (HashMap<String, String> map : list) {
-                    Country country = new Country();
-                    country.setCityname(map.get("cityname"));
-                    country.setUrl(map.get("url"));
-                    country.setCityId(cityId);
-                    coolWeatherDB.saveCountry(country);
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 将xml数据解析为List<HashMap<String, String>>集合
-     */
-    public static List<HashMap<String, String>> parseXMLWithDom(String xmlData) {
-        SAXReader reader = new SAXReader();
-        Document document = null;
+    public static void handleWeatherResponse(Context context, String response) {
         try {
-            List<HashMap<String, String>> list = new ArrayList<>();
-            document = reader.read(new StringReader(xmlData));
-            //获取根节点
-            Element elementRoot = document.getRootElement();
-            for (Iterator<Element> elementIterator = elementRoot.elementIterator(); elementIterator.hasNext(); ) {
-                HashMap<String, String> map = new HashMap<>();
-                Element element = elementIterator.next();
-                for (Iterator<Attribute> attrIterator = element.attributeIterator(); attrIterator.hasNext(); ) {
-                    Attribute attribute = attrIterator.next();
-                    map.put(attribute.getName(), attribute.getValue());
-                }
-                list.add(map);
-            }
-            return list;
-        } catch (Exception e) {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONObject c = jsonObject.getJSONObject("c");
+            String cityName = c.getString("c3");
+            String weatherCode = c.getString("c1");
+            JSONObject f = jsonObject.getJSONObject("f");
+            String publishTime = f.getString("f0");
+            JSONObject f1_1 = f.getJSONArray("f1").getJSONObject(0);
+            String temp1 = f1_1.getString("fc");
+            String temp2 = f1_1.getString("fd");
+            String weatherDesp = WeatherApiUtil.getWeatherById(f1_1.getString("fa")) + WeatherApiUtil.getWeatherById(f1_1.getString("fb"));
+            saveWeatherInfo(context, cityName, weatherCode, temp1, temp2, weatherDesp, publishTime);
+        } catch (JSONException e) {
             e.printStackTrace();
         }
-        return null;
+    }
+
+    /**
+     * 将服务器返回的天气信息存储到SharedPreferences中
+     *
+     * @param cityName    城市名
+     * @param weatherCode 城市id
+     * @param temp1       白天温度
+     * @param temp2       夜晚温度
+     * @param weatherDesp 气象
+     * @param publishTime 发布时间
+     */
+    public static void saveWeatherInfo(Context context, String cityName, String weatherCode, String temp1, String temp2, String weatherDesp, String publishTime) {
+        try {
+            //用于格式化当前日期
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
+            //用于将服务器返回的发布时间格式化成可以阅读的时间
+            SimpleDateFormat pSdf = new SimpleDateFormat("yyyyMMddHHmm", Locale.CHINA);
+            SimpleDateFormat fSdf = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.CHINA);
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+            editor.putBoolean("city_selected", true);
+            editor.putString("city_name", cityName);
+            editor.putString("weather_code", weatherCode);
+            editor.putString("temp1", temp1);
+            editor.putString("temp2", temp2);
+            editor.putString("weather_desp", weatherDesp);
+            editor.putString("publish_time", fSdf.format(pSdf.parse(publishTime)));
+            editor.putString("current_date", sdf.format(new Date()));
+            editor.apply();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 将raw文件夹中的文件读取为String字符串
+     *
+     * @param rawId raw文件夹中的文件id
+     */
+    public static String getRawString(Context context, int rawId) {
+        StringBuilder jsonData = new StringBuilder();
+        InputStream in = context.getResources().openRawResource(rawId);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                jsonData.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return jsonData.toString();
     }
 }

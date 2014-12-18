@@ -1,27 +1,20 @@
 package com.bigfat.coolweather.activity;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bigfat.coolweather.R;
 import com.bigfat.coolweather.db.CoolWeatherDB;
 import com.bigfat.coolweather.model.City;
 import com.bigfat.coolweather.model.Country;
 import com.bigfat.coolweather.model.Province;
-import com.bigfat.coolweather.util.HttpCallbackListener;
-import com.bigfat.coolweather.util.HttpUtil;
-import com.bigfat.coolweather.util.Utility;
-import com.bigfat.coolweather.util.WeatherApiUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +31,6 @@ public class ChooseAreaActivity extends Activity {
     public static final int LEVEL_CITY = 1;
     public static final int LEVEL_COUNTRY = 2;
 
-    private ProgressDialog progressDialog;
     private TextView titleText;
     private ListView listView;
     private ArrayAdapter<String> adapter;
@@ -81,26 +73,29 @@ public class ChooseAreaActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.choose_area);
 
-        String url = WeatherApiUtil.getWeatherUrl("101010100", "index_f");
-        Log.d(TAG, "url--->" + url);
-        HttpUtil.sendHttpRequest(url, new HttpCallbackListener() {
-            @Override
-            public void onFinish(String response) {
-                Log.d(TAG, "response--->" + response);
-            }
+//        String url = WeatherApiUtil.getWeatherUrl("101010100", "forecast_v");
+//        Log.d(TAG, "url--->" + url);
+//        HttpUtil.sendHttpRequest(url, new HttpCallbackListener() {
+//            @Override
+//            public void onFinish(String response) {
+//                Log.d(TAG, "response--->" + response);
+//            }
+//
+//            @Override
+//            public void onError(Exception e) {
+//
+//            }
+//        });
 
-            @Override
-            public void onError(Exception e) {
+        coolWeatherDB = CoolWeatherDB.getInstance(this);//初始化数据库操作实例
 
-            }
-        });
-
+        //绑定控件
         listView = (ListView) findViewById(R.id.list_view);
         titleText = (TextView) findViewById(R.id.title_text);
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
+        //初始化控件
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataList);
         listView.setAdapter(adapter);
-        coolWeatherDB = CoolWeatherDB.getInstance(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -114,6 +109,12 @@ public class ChooseAreaActivity extends Activity {
                         selectedCity = cityList.get(position);
                         queryCountries();
                         break;
+
+                    case LEVEL_COUNTRY:
+                        Intent intent = new Intent(ChooseAreaActivity.this, WeatherActivity.class);
+                        intent.putExtra("area_id", countryList.get(position).getAreaId());
+                        startActivity(intent);
+                        break;
                 }
             }
         });
@@ -122,146 +123,53 @@ public class ChooseAreaActivity extends Activity {
     }
 
     /**
-     * 查询全国所有的生，优先从数据库查询
+     * 显示省级列表
      */
     private void queryProvinces() {
         provinceList = coolWeatherDB.loadProvinces();
         if (provinceList.size() > 0) {
             dataList.clear();
             for (Province province : provinceList) {
-                dataList.add(province.getQuName());
+                dataList.add(province.getProvCn());
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
             titleText.setText("中国");
             currentLevel = LEVEL_PROVINCE;
-        } else {
-            queryFromServer(null, "province");
         }
     }
 
     /**
-     * 查询选中的省内所有的市，优先从数据库查询，如果没有查询到再去服务器上查询
+     * 显示市级列表
      */
     private void queryCities() {
-        cityList = coolWeatherDB.loadCities(selectedProvince.getId());
+        cityList = coolWeatherDB.loadCities(selectedProvince.getProvCn());
         if (cityList.size() > 0) {
             dataList.clear();
             for (City city : cityList) {
-                dataList.add(city.getCityname());
+                dataList.add(city.getDistrictCn());
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            titleText.setText(selectedProvince.getQuName());
+            titleText.setText(selectedProvince.getProvCn());
             currentLevel = LEVEL_CITY;
-        } else {
-            queryFromServer(selectedProvince.getPyName(), "city");
         }
     }
 
     /**
-     * 查询选中的城市内所有的县，优先从数据库查询，如果没有查询到再去服务器上查询
+     * 显示县级列表
      */
     private void queryCountries() {
-        countryList = coolWeatherDB.loadCountries(selectedCity.getId());
+        countryList = coolWeatherDB.loadCountries(selectedCity.getDistrictCn());
         if (countryList.size() > 0) {
             dataList.clear();
             for (Country country : countryList) {
-                dataList.add(country.getCityname());
+                dataList.add(country.getNameCn());
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            titleText.setText(selectedCity.getCityname());
+            titleText.setText(selectedCity.getDistrictCn());
             currentLevel = LEVEL_COUNTRY;
-        } else {
-            queryFromServer(selectedCity.getPyName(), "country");
-        }
-    }
-
-    /**
-     * 根据传入的代号和类型从服务器上查询省市县的数据
-     */
-    private void queryFromServer(final String pyName, final String type) {
-        String address;
-        if (!TextUtils.isEmpty(pyName)) {
-            address = "http://flash.weather.com.cn/wmaps/xml/" + pyName + ".xml";
-        } else {
-            address = "http://flash.weather.com.cn/wmaps/xml/china.xml";
-        }
-        showProgressDialog();
-        HttpUtil.sendHttpRequest(address, new HttpCallbackListener() {
-            @Override
-            public void onFinish(String response) {
-                boolean result = false;
-                switch (type) {
-                    case "province":
-                        result = Utility.handleProvincesResponse(coolWeatherDB, response);
-                        break;
-
-                    case "city":
-                        result = Utility.handleCitiesResponse(coolWeatherDB, response, selectedProvince.getId());
-                        break;
-
-                    case "country":
-                        result = Utility.handleCountriesResponse(coolWeatherDB, response, selectedCity.getId());
-                        break;
-                }
-                if (result) {
-                    //通过runOnUiThread方法回到主线程处理逻辑
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            closeProgressDialog();
-                            switch (type) {
-                                case "province":
-                                    queryProvinces();
-                                    break;
-
-                                case "city":
-                                    queryCities();
-                                    break;
-
-                                case "country":
-                                    queryCountries();
-                                    break;
-                            }
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onError(Exception e) {
-                //通过runOnUiThread方法回到主线程处理逻辑
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        closeProgressDialog();
-                        Toast.makeText(ChooseAreaActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
-    }
-
-    /**
-     * 显示进度对话框
-     */
-    private void showProgressDialog() {
-        if (progressDialog == null) {
-            progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("正在加载");
-            progressDialog.setCanceledOnTouchOutside(false);
-        }
-        progressDialog.show();
-    }
-
-    /**
-     * 关闭进度对话框
-     */
-    private void closeProgressDialog() {
-        if (progressDialog != null) {
-            progressDialog.dismiss();
         }
     }
 
