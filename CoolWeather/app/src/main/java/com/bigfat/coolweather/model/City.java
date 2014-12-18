@@ -2,52 +2,34 @@ package com.bigfat.coolweather.model;
 
 /**
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
- * @since 2014/12/16
+ * @since 2014/12/18
  */
 public class City {
-    private int id;
-    private String cityname;
-    private String pyName;
-    private String url;
-    private int provinceId;
+    private String DistrictEn;
+    private String DistrictCn;
+    private String ProvEn;
 
-    public int getId() {
-        return id;
+    public String getDistrictEn() {
+        return DistrictEn;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDistrictEn(String districtEn) {
+        DistrictEn = districtEn;
     }
 
-    public String getCityname() {
-        return cityname;
+    public String getDistrictCn() {
+        return DistrictCn;
     }
 
-    public void setCityname(String cityname) {
-        this.cityname = cityname;
+    public void setDistrictCn(String districtCn) {
+        DistrictCn = districtCn;
     }
 
-    public String getPyName() {
-        return pyName;
+    public String getProvEn() {
+        return ProvEn;
     }
 
-    public void setPyName(String pyName) {
-        this.pyName = pyName;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public int getProvinceId() {
-        return provinceId;
-    }
-
-    public void setProvinceId(int provinceId) {
-        this.provinceId = provinceId;
+    public void setProvEn(String provEn) {
+        ProvEn = provEn;
     }
 }
