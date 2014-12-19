@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigfat.coolweather.R;
+import com.bigfat.coolweather.service.AutoUpdateService;
 import com.bigfat.coolweather.util.HttpCallbackListener;
 import com.bigfat.coolweather.util.HttpUtil;
 import com.bigfat.coolweather.util.Utility;
@@ -160,5 +161,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        //启动天气自动更新Service
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 }
