@@ -1,11 +1,13 @@
 package com.bigfat.coolweather.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ import com.bigfat.coolweather.util.WeatherApiUtil;
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
  * @since 2014/12/18
  */
-public class WeatherActivity extends Activity {
+public class WeatherActivity extends Activity implements View.OnClickListener {
 
     private LinearLayout weatherInfoLayout;
 
@@ -53,6 +55,16 @@ public class WeatherActivity extends Activity {
      */
     private TextView currentDateText;
 
+    /**
+     * 切换城市按钮
+     */
+    private Button switchCity;
+
+    /**
+     * 更新天气按钮
+     */
+    private Button refreshWeather;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +78,13 @@ public class WeatherActivity extends Activity {
         temp1Text = (TextView) findViewById(R.id.temp1);
         temp2Text = (TextView) findViewById(R.id.temp2);
         currentDateText = (TextView) findViewById(R.id.current_date);
+        switchCity = (Button) findViewById(R.id.switch_city);
+        refreshWeather = (Button) findViewById(R.id.refresh_weather);
+
+        //绑定监听器
+        switchCity.setOnClickListener(this);
+        refreshWeather.setOnClickListener(this);
+
         String areaId = getIntent().getStringExtra("area_id");
         if (!TextUtils.isEmpty(areaId)) {//有地区码则联网请求天气
             publishText.setText("同步中...");
@@ -74,6 +93,26 @@ public class WeatherActivity extends Activity {
             queryFromServer(areaId);
         } else {//没有地区码则直接显示本地天气
             showWeather();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.switch_city:
+                Intent intent = new Intent(this, ChooseAreaActivity.class);
+                intent.putExtra("from_weather_activity", true);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.refresh_weather:
+                publishText.setText("同步中...");
+                String areaId = PreferenceManager.getDefaultSharedPreferences(this).getString("area_id", "");
+                if (!TextUtils.isEmpty(areaId)) {
+                    queryFromServer(areaId);
+                }
+                break;
         }
     }
 

@@ -3,6 +3,7 @@ package com.bigfat.coolweather.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -67,11 +68,25 @@ public class ChooseAreaActivity extends Activity {
      */
     private int currentLevel;
 
+    /**
+     * 是否从WeatherActivity中跳转过来
+     */
+    private boolean isFromWeatherActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.choose_area);
+
+        isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
+        //如果已经选择了地区并且不是从WeatherActivity跳转过来的，则直接显示该地区的天气
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("city_selected", false) && !isFromWeatherActivity) {
+            Intent intent = new Intent(this, WeatherActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
 
 //        String url = WeatherApiUtil.getWeatherUrl("101010100", "forecast_v");
 //        Log.d(TAG, "url--->" + url);
@@ -89,6 +104,7 @@ public class ChooseAreaActivity extends Activity {
 
         coolWeatherDB = CoolWeatherDB.getInstance(this);//初始化数据库操作实例
 
+        setContentView(R.layout.choose_area);
         //绑定控件
         listView = (ListView) findViewById(R.id.list_view);
         titleText = (TextView) findViewById(R.id.title_text);
@@ -114,6 +130,7 @@ public class ChooseAreaActivity extends Activity {
                         Intent intent = new Intent(ChooseAreaActivity.this, WeatherActivity.class);
                         intent.putExtra("area_id", countryList.get(position).getAreaId());
                         startActivity(intent);
+                        finish();
                         break;
                 }
             }
@@ -188,6 +205,10 @@ public class ChooseAreaActivity extends Activity {
                 break;
 
             default:
+                if (isFromWeatherActivity) {
+                    Intent intent = new Intent(this, WeatherActivity.class);
+                    startActivity(intent);
+                }
                 finish();
                 break;
         }

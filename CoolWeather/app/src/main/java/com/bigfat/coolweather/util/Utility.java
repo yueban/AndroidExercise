@@ -32,14 +32,14 @@ public class Utility {
             JSONObject jsonObject = new JSONObject(response);
             JSONObject c = jsonObject.getJSONObject("c");
             String cityName = c.getString("c3");
-            String weatherCode = c.getString("c1");
+            String areaId = c.getString("c1");
             JSONObject f = jsonObject.getJSONObject("f");
             String publishTime = f.getString("f0");
             JSONObject f1_1 = f.getJSONArray("f1").getJSONObject(0);
             String temp1 = f1_1.getString("fc");
             String temp2 = f1_1.getString("fd");
             String weatherDesp = WeatherApiUtil.getWeatherById(f1_1.getString("fa")) + WeatherApiUtil.getWeatherById(f1_1.getString("fb"));
-            saveWeatherInfo(context, cityName, weatherCode, temp1, temp2, weatherDesp, publishTime);
+            saveWeatherInfo(context, cityName, areaId, temp1, temp2, weatherDesp, publishTime);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -49,13 +49,13 @@ public class Utility {
      * 将服务器返回的天气信息存储到SharedPreferences中
      *
      * @param cityName    城市名
-     * @param weatherCode 城市id
+     * @param areaId     地区id
      * @param temp1       白天温度
      * @param temp2       夜晚温度
      * @param weatherDesp 气象
      * @param publishTime 发布时间
      */
-    public static void saveWeatherInfo(Context context, String cityName, String weatherCode, String temp1, String temp2, String weatherDesp, String publishTime) {
+    public static void saveWeatherInfo(Context context, String cityName, String areaId, String temp1, String temp2, String weatherDesp, String publishTime) {
         try {
             //用于格式化当前日期
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
@@ -65,7 +65,7 @@ public class Utility {
             SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
             editor.putBoolean("city_selected", true);
             editor.putString("city_name", cityName);
-            editor.putString("weather_code", weatherCode);
+            editor.putString("area_id", areaId);
             editor.putString("temp1", temp1);
             editor.putString("temp2", temp2);
             editor.putString("weather_desp", weatherDesp);
