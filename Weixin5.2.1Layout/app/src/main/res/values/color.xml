@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="actionbar_weixin_text">#d3d3d3</color>
+    <color name="banner_bg">#eee</color>
+    <color name="banner_text_active">#008000</color>
+    <color name="banner_text_normal">#000000</color>
+</resources>
