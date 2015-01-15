@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="actionOverflowButtonStyle">@style/weixinActionOverflowButtonStyle</item>
+    </style>
+
+    <style name="weixinActionOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/actionbar_add_icon</item>
+    </style>
+
+</resources>
