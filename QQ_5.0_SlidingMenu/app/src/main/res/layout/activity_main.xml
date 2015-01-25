@@ -6,9 +6,12 @@
     tools:context=".MainActivity">
 
     <com.bigfat.qq_50_slidingmenu.view.SlidingMenu
+        android:id="@+id/slidingMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        yueban:rightPadding="100dp">
+        android:scrollbars="none"
+        yueban:rightPadding="100dp"
+        android:background="@mipmap/img_frame_background">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -22,8 +25,12 @@
                 android:layout_height="match_parent"
                 android:background="@mipmap/qq">
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="切换菜单"
+                    android:onClick="toggleMenu" />
             </LinearLayout>
         </LinearLayout>
     </com.bigfat.qq_50_slidingmenu.view.SlidingMenu>
-
 </RelativeLayout>

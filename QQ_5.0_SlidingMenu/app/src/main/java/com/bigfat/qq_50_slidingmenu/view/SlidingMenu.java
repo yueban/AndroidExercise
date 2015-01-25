@@ -28,6 +28,7 @@ public class SlidingMenu extends HorizontalScrollView {
     private int mMenuRightPadding = 50;//dp
 
     private boolean firstMeasure = true;//避免多次测量
+    private boolean isOpen = false;//menu是否打开
 
     /**
      * 代码中new一个对象，会调用该构造方法
@@ -100,11 +101,71 @@ public class SlidingMenu extends HorizontalScrollView {
             case MotionEvent.ACTION_UP:
                 if (getScrollX() < mMenuWidth / 2) {
                     this.smoothScrollTo(0, 0);
+                    isOpen = true;
                 } else {
                     this.smoothScrollTo(mMenuWidth, 0);
+                    isOpen = false;
                 }
                 return true;
         }
         return super.onTouchEvent(ev);
+    }
+
+    /**
+     * 打开菜单
+     */
+    public void openMenu() {
+        if (isOpen) {
+            return;
+        }
+        this.smoothScrollTo(0, 0);
+        isOpen = true;
+    }
+
+    /**
+     * 关闭菜单
+     */
+    public void closeMenu() {
+        if (!isOpen) {
+            return;
+        }
+        this.smoothScrollTo(mMenuWidth, 0);
+        isOpen = false;
+    }
+
+    /**
+     * 切换菜单开/关状态
+     */
+    public void toggle() {
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+        //Log.i("SlidingMenu", "l--->" + l);
+        float scale = l * 1.0f / mMenuWidth;//1.0-0.0
+        float leftScale = 1.0f - 0.3f * scale;
+        float rightScale = 0.7f + 0.3f * scale;
+        float leftAlpha = 1.0f - 0.4f * scale;
+        //调用属性动画
+        //menu偏移
+        mMenu.setTranslationX(l * 0.7f);
+        //menu缩放
+        mMenu.setPivotX(0);
+        mMenu.setPivotY(mMenu.getHeight() / 2);
+        mMenu.setScaleX(leftScale);
+        mMenu.setScaleY(leftScale);
+        //menu透明度变化
+        mMenu.setAlpha(leftAlpha);
+        //content缩放
+        mContent.setPivotX(0);
+        mContent.setPivotY(mContent.getHeight() / 2);
+        mContent.setScaleX(rightScale);
+        mContent.setScaleY(rightScale);
     }
 }
