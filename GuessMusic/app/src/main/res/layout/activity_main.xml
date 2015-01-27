@@ -16,6 +16,9 @@
 
         <!-- Top bar -->
         <include layout="@layout/top_bar" />
+
+        <!-- Pan layout -->
+        <include layout="@layout/pan_layout" />
     </LinearLayout>
 
 </FrameLayout>
