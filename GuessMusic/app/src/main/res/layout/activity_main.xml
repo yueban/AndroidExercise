@@ -14,11 +14,14 @@
         android:orientation="vertical"
         android:background="@mipmap/index_background">
 
-        <!-- Top bar -->
+        <!-- 顶部 -->
         <include layout="@layout/top_bar" />
 
-        <!-- Pan layout -->
+        <!-- 唱片 -->
         <include layout="@layout/pan_layout" />
+
+        <!-- 文字选择框 -->
+        <include layout="@layout/name_select" />
     </LinearLayout>
 
 </FrameLayout>
