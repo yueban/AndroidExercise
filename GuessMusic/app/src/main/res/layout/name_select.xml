@@ -6,7 +6,7 @@
     android:layout_marginTop="20dp">
 
     <LinearLayout
-        android:id="@+id/word_select_container"
+        android:id="@+id/word_selected_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:background="@mipmap/game_line" />
 
-    <com.bigfat.guessmusic.view.WordGridView
+    <GridView
+        android:id="@+id/name_select_grid_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
@@ -31,6 +32,7 @@
         android:horizontalSpacing="2dp"
         android:verticalSpacing="2dp"
         android:paddingLeft="2dp"
-        android:paddingRight="2dp" />
+        android:paddingRight="2dp"
+        android:layoutAnimation="@anim/word_grid_view_anim_layout" />
 
 </LinearLayout>
