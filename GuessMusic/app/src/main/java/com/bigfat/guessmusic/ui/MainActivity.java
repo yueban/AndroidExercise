@@ -25,6 +25,8 @@ import com.bigfat.guessmusic.util.Utils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener, WordClickListener {
@@ -193,6 +195,27 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mBtnPlayStart.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_play_start:
+                if (mViewPanBar != null) {
+                    if (!mIsRunning) {
+                        mViewPanBar.startAnimation(mBarInAnim);
+                        mIsRunning = true;
+                        mBtnPlayStart.setVisibility(View.INVISIBLE);
+                    }
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onWordClick(Button wordButton, Word word) {
+        setSelectedWord(word);
+        checkAnswer();//检验答案
+    }
+
     /**
      * 获得关卡歌曲信息
      */
@@ -240,26 +263,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return data;
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_play_start:
-                if (mViewPanBar != null) {
-                    if (!mIsRunning) {
-                        mViewPanBar.startAnimation(mBarInAnim);
-                        mIsRunning = true;
-                        mBtnPlayStart.setVisibility(View.INVISIBLE);
-                    }
-                }
-                break;
-        }
-    }
-
-    @Override
-    public void onWordClick(Button wordButton, Word word) {
-        setSelectedWord(word);
-    }
-
     /**
      * 设置已选文字
      */
@@ -284,6 +287,43 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             mWordAdapter.notifyDataSetChanged();
             mSelectedButtonList.get(position).setText("");
         }
+    }
+
+    /**
+     * 检查答案
+     */
+    private void checkAnswer() {
+        if (isAnswerComplete()) {//检查答案是否完整
+            if (isAnswerCorrect()) {//答案正确
+
+            } else {//答案错误
+
+            }
+        }
+    }
+
+    /**
+     * 答案是否完整
+     */
+    private boolean isAnswerComplete() {
+        //检验已选字是否填满
+        for (Button wordButton : mSelectedButtonList) {
+            if (TextUtils.isEmpty(wordButton.getText())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 答案是否正确
+     */
+    private boolean isAnswerCorrect() {
+        StringBuilder sb = new StringBuilder();
+        for (Button wordButton : mSelectedButtonList) {
+            sb.append(wordButton.getText());
+        }
+        return sb.toString().equals(mCurrentSong.getName());
     }
 
     @Override
