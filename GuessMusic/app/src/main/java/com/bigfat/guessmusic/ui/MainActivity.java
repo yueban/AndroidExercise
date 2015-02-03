@@ -14,6 +14,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bigfat.guessmusic.R;
 import com.bigfat.guessmusic.adapter.WordGridAdapter;
@@ -21,6 +22,7 @@ import com.bigfat.guessmusic.constant.Constant;
 import com.bigfat.guessmusic.model.Song;
 import com.bigfat.guessmusic.model.Word;
 import com.bigfat.guessmusic.observer.WordClickListener;
+import com.bigfat.guessmusic.util.LogUtil;
 import com.bigfat.guessmusic.util.Utils;
 
 import java.util.ArrayList;
@@ -32,14 +34,19 @@ import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener, WordClickListener {
 
+    public static final String TAG = "MainActivity";
+
     //控件
     private ImageButton mBtnPlayStart;//播放按钮
     private ImageView mViewPan;//唱片盘片
     private ImageView mViewPanBar;//唱片拨杆
-    private GridView mWordGridView;//文字选择器
+    private GridView mWordGridView;//待选文字
     private LinearLayout mSelectedWordsContainer;//已选文字按钮的容器
     private ArrayList<Button> mSelectedButtonList;//已选文字按钮
     private LinearLayout passView;//过关界面
+    private TextView mTvCurrentCoins;//当前金币数量
+    private ImageButton mBtnDeleteWord;//删除待选文字
+    private ImageButton mBtnTipAnswer;//提示
 
     //数据等对象
     private WordGridAdapter mWordAdapter;
@@ -60,6 +67,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private boolean mIsRunning = false;//唱片旋转动画是否正在播放
     private Song mCurrentSong;//当前播放歌曲
     private int mCurrentStageIndex = -1;//当前关卡索引
+    private int mCurrentCoins = Constant.TOTAL_COINS;//当前金币数量
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,9 +166,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mWordGridView = (GridView) findViewById(R.id.name_select_grid_view);
         mSelectedWordsContainer = (LinearLayout) findViewById(R.id.word_selected_container);
         passView = (LinearLayout) findViewById(R.id.pass_view);
+        mTvCurrentCoins = (TextView) findViewById(R.id.tv_top_bar_coin);
+        mBtnDeleteWord = (ImageButton) findViewById(R.id.btn_delete_word);
+        mBtnTipAnswer = (ImageButton) findViewById(R.id.btn_tip_answer);
 
-        initSelectedWordsView();
-
+        mTvCurrentCoins.setText(String.valueOf(mCurrentCoins));//设置当前金币
+        initSelectedWordsView();//初始化已选文字View
+        //初始化待选文字
         mWordAdapter = new WordGridAdapter(MainActivity.this, mAllWords);
         mWordAdapter.setWordClickListener(this);
         mWordGridView.setAdapter(mWordAdapter);
@@ -194,6 +206,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private void initViewListener() {
         mBtnPlayStart.setOnClickListener(this);
+        mBtnDeleteWord.setOnClickListener(this);
+        mBtnTipAnswer.setOnClickListener(this);
     }
 
     @Override
@@ -207,6 +221,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         mBtnPlayStart.setVisibility(View.INVISIBLE);
                     }
                 }
+                break;
+
+            case R.id.btn_delete_word:
+                deleteOneWord();
+                break;
+
+            case R.id.btn_tip_answer:
+
                 break;
         }
     }
@@ -364,6 +386,53 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      */
     private void handlePassEvent() {
         passView.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 删除一个文字
+     */
+    private void deleteOneWord() {
+        //扣除金币
+        if (handleCoins(-Utils.getDeleteWordCoins())) {//扣除成功
+            //删除一个待选文字
+            mAllWords.get(findCanDeleteWordIndex()).setVisiable(false);
+            mWordAdapter.notifyDataSetChanged();
+        } else {//扣除失败
+            //进步不足，显示对话框
+            return;
+        }
+    }
+
+    /**
+     * 找到一个可以删除的文字的索引
+     */
+    private int findCanDeleteWordIndex() {
+        Random rand = new Random();
+        while (true) {
+            int index = rand.nextInt(Constant.WORD_COUNT);
+            LogUtil.i(TAG, "index--->" + index);
+            //可以删除的字需要满足两点： 1.未显示 2.不是答案文字的字
+            if (mAllWords.get(index).isVisiable() &&
+                    !mCurrentSong.getName().contains(mAllWords.get(index).getText())) {
+                return index;
+            }
+        }
+    }
+
+    /**
+     * 增加/减少指定数量的金币
+     *
+     * @return true 增加/减少成功
+     * false 失败
+     */
+    private boolean handleCoins(int count) {
+        if (mCurrentCoins + count >= 0) {
+            mCurrentCoins += count;
+            mTvCurrentCoins.setText(String.valueOf(mCurrentCoins));
+            return true;
+        } else {//金币不足
+            return false;
+        }
     }
 
     @Override

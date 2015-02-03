@@ -16,6 +16,11 @@ public class Constant {
     public static final int SPLASH_TIMES = 6;
 
     /**
+     * 初始金币总数
+     */
+    public static final int TOTAL_COINS = 300;
+
+    /**
      * 数组中歌曲文件名索引
      */
     public static final int INDEX_SONG_FILE_NAME = 0;
