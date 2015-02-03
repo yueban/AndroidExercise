@@ -257,7 +257,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onWordClick(Button wordButton, Word word) {
-//        Toast.makeText(this, word.getIndex() + word.getText(), Toast.LENGTH_SHORT).show();
         setSelectedWord(word);
     }
 
