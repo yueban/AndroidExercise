@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="歌曲"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="20sp" />
     </FrameLayout>
 

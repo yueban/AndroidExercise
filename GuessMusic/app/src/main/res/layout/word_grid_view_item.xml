@@ -5,5 +5,5 @@
     android:layout_height="wrap_content"
     android:background="@drawable/word_button_icon"
     android:text="d"
-    android:textColor="#000000"
+    android:textColor="@color/black"
     android:textSize="25sp" />

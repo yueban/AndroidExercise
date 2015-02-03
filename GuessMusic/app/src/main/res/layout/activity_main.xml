@@ -24,4 +24,5 @@
         <include layout="@layout/name_select" />
     </LinearLayout>
 
+    <include layout="@layout/answer_right" />
 </FrameLayout>

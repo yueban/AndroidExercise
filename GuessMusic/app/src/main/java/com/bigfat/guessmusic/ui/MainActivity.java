@@ -1,5 +1,6 @@
 package com.bigfat.guessmusic.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
@@ -31,15 +32,14 @@ import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener, WordClickListener {
 
-    public static final int WORD_COUNT = 24;//待选文字总数
-
     //控件
     private ImageButton mBtnPlayStart;//播放按钮
     private ImageView mViewPan;//唱片盘片
     private ImageView mViewPanBar;//唱片拨杆
     private GridView mWordGridView;//文字选择器
-    private LinearLayout mSelectedWordsContainer;//已选文字容器
+    private LinearLayout mSelectedWordsContainer;//已选文字按钮的容器
     private ArrayList<Button> mSelectedButtonList;//已选文字按钮
+    private LinearLayout passView;//过关界面
 
     //数据等对象
     private WordGridAdapter mWordAdapter;
@@ -157,6 +157,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mViewPanBar = (ImageView) findViewById(R.id.imageView2);
         mWordGridView = (GridView) findViewById(R.id.name_select_grid_view);
         mSelectedWordsContainer = (LinearLayout) findViewById(R.id.word_selected_container);
+        passView = (LinearLayout) findViewById(R.id.pass_view);
 
         initSelectedWordsView();
 
@@ -176,13 +177,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         for (int i = 0; i < mSelectedWords.size(); i++) {
             final int j = i;
             Button wordButton = (Button) LayoutInflater.from(MainActivity.this).inflate(R.layout.word_grid_view_item, null);
-            wordButton.setTextColor(0xFFFFFFFF);
+            wordButton.setTextColor(Color.WHITE);
             wordButton.setText("");
             wordButton.setBackgroundResource(R.mipmap.game_wordblank);
             wordButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    clearSelectedWord(j);
+                    onSelectedWordClick(j);
                 }
             });
 
@@ -239,7 +240,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             data.add(word);
         }
         //加入随机汉字
-        for (int i = mSelectedWords.size(); i < WORD_COUNT; i++) {
+        for (int i = mSelectedWords.size(); i < Constant.WORD_COUNT; i++) {
             Word word = new Word();
             word.setText(Utils.getRandomHanzi());
             data.add(word);
@@ -279,9 +280,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     /**
-     * 清除已选文字
+     * 已选文字框被点击
      */
-    private void clearSelectedWord(int position) {
+    private void onSelectedWordClick(int position) {
         if (!TextUtils.isEmpty(mSelectedButtonList.get(position).getText())) {
             mAllWords.get(mSelectedWords.get(position).getIndex()).setVisiable(true);
             mWordAdapter.notifyDataSetChanged();
@@ -293,11 +294,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * 检查答案
      */
     private void checkAnswer() {
-        if (isAnswerComplete()) {//检查答案是否完整
+        if (isAnswerComplete()) {//答案完整，继续检查答案是否正确
             if (isAnswerCorrect()) {//答案正确
-
+                handlePassEvent();//过关
             } else {//答案错误
-
+                splashTheWords();//文字闪烁
+            }
+        } else {//答案不完整，设置字体为白色
+            for (Button wordButton : mSelectedButtonList) {
+                wordButton.setTextColor(Color.WHITE);
             }
         }
     }
@@ -324,6 +329,41 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             sb.append(wordButton.getText());
         }
         return sb.toString().equals(mCurrentSong.getName());
+    }
+
+    /**
+     * 已选文字闪烁
+     */
+    private void splashTheWords() {
+        final Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            private int splashedTimes = 0;//闪烁次数
+            private boolean isRed = true;//是否显示红色
+
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (++splashedTimes > Constant.SPLASH_TIMES) {//闪烁6次以上则停止
+                            timer.cancel();
+                        }
+                        for (Button wordButton : mSelectedButtonList) {
+                            wordButton.setTextColor(isRed ? Color.RED : Color.WHITE);
+                        }
+                        isRed = !isRed;
+                    }
+                });
+            }
+        };
+        timer.schedule(task, 0, 150);
+    }
+
+    /**
+     * 处理过关界面及事件
+     */
+    private void handlePassEvent() {
+        passView.setVisibility(View.VISIBLE);
     }
 
     @Override
