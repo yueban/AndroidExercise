@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bigfat.guessmusic.R;
 import com.bigfat.guessmusic.adapter.WordGridAdapter;
@@ -228,7 +229,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_tip_answer:
-
+                tipOneAnswerWord();
                 break;
         }
     }
@@ -393,14 +394,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      */
     private void deleteOneWord() {
         //扣除金币
-        if (handleCoins(-Utils.getDeleteWordCoins())) {//扣除成功
-            //删除一个待选文字
-            mAllWords.get(findCanDeleteWordIndex()).setVisiable(false);
-            mWordAdapter.notifyDataSetChanged();
-        } else {//扣除失败
-            //进步不足，显示对话框
+        if (!handleCoins(-Utils.getDeleteWordCoins())) {//扣除失败
+            //金币不足，显示对话框
+            Toast.makeText(MainActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        //删除一个待选文字
+        mAllWords.get(findCanDeleteWordIndex()).setVisiable(false);
+        mWordAdapter.notifyDataSetChanged();
     }
 
     /**
@@ -411,12 +413,67 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         while (true) {
             int index = rand.nextInt(Constant.WORD_COUNT);
             LogUtil.i(TAG, "index--->" + index);
-            //可以删除的字需要满足两点： 1.未显示 2.不是答案文字的字
+            //可以删除的字需要满足两点： 1.未隐藏 2.不是答案文字的字
             if (mAllWords.get(index).isVisiable() &&
                     !mCurrentSong.getName().contains(mAllWords.get(index).getText())) {
                 return index;
             }
         }
+    }
+
+    /**
+     * 提示一个答案文字
+     */
+    private void tipOneAnswerWord() {
+        //找到一个空白的已选文字框
+        int selectedBlankIndex = findBlankInSelectedWord();
+        if (selectedBlankIndex == -1) {//没有空白框
+            splashTheWords();
+            Toast.makeText(MainActivity.this, "没有空位", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        //扣除金币
+        if (!handleCoins(-Utils.getTipAnswerCoins())) {//扣除失败
+            //金币不足，显示对话框
+            Toast.makeText(MainActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        //填充空白位置对应的答案文字
+        int index = findAnswerWord(String.valueOf(mCurrentSong.getNameCharacters()[selectedBlankIndex]));
+        if (index != -1) {
+            setSelectedWord(mAllWords.get(index));
+        }
+    }
+
+    /**
+     * 从已选文字框中找到一个空的
+     *
+     * @return 返回空白位置的索引; -1 没有空白位置
+     */
+    private int findBlankInSelectedWord() {
+        for (int i = 0; i < mSelectedButtonList.size(); i++) {
+            if (TextUtils.isEmpty(mSelectedButtonList.get(i).getText())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 找到答案文字在待选文字中的索引
+     *
+     * @return -1 未找到
+     */
+    private int findAnswerWord(String text) {
+        for (Word word : mAllWords) {
+            //可提示答案文字需要满足：1.未隐藏2.是对应答案文字
+            if (word.isVisiable() && word.getText().equals(text)) {
+                return word.getIndex();
+            }
+        }
+        return -1;
     }
 
     /**
