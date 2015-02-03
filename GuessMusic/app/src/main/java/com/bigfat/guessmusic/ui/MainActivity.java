@@ -2,7 +2,7 @@ package com.bigfat.guessmusic.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,7 +13,6 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.bigfat.guessmusic.R;
 import com.bigfat.guessmusic.adapter.WordGridAdapter;
@@ -38,6 +37,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private ImageView mViewPanBar;//唱片拨杆
     private GridView mWordGridView;//文字选择器
     private LinearLayout mSelectedWordsContainer;//已选文字容器
+    private ArrayList<Button> mSelectedButtonList;//已选文字按钮
 
     //数据等对象
     private WordGridAdapter mWordAdapter;
@@ -156,19 +156,37 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mWordGridView = (GridView) findViewById(R.id.name_select_grid_view);
         mSelectedWordsContainer = (LinearLayout) findViewById(R.id.word_selected_container);
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(140, 140);
-        for (Word word : mSelectedWords) {
-            Button wordButton = (Button) LayoutInflater.from(MainActivity.this).inflate(R.layout.word_grid_view_item, null);
-            wordButton.setTextColor(0xFFFFFF);
-            wordButton.setText(word.getText());
-            Log.i("myInfo", word.getText());
-            wordButton.setBackgroundResource(R.mipmap.game_wordblank);
-            mSelectedWordsContainer.addView(wordButton, params);
-        }
+        initSelectedWordsView();
 
         mWordAdapter = new WordGridAdapter(MainActivity.this, mAllWords);
         mWordAdapter.setWordClickListener(this);
         mWordGridView.setAdapter(mWordAdapter);
+    }
+
+    private void initSelectedWordsView() {
+        if (mSelectedButtonList == null) {
+            mSelectedButtonList = new ArrayList<>();
+        } else {
+            mSelectedButtonList.clear();
+        }
+        mSelectedWordsContainer.removeAllViews();
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(140, 140);
+        for (int i = 0; i < mSelectedWords.size(); i++) {
+            final int j = i;
+            Button wordButton = (Button) LayoutInflater.from(MainActivity.this).inflate(R.layout.word_grid_view_item, null);
+            wordButton.setTextColor(0xFFFFFFFF);
+            wordButton.setText("");
+            wordButton.setBackgroundResource(R.mipmap.game_wordblank);
+            wordButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clearSelectedWord(j);
+                }
+            });
+
+            mSelectedButtonList.add(wordButton);
+            mSelectedWordsContainer.addView(wordButton, params);
+        }
     }
 
     private void initViewListener() {
@@ -239,7 +257,34 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onWordClick(Button wordButton, Word word) {
-        Toast.makeText(this, word.getIndex() + word.getText(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, word.getIndex() + word.getText(), Toast.LENGTH_SHORT).show();
+        setSelectedWord(word);
+    }
+
+    /**
+     * 设置已选文字
+     */
+    private void setSelectedWord(Word word) {
+        for (int i = 0; i < mSelectedWords.size(); i++) {
+            if (TextUtils.isEmpty(mSelectedButtonList.get(i).getText())) {//如果已选文字框有空位，则将点选的文字显示在已选文字框中
+                mSelectedWords.get(i).setIndex(word.getIndex());
+                mSelectedButtonList.get(i).setText(word.getText());
+                word.setVisiable(false);
+                mWordAdapter.notifyDataSetChanged();
+                break;
+            }
+        }
+    }
+
+    /**
+     * 清除已选文字
+     */
+    private void clearSelectedWord(int position) {
+        if (!TextUtils.isEmpty(mSelectedButtonList.get(position).getText())) {
+            mAllWords.get(mSelectedWords.get(position).getIndex()).setVisiable(true);
+            mWordAdapter.notifyDataSetChanged();
+            mSelectedButtonList.get(position).setText("");
+        }
     }
 
     @Override

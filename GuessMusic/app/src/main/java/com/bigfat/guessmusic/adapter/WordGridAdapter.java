@@ -61,6 +61,7 @@ public class WordGridAdapter extends BaseAdapter {
                 wordClickListener.onWordClick(wordButton, word);
             }
         });
+        wordButton.setVisibility(word.isVisiable() ? View.VISIBLE : View.INVISIBLE);
         return convertView;
     }
 
