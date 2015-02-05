@@ -44,12 +44,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private GridView mWordGridView;//待选文字
     private LinearLayout mSelectedWordsContainer;//已选文字按钮的容器
     private ArrayList<Button> mSelectedButtonList;//已选文字按钮
-    private LinearLayout passView;//过关界面
     private TextView mTvCurrentCoins;//当前金币数量
+
+    //浮动按钮
     private ImageButton mBtnDeleteWord;//删除待选文字
     private ImageButton mBtnTipAnswer;//提示
 
-    //数据等对象
+    //过关界面
+    private LinearLayout passView;
+    private TextView mCurrentStagePassView;//过关界面关卡索引
+    private TextView mCurrentSongNamePassView;//过关界面歌曲名称
+
+    //数据
     private WordGridAdapter mWordAdapter;
     private ArrayList<Word> mAllWords;//待选文字
     private ArrayList<Word> mSelectedWords;//已选文字
@@ -170,6 +176,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mTvCurrentCoins = (TextView) findViewById(R.id.tv_top_bar_coin);
         mBtnDeleteWord = (ImageButton) findViewById(R.id.btn_delete_word);
         mBtnTipAnswer = (ImageButton) findViewById(R.id.btn_tip_answer);
+        mCurrentStagePassView = (TextView) findViewById(R.id.text_current_stage_pass);
+        mCurrentSongNamePassView = (TextView) findViewById(R.id.text_current_song_name_pass);
 
         mTvCurrentCoins.setText(String.valueOf(mCurrentCoins));//设置当前金币
         initSelectedWordsView();//初始化已选文字View
@@ -237,7 +245,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onWordClick(Button wordButton, Word word) {
         setSelectedWord(word);
-        checkAnswer();//检验答案
     }
 
     /**
@@ -297,6 +304,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 mSelectedButtonList.get(i).setText(word.getText());
                 word.setVisiable(false);
                 mWordAdapter.notifyDataSetChanged();
+                checkAnswer();//检验答案
                 break;
             }
         }
@@ -386,7 +394,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * 处理过关界面及事件
      */
     private void handlePassEvent() {
-        passView.setVisibility(View.VISIBLE);
+        passView.setVisibility(View.VISIBLE);//显示过关界面
+        mViewPan.clearAnimation();//停止动画
+        mCurrentStagePassView.setText(String.valueOf(mCurrentStageIndex + 1));
+        mCurrentSongNamePassView.setText(mCurrentSong.getName());
     }
 
     /**
