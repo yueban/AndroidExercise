@@ -1,5 +1,6 @@
 package com.bigfat.guessmusic.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -44,6 +45,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private GridView mWordGridView;//待选文字
     private LinearLayout mSelectedWordsContainer;//已选文字按钮的容器
     private ArrayList<Button> mSelectedButtonList;//已选文字按钮
+    private TextView mTvCurrentStage;//当前关索引
     private TextView mTvCurrentCoins;//当前金币数量
 
     //浮动按钮
@@ -51,9 +53,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private ImageButton mBtnTipAnswer;//提示
 
     //过关界面
-    private LinearLayout passView;
+    private LinearLayout mPassView;
     private TextView mCurrentStagePassView;//过关界面关卡索引
     private TextView mCurrentSongNamePassView;//过关界面歌曲名称
+    private ImageButton mBtnNext;//下一关
+    private ImageButton mBtnShare;//分享到微信
 
     //数据
     private WordGridAdapter mWordAdapter;
@@ -84,18 +88,47 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         initAnim();//初始化动画
         initAnimListener();
 
-        initData();//初始化数据
         initView();
         initViewListener();
+
+        initCurrentStageData();
     }
 
-    private void initData() {
-        //读取当前歌曲信息
+    /**
+     * 初始化当前关卡数据
+     */
+    private void initCurrentStageData() {
+        //准备数据
+        //读取当前关歌曲信息
         mCurrentSong = loadStageSongInfo(++mCurrentStageIndex);
         //初始化已选文字
-        mSelectedWords = getSelectedWords();
+        if (mSelectedWords == null) {
+            mSelectedWords = new ArrayList<>();
+        } else {
+            mSelectedWords.clear();
+        }
+        mSelectedWords.addAll(getSelectedWords());
         //初始化待选文字
-        mAllWords = getAllWords();
+        if (mAllWords == null) {
+            mAllWords = new ArrayList<>();
+        } else {
+            mAllWords.clear();
+        }
+        mAllWords.addAll(getAllWords());
+
+        //显示数据
+        mTvCurrentStage.setText(String.valueOf(mCurrentStageIndex + 1));//显示关卡索引
+        mTvCurrentCoins.setText(String.valueOf(mCurrentCoins));//设置当前金币
+        initSelectedWordsView();//初始化已选文字View
+        //初始化待选文字
+        if (mWordAdapter == null) {
+            mWordAdapter = new WordGridAdapter(MainActivity.this, mAllWords);
+            mWordAdapter.setWordClickListener(this);
+            mWordGridView.setAdapter(mWordAdapter);
+        } else {
+            mWordAdapter.notifyDataSetChanged();
+            mWordGridView.scheduleLayoutAnimation();
+        }
     }
 
     private void initAnim() {
@@ -172,19 +205,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mViewPanBar = (ImageView) findViewById(R.id.imageView2);
         mWordGridView = (GridView) findViewById(R.id.name_select_grid_view);
         mSelectedWordsContainer = (LinearLayout) findViewById(R.id.word_selected_container);
-        passView = (LinearLayout) findViewById(R.id.pass_view);
+        mPassView = (LinearLayout) findViewById(R.id.pass_view);
+        mTvCurrentStage = (TextView) findViewById(R.id.text_current_stage);
         mTvCurrentCoins = (TextView) findViewById(R.id.tv_top_bar_coin);
         mBtnDeleteWord = (ImageButton) findViewById(R.id.btn_delete_word);
         mBtnTipAnswer = (ImageButton) findViewById(R.id.btn_tip_answer);
         mCurrentStagePassView = (TextView) findViewById(R.id.text_current_stage_pass);
         mCurrentSongNamePassView = (TextView) findViewById(R.id.text_current_song_name_pass);
-
-        mTvCurrentCoins.setText(String.valueOf(mCurrentCoins));//设置当前金币
-        initSelectedWordsView();//初始化已选文字View
-        //初始化待选文字
-        mWordAdapter = new WordGridAdapter(MainActivity.this, mAllWords);
-        mWordAdapter.setWordClickListener(this);
-        mWordGridView.setAdapter(mWordAdapter);
+        mBtnNext = (ImageButton) findViewById(R.id.btn_next);
+        mBtnShare = (ImageButton) findViewById(R.id.btn_share);
     }
 
     private void initSelectedWordsView() {
@@ -217,12 +246,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mBtnPlayStart.setOnClickListener(this);
         mBtnDeleteWord.setOnClickListener(this);
         mBtnTipAnswer.setOnClickListener(this);
+        mBtnNext.setOnClickListener(this);
+        mBtnShare.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_play_start:
+            case R.id.btn_play_start://播放
                 if (mViewPanBar != null) {
                     if (!mIsRunning) {
                         mViewPanBar.startAnimation(mBarInAnim);
@@ -232,12 +263,28 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 }
                 break;
 
-            case R.id.btn_delete_word:
+            case R.id.btn_delete_word://删除一个待选字
                 deleteOneWord();
                 break;
 
-            case R.id.btn_tip_answer:
+            case R.id.btn_tip_answer://提示一个答案
                 tipOneAnswerWord();
+                break;
+
+            case R.id.btn_next://下一关
+                if (isHaveNextStage()) {//下一关
+                    mPassView.setVisibility(View.GONE);//隐藏通关界面
+                    //加载下一关数据
+                    initCurrentStageData();
+                } else {//没有下一关，通关
+                    Intent intent = new Intent(MainActivity.this, AllPassActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                break;
+
+            case R.id.btn_share://分享到微信
+
                 break;
         }
     }
@@ -394,7 +441,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * 处理过关界面及事件
      */
     private void handlePassEvent() {
-        passView.setVisibility(View.VISIBLE);//显示过关界面
+        mPassView.setVisibility(View.VISIBLE);//显示过关界面
         mViewPan.clearAnimation();//停止动画
         mCurrentStagePassView.setText(String.valueOf(mCurrentStageIndex + 1));
         mCurrentSongNamePassView.setText(mCurrentSong.getName());
@@ -501,6 +548,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         } else {//金币不足
             return false;
         }
+    }
+
+    /**
+     * 是否还有下一关/是否通关
+     */
+    private boolean isHaveNextStage() {
+        return mCurrentStageIndex != 1;
     }
 
     @Override
