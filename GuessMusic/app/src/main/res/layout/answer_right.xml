@@ -27,7 +27,7 @@
             android:id="@+id/text_main_achievement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
             tools:text="您已击败" />
     </LinearLayout>
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         android:textSize="35sp"
         android:text="答案正确" />
 
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             tools:text="1"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
     </FrameLayout>
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/white"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         tools:text="我的天" />
 
@@ -80,7 +80,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:text="奖励" />
 
@@ -92,14 +92,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="25sp"
             android:text="x" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="25sp"
             tools:text="3" />
     </LinearLayout>

@@ -23,6 +23,7 @@ import com.bigfat.guessmusic.adapter.WordGridAdapter;
 import com.bigfat.guessmusic.constant.Constant;
 import com.bigfat.guessmusic.model.Song;
 import com.bigfat.guessmusic.model.Word;
+import com.bigfat.guessmusic.observer.IAlertDialogButtonListener;
 import com.bigfat.guessmusic.observer.WordClickListener;
 import com.bigfat.guessmusic.util.LogUtil;
 import com.bigfat.guessmusic.util.Utils;
@@ -37,6 +38,10 @@ import java.util.TimerTask;
 public class MainActivity extends ActionBarActivity implements View.OnClickListener, WordClickListener {
 
     public static final String TAG = "MainActivity";
+
+    public static final int ID_DIALOG_DELETE_WORD = 1;
+    public static final int ID_DIALOG_TIP_ANSWER = 2;
+    public static final int ID_DIALOG_LACK_COINS = 3;
 
     //控件
     private ImageButton mBtnPlayStart;//播放按钮
@@ -92,6 +97,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         initViewListener();
 
         initCurrentStageData();
+    }
+
+    @Override
+    protected void onPause() {
+        mViewPan.clearAnimation();
+        super.onPause();
     }
 
     /**
@@ -264,11 +275,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_delete_word://删除一个待选字
-                deleteOneWord();
+                showConfirmDialog(ID_DIALOG_DELETE_WORD);
                 break;
 
             case R.id.btn_tip_answer://提示一个答案
-                tipOneAnswerWord();
+                showConfirmDialog(ID_DIALOG_TIP_ANSWER);
                 break;
 
             case R.id.btn_next://下一关
@@ -293,6 +304,37 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onWordClick(Button wordButton, Word word) {
         setSelectedWord(word);
     }
+
+    //自定义AlertDialog响应事件
+    /**
+     * 删除一个待选字
+     */
+    private IAlertDialogButtonListener mBtnOkDeleteWordListener = new IAlertDialogButtonListener() {
+        @Override
+        public void onOkButtonClick() {
+            deleteOneWord();
+        }
+    };
+
+    /**
+     * 提示一个答案
+     */
+    private IAlertDialogButtonListener mBtnOkTipAnswerListener = new IAlertDialogButtonListener() {
+        @Override
+        public void onOkButtonClick() {
+            tipOneAnswerWord();
+        }
+    };
+
+    /**
+     * 金币不足
+     */
+    private IAlertDialogButtonListener mBtnOkLackCoinsListener = new IAlertDialogButtonListener() {
+        @Override
+        public void onOkButtonClick() {
+
+        }
+    };
 
     /**
      * 获得关卡歌曲信息
@@ -454,7 +496,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         //扣除金币
         if (!handleCoins(-Utils.getDeleteWordCoins())) {//扣除失败
             //金币不足，显示对话框
-            Toast.makeText(MainActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
+            showConfirmDialog(ID_DIALOG_LACK_COINS);
             return;
         }
 
@@ -494,7 +536,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         //扣除金币
         if (!handleCoins(-Utils.getTipAnswerCoins())) {//扣除失败
             //金币不足，显示对话框
-            Toast.makeText(MainActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
+            showConfirmDialog(ID_DIALOG_LACK_COINS);
             return;
         }
 
@@ -557,9 +599,25 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return mCurrentStageIndex != 1;
     }
 
-    @Override
-    protected void onPause() {
-        mViewPan.clearAnimation();
-        super.onPause();
+    /**
+     * 弹出自定义Dialog
+     *
+     * @param id Dialog类型ID
+     */
+    private void showConfirmDialog(int id) {
+        switch (id) {
+            case ID_DIALOG_DELETE_WORD:
+                Utils.showCustomeDialog(MainActivity.this,
+                        "确定花掉" + Utils.getDeleteWordCoins() + "个金币去掉一个错误答案？", mBtnOkDeleteWordListener);
+                break;
+
+            case ID_DIALOG_TIP_ANSWER:
+                Utils.showCustomeDialog(MainActivity.this, "确定花掉" + Utils.getTipAnswerCoins() + "个金币获得一个文字提示？", mBtnOkTipAnswerListener);
+                break;
+
+            case ID_DIALOG_LACK_COINS:
+                Utils.showCustomeDialog(MainActivity.this, "金币不足，补充一下？", mBtnOkLackCoinsListener);
+                break;
+        }
     }
 }

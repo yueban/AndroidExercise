@@ -8,12 +8,11 @@
     android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/text_dialog_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textColor="@color/black"
-        tools:text="提示" />
+        android:textColor="@android:color/black"
+        android:text="提示" />
 
     <TextView
         android:id="@+id/text_dialog_message"
@@ -24,7 +23,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@android:color/black"
         tools:text="信息" />
 
     <LinearLayout
