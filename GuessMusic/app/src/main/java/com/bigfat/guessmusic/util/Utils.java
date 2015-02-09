@@ -2,15 +2,20 @@ package com.bigfat.guessmusic.util;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.bigfat.guessmusic.R;
-import com.bigfat.guessmusic.observer.IAlertDialogButtonListener;
+import com.bigfat.guessmusic.constant.Constant;
+import com.bigfat.guessmusic.listener.IAlertDialogButtonListener;
+import com.bigfat.guessmusic.service.AudioService;
 import com.bigfat.guessmusic.ui.MyApplication;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
@@ -60,7 +65,7 @@ public class Utils {
      * @param message  内容
      * @param callback 回调
      */
-    public static void showCustomeDialog(Context context, String message, final IAlertDialogButtonListener callback) {
+    public static void showCustomeDialog(final Context context, String message, final IAlertDialogButtonListener callback) {
         View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_view, null);
         final AlertDialog dialog = new AlertDialog.Builder(context, R.style.Theme_Transparent).setView(dialogView).create();
 
@@ -77,16 +82,63 @@ public class Utils {
                 if (callback != null) {
                     callback.onOkButtonClick();
                 }
+                playTone(context, Constant.TONE_ENTER_INDEX);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.cancel();
+                playTone(context, Constant.TONE_CANCEL_INDEX);
             }
         });
 
         //显示Dialog
         dialog.show();
+    }
+
+    /**
+     * 播放歌曲
+     */
+    public static void playSong(Context context, String fileName) {
+        Intent intent = new Intent(context, AudioService.class);
+        intent.putExtra(Constant.EXTRA_COMMAND, Constant.COMMAND_SONG_PLAY);
+        intent.putExtra(Constant.EXTRA_SONG_NAME, fileName);
+        context.startService(intent);
+    }
+
+    /**
+     * 停止播放歌曲
+     */
+    public static void stopSong(Context context) {
+        Intent intent = new Intent(context, AudioService.class);
+        intent.putExtra(Constant.EXTRA_COMMAND, Constant.COMMAND_SONG_STOP);
+        context.startService(intent);
+    }
+
+    /**
+     * 得到assets文件的AssetFileDescriptor对象
+     *
+     * @param fileName assets文件名
+     */
+    public static AssetFileDescriptor getAssetFileDescriptor(Context context, String fileName) {
+        try {
+            return context.getAssets().openFd(fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 播放音效
+     *
+     * @param toneIndex 音效索引
+     */
+    public static void playTone(Context context, int toneIndex) {
+        Intent intent = new Intent(context, AudioService.class);
+        intent.putExtra(Constant.EXTRA_COMMAND, Constant.COMMAND_TONE_PLAY);
+        intent.putExtra(Constant.EXTRA_TONE_INDEX, toneIndex);
+        context.startService(intent);
     }
 }

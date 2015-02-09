@@ -21,12 +21,12 @@ public class Constant {
     public static final int TOTAL_COINS = 300;
 
     /**
-     * 数组中歌曲文件名索引
+     * 歌曲数组中文件名索引
      */
     public static final int INDEX_SONG_FILE_NAME = 0;
 
     /**
-     * 数组中歌曲名索引
+     * 歌曲数组中歌曲名索引
      */
     public static final int INDEX_SONG_NAME = 1;
 
@@ -46,4 +46,47 @@ public class Constant {
             {"__00009.m4a", "老男孩"},
             {"__00010.m4a", "龙的传人"},
     };
+
+    public static final int TONE_CANCEL_INDEX = 0;
+    public static final int TONE_COIN_INDEX = 1;
+    public static final int TONE_ENTER_INDEX = 2;
+
+    /**
+     * 音效信息
+     */
+    public static final String[] TONE_INFO = {
+            "cancel.mp3",
+            "coin.mp3",
+            "enter.mp3"
+    };
+
+    /**
+     * AudioService命令的键
+     */
+    public static final String EXTRA_COMMAND = "extra_command";
+
+    /**
+     * 播放歌曲
+     */
+    public static final int COMMAND_SONG_PLAY = 1001;
+
+    /**
+     * 停止歌曲
+     */
+    public static final int COMMAND_SONG_STOP = 1002;
+
+    /**
+     * 播放音效
+     */
+    public static final int COMMAND_TONE_PLAY = 1003;
+
+    /**
+     * Intent传参歌曲文件名的键
+     */
+    public static final String EXTRA_SONG_NAME = "extra_song_name";
+
+    /**
+     * Intent传参音效的键
+     */
+    public static final String EXTRA_TONE_INDEX = "extra_tone_index";
 }

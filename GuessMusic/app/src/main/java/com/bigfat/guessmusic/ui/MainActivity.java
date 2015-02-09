@@ -21,10 +21,10 @@ import android.widget.Toast;
 import com.bigfat.guessmusic.R;
 import com.bigfat.guessmusic.adapter.WordGridAdapter;
 import com.bigfat.guessmusic.constant.Constant;
+import com.bigfat.guessmusic.listener.IAlertDialogButtonListener;
+import com.bigfat.guessmusic.listener.WordClickListener;
 import com.bigfat.guessmusic.model.Song;
 import com.bigfat.guessmusic.model.Word;
-import com.bigfat.guessmusic.observer.IAlertDialogButtonListener;
-import com.bigfat.guessmusic.observer.WordClickListener;
 import com.bigfat.guessmusic.util.LogUtil;
 import com.bigfat.guessmusic.util.Utils;
 
@@ -102,6 +102,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         mViewPan.clearAnimation();
+        Utils.stopSong(MainActivity.this);
         super.onPause();
     }
 
@@ -140,6 +141,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             mWordAdapter.notifyDataSetChanged();
             mWordGridView.scheduleLayoutAnimation();
         }
+
+        //播放当前歌曲
+        handlePlayButtonEvent();
     }
 
     private void initAnim() {
@@ -265,13 +269,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_play_start://播放
-                if (mViewPanBar != null) {
-                    if (!mIsRunning) {
-                        mViewPanBar.startAnimation(mBarInAnim);
-                        mIsRunning = true;
-                        mBtnPlayStart.setVisibility(View.INVISIBLE);
-                    }
-                }
+                handlePlayButtonEvent();
                 break;
 
             case R.id.btn_delete_word://删除一个待选字
@@ -283,7 +281,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_next://下一关
-                if (isHaveNextStage()) {//下一关
+                if (isHaveNextStage()) {//还有下一关
                     mPassView.setVisibility(View.GONE);//隐藏通关界面
                     //加载下一关数据
                     initCurrentStageData();
@@ -298,6 +296,20 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
                 break;
         }
+    }
+
+    /**
+     * 播放按钮点击
+     */
+    private void handlePlayButtonEvent() {
+        if (mViewPanBar != null) {
+            if (!mIsRunning) {
+                mViewPanBar.startAnimation(mBarInAnim);
+                mIsRunning = true;
+                mBtnPlayStart.setVisibility(View.INVISIBLE);
+            }
+        }
+        Utils.playSong(MainActivity.this, mCurrentSong.getFileName());
     }
 
     @Override
@@ -485,8 +497,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private void handlePassEvent() {
         mPassView.setVisibility(View.VISIBLE);//显示过关界面
         mViewPan.clearAnimation();//停止动画
+        Utils.playTone(MainActivity.this, Constant.TONE_COIN_INDEX);//播放金币掉落音效
         mCurrentStagePassView.setText(String.valueOf(mCurrentStageIndex + 1));
         mCurrentSongNamePassView.setText(mCurrentSong.getName());
+        Utils.stopSong(MainActivity.this);
     }
 
     /**
@@ -596,7 +610,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * 是否还有下一关/是否通关
      */
     private boolean isHaveNextStage() {
-        return mCurrentStageIndex != 1;
+        return mCurrentStageIndex != Constant.SONG_INFO.length - 1;
     }
 
     /**

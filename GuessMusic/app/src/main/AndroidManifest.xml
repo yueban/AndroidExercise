@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.AllPassActivity" />
+
+        <service android:name=".service.AudioService" />
     </application>
 
 </manifest>

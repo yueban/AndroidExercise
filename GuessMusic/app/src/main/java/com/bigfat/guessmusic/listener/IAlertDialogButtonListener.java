@@ -1,4 +1,4 @@
-package com.bigfat.guessmusic.observer;
+package com.bigfat.guessmusic.listener;
 
 /**
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>

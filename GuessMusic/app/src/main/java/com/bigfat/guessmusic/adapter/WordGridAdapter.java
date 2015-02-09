@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.bigfat.guessmusic.R;
 import com.bigfat.guessmusic.model.Word;
-import com.bigfat.guessmusic.observer.WordClickListener;
+import com.bigfat.guessmusic.listener.WordClickListener;
 
 import java.util.ArrayList;
 
