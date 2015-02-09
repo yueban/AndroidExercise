@@ -18,17 +18,17 @@ public class Constant {
     /**
      * 初始金币总数
      */
-    public static final int TOTAL_COINS = 300;
+    public static final int TOTAL_COINS = 9000;
 
     /**
      * 歌曲数组中文件名索引
      */
-    public static final int INDEX_SONG_FILE_NAME = 0;
+    public static final int INDEX_SONG_INFO_FILE_NAME = 0;
 
     /**
      * 歌曲数组中歌曲名索引
      */
-    public static final int INDEX_SONG_NAME = 1;
+    public static final int INDEX_SONG_INFO_NAME = 1;
 
     /**
      * 歌曲信息
@@ -47,9 +47,9 @@ public class Constant {
             {"__00010.m4a", "龙的传人"},
     };
 
-    public static final int TONE_CANCEL_INDEX = 0;
-    public static final int TONE_COIN_INDEX = 1;
-    public static final int TONE_ENTER_INDEX = 2;
+    public static final int INDEX_TONE_CANCEL = 0;
+    public static final int INDEX_TONE_COIN = 1;
+    public static final int INDEX_TONE_ENTER = 2;
 
     /**
      * 音效信息
@@ -89,4 +89,19 @@ public class Constant {
      * Intent传参音效的键
      */
     public static final String EXTRA_TONE_INDEX = "extra_tone_index";
+
+    /**
+     * 存储数据文件名
+     */
+    public static final String FILE_NAME_SAVE_DATA = "single";
+
+    /**
+     * 存储文件中关卡数的索引
+     */
+    public static final int INDEX_SAVE_DATA_STAGE = 0;
+
+    /**
+     * 存储文件中金币数的索引
+     */
+    public static final int INDEX_SAVE_DATA_COIN = 1;
 }

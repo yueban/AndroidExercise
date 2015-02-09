@@ -82,14 +82,14 @@ public class Utils {
                 if (callback != null) {
                     callback.onOkButtonClick();
                 }
-                playTone(context, Constant.TONE_ENTER_INDEX);
+                playTone(context, Constant.INDEX_TONE_ENTER);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.cancel();
-                playTone(context, Constant.TONE_CANCEL_INDEX);
+                playTone(context, Constant.INDEX_TONE_CANCEL);
             }
         });
 

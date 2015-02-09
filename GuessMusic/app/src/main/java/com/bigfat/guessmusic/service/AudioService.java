@@ -81,7 +81,9 @@ public class AudioService extends Service {
      * 停止播放歌曲
      */
     private void stopSong() {
-        mediaPlayer.stop();
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
     }
 
     /**

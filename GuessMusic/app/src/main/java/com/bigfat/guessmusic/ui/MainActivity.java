@@ -25,6 +25,8 @@ import com.bigfat.guessmusic.listener.IAlertDialogButtonListener;
 import com.bigfat.guessmusic.listener.WordClickListener;
 import com.bigfat.guessmusic.model.Song;
 import com.bigfat.guessmusic.model.Word;
+import com.bigfat.guessmusic.service.AudioService;
+import com.bigfat.guessmusic.util.DataUtil;
 import com.bigfat.guessmusic.util.LogUtil;
 import com.bigfat.guessmusic.util.Utils;
 
@@ -52,6 +54,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private ArrayList<Button> mSelectedButtonList;//已选文字按钮
     private TextView mTvCurrentStage;//当前关索引
     private TextView mTvCurrentCoins;//当前金币数量
+    private ImageButton mBtnTopBack;//返回按钮
 
     //浮动按钮
     private ImageButton mBtnDeleteWord;//删除待选文字
@@ -90,6 +93,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //读取游戏数据
+        int[] data = DataUtil.loadData(MainActivity.this);
+        mCurrentStageIndex = data[Constant.INDEX_SAVE_DATA_STAGE];
+        mCurrentCoins = data[Constant.INDEX_SAVE_DATA_COIN];
+
         initAnim();//初始化动画
         initAnimListener();
 
@@ -104,6 +112,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mViewPan.clearAnimation();
         Utils.stopSong(MainActivity.this);
         super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        //存储游戏数据
+        DataUtil.saveData(MainActivity.this, mCurrentStageIndex - 1, mCurrentCoins);
+        stopService(new Intent(MainActivity.this, AudioService.class));
+        super.onStop();
     }
 
     /**
@@ -223,6 +239,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mPassView = (LinearLayout) findViewById(R.id.pass_view);
         mTvCurrentStage = (TextView) findViewById(R.id.text_current_stage);
         mTvCurrentCoins = (TextView) findViewById(R.id.tv_top_bar_coin);
+        mBtnTopBack = (ImageButton) findViewById(R.id.btn_top_bar_back);
         mBtnDeleteWord = (ImageButton) findViewById(R.id.btn_delete_word);
         mBtnTipAnswer = (ImageButton) findViewById(R.id.btn_tip_answer);
         mCurrentStagePassView = (TextView) findViewById(R.id.text_current_stage_pass);
@@ -259,6 +276,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private void initViewListener() {
         mBtnPlayStart.setOnClickListener(this);
+        mBtnTopBack.setOnClickListener(this);
         mBtnDeleteWord.setOnClickListener(this);
         mBtnTipAnswer.setOnClickListener(this);
         mBtnNext.setOnClickListener(this);
@@ -270,6 +288,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_play_start://播放
                 handlePlayButtonEvent();
+                break;
+
+            case R.id.btn_top_bar_back://返回
+                finish();
                 break;
 
             case R.id.btn_delete_word://删除一个待选字
@@ -354,8 +376,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Song loadStageSongInfo(int stageIndex) {
         Song song = new Song();
         String[] stage = Constant.SONG_INFO[stageIndex];
-        song.setFileName(stage[Constant.INDEX_SONG_FILE_NAME]);
-        song.setName(stage[Constant.INDEX_SONG_NAME]);
+        song.setFileName(stage[Constant.INDEX_SONG_INFO_FILE_NAME]);
+        song.setName(stage[Constant.INDEX_SONG_INFO_NAME]);
         return song;
     }
 
@@ -495,12 +517,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * 处理过关界面及事件
      */
     private void handlePassEvent() {
-        mPassView.setVisibility(View.VISIBLE);//显示过关界面
+        Utils.stopSong(MainActivity.this);//停止播放歌曲
         mViewPan.clearAnimation();//停止动画
-        Utils.playTone(MainActivity.this, Constant.TONE_COIN_INDEX);//播放金币掉落音效
+        mPassView.setVisibility(View.VISIBLE);//显示过关界面
         mCurrentStagePassView.setText(String.valueOf(mCurrentStageIndex + 1));
         mCurrentSongNamePassView.setText(mCurrentSong.getName());
-        Utils.stopSong(MainActivity.this);
+        Utils.playTone(MainActivity.this, Constant.INDEX_TONE_COIN);//播放金币掉落音效
     }
 
     /**
