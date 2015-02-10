@@ -1,12 +1,19 @@
 package com.bigfat.treeview.bean;
 
+import com.bigfat.treeview.annotation.TreeNodeId;
+import com.bigfat.treeview.annotation.TreeNodeLabel;
+import com.bigfat.treeview.annotation.TreeNodePId;
+
 /**
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
  * @since 2015/2/10
  */
 public class FileBean {
+    @TreeNodeId
     private int id;
+    @TreeNodePId
     private int pId;
+    @TreeNodeLabel
     private String label;
     private String desc;
 
