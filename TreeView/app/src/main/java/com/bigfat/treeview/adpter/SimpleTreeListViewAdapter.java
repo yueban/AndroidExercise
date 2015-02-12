@@ -27,7 +27,7 @@ public class SimpleTreeListViewAdapter<T> extends TreeListViewAdapter {
         final ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = inflater.inflate(R.layout.list_item_tree_node, parent, false);
+            convertView = mInflater.inflate(R.layout.list_item_tree_node, parent, false);
             holder.icon = (ImageView) convertView.findViewById(R.id.id_item_icon);
             holder.text = (TextView) convertView.findViewById(R.id.id_item_text);
             convertView.setTag(holder);

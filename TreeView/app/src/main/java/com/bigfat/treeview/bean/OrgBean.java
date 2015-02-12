@@ -16,6 +16,12 @@ public class OrgBean {
     @TreeNodeLabel
     private String name;
 
+    public OrgBean(int _id, int parentId, String name) {
+        this._id = _id;
+        this.parentId = parentId;
+        this.name = name;
+    }
+
     public int get_id() {
         return _id;
     }

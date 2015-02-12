@@ -18,28 +18,35 @@ import java.util.List;
  * @since 2015/2/12
  */
 public abstract class TreeListViewAdapter<T> extends BaseAdapter implements AdapterView.OnItemClickListener {
-    protected Context context;
-    protected LayoutInflater inflater;
-    protected List<Node> nodes;
-    protected List<Node> visibleNodes;
-    protected int defaultExpandLevel;
+    protected Context mContext;
+    protected LayoutInflater mInflater;
+    protected List<Node> mAllNodes;
+    protected List<Node> mVisibleNodes;
+    protected int mDefaultExpandLevel;
     //供外部调用处理Item点击事件
-    private OnTreeListViewItemClickListener onTreeListViewItemClickListener;
+    private OnTreeListViewItemClickListener mOnTreeListViewItemClickListener;
 
     public TreeListViewAdapter(Context context, List<T> datas, int defaultExpandLevel) throws IllegalAccessException {
-        this.context = context;
-        inflater = LayoutInflater.from(context);
-        this.nodes = TreeHelper.getSortedNodes(datas, defaultExpandLevel);
-        this.visibleNodes = TreeHelper.filterVisibleNodes(nodes);
-        this.defaultExpandLevel = defaultExpandLevel;
+        this.mContext = context;
+        mInflater = LayoutInflater.from(context);
+        this.mAllNodes = TreeHelper.getSortedNodes(datas, defaultExpandLevel);
+        this.mVisibleNodes = TreeHelper.filterVisibleNodes(mAllNodes);
+        this.mDefaultExpandLevel = defaultExpandLevel;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         expandOrCollapse(position);
-        if (onTreeListViewItemClickListener != null) {
-            onTreeListViewItemClickListener.onClick(getItem(position), position);
+        if (mOnTreeListViewItemClickListener != null) {
+            mOnTreeListViewItemClickListener.onClick(getItem(position), position);
         }
+    }
+
+    /**
+     * 供以外部处理Item点击事件
+     */
+    public void setOnTreeListViewItemClickListener(OnTreeListViewItemClickListener onTreeListViewItemClickListener) {
+        this.mOnTreeListViewItemClickListener = onTreeListViewItemClickListener;
     }
 
     /**
@@ -55,8 +62,6 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter implements Adap
             }
             //设置节点展开或收缩
             n.setExpand(!n.isExpand());
-            //重新过滤要显示的节点
-            visibleNodes = TreeHelper.filterVisibleNodes(nodes);
             //刷新View
             notifyDataSetChanged();
         }
@@ -64,12 +69,12 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter implements Adap
 
     @Override
     public int getCount() {
-        return visibleNodes.size();
+        return mVisibleNodes.size();
     }
 
     @Override
     public Node getItem(int position) {
-        return visibleNodes.get(position);
+        return mVisibleNodes.get(position);
     }
 
     @Override
@@ -83,9 +88,38 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter implements Adap
         convertView = getConvertView(node, position, convertView, parent);
         //设置节点缩进
         convertView.setPadding(node.getLevel() * 30, 3, 3, 3);
-
         return convertView;
     }
 
+    @Override
+    public void notifyDataSetChanged() {
+        //重新过滤要显示的节点
+        mVisibleNodes = TreeHelper.filterVisibleNodes(mAllNodes);
+        super.notifyDataSetChanged();
+    }
+
     public abstract View getConvertView(Node node, int position, View convertView, ViewGroup parent);
+
+    /**
+     * 动态插入节点
+     *
+     * @param position 插入节点的位置
+     * @param s        插入节点的文本
+     */
+    public void addExtraNode(int position, String s) {
+        //获取插入节点位置
+        Node node = getItem(position);
+        int indexOf = mAllNodes.indexOf(node);
+        //生成新插入的节点
+        Node extraNode = new Node(-1, node.getId(), s);
+        extraNode.setParent(node);
+        //设置关联
+        node.getChildren().add(extraNode);
+        //插入新节点
+        mAllNodes.add(indexOf + 1, extraNode);
+        //设置展开
+        node.setExpand(true);
+        //刷新View
+        notifyDataSetChanged();
+    }
 }
