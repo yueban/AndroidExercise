@@ -17,6 +17,12 @@ public class FileBean {
     private String label;
     private String desc;
 
+    public FileBean(int id, int pId, String label) {
+        this.id = id;
+        this.pId = pId;
+        this.label = label;
+    }
+
     public int getId() {
         return id;
     }

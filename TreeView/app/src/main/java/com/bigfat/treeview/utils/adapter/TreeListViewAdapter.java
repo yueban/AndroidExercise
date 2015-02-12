@@ -18,11 +18,11 @@ import java.util.List;
  * @since 2015/2/12
  */
 public abstract class TreeListViewAdapter<T> extends BaseAdapter implements AdapterView.OnItemClickListener {
-    private Context context;
-    private LayoutInflater inflater;
-    private List<Node> nodes;
-    private List<Node> visibleNodes;
-    private int defaultExpandLevel;
+    protected Context context;
+    protected LayoutInflater inflater;
+    protected List<Node> nodes;
+    protected List<Node> visibleNodes;
+    protected int defaultExpandLevel;
     //供外部调用处理Item点击事件
     private OnTreeListViewItemClickListener onTreeListViewItemClickListener;
 
