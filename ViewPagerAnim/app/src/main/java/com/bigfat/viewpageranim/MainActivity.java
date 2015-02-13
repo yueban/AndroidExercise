@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
-    private ViewPagerCompat mViewPager;
+    private ViewPagerWithTransformerAnim mViewPager;
     private int[] mImgIds = {
             R.mipmap.guide_image1,
             R.mipmap.guide_image2,
@@ -30,10 +30,12 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-        mViewPager = (ViewPagerCompat) findViewById(R.id.id_viewpager);
+//        mViewPager = (ViewPagerCompat) findViewById(R.id.id_viewpager);
 //        mViewPager.setPageTransformer(true, new DepthPageTransformer());
 //        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        mViewPager.setPageTransformer(true, new RotateDownPageTransformer());
+//        mViewPager.setPageTransformer(true, new RotateDownPageTransformer());
+
+        mViewPager = (ViewPagerWithTransformerAnim) findViewById(R.id.id_viewpager);
         mViewPager.setAdapter(new PagerAdapter() {
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
@@ -42,12 +44,14 @@ public class MainActivity extends ActionBarActivity {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 container.addView(imageView);
                 mImages.add(imageView);
+                mViewPager.setViewForPosition(imageView, position);
                 return imageView;
             }
 
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
                 container.removeView(mImages.get(position));
+                mViewPager.removeViewFromPosition(position);
             }
 
             @Override
