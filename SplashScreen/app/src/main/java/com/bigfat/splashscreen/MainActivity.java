@@ -15,7 +15,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
-    private RelativeLayout mRlmainBg;
+    private RelativeLayout mRlMainBg;
     private ImageButton mBtnStartStop;
     private ImageButton mBtnShare;
     private ImageButton mBtnChangeColor;
@@ -50,7 +50,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void initView() {
-        mRlmainBg = (RelativeLayout) findViewById(R.id.id_main_bg);
+        mRlMainBg = (RelativeLayout) findViewById(R.id.id_main_bg);
         mBtnStartStop = (ImageButton) findViewById(R.id.id_btn_start_stop);
         mBtnShare = (ImageButton) findViewById(R.id.id_btn_share);
         mBtnChangeColor = (ImageButton) findViewById(R.id.id_btn_change_color);
@@ -131,9 +131,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                                 return;
                             }
                             if (isDefault) {
-                                mRlmainBg.setBackgroundColor(defaultColor);
+                                mRlMainBg.setBackgroundColor(defaultColor);
                             } else {
-                                mRlmainBg.setBackgroundColor(splashColor);
+                                mRlMainBg.setBackgroundColor(splashColor);
                             }
                             isDefault = !isDefault;
                         }
@@ -147,6 +147,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private void stop() {
         isSplash = false;
-        mRlmainBg.setBackgroundColor(defaultColor);
+        mRlMainBg.setBackgroundColor(defaultColor);
     }
 }
