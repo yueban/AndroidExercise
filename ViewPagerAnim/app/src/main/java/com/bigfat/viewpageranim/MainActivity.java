@@ -31,8 +31,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         mViewPager = (ViewPagerCompat) findViewById(R.id.id_viewpager);
-        mViewPager.setPageTransformer(true, new DepthPageTransformer());
+//        mViewPager.setPageTransformer(true, new DepthPageTransformer());
 //        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        mViewPager.setPageTransformer(true, new RotateDownPageTransformer());
         mViewPager.setAdapter(new PagerAdapter() {
             @Override
             public Object instantiateItem(ViewGroup container, int position) {

@@ -1,6 +1,7 @@
 package com.bigfat.viewpageranim;
 
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 import com.nineoldandroids.view.ViewHelper;
@@ -9,6 +10,7 @@ public class DepthPageTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.75f;
 
     public void transformPage(View view, float position) {
+        Log.i("TAG", "view--->" + view + "  position--->" + position);
         int pageWidth = view.getWidth();
 
         if (position < -1) { // [-Infinity,-1)
