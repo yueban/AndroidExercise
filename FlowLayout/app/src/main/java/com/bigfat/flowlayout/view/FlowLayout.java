@@ -61,7 +61,7 @@ public class FlowLayout extends ViewGroup {
             //子View占据的高度
             int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
             //如果改行已有控件占满一行，则换行
-            if (lineWidth + childWidth > sizeWith) {
+            if (lineWidth + childWidth > sizeWith - getPaddingLeft() - getPaddingRight()) {
                 //取最宽的一行的宽度作为FlowLayout的宽度
                 width = Math.max(width, lineWidth);
                 //高度叠加
@@ -83,8 +83,8 @@ public class FlowLayout extends ViewGroup {
             }
         }
         //根据测量模式设置宽高
-        setMeasuredDimension(modeWidth == MeasureSpec.AT_MOST ? width : sizeWith,
-                modeHeight == MeasureSpec.AT_MOST ? height : sizeHeight);
+        setMeasuredDimension(modeWidth == MeasureSpec.AT_MOST ? width + getPaddingLeft() + getPaddingRight() : sizeWith,
+                modeHeight == MeasureSpec.AT_MOST ? height + getPaddingTop() + getPaddingBottom() : sizeHeight);
     }
 
     /**
@@ -117,7 +117,7 @@ public class FlowLayout extends ViewGroup {
             int childHeight = child.getMeasuredHeight();
             MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
             //如果需要换行
-            if (lineWidth + childWidth + lp.leftMargin + lp.rightMargin > width) {
+            if (lineWidth + childWidth + lp.leftMargin + lp.rightMargin > width - getPaddingLeft() - getPaddingRight()) {
                 //记录当前行数据
                 mLineHeight.add(lineHeight);
                 mAllViews.add(lineViews);
@@ -137,8 +137,8 @@ public class FlowLayout extends ViewGroup {
         mAllViews.add(lineViews);
 
         //设置子View的位置
-        int left = 0;
-        int top = 0;
+        int left = getPaddingLeft();
+        int top = getPaddingTop();
         //行数
         int lineNum = mAllViews.size();
         //遍历每行
@@ -164,7 +164,7 @@ public class FlowLayout extends ViewGroup {
                 left += child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             }
             //每行结束后，左边距清空，高度叠加
-            left = 0;
+            left = getPaddingLeft();
             top += lineHeight;
         }
     }

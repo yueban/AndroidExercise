@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:textColor="#5BC4ED"
     android:background="@drawable/tv_bg"
     android:layout_margin="5dp"
     tools:text="Hello World!" />

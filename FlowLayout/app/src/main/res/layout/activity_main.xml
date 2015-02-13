@@ -8,7 +8,8 @@
         android:id="@+id/id_flow_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white">
+        android:padding="30dp"
+        android:background="#FFE5E5F5">
 
     </com.bigfat.flowlayout.view.FlowLayout>
 </RelativeLayout>
