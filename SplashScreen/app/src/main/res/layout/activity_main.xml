@@ -3,6 +3,71 @@
     android:id="@+id/id_main_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/id_ll_color_bar_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:layout_margin="12dp"
+            android:background="@android:color/darker_gray"
+            android:visibility="invisible">
+
+            <SeekBar
+                android:id="@+id/id_seek_bar_red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="255" />
+
+            <SeekBar
+                android:id="@+id/id_seek_bar_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="255" />
+
+            <SeekBar
+                android:id="@+id/id_seek_bar_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="255" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="12dp">
+
+            <ImageButton
+                android:id="@+id/id_btn_start_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/abc_btn_radio_to_on_mtrl_015"
+                android:contentDescription="@string/start_pause" />
+
+            <ImageButton
+                android:id="@+id/id_btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/abc_ic_menu_share_mtrl_alpha"
+                android:contentDescription="@string/share_weixin" />
+
+            <ImageButton
+                android:id="@+id/id_btn_change_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/abc_ic_commit_search_api_mtrl_alpha"
+                android:contentDescription="@string/change_color" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
