@@ -24,5 +24,7 @@ public class MainActivity extends ActionBarActivity {
                 Toast.makeText(MainActivity.this, "刮完了", Toast.LENGTH_SHORT).show();
             }
         });
+
+        mGuaGuaKa.setText("猜你中了多少钱");
     }
 }
