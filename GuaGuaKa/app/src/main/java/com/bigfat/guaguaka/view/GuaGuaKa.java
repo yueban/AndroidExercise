@@ -10,6 +10,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -18,6 +19,15 @@ import android.view.View;
  * @since 2015/2/14
  */
 public class GuaGuaKa extends View {
+
+    /**
+     * 刮刮卡刮完的回调
+     */
+    public interface OnGuaGuaKaCompleteListener {
+        void onComplete();
+    }
+
+    private OnGuaGuaKaCompleteListener onGuaGuaKaCompleteListener;
 
     //刮刮卡覆盖层
     private Paint mOuterPaint;
@@ -37,6 +47,43 @@ public class GuaGuaKa extends View {
     private int mTextSize;
     //记录刮奖文本信息的宽高
     private Rect mTextBound;
+    //是否完成刮奖，即显示刮奖结果
+    private volatile boolean mIsComplete;
+
+    //计算刮开区域
+    private Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            int w = getWidth();
+            int h = getHeight();
+
+            float wipeArea = 0;
+            float totalArea = w * h;
+            //获得Bitmap上所有像素
+            //Bitmap bitmap = mBitmap;
+            int[] mPixels = new int[w * h];
+            mBitmap.getPixels(mPixels, 0, w, 0, 0, w, h);
+            //计算已擦除像素
+            for (int i = 0; i < w; i++) {
+                for (int j = 0; j < h; j++) {
+                    int index = i + j * w;
+                    if (mPixels[index] == 0) {
+                        wipeArea++;
+                    }
+                }
+            }
+            //计算擦除/刮开百分比
+            if (wipeArea > 0 && totalArea > 0) {
+                int percent = (int) (wipeArea / totalArea * 100);
+                Log.i("TAG", "percent--->" + percent);
+                //如果刮开区域超过60%，则直接显示全部
+                if (percent > 60) {
+                    mIsComplete = true;
+                    postInvalidate();
+                }
+            }
+        }
+    };
 
     public GuaGuaKa(Context context) {
         this(context, null);
@@ -49,6 +96,10 @@ public class GuaGuaKa extends View {
     public GuaGuaKa(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+    }
+
+    public void setOnGuaGuaKaCompleteListener(OnGuaGuaKaCompleteListener onGuaGuaKaCompleteListener) {
+        this.onGuaGuaKaCompleteListener = onGuaGuaKaCompleteListener;
     }
 
     @Override
@@ -90,7 +141,7 @@ public class GuaGuaKa extends View {
                 break;
 
             case MotionEvent.ACTION_UP:
-
+                new Thread(mRunnable).start();
                 break;
         }
         invalidate();
@@ -102,9 +153,15 @@ public class GuaGuaKa extends View {
 //        canvas.drawBitmap(bitmap, 0, 0, null);
         //刮奖信息
         canvas.drawText(mText, getWidth() / 2 - mTextBound.width() / 2, getHeight() / 2 + mTextBound.height() / 2, mTextPaint);
-        //刮开区域
-        drawPath();
-        canvas.drawBitmap(mBitmap, 0, 0, null);
+        if (mIsComplete) {
+            if (onGuaGuaKaCompleteListener != null) {
+                onGuaGuaKaCompleteListener.onComplete();
+            }
+        } else {
+            //刮开区域
+            drawPath();
+            canvas.drawBitmap(mBitmap, 0, 0, null);
+        }
     }
 
     /**
@@ -123,7 +180,7 @@ public class GuaGuaKa extends View {
         mText = "谢谢惠顾";
         mTextPaint = new Paint();
         mTextBound = new Rect();
-        mTextSize = 36;
+        mTextSize = 48;
     }
 
     /**
@@ -136,7 +193,7 @@ public class GuaGuaKa extends View {
         mOuterPaint.setStrokeJoin(Paint.Join.ROUND);
         mOuterPaint.setStrokeCap(Paint.Cap.ROUND);
         mOuterPaint.setStyle(Paint.Style.STROKE);
-        mOuterPaint.setStrokeWidth(20);
+        mOuterPaint.setStrokeWidth(36);
     }
 
     /**

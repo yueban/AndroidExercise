@@ -5,6 +5,7 @@
     tools:context=".MainActivity">
 
     <com.bigfat.guaguaka.view.GuaGuaKa
+        android:id="@+id/id_guaguaka"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_centerInParent="true" />
