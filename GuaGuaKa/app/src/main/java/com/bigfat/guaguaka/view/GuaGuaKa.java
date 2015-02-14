@@ -2,13 +2,18 @@ package com.bigfat.guaguaka.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.bigfat.guaguaka.R;
 
 /**
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
@@ -16,6 +21,7 @@ import android.view.View;
  */
 public class GuaGuaKa extends View {
 
+    //刮刮卡覆盖层
     private Paint mOuterPaint;
     private Path mPath;
     private Canvas mCanvas;
@@ -24,6 +30,9 @@ public class GuaGuaKa extends View {
     //用户手指触摸的最后位置（即当前位置）
     private int mLastX;
     private int mLastY;
+
+    //刮刮卡真实内容
+    private Bitmap bitmap;
 
     public GuaGuaKa(Context context) {
         this(context, null);
@@ -46,6 +55,7 @@ public class GuaGuaKa extends View {
         //初始化画布
         mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
+        mCanvas.drawColor(0xffc0c0c0);
         //设置画笔属性
         setOuterPaint();
     }
@@ -83,11 +93,13 @@ public class GuaGuaKa extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        canvas.drawBitmap(bitmap, 0, 0, null);
         drawPath();
         canvas.drawBitmap(mBitmap, 0, 0, null);
     }
 
     private void drawPath() {
+        mOuterPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         mCanvas.drawPath(mPath, mOuterPaint);
     }
 
@@ -107,5 +119,6 @@ public class GuaGuaKa extends View {
     private void init() {
         mOuterPaint = new Paint();
         mPath = new Path();
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.t2);
     }
 }
