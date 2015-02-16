@@ -1,5 +1,6 @@
 package com.bigfat.splashscreen;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -9,11 +10,23 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
+import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.sdk.modelmsg.WXImageObject;
+import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+
+    private static final String WX_APP_ID = "wx65287cdde8a8f593";
+
+    public static IWXAPI iwxapi;
+    private static final int PIC_SIZE = 400;
+    private static final int THUMB_SIZE = 150;
 
     private RelativeLayout mRlMainBg;
     private ImageButton mBtnStartStop;
@@ -47,6 +60,30 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         initView();
         initViewListener();
         initColorBar();
+
+        regToWx();
+    }
+
+    private void regToWx() {
+        iwxapi = WXAPIFactory.createWXAPI(MainActivity.this, WX_APP_ID, true);
+        iwxapi.registerApp(WX_APP_ID);
+    }
+
+    private void shareToWx(Bitmap bmp) {
+        WXImageObject imgObj = new WXImageObject(bmp);
+
+        WXMediaMessage msg = new WXMediaMessage();
+        msg.mediaObject = imgObj;
+
+        Bitmap thumbBmp = Bitmap.createScaledBitmap(bmp, THUMB_SIZE, THUMB_SIZE, true);
+        bmp.recycle();
+        msg.thumbData = Util.bmpToByteArray(thumbBmp, true);  // 设置缩略图
+
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = String.valueOf("img" + System.currentTimeMillis());
+        req.message = msg;
+        req.scene = SendMessageToWX.Req.WXSceneSession;
+        iwxapi.sendReq(req);
     }
 
     private void initView() {
@@ -83,7 +120,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
 
             case R.id.id_btn_share://分享到微信
-
+                shareToWx(Util.createSingleColorBitmap(splashColor, PIC_SIZE, PIC_SIZE));
                 break;
 
             case R.id.id_btn_change_color://调整闪烁颜色
