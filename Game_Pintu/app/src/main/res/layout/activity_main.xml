@@ -4,8 +4,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <GridView
-        android:id="@+id/id_gridView"
+    <com.bigfat.game_pintu.view.GamePintuLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:padding="3dp" />
 </RelativeLayout>
