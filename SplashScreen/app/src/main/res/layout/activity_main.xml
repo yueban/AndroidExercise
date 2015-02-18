@@ -20,26 +20,73 @@
             android:orientation="vertical"
             android:layout_gravity="bottom"
             android:layout_margin="12dp"
-            android:background="@android:color/darker_gray"
-            android:visibility="invisible">
+            android:background="@color/black_transparent_50"
+            android:visibility="invisible"
+            tools:visibility="visible">
 
-            <SeekBar
-                android:id="@+id/id_seek_bar_red"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="255" />
+                android:orientation="horizontal">
 
-            <SeekBar
-                android:id="@+id/id_seek_bar_green"
+                <com.bigfat.splashscreen.RoundImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/red" />
+
+                <SeekBar
+                    android:id="@+id/id_seek_bar_red"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="4dp"
+                    android:max="255" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="255" />
+                android:orientation="horizontal">
 
-            <SeekBar
-                android:id="@+id/id_seek_bar_blue"
+                <com.bigfat.splashscreen.RoundImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/green" />
+
+                <SeekBar
+                    android:id="@+id/id_seek_bar_green"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="4dp"
+                    android:max="255" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="255" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/blue" />
+
+                <SeekBar
+                    android:id="@+id/id_seek_bar_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="4dp"
+                    android:max="255" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
