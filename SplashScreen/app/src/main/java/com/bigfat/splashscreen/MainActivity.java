@@ -5,11 +5,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
+import com.makeramen.RoundedImageView;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXImageObject;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
@@ -29,9 +29,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private static final int THUMB_SIZE = 150;
 
     private RelativeLayout mRlMainBg;
-    private ImageButton mBtnStartStop;
-    private ImageButton mBtnShare;
-    private ImageButton mBtnChangeColor;
+    private RoundedImageView mBtnStartStop;
+    private RoundedImageView mBtnShare;
+    private RoundedImageView mBtnChangeColor;
     private LinearLayout mLlColorBarContainer;
     private SeekBar mSeekBarRed;
     private SeekBar mSeekBarGreen;
@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Timer mTimer;
 
     private int defaultColor;
-    private int splashColor = Color.RED;
+    private int splashColor;
 
     private boolean isSplash = false;
 
@@ -56,11 +56,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         decorView.setSystemUiVisibility(uiOptions);
 
         defaultColor = getResources().getColor(R.color.main_bg_color);
+        splashColor = getResources().getColor(R.color.default_splash_color);
 
         initView();
         initViewListener();
         initColorBar();
 
+        //初始化颜色
+        onSplashColorChanged();
+        //注册微信
         regToWx();
     }
 
@@ -88,9 +92,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private void initView() {
         mRlMainBg = (RelativeLayout) findViewById(R.id.id_main_bg);
-        mBtnStartStop = (ImageButton) findViewById(R.id.id_btn_start_stop);
-        mBtnShare = (ImageButton) findViewById(R.id.id_btn_share);
-        mBtnChangeColor = (ImageButton) findViewById(R.id.id_btn_change_color);
+        mBtnStartStop = (RoundedImageView) findViewById(R.id.id_btn_start_stop);
+        mBtnShare = (RoundedImageView) findViewById(R.id.id_btn_share);
+        mBtnChangeColor = (RoundedImageView) findViewById(R.id.id_btn_change_color);
         mLlColorBarContainer = (LinearLayout) findViewById(R.id.id_ll_color_bar_container);
         mSeekBarRed = (SeekBar) findViewById(R.id.id_seek_bar_red);
         mSeekBarGreen = (SeekBar) findViewById(R.id.id_seek_bar_green);
@@ -107,9 +111,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void initColorBar() {
-        mSeekBarRed.setProgress(Color.red(splashColor));
-        mSeekBarGreen.setProgress(Color.green(splashColor));
-        mSeekBarBlue.setProgress(Color.blue(splashColor));
+        int red = Color.red(splashColor);
+        int green = Color.green(splashColor);
+        int blue = Color.blue(splashColor);
+        mSeekBarRed.setProgress(red);
+        mSeekBarGreen.setProgress(green);
+        mSeekBarBlue.setProgress(blue);
+    }
+
+    private void onSplashColorChanged() {
+        mBtnStartStop.setColorFilter(splashColor);
+        mBtnShare.setBorderColor(splashColor);
+        mBtnChangeColor.setBorderColor(splashColor);
     }
 
     @Override
@@ -133,6 +146,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         splashColor = Color.rgb(mSeekBarRed.getProgress(), mSeekBarGreen.getProgress(), mSeekBarBlue.getProgress());
+        onSplashColorChanged();
     }
 
     @Override

@@ -3,5 +3,9 @@
     <color name="red">#ffff0000</color>
     <color name="green">#ff00ff00</color>
     <color name="blue">#ff0000ff</color>
+    <color name="black">#ff000000</color>
     <color name="black_transparent_50">#50000000</color>
+    <color name="light_gray">#ffe7e7e7</color>
+    <color name="main_bg_color">#ff0099cc</color>
+    <color name="default_splash_color">#ff7f007f</color>
 </resources>

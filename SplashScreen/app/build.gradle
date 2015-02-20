@@ -23,4 +23,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('libs/libammsdk.jar')
+    compile 'com.makeramen:roundedimageview:1.5.0'
 }
