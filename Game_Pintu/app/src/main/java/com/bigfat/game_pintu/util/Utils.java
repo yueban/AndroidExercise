@@ -17,4 +17,20 @@ public class Utils {
         }
         return min;
     }
+
+    /**
+     * 根据tag获取ImageId
+     */
+    public static int getImageIdByTag(String tag) {
+        String[] split = tag.split("_");
+        return Integer.parseInt(split[0]);
+    }
+
+    /**
+     * 根据tag获取Index
+     */
+    public static int getIndexByTag(String tag) {
+        String[] split = tag.split("_");
+        return Integer.parseInt(split[1]);
+    }
 }

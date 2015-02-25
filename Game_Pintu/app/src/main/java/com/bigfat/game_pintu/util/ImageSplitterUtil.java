@@ -21,11 +21,19 @@ public class ImageSplitterUtil {
         List<ImagePiece> imagePieces = new ArrayList<>();
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
+        //切图的左/上起始位置
+        int left = 0;
+        int top = 0;
+        if (width > height) {
+            left = (width - height) / 2;
+        } else {
+            top = (height - width) / 2;
+        }
         //每一块拼图的宽度
         int pieceWidth = Math.min(width, height) / piece;
         for (int x = 0; x < piece; x++) {
             for (int y = 0; y < piece; y++) {
-                Bitmap pieceBitmap = Bitmap.createBitmap(bitmap, y * pieceWidth, x * pieceWidth, pieceWidth, pieceWidth);
+                Bitmap pieceBitmap = Bitmap.createBitmap(bitmap, left + y * pieceWidth, top + x * pieceWidth, pieceWidth, pieceWidth);
                 ImagePiece imagePiece = new ImagePiece(x * piece + y, pieceBitmap);
                 imagePieces.add(imagePiece);
             }

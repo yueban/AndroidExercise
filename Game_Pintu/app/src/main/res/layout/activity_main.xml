@@ -5,8 +5,42 @@
     tools:context=".MainActivity">
 
     <com.bigfat.game_pintu.view.GamePintuLayout
+        android:id="@+id/id_gamePintu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:padding="3dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/id_gamePintu"
+        android:layout_margin="3dp">
+
+        <TextView
+            android:id="@+id/id_level"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:padding="4dp"
+            android:background="@drawable/textbg"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#ea7821"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/id_time"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:padding="4dp"
+            android:background="@drawable/textbg"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#ea7821"
+            tools:text="60" />
+    </RelativeLayout>
 </RelativeLayout>
