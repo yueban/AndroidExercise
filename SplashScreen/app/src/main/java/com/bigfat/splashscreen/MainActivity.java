@@ -51,9 +51,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         //隐藏NavigationBar
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-        decorView.setSystemUiVisibility(uiOptions);
+//        View decorView = getWindow().getDecorView();
+//        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+//        decorView.setSystemUiVisibility(uiOptions);
 
         defaultColor = getResources().getColor(R.color.main_bg_color);
         splashColor = getResources().getColor(R.color.default_splash_color);
