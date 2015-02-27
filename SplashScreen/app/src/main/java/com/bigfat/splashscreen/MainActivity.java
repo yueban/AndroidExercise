@@ -15,6 +15,8 @@ import com.tencent.mm.sdk.modelmsg.WXImageObject;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -23,11 +25,9 @@ import java.util.TimerTask;
 public class MainActivity extends ActionBarActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
     private static final String WX_APP_ID = "wx65287cdde8a8f593";
-
-    public static IWXAPI iwxapi;
     private static final int PIC_SIZE = 400;
     private static final int THUMB_SIZE = 150;
-
+    public static IWXAPI iwxapi;
     private RelativeLayout mRlMainBg;
     private RoundedImageView mBtnStartStop;
     private RoundedImageView mBtnShare;
@@ -55,6 +55,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 //        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 //        decorView.setSystemUiVisibility(uiOptions);
 
+        //友盟更新
+        UmengUpdateAgent.update(this);
+
         defaultColor = getResources().getColor(R.color.main_bg_color);
         splashColor = getResources().getColor(R.color.default_splash_color);
 
@@ -66,6 +69,24 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         onSplashColorChanged();
         //注册微信
         regToWx();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        MobclickAgent.onKillProcess(this);
+        super.onDestroy();
     }
 
     private void regToWx() {

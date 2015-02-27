@@ -69,6 +69,30 @@ ADDED from AndroidManifest.xml:25:9
 		ADDED from AndroidManifest.xml:28:13
 	android:name
 		ADDED from AndroidManifest.xml:26:13
+service#com.umeng.update.net.DownloadingService
+ADDED from AndroidManifest.xml:30:9
+	android:process
+		ADDED from AndroidManifest.xml:32:13
+	android:name
+		ADDED from AndroidManifest.xml:31:13
+activity#com.umeng.update.UpdateDialogActivity
+ADDED from AndroidManifest.xml:33:9
+	android:theme
+		ADDED from AndroidManifest.xml:35:13
+	android:name
+		ADDED from AndroidManifest.xml:34:13
+meta-data#UMENG_APPKEY
+ADDED from AndroidManifest.xml:37:9
+	android:name
+		ADDED from AndroidManifest.xml:39:13
+	android:value
+		ADDED from AndroidManifest.xml:38:13
+meta-data#UMENG_CHANNEL
+ADDED from AndroidManifest.xml:40:9
+	android:name
+		ADDED from AndroidManifest.xml:42:13
+	android:value
+		ADDED from AndroidManifest.xml:41:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5

@@ -22,6 +22,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:21.0.3'
-    compile files('libs/libammsdk.jar')
     compile 'com.makeramen:roundedimageview:1.5.0'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile files('libs/umeng-update-v2.6.0.jar')
+    compile files('libs/libammsdk.jar')
 }
