@@ -7,8 +7,8 @@ android {
         applicationId "com.bigfat.splashscreen"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 3
-        versionName '1.2'
+        versionCode 4
+        versionName '1.2.1'
     }
     buildTypes {
         release {
@@ -16,7 +16,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     productFlavors {
+        xiaomi {}
+        _360 {}
+        baidu {}
+        wandoujia {}
+        myapp {}
+        appchina {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
 }
 

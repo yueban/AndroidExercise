@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">闪屏</string>
-    <string name="share_weixin">分享到微信</string>
-    <string name="start_pause">开始/暂停</string>
-    <string name="change_color">调整颜色</string>
+    <string name="app_name">SplashScreen</string>
+    <string name="share_weixin">Share To WeChat</string>
+    <string name="start_pause">start/pause</string>
+    <string name="change_color">change color</string>
 </resources>
