@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="UMBreak_Network">Please make sure you are connected to internet,update failed</string>
     <string name="UMUpdateTitle">New version found</string>
     <string name="UMNewVersion">Latest version: </string>
@@ -15,5 +14,4 @@
     <string name="UMToast_IsUpdating">Updating....</string>
     <string name="UMDialog_InstallAPK">The lastest version has been downloaded, install now ?</string>
     <string name="UMUpdateCheck">2.6.0.20150211</string>
-
 </resources>

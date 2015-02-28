@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="umeng_common_icon"></string>
+    <string name="app_name">SplashScreen</string>
+    <string name="share_weixin">Share To WeChat</string>
+    <string name="start_pause">start/pause</string>
+    <string name="change_color">change color</string>
 </resources>
