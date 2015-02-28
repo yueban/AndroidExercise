@@ -64,6 +64,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private LinearLayout mPassView;
     private TextView mCurrentStagePassView;//过关界面关卡索引
     private TextView mCurrentSongNamePassView;//过关界面歌曲名称
+    private TextView mRewardConis;//过关奖励金币数
     private ImageButton mBtnNext;//下一关
     private ImageButton mBtnShare;//分享到微信
 
@@ -126,7 +127,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * 初始化当前关卡数据
      */
     private void initCurrentStageData() {
-        //准备数据
         //读取当前关歌曲信息
         mCurrentSong = loadStageSongInfo(++mCurrentStageIndex);
         //初始化已选文字
@@ -168,12 +168,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mPanAnim.setInterpolator(mPanLin);
 
         mBarInAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_45);
-//        mBarInAnim.setFillAfter(true);
         mBarInLin = new LinearInterpolator();
         mBarInAnim.setInterpolator(mBarInLin);
 
         mBarOutAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_d_45);
-//        mBarOutAnim.setFillAfter(true);
         mBarOutLin = new LinearInterpolator();
         mBarOutAnim.setInterpolator(mBarOutLin);
     }
@@ -238,6 +236,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mSelectedWordsContainer = (LinearLayout) findViewById(R.id.word_selected_container);
         mPassView = (LinearLayout) findViewById(R.id.pass_view);
         mTvCurrentStage = (TextView) findViewById(R.id.text_current_stage);
+        mRewardConis = (TextView) findViewById(R.id.text_reward_conis);
         mTvCurrentCoins = (TextView) findViewById(R.id.tv_top_bar_coin);
         mBtnTopBack = (ImageButton) findViewById(R.id.btn_top_bar_back);
         mBtnDeleteWord = (ImageButton) findViewById(R.id.btn_delete_word);
@@ -246,6 +245,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mCurrentSongNamePassView = (TextView) findViewById(R.id.text_current_song_name_pass);
         mBtnNext = (ImageButton) findViewById(R.id.btn_next);
         mBtnShare = (ImageButton) findViewById(R.id.btn_share);
+
+        mRewardConis.setText(String.valueOf(Constant.REWARD_COINS));
     }
 
     private void initSelectedWordsView() {
@@ -522,6 +523,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mPassView.setVisibility(View.VISIBLE);//显示过关界面
         mCurrentStagePassView.setText(String.valueOf(mCurrentStageIndex + 1));
         mCurrentSongNamePassView.setText(mCurrentSong.getName());
+        handleCoins(Constant.REWARD_COINS);//过关金币奖励
         Utils.playTone(MainActivity.this, Constant.INDEX_TONE_COIN);//播放金币掉落音效
     }
 

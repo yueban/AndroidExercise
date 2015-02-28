@@ -21,6 +21,11 @@ public class Constant {
     public static final int TOTAL_COINS = 9000;
 
     /**
+     * 每关金币奖励
+     */
+    public static final int REWARD_COINS = 50;
+
+    /**
      * 歌曲数组中文件名索引
      */
     public static final int INDEX_SONG_INFO_FILE_NAME = 0;

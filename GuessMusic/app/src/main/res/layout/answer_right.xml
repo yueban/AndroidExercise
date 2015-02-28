@@ -97,6 +97,7 @@
             android:text="x" />
 
         <TextView
+            android:id="@+id/text_reward_conis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
