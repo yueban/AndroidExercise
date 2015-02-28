@@ -18,7 +18,7 @@ public class Constant {
     /**
      * 初始金币总数
      */
-    public static final int TOTAL_COINS = 9000;
+    public static final int TOTAL_COINS = 500;
 
     /**
      * 每关金币奖励

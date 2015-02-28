@@ -88,6 +88,33 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Song mCurrentSong;//当前播放歌曲
     private int mCurrentStageIndex = -1;//当前关卡索引
     private int mCurrentCoins = Constant.TOTAL_COINS;//当前金币数量
+    /**
+     * 删除一个待选字
+     */
+    private IAlertDialogButtonListener mBtnOkDeleteWordListener = new IAlertDialogButtonListener() {
+        @Override
+        public void onOkButtonClick() {
+            deleteOneWord();
+        }
+    };
+    /**
+     * 提示一个答案
+     */
+    private IAlertDialogButtonListener mBtnOkTipAnswerListener = new IAlertDialogButtonListener() {
+        @Override
+        public void onOkButtonClick() {
+            tipOneAnswerWord();
+        }
+    };
+    /**
+     * 金币不足
+     */
+    private IAlertDialogButtonListener mBtnOkLackCoinsListener = new IAlertDialogButtonListener() {
+        @Override
+        public void onOkButtonClick() {
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -284,6 +311,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mBtnShare.setOnClickListener(this);
     }
 
+    //自定义AlertDialog响应事件
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -309,6 +338,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     //加载下一关数据
                     initCurrentStageData();
                 } else {//没有下一关，通关
+                    //重置关卡及金币数
+                    mCurrentStageIndex = 0;
+                    mCurrentCoins = Constant.TOTAL_COINS;
+                    //跳转到通关界面
                     Intent intent = new Intent(MainActivity.this, AllPassActivity.class);
                     startActivity(intent);
                     finish();
@@ -339,37 +372,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onWordClick(Button wordButton, Word word) {
         setSelectedWord(word);
     }
-
-    //自定义AlertDialog响应事件
-    /**
-     * 删除一个待选字
-     */
-    private IAlertDialogButtonListener mBtnOkDeleteWordListener = new IAlertDialogButtonListener() {
-        @Override
-        public void onOkButtonClick() {
-            deleteOneWord();
-        }
-    };
-
-    /**
-     * 提示一个答案
-     */
-    private IAlertDialogButtonListener mBtnOkTipAnswerListener = new IAlertDialogButtonListener() {
-        @Override
-        public void onOkButtonClick() {
-            tipOneAnswerWord();
-        }
-    };
-
-    /**
-     * 金币不足
-     */
-    private IAlertDialogButtonListener mBtnOkLackCoinsListener = new IAlertDialogButtonListener() {
-        @Override
-        public void onOkButtonClick() {
-
-        }
-    };
 
     /**
      * 获得关卡歌曲信息
