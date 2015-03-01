@@ -17,7 +17,7 @@ import com.bigfat.arcmenu.view.util.Status;
  * @author <a href="mailto:fbzhh007@gmail.com">bigfat</a>
  * @since 2015/3/1
  */
-public class ArcMenu extends ViewGroup {
+public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
     public static final String TAG = "ArcMenu";
 
@@ -85,11 +85,56 @@ public class ArcMenu extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int count = getChildCount();
+        for (int i = 0; i < count; i++) {
+            //测量Child
+            measureChild(getChildAt(i), widthMeasureSpec, heightMeasureSpec);
+        }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        if (changed) {
+            layoutCenterButton();
+        }
+    }
+
+    /**
+     * 定位主菜单按钮
+     */
+    private void layoutCenterButton() {
+        mCenterButton = getChildAt(0);
+        mCenterButton.setOnClickListener(this);
+
+        int l = 0;
+        int t = 0;
+        int width = mCenterButton.getMeasuredWidth();
+        int height = mCenterButton.getMeasuredHeight();
+
+        switch (mPosition) {
+            case LEFT_TOP:
+                l = 0;
+                t = 0;
+                break;
+            case LEFT_BOTTOM:
+                l = 0;
+                t = getMeasuredHeight() - height;
+                break;
+            case RIGHT_TOP:
+                l = getMeasuredWidth() - width;
+                t = 0;
+                break;
+            case RIGHT_BOTTOM:
+                l = getMeasuredWidth() - width;
+                t = getMeasuredHeight() - height;
+                break;
+        }
+        mCenterButton.layout(l, t, l + width, t + height);
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }

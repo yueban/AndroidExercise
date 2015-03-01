@@ -9,5 +9,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:position="left_bottom"
-        app:radius="120dp" />
+        app:radius="120dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/composer_button">
+
+            <ImageView
+                android:id="@+id/id_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/composer_icn_plus" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/composer_camera"
+            android:tag="Camera" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/composer_music"
+            android:tag="Music" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/composer_place"
+            android:tag="Place" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/composer_sleep"
+            android:tag="Sleep" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/composer_thought"
+            android:tag="Thought" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/composer_with"
+            android:tag="With" />
+    </com.bigfat.arcmenu.view.ArcMenu>
 </RelativeLayout>
