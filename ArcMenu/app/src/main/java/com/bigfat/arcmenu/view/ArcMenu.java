@@ -59,20 +59,20 @@ public class ArcMenu extends ViewGroup {
         //获取自定义属性值
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ArcMenu, defStyleAttr, 0);
         //菜单位置
-        int pos = a.getInt(R.styleable.ArcMenu_position, 3);
+        int pos = a.getInt(R.styleable.ArcMenu_position, Position.POS_RIGHT_BOTTOM);
         switch (pos) {
-            case 0:
+            case Position.POS_LEFT_TOP:
                 mPosition = Position.LEFT_TOP;
                 break;
 
-            case 1:
+            case Position.POS_LEFT_BOTTOM:
                 mPosition = Position.LEFT_BOTTOM;
                 break;
-            case 2:
+            case Position.POS_RIGHT_TOP:
                 mPosition = Position.RIGHT_TOP;
                 break;
 
-            case 3:
+            case Position.POS_RIGHT_BOTTOM:
                 mPosition = Position.RIGHT_BOTTOM;
                 break;
         }
