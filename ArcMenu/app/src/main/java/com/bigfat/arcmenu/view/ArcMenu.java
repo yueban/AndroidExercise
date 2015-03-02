@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 
 import com.bigfat.arcmenu.R;
 import com.bigfat.arcmenu.view.util.OnMenuItemClickListener;
@@ -35,6 +36,10 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
      * 菜单状态
      */
     private Status mCurrentStatus = Status.CLOSE;
+    /**
+     * 是否正在执行动画
+     */
+    private boolean mIsAnim;
     /**
      * 菜单主按钮
      */
@@ -164,13 +169,69 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        rotateCenterButton(v, 0f, 360f, 300);
+        if (!mIsAnim) {
+            rotateCenterButton(v, 0f, 360f, 300);
+            toggleMenu(300);
+        }
+    }
+
+    /**
+     * 切换菜单展开/收起状态
+     *
+     * @param duration 子菜单项动画时间
+     */
+    private void toggleMenu(int duration) {
+        final int count = getChildCount();
+        for (int i = 0; i < count - 1; i++) {
+            final View childView = getChildAt(i + 1);
+            int offset = duration / 20;
+            int x = mCenterButton.getLeft() - childView.getLeft();
+            int y = mCenterButton.getTop() - childView.getTop();
+            TranslateAnimation translateAnimation;
+            if (mCurrentStatus == Status.CLOSE) {
+                translateAnimation = new TranslateAnimation(x, 0, y, 0);
+                childView.setClickable(true);
+                childView.setFocusable(true);
+            } else {
+                translateAnimation = new TranslateAnimation(0, x, 0, y);
+                childView.setClickable(false);
+                childView.setFocusable(false);
+            }
+            translateAnimation.setDuration(duration);
+            translateAnimation.setStartOffset(i * offset);
+            final int finalI = i;
+            translateAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    mIsAnim = true;
+                    childView.setVisibility(VISIBLE);
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    Log.i(TAG, "mCurrentStatus--->" + mCurrentStatus);
+                    if (mCurrentStatus == Status.OPEN) {//open to close
+                        childView.setVisibility(View.GONE);
+                        Log.i(TAG, "childView--->" + childView.getVisibility());
+                    }
+                    if (finalI == count - 2) {//最后一个子菜单的动画结束
+                        mIsAnim = false;
+                        mCurrentStatus = mCurrentStatus == Status.OPEN ? Status.CLOSE : Status.OPEN;
+                    }
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            childView.startAnimation(translateAnimation);
+        }
     }
 
     private void rotateCenterButton(View v, float start, float end, int duration) {
         RotateAnimation animation = new RotateAnimation(start, end, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(duration);
-        animation.setFillAfter(true);
         v.startAnimation(animation);
     }
 }
