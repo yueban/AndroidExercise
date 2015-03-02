@@ -7,6 +7,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 
 import com.bigfat.arcmenu.R;
 import com.bigfat.arcmenu.view.util.OnMenuItemClickListener;
@@ -101,6 +103,8 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
             int count = getChildCount();
             for (int i = 0; i < count - 1; i++) {
                 View child = getChildAt(i + 1);
+                child.setVisibility(GONE);
+
                 double radian = Math.PI / 2 / (count - 2) * i;
                 int childL = (int) (mRadius * Math.sin(radian));
                 int childT = (int) (mRadius * Math.cos(radian));
@@ -160,6 +164,13 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        rotateCenterButton(v, 0f, 360f, 300);
+    }
 
+    private void rotateCenterButton(View v, float start, float end, int duration) {
+        RotateAnimation animation = new RotateAnimation(start, end, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        animation.setDuration(duration);
+        animation.setFillAfter(true);
+        v.startAnimation(animation);
     }
 }
