@@ -97,6 +97,31 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         if (changed) {
             layoutCenterButton();
+
+            int count = getChildCount();
+            for (int i = 0; i < count - 1; i++) {
+                View child = getChildAt(i + 1);
+                double radian = Math.PI / 2 / (count - 2) * i;
+                int childL = (int) (mRadius * Math.sin(radian));
+                int childT = (int) (mRadius * Math.cos(radian));
+                int childWidth = child.getMeasuredWidth();
+                int childHeight = child.getMeasuredHeight();
+                switch (mPosition) {
+                    case LEFT_TOP:
+                        break;
+                    case LEFT_BOTTOM:
+                        childT = getMeasuredHeight() - childT - childHeight;
+                        break;
+                    case RIGHT_TOP:
+                        childL = getMeasuredWidth() - childL - childWidth;
+                        break;
+                    case RIGHT_BOTTOM:
+                        childT = getMeasuredHeight() - childT - childHeight;
+                        childL = getMeasuredWidth() - childL - childWidth;
+                        break;
+                }
+                child.layout(childL, childT, childL + childWidth, childT + childHeight);
+            }
         }
     }
 
