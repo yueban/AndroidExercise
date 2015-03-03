@@ -275,6 +275,22 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
         animationSet.setDuration(duration);
         animationSet.setFillAfter(true);
+        animationSet.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                mIsAnim = true;
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mIsAnim = false;
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         return animationSet;
     }
 
@@ -290,6 +306,22 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
         animationSet.setDuration(duration);
         animationSet.setFillAfter(true);
+        animationSet.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                mIsAnim = true;
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mIsAnim = false;
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         return animationSet;
     }
 
