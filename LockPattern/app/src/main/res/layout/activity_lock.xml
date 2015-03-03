@@ -3,6 +3,7 @@
     android:layout_height="match_parent">
 
     <com.bigfat.lockpattern.view.LockPatternView
+        android:id="@+id/id_lock_pattern"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>

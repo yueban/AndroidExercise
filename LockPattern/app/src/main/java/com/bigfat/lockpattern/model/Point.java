@@ -53,4 +53,26 @@ public class Point {
     public void setState(Status state) {
         this.state = state;
     }
+
+    /**
+     * 返回当前点与另一点间距离
+     *
+     * @param point 另一点
+     * @return 两点间距离
+     */
+    public double distance(Point point) {
+        return Math.sqrt(Math.pow(x - point.getX(), 2) + Math.pow(y - point.getY(), 2));
+    }
+
+    /**
+     * 判断移动（触摸）位置是否与点重合
+     *
+     * @param r       点的半径
+     * @param movingX 移动点的x坐标
+     * @param movingY 移动点的y坐标
+     * @return true：移动点与当前点重合；false：不重合
+     */
+    public boolean with(float r, float movingX, float movingY) {
+        return Math.sqrt(Math.pow(x - movingX, 2) + Math.pow(y - movingY, 2)) < r;
+    }
 }
