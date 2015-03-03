@@ -7,8 +7,11 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 
 import com.bigfat.arcmenu.R;
@@ -47,10 +50,10 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
     /**
      * 子菜单点击回调接口
      */
-    private OnMenuItemClickListener mMenuItemClickListener;
+    private OnMenuItemClickListener mOnMenuItemClickListener;
 
     public void setOnMenuClickListener(OnMenuItemClickListener onMenuItemClickListener) {
-        this.mMenuItemClickListener = onMenuItemClickListener;
+        this.mOnMenuItemClickListener = onMenuItemClickListener;
     }
 
     public ArcMenu(Context context) {
@@ -209,14 +212,12 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
                 @Override
                 public void onAnimationEnd(Animation animation) {
-                    Log.i(TAG, "mCurrentStatus--->" + mCurrentStatus);
                     if (mCurrentStatus == Status.OPEN) {//open to close
                         childView.setVisibility(View.GONE);
-                        Log.i(TAG, "childView--->" + childView.getVisibility());
                     }
                     if (finalI == count - 2) {//最后一个子菜单的动画结束
                         mIsAnim = false;
-                        mCurrentStatus = mCurrentStatus == Status.OPEN ? Status.CLOSE : Status.OPEN;
+                        changeStatus();
                     }
                 }
 
@@ -226,7 +227,70 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
                 }
             });
             childView.startAnimation(translateAnimation);
+            //设置监听器
+            childView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mOnMenuItemClickListener != null) {
+                        mOnMenuItemClickListener.onClick(childView, finalI);
+                    }
+                    menuItemAnim(finalI);
+                    changeStatus();
+                }
+            });
         }
+    }
+
+    private void changeStatus() {
+        mCurrentStatus = mCurrentStatus == Status.OPEN ? Status.CLOSE : Status.OPEN;
+    }
+
+    /**
+     * menuItem的点击动画
+     *
+     * @param pos menuItem的位置0~count-2
+     */
+    private void menuItemAnim(int pos) {
+        for (int i = 0; i < getChildCount() - 1; i++) {
+            View childView = getChildAt(i + 1);
+            if (pos == i) {
+                childView.startAnimation(scaleBigAnim(300));
+            } else {
+                childView.startAnimation(scaleSmallAnim(300));
+            }
+            childView.setFocusable(false);
+            childView.setClickable(false);
+        }
+    }
+
+    private Animation scaleBigAnim(int duration) {
+        AnimationSet animationSet = new AnimationSet(true);
+
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1, 4, 1, 4, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
+        AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0);
+
+        animationSet.addAnimation(scaleAnimation);
+        animationSet.addAnimation(alphaAnimation);
+
+        animationSet.setDuration(duration);
+        animationSet.setFillAfter(true);
+        return animationSet;
+    }
+
+    private Animation scaleSmallAnim(int duration) {
+        AnimationSet animationSet = new AnimationSet(true);
+
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1, 0, 1, 0, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
+        AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0);
+
+        animationSet.addAnimation(scaleAnimation);
+        animationSet.addAnimation(alphaAnimation);
+
+        animationSet.setDuration(duration);
+        animationSet.setFillAfter(true);
+        return animationSet;
     }
 
     private void rotateCenterButton(View v, float start, float end, int duration) {
