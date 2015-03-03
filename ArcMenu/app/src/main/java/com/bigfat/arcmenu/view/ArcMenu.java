@@ -110,6 +110,9 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
                 View child = getChildAt(i);
                 child.setVisibility(GONE);
 
+                //子菜单相对于主按钮的偏移量，使子菜单与主按钮位于同一中心
+                int offsetX = (mCenterButton.getMeasuredWidth() - child.getMeasuredWidth()) / 2;
+                int offsetY = (mCenterButton.getMeasuredHeight() - child.getMeasuredHeight()) / 2;
                 double radian = Math.PI / 2 / (count - 2) * i;
                 int childL = (int) (mRadius * Math.sin(radian));
                 int childT = (int) (mRadius * Math.cos(radian));
@@ -119,17 +122,21 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
                     case LEFT_TOP:
                         break;
                     case LEFT_BOTTOM:
+//                        offsetY = -offsetY;
                         childT = getMeasuredHeight() - childT - childHeight;
                         break;
                     case RIGHT_TOP:
+//                        offsetX = -offsetX;
                         childL = getMeasuredWidth() - childL - childWidth;
                         break;
                     case RIGHT_BOTTOM:
+//                        offsetX = -offsetX;
+//                        offsetY = -offsetY;
                         childT = getMeasuredHeight() - childT - childHeight;
                         childL = getMeasuredWidth() - childL - childWidth;
                         break;
                 }
-                child.layout(childL, childT, childL + childWidth, childT + childHeight);
+                child.layout(offsetX + childL, offsetY + childT, offsetX + childL + childWidth, offsetY + childT + childHeight);
             }
         }
     }
