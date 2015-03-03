@@ -8,19 +8,6 @@
     app:radius="100dp"
     tools:showIn="@layout/activity_main">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/composer_button">
-
-        <ImageView
-            android:id="@+id/id_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/composer_icn_plus" />
-    </RelativeLayout>
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,4 +32,16 @@
         android:src="@mipmap/composer_sleep"
         android:tag="Sleep" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/composer_button">
+
+        <ImageView
+            android:id="@+id/id_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/composer_icn_plus" />
+    </RelativeLayout>
 </com.bigfat.arcmenu.view.ArcMenu>

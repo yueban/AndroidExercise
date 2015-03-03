@@ -3,7 +3,6 @@ package com.bigfat.arcmenu.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,8 +88,6 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
         //菜单展开半径，默认100dp
         mRadius = (int) a.getDimension(R.styleable.ArcMenu_radius, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()));
         a.recycle();
-
-        Log.i(TAG, "posttion--->" + mPosition + "\tradius--->" + mRadius);
     }
 
     @Override
@@ -110,7 +107,7 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
 
             int count = getChildCount();
             for (int i = 0; i < count - 1; i++) {
-                View child = getChildAt(i + 1);
+                View child = getChildAt(i);
                 child.setVisibility(GONE);
 
                 double radian = Math.PI / 2 / (count - 2) * i;
@@ -141,7 +138,7 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
      * 定位主菜单按钮
      */
     private void layoutCenterButton() {
-        mCenterButton = getChildAt(0);
+        mCenterButton = getChildAt(getChildCount() - 1);
         mCenterButton.setOnClickListener(this);
 
         int l = 0;
@@ -186,7 +183,7 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
     private void toggleMenu(int duration) {
         final int count = getChildCount();
         for (int i = 0; i < count - 1; i++) {
-            final View childView = getChildAt(i + 1);
+            final View childView = getChildAt(i);
             int offset = duration / 20;
             int x = mCenterButton.getLeft() - childView.getLeft();
             int y = mCenterButton.getTop() - childView.getTop();
@@ -252,7 +249,7 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
      */
     private void menuItemAnim(int pos) {
         for (int i = 0; i < getChildCount() - 1; i++) {
-            View childView = getChildAt(i + 1);
+            View childView = getChildAt(i);
             if (pos == i) {
                 childView.startAnimation(scaleBigAnim(300));
             } else {
