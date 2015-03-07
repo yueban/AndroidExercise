@@ -66,6 +66,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 view.loadUrl(url);
                 return super.shouldOverrideUrlLoading(view, url);
             }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+                view.loadUrl("file:///android_asset/error.html");
+            }
         });
         webView.setDownloadListener(new DownloadListener() {
             @Override
