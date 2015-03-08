@@ -1,5 +1,6 @@
 package com.bigfat.webviewtest;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         btnTopRefresh.setOnClickListener(this);
     }
 
+    @SuppressLint("JavascriptInterface")
     private void initWebView() {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
