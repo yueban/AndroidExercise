@@ -52,6 +52,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
 
+        webView.addJavascriptInterface(new WebHost(MainActivity.this),"js");
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onReceivedTitle(WebView view, String title) {
