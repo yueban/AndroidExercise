@@ -22,13 +22,13 @@ public class MainActivity extends ActionBarActivity {
         }
     };
 
-    private Runnable myRunnable = new Runnable() {
+    private Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
             img_index++;
             img_index = img_index % 3;
             imgMain.setImageResource(Constant.IMG[img_index]);
-            mHandler.postDelayed(myRunnable, 1000);
+            mHandler.postDelayed(mRunnable, 1000);
         }
     };
 
@@ -41,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         initView();
-//        mHandler.postDelayed(myRunnable, 1000);
+//        mHandler.postDelayed(mRunnable, 1000);
 
         new Thread() {
             @Override
@@ -49,12 +49,13 @@ public class MainActivity extends ActionBarActivity {
                 try {
                     Thread.sleep(1000);
 
-                    Message msg = new Message();
+                    Message msg = mHandler.obtainMessage();
                     msg.arg1 = 101;
                     msg.arg2 = 30;
                     Person p = new Person("小明", 12);
                     msg.obj = p;
-                    mHandler.sendMessage(msg);
+                    msg.sendToTarget();
+//                    mHandler.sendMessage(msg);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
