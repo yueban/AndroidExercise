@@ -5,8 +5,15 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_main"
         android:text="@string/hello_world"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
