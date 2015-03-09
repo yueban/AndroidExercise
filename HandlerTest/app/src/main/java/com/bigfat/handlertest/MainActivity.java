@@ -26,7 +26,12 @@ public class MainActivity extends ActionBarActivity {
             public void run() {
                 try {
                     Thread.sleep(1000);
-                    tvMain.setText("没有报错");
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvMain.setText("没有报错");
+                        }
+                    });
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
