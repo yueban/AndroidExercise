@@ -2,6 +2,7 @@ package com.bigfat.handlertest;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,12 @@ public class MainActivity extends ActionBarActivity {
 
     private ImageView imgMain;
 
-    private Handler mHandler = new Handler();
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            tvMain.setText(msg.arg1 + "-" + msg.arg2 + "=" + (msg.arg1 - msg.arg2) + "\n" + msg.obj);
+        }
+    };
 
     private Runnable myRunnable = new Runnable() {
         @Override
@@ -28,13 +34,32 @@ public class MainActivity extends ActionBarActivity {
 
     private int img_index;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initView();
-        mHandler.postDelayed(myRunnable, 1000);
+//        mHandler.postDelayed(myRunnable, 1000);
+
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+
+                    Message msg = new Message();
+                    msg.arg1 = 101;
+                    msg.arg2 = 30;
+                    Person p = new Person("小明", 12);
+                    msg.obj = p;
+                    mHandler.sendMessage(msg);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
 
 //        new Thread() {
 //            @Override
