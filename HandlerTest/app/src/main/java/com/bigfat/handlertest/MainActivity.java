@@ -2,8 +2,10 @@ package com.bigfat.handlertest;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,14 +23,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Handler mHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            Toast.makeText(MainActivity.this,"1",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "1", Toast.LENGTH_SHORT).show();
             return false;
         }
     }) {
         @Override
         public void handleMessage(Message msg) {
 //            tvMain.setText(msg.arg1 + "-" + msg.arg2 + "=" + (msg.arg1 - msg.arg2) + "\n" + msg.obj);
-            Toast.makeText(MainActivity.this,"2",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "2", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -44,6 +46,30 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private int img_index;
 
+    class MyThread extends Thread {
+        private Handler handler;
+
+        @Override
+        public void run() {
+            Looper.prepare();
+            handler = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    Log.i(TAG, "currentThread:" + Thread.currentThread());
+                }
+            };
+            Looper.loop();
+        }
+    }
+
+    private Handler threadHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            Log.i(TAG, "UIThread:" + Thread.currentThread());
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,33 +78,43 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         initView();
         initEvent();
 
-        mHandler.postDelayed(mRunnable, 1000);
+        MyThread thread = new MyThread();
+        thread.start();
+        try {
+            thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        thread.handler.sendEmptyMessage(1);
+        threadHandler.sendEmptyMessage(1);
 
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-
-                    Message msg = Message.obtain(mHandler,new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(MainActivity.this,"0",Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    msg.arg1 = 101;
-                    msg.arg2 = 30;
-                    Person p = new Person("小明", 12);
-                    msg.obj = p;
-                    msg.sendToTarget();
-
-
-//                    mHandler.sendMessage(msg);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
+//        mHandler.postDelayed(mRunnable, 1000);
+//
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(1000);
+//
+//                    Message msg = Message.obtain(mHandler,new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Toast.makeText(MainActivity.this,"0",Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                    msg.arg1 = 101;
+//                    msg.arg2 = 30;
+//                    Person p = new Person("小明", 12);
+//                    msg.obj = p;
+//                    msg.sendToTarget();
+//
+//
+////                    mHandler.sendMessage(msg);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }.start();
 
 //        new Thread() {
 //            @Override
