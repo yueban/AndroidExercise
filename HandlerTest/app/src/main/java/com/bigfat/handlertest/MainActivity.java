@@ -47,11 +47,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private int img_index;
 
     class MyThread extends Thread {
-        private Handler handler;
+        public Handler handler;
+        public Looper looper;
 
         @Override
         public void run() {
             Looper.prepare();
+            looper = Looper.myLooper();
+
             handler = new Handler() {
                 @Override
                 public void handleMessage(Message msg) {
@@ -80,12 +83,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         MyThread thread = new MyThread();
         thread.start();
-        try {
-            thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        thread.handler.sendEmptyMessage(1);
+//        try {
+//            thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        thread.handler.sendEmptyMessage(1);
+//        threadHandler.sendEmptyMessage(1);
+
+        threadHandler = new Handler(thread.looper) {
+
+            @Override
+            public void handleMessage(Message msg) {
+                Log.i(TAG, "UIThread:" + Thread.currentThread());
+            }
+        };
         threadHandler.sendEmptyMessage(1);
 
 //        mHandler.postDelayed(mRunnable, 1000);
