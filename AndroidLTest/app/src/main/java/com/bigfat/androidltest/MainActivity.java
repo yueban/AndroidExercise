@@ -2,16 +2,41 @@ package com.bigfat.androidltest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class MainActivity extends Activity {
 
+    public static DisplayMetrics displayMetrics;
+
+    private RecyclerView recyclerView;
+    private String[] mData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        displayMetrics = getResources().getDisplayMetrics();
+
+        initData();
+
+        recyclerView = (RecyclerView) findViewById(R.id.main_rv);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new RecyclerViewAdapter(mData));
+    }
+
+    private void initData() {
+        int size = 20;
+        mData = new String[size];
+        for (int i = 0; i < size; i++) {
+            mData[i] = String.valueOf(i);
+        }
     }
 
     @Override
