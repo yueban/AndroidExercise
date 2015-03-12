@@ -1,16 +1,24 @@
 package com.bigfat.androidltest;
 
+import android.animation.Animator;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.util.Log;
+import android.transition.ChangeTransform;
+import android.transition.Explode;
+import android.transition.Transition;
+import android.util.Pair;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewOutlineProvider;
+import android.view.Window;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageButton;
 
 import com.bigfat.androidltest.model.Paper;
@@ -23,21 +31,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
 
-    public static DisplayMetrics displayMetrics;
-
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private ImageButton imgBtnFloatButton;
-    private List<Paper> paperList;
+    public static List<Paper> paperList;
     //表示是否是添加状态
     private boolean isAdd = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().setEnterTransition(new Explode().setDuration(1000));
         setContentView(R.layout.activity_main);
-
-        displayMetrics = getResources().getDisplayMetrics();
 
         initActionBar();
         initView();
@@ -58,11 +64,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-
     private void initView() {
-        recyclerView = (RecyclerView) findViewById(R.id.main_rv);
-        imgBtnFloatButton = (ImageButton) findViewById(R.id.imgbtn_float_button);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_main);
+        imgBtnFloatButton = (ImageButton) findViewById(R.id.imgbtn_main_float_button);
     }
+
 
     private void initFloatButton() {
         imgBtnFloatButton.setOutlineProvider(new ViewOutlineProvider() {
@@ -98,7 +104,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imgbtn_float_button:
+            case R.id.imgbtn_main_float_button:
+                Animator animator = createCircularRevealAnimator(v);
+                animator.start();
+
                 if (recyclerViewAdapter.getItemCount() != C.NAMES.length && isAdd) {
                     addData();
                 } else {
@@ -121,6 +130,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void startActivity(final View v, final int position) {
-        Log.i(TAG, "startActivity___position--->" + position);
+        View pic = v.findViewById(R.id.img_list_item_pic);
+        //组装跳转参数
+        Transition transition = new ChangeTransform();
+        transition.setDuration(300);
+        getWindow().setExitTransition(transition);
+        //共享组件
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create(pic, position + "pic"), Pair.create((View) imgBtnFloatButton, "shareBtn")).toBundle();
+
+        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+        intent.putExtra("position", position);
+        startActivity(intent, bundle);
+    }
+
+    /**
+     * 获取圆形切小放大动画
+     *
+     * @param v 要执行动画的View
+     */
+    private Animator createCircularRevealAnimator(View v) {
+        Animator animator = ViewAnimationUtils.createCircularReveal(v, v.getWidth() / 2, v.getHeight() / 2, 0, v.getWidth());
+        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        animator.setDuration(300);
+        return animator;
     }
 }

@@ -9,13 +9,13 @@
     tools:context=".MainActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_rv"
+        android:id="@+id/rv_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="0dp" />
 
     <ImageButton
-        android:id="@+id/imgbtn_float_button"
+        android:id="@+id/imgbtn_main_float_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="start|bottom"
