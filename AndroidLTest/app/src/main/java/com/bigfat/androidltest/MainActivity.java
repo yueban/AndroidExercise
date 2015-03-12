@@ -1,20 +1,36 @@
 package com.bigfat.androidltest;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.Outline;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewOutlineProvider;
+import android.widget.ImageButton;
+
+import com.bigfat.androidltest.model.Paper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
+
+    private static final String TAG = "MainActivity";
 
     public static DisplayMetrics displayMetrics;
 
     private RecyclerView recyclerView;
-    private String[] mData;
+    private RecyclerViewAdapter recyclerViewAdapter;
+    private ImageButton imgBtnFloatButton;
+    private List<Paper> paperList;
+    //表示是否是添加状态
+    private boolean isAdd = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,41 +39,88 @@ public class MainActivity extends Activity {
 
         displayMetrics = getResources().getDisplayMetrics();
 
+        initActionBar();
+        initView();
+        initFloatButton();
         initData();
-
-        recyclerView = (RecyclerView) findViewById(R.id.main_rv);
+        initEvent();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new RecyclerViewAdapter(mData));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, paperList);
+        recyclerView.setAdapter(recyclerViewAdapter);
+    }
+
+    private void initActionBar() {
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("壁纸分享");
+        }
+    }
+
+
+    private void initView() {
+        recyclerView = (RecyclerView) findViewById(R.id.main_rv);
+        imgBtnFloatButton = (ImageButton) findViewById(R.id.imgbtn_float_button);
+    }
+
+    private void initFloatButton() {
+        imgBtnFloatButton.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                int shapeSize = (int) getResources().getDimension(R.dimen.shape_size);
+                outline.setRoundRect(0, 0, shapeSize, shapeSize, shapeSize / 2);
+            }
+        });
+        imgBtnFloatButton.setClipToOutline(true);
     }
 
     private void initData() {
-        int size = 20;
-        mData = new String[size];
-        for (int i = 0; i < size; i++) {
-            mData[i] = String.valueOf(i);
+        if (paperList == null) {
+            paperList = new ArrayList<>();
         }
+        paperList.clear();
+        addData();
+    }
+
+    private void addData() {
+        paperList.add(new Paper(C.NAMES[paperList.size()], C.PICS[paperList.size()], C.WORKS[paperList.size()], C.PIC_GROUPS[paperList.size()]));
+    }
+
+    private void removeData() {
+        paperList.remove(paperList.size() - 1);
+    }
+
+    private void initEvent() {
+        imgBtnFloatButton.setOnClickListener(this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.imgbtn_float_button:
+                if (recyclerViewAdapter.getItemCount() != C.NAMES.length && isAdd) {
+                    addData();
+                } else {
+                    removeData();
+                }
+                recyclerViewAdapter.notifyDataSetChanged();
+                recyclerView.scrollToPosition(recyclerViewAdapter.getItemCount() - 1);
+
+                //调整增减状态
+                if (recyclerViewAdapter.getItemCount() == 0) {
+                    imgBtnFloatButton.setImageDrawable(getDrawable(android.R.drawable.ic_input_add));
+                    isAdd = true;
+                }
+                if (recyclerViewAdapter.getItemCount() == C.NAMES.length) {
+                    imgBtnFloatButton.setImageDrawable(getDrawable(android.R.drawable.ic_delete));
+                    isAdd = false;
+                }
+                break;
+        }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void startActivity(final View v, final int position) {
+        Log.i(TAG, "startActivity___position--->" + position);
     }
 }
