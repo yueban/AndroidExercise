@@ -3,7 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
+
+    <Toolbar
+        android:id="@+id/tb_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:transitionName="toolbar"
+        tools:title="标题"
+        tools:subtitle="副标题" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -29,37 +38,22 @@
             android:src="@android:drawable/ic_menu_gallery" />
     </FrameLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#424242" />
-
     <TextView
         android:id="@+id/tv_detail_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
         android:textSize="24sp"
         android:padding="5dp"
-        android:textColor="@android:color/white"
         tools:text="NAME" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#424242" />
 
     <TextView
         android:id="@+id/tv_detail_work"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
         android:textSize="24sp"
         android:padding="5dp"
-        android:text="WORK"
-        android:textColor="@android:color/white" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#424242" />
+        android:text="WORK" />
 
 </LinearLayout>

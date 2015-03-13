@@ -1,7 +1,6 @@
 package com.bigfat.androidltest;
 
 import android.animation.Animator;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -10,9 +9,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.transition.ChangeTransform;
+import android.transition.ChangeBounds;
 import android.transition.Explode;
-import android.transition.Transition;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -20,6 +18,7 @@ import android.view.ViewOutlineProvider;
 import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageButton;
+import android.widget.Toolbar;
 
 import com.bigfat.androidltest.model.Paper;
 
@@ -31,6 +30,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
 
+    private Toolbar toolbar;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private ImageButton imgBtnFloatButton;
@@ -45,8 +45,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         getWindow().setEnterTransition(new Explode().setDuration(1000));
         setContentView(R.layout.activity_main);
 
-        initActionBar();
         initView();
+        initToolbar();
         initFloatButton();
         initData();
         initEvent();
@@ -57,18 +57,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 
-    private void initActionBar() {
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle("壁纸分享");
-        }
-    }
-
     private void initView() {
+        toolbar = (Toolbar) findViewById(R.id.tb_main);
         recyclerView = (RecyclerView) findViewById(R.id.rv_main);
         imgBtnFloatButton = (ImageButton) findViewById(R.id.imgbtn_main_float_button);
     }
 
+    private void initToolbar() {
+//        setActionBar(toolbar);
+//        ActionBar actionBar = getActionBar();
+//        if(actionBar !=null){
+//            getActionBar().setTitle("壁纸推荐");
+//        }
+        toolbar.setTitle("壁纸推荐");
+    }
 
     private void initFloatButton() {
         imgBtnFloatButton.setOutlineProvider(new ViewOutlineProvider() {
@@ -131,12 +133,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void startActivity(final View v, final int position) {
         View pic = v.findViewById(R.id.img_list_item_pic);
-        //组装跳转参数
-        Transition transition = new ChangeTransform();
-        transition.setDuration(300);
-        getWindow().setExitTransition(transition);
+        //退出Activity时的组件动画
+        getWindow().setExitTransition(new ChangeBounds().setDuration(300));
         //共享组件
-        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create(pic, position + "pic"), Pair.create((View) imgBtnFloatButton, "shareBtn")).toBundle();
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create((View) toolbar, toolbar.getTransitionName()), Pair.create(pic, position + "pic"), Pair.create((View) imgBtnFloatButton, imgBtnFloatButton.getTransitionName())).toBundle();
 
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
         intent.putExtra("position", position);

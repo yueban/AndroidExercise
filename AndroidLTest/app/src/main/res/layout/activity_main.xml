@@ -1,28 +1,38 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_main"
+    <Toolbar
+        android:id="@+id/tb_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="0dp" />
+        android:layout_height="wrap_content"
+        android:transitionName="toolbar" />
 
-    <ImageButton
-        android:id="@+id/imgbtn_main_float_button"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="start|bottom"
-        android:layout_marginBottom="30dp"
-        android:layout_marginStart="30dp"
-        android:elevation="30dp"
-        android:tint="@android:color/white"
-        android:background="@drawable/oval"
-        android:src="@android:drawable/ic_input_add" />
-</FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="0dp" />
+
+        <ImageButton
+            android:id="@+id/imgbtn_main_float_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="start|bottom"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="30dp"
+            android:elevation="30dp"
+            android:tint="@android:color/white"
+            android:background="@drawable/oval"
+            android:src="@android:drawable/ic_input_add"
+            android:transitionName="shareBtn" />
+    </FrameLayout>
+</LinearLayout>

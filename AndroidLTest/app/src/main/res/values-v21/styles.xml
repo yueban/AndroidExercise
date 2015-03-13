@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:ThemeOverlay.Material.Dark.ActionBar">
+
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">#673AB7</item>
+        <item name="android:colorPrimaryDark">#512DA8</item>
+        <item name="android:colorAccent">#03A9F4</item>
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#727272</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:navigationBarColor">#512DA8</item>
+        <item name="android:windowBackground">@color/window_background_color</item>
+        <item name="android:toolbarStyle">@style/MyToolBarStyle</item>
+        <!--<item name="android:actionBarStyle">@style/MyActionBarStyle</item>-->
+    </style>
+
+    <style name="MyToolBarStyle" parent="android:Widget.Material.Toolbar">
+        <item name="android:minHeight">?android:attr/actionBarSize</item>
+        <item name="android:background">?android:attr/colorPrimary</item>
+        <item name="android:titleTextAppearance">@style/MyToolbar.Title</item>
+        <item name="android:subtitleTextAppearance">@style/MyToolbar.Subtitle</item>
+    </style>
+
+    <style name="MyToolbar.Title" parent="@android:style/TextAppearance.Material.Widget.Toolbar.Title">
+        <item name="android:textColor">@color/title_text_color</item>
+    </style>
+
+    <style name="MyToolbar.Subtitle" parent="@android:style/TextAppearance.Material.Widget.Toolbar.Subtitle">
+        <item name="android:textColor">@color/subtitle_text_color</item>
+    </style>
+
+    <style name="MyActionBarStyle" parent="android:Widget.ActionBar">
+        <item name="android:titleTextStyle">@style/MyActionBar.Title</item>
+        <item name="android:subtitleTextStyle">@style/MyActionBar.Subtitle</item>
+    </style>
+
+    <style name="MyActionBar.Title" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/title_text_color</item>
+    </style>
+
+    <style name="MyActionBar.Subtitle" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@color/subtitle_text_color</item>
     </style>
 </resources>

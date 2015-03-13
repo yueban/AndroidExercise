@@ -1,7 +1,6 @@
 package com.bigfat.androidltest;
 
 import android.animation.Animator;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.transition.Explode;
@@ -12,6 +11,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.bigfat.androidltest.model.Paper;
 
@@ -21,6 +21,7 @@ import com.bigfat.androidltest.model.Paper;
  */
 public class DetailActivity extends Activity implements View.OnClickListener {
 
+    private Toolbar toolbar;
     private ImageView imgPic;
     private ImageButton imgBtnFloatButton;
     private TextView tvName;
@@ -28,7 +29,6 @@ public class DetailActivity extends Activity implements View.OnClickListener {
 
     //当前壁纸
     private Paper paper;
-    private int position;
     //壁纸组当前索引
     private int picIndex;
     private boolean isAnim;
@@ -38,14 +38,16 @@ public class DetailActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         getWindow().setEnterTransition(new Explode().setDuration(1000));
+//        getWindow().setEnterTransition(new Fade().setDuration(1000));
+//        getWindow().setEnterTransition(new ChangeBounds().setDuration(1000));
         getWindow().setExitTransition(null);
         setContentView(R.layout.activity_detail);
 
-        position = getIntent().getIntExtra("position", 0);
+        int position = getIntent().getIntExtra("position", 0);
         paper = MainActivity.paperList.get(position);
 
-        initActionBar();
         initView();
+        initToolbar();
         initEvent();
 
         imgPic.setTransitionName(position + "pic");
@@ -54,18 +56,23 @@ public class DetailActivity extends Activity implements View.OnClickListener {
         tvWork.setText(paper.getWork());
     }
 
-    private void initActionBar() {
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle(paper.getName());
-        }
-    }
-
     private void initView() {
+        toolbar = (Toolbar) findViewById(R.id.tb_detail);
         imgPic = (ImageView) findViewById(R.id.img_detail_pic);
         imgBtnFloatButton = (ImageButton) findViewById(R.id.imgbtn_detail_float_button);
         tvName = (TextView) findViewById(R.id.tv_detail_name);
         tvWork = (TextView) findViewById(R.id.tv_detail_work);
+    }
+
+    private void initToolbar() {
+//        setActionBar(toolbar);
+//        ActionBar actionBar = getActionBar();
+//        if(actionBar !=null){
+//            getActionBar().setTitle(paper.getName());
+//            actionBar.setSubtitle(paper.getWork());
+//        }
+        toolbar.setTitle(paper.getName());
+        toolbar.setSubtitle(paper.getWork());
     }
 
     private void initEvent() {
