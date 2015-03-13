@@ -1,6 +1,7 @@
 package com.bigfat.androidltest;
 
 import android.animation.Animator;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.transition.Explode;
@@ -65,14 +66,14 @@ public class DetailActivity extends Activity implements View.OnClickListener {
     }
 
     private void initToolbar() {
-//        setActionBar(toolbar);
-//        ActionBar actionBar = getActionBar();
-//        if(actionBar !=null){
-//            getActionBar().setTitle(paper.getName());
-//            actionBar.setSubtitle(paper.getWork());
-//        }
-        toolbar.setTitle(paper.getName());
-        toolbar.setSubtitle(paper.getWork());
+        setActionBar(toolbar);
+        ActionBar actionBar = getActionBar();
+        if(actionBar !=null){
+            getActionBar().setTitle(paper.getName());
+            actionBar.setSubtitle(paper.getWork());
+        }
+//        toolbar.setTitle(paper.getName());
+//        toolbar.setSubtitle(paper.getWork());
     }
 
     private void initEvent() {

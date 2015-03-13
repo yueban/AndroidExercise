@@ -1,6 +1,7 @@
 package com.bigfat.androidltest;
 
 import android.animation.Animator;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -33,6 +34,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
+    private LinearLayoutManager linearLayoutManager;
     private ImageButton imgBtnFloatButton;
     public static List<Paper> paperList;
     //表示是否是添加状态
@@ -46,15 +48,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         initView();
-        initToolbar();
-        initFloatButton();
         initData();
+        initToolbar();
         initEvent();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, paperList);
-        recyclerView.setAdapter(recyclerViewAdapter);
+        initFloatButton();
+        initRecyclerView();
     }
 
     private void initView() {
@@ -64,12 +62,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initToolbar() {
-//        setActionBar(toolbar);
-//        ActionBar actionBar = getActionBar();
-//        if(actionBar !=null){
-//            getActionBar().setTitle("壁纸推荐");
-//        }
-        toolbar.setTitle("壁纸推荐");
+        setActionBar(toolbar);
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            getActionBar().setTitle("壁纸推荐");
+        }
+//        toolbar.setTitle("壁纸推荐");
+    }
+
+    private void initRecyclerView() {
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.addItemDecoration(new SampleDivider(this));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, paperList);
+        recyclerView.setAdapter(recyclerViewAdapter);
     }
 
     private void initFloatButton() {
@@ -88,15 +95,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
             paperList = new ArrayList<>();
         }
         paperList.clear();
-        addData();
+        addData(0);
     }
 
-    private void addData() {
-        paperList.add(new Paper(C.NAMES[paperList.size()], C.PICS[paperList.size()], C.WORKS[paperList.size()], C.PIC_GROUPS[paperList.size()]));
+    private void addData(int position) {
+        paperList.add(position, new Paper(C.NAMES[paperList.size()], C.PICS[paperList.size()], C.WORKS[paperList.size()], C.PIC_GROUPS[paperList.size()]));
     }
 
-    private void removeData() {
-        paperList.remove(paperList.size() - 1);
+    private void removeData(int position) {
+        paperList.remove(position);
     }
 
     private void initEvent() {
@@ -110,13 +117,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Animator animator = createCircularRevealAnimator(v);
                 animator.start();
 
-                if (recyclerViewAdapter.getItemCount() != C.NAMES.length && isAdd) {
-                    addData();
-                } else {
-                    removeData();
+                int position = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                if (position == RecyclerView.NO_POSITION) {
+                    position = 0;
                 }
-                recyclerViewAdapter.notifyDataSetChanged();
-                recyclerView.scrollToPosition(recyclerViewAdapter.getItemCount() - 1);
+                if (recyclerViewAdapter.getItemCount() != C.NAMES.length && isAdd) {
+                    addData(position);
+                    recyclerViewAdapter.notifyItemInserted(position);
+                } else {
+                    removeData(position);
+                    recyclerViewAdapter.notifyItemRemoved(position);
+                }
+//                recyclerViewAdapter.notifyDataSetChanged();
+//                recyclerView.scrollToPosition(recyclerViewAdapter.getItemCount() - 1);
 
                 //调整增减状态
                 if (recyclerViewAdapter.getItemCount() == 0) {
