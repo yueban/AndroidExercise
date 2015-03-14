@@ -72,8 +72,6 @@ public class DetailActivity extends Activity implements View.OnClickListener {
             getActionBar().setTitle(paper.getName());
             actionBar.setSubtitle(paper.getWork());
         }
-//        toolbar.setTitle(paper.getName());
-//        toolbar.setSubtitle(paper.getWork());
     }
 
     private void initEvent() {

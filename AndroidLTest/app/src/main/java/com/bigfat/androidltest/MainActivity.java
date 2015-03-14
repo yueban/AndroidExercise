@@ -31,6 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
 
+//    private DragFrameLayout dflMain;
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
@@ -56,6 +57,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initView() {
+//        dflMain = (DragFrameLayout) findViewById(R.id.dfl_main);
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         recyclerView = (RecyclerView) findViewById(R.id.rv_main);
         imgBtnFloatButton = (ImageButton) findViewById(R.id.imgbtn_main_float_button);
@@ -67,7 +69,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (actionBar != null) {
             getActionBar().setTitle("壁纸推荐");
         }
-//        toolbar.setTitle("壁纸推荐");
     }
 
     private void initRecyclerView() {
@@ -80,6 +81,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initFloatButton() {
+        //浮动按钮裁剪
         imgBtnFloatButton.setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
@@ -88,6 +90,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         });
         imgBtnFloatButton.setClipToOutline(true);
+        //浮动按钮拖拽阴影
+//        dflMain.setOnDragFrameLayoutListener(new OnDragFrameLayoutListener() {
+//
+//            @Override
+//            public void onDragDrop(View view, boolean captured) {
+//                view.animate().translationZ(captured ? 30 : 0).setDuration(100);
+//            }
+//        });
+//        dflMain.addDragView(imgBtnFloatButton);
+//        dflMain.addDragView(findViewById(R.id.circle));
     }
 
     private void initData() {
