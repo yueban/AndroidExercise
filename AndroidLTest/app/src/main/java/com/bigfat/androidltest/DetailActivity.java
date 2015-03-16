@@ -68,7 +68,7 @@ public class DetailActivity extends Activity implements View.OnClickListener {
     private void initToolbar() {
         setActionBar(toolbar);
         ActionBar actionBar = getActionBar();
-        if(actionBar !=null){
+        if (actionBar != null) {
             getActionBar().setTitle(paper.getName());
             actionBar.setSubtitle(paper.getWork());
         }
@@ -82,37 +82,46 @@ public class DetailActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgbtn_detail_float_button:
-                if (!isAnim) {
-                    Animator animator = createCircularRevealAnimator(imgPic, true);
-                    animator.addListener(new Animator.AnimatorListener() {
-                        @Override
-                        public void onAnimationStart(Animator animation) {
-                            isAnim = true;
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            picIndex++;
-                            if (paper.getPicGroup() != null) {
-                                if (picIndex > paper.getPicGroup().length - 1) {
-                                    picIndex = 0;
-                                }
-                                doSecondAnim();
-                            }
-                        }
-
-                        @Override
-                        public void onAnimationCancel(Animator animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animator animation) {
-
-                        }
-                    });
-                    animator.start();
+                picIndex++;
+                if (paper.getPicGroup() != null) {
+                    if (picIndex > paper.getPicGroup().length - 1) {
+                        picIndex = 0;
+                    }
+                    imgPic.setImageResource(paper.getPicGroup()[picIndex]);
                 }
+                Animator animator = createCircularRevealAnimatorRightBottom(imgPic);
+                animator.start();
+//                if (!isAnim) {
+//                    Animator animator = createCircularRevealAnimator(imgPic, true);
+//                    animator.addListener(new Animator.AnimatorListener() {
+//                        @Override
+//                        public void onAnimationStart(Animator animation) {
+//                            isAnim = true;
+//                        }
+//
+//                        @Override
+//                        public void onAnimationEnd(Animator animation) {
+//                            picIndex++;
+//                            if (paper.getPicGroup() != null) {
+//                                if (picIndex > paper.getPicGroup().length - 1) {
+//                                    picIndex = 0;
+//                                }
+//                                doSecondAnim();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onAnimationCancel(Animator animation) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animator animation) {
+//
+//                        }
+//                    });
+//                    animator.start();
+//                }
                 break;
         }
     }
@@ -171,6 +180,13 @@ public class DetailActivity extends Activity implements View.OnClickListener {
         animator.setInterpolator(new AccelerateDecelerateInterpolator());
         animator.setDuration(300);
 
+        return animator;
+    }
+
+    private Animator createCircularRevealAnimatorRightBottom(View v) {
+        Animator animator = ViewAnimationUtils.createCircularReveal(v, imgBtnFloatButton.getLeft() + imgBtnFloatButton.getWidth() / 2, imgBtnFloatButton.getTop() + imgBtnFloatButton.getHeight() / 2, 0, v.getWidth());
+        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        animator.setDuration(300);
         return animator;
     }
 }
