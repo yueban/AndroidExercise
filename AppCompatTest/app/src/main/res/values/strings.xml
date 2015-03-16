@@ -2,4 +2,6 @@
     <string name="app_name">AppCompatTest</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="search_hint">Search</string>
 </resources>
