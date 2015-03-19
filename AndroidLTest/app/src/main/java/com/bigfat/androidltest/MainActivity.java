@@ -48,6 +48,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         getWindow().setEnterTransition(new Explode().setDuration(1000));
         setContentView(R.layout.activity_main);
 
+//        findViewById(R.id.imageView).setOutlineProvider(new ViewOutlineProvider() {
+//            @Override
+//            public void getOutline(View view, Outline outline) {
+//                int shapeSize = 120;
+//                outline.setRoundRect(0, 0, shapeSize, shapeSize, shapeSize / 2);
+//            }
+//        });
+//        findViewById(R.id.imageView).setClipToOutline(true);
+
         initView();
         initData();
         initToolbar();

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="asmack">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/asmack.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
