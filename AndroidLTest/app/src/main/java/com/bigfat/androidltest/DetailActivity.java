@@ -44,14 +44,13 @@ public class DetailActivity extends Activity implements View.OnClickListener {
 
         setContentView(R.layout.activity_detail);
 
+        int position = getIntent().getIntExtra("position", 0);
+        paper = MainActivity.paperList.get(position);
 
         initView();
         initToolbar();
         initEvent();
 
-        //设置
-        int position = getIntent().getIntExtra("position", 0);
-        paper = MainActivity.paperList.get(position);
         //为imgPic设置与前一场景共享元素相同的TransitionName，系统就是根据TransitionName为共享元素配对的
         imgPic.setTransitionName(position + "pic");
         //设置界面内容
