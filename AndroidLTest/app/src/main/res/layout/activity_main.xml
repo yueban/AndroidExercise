@@ -15,11 +15,10 @@
         android:id="@+id/dfl_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@android:color/white">
+        android:layout_weight="1">
 
         <android.support.v7.widget.RecyclerView
-            android:visibility="gone"
+            android:visibility="visible"
             android:id="@+id/rv_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -36,25 +35,5 @@
             android:background="@drawable/oval"
             android:src="@android:drawable/ic_input_add"
             android:transitionName="shareBtn" />
-
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_gravity="center"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher"
-            android:background="@android:color/darker_gray"
-            android:tint="#ffff0000"
-            android:backgroundTint="#ff0000ff"
-            android:elevation="50dp" />
-        <!--<View
-            android:focusableInTouchMode="true"
-            android:id="@+id/circle"
-            android:layout_width="@dimen/shape_size"
-            android:layout_height="@dimen/shape_size"
-            android:elevation="30dp"
-            android:layout_gravity="center"
-            android:background="#FF00FFFF" />-->
     </FrameLayout>
 </LinearLayout>

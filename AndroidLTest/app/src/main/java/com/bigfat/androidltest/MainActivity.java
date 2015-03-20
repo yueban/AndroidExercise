@@ -29,9 +29,6 @@ import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private static final String TAG = "MainActivity";
-
-//    private DragFrameLayout dflMain;
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
@@ -44,18 +41,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //开启转场动画功能
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-        getWindow().setEnterTransition(new Explode().setDuration(1000));
-        setContentView(R.layout.activity_main);
+        //设置转场动画
+        getWindow().setEnterTransition(new ChangeBounds().setDuration(1000));
+        getWindow().setExitTransition(new Explode().setDuration(300));
 
-//        findViewById(R.id.imageView).setOutlineProvider(new ViewOutlineProvider() {
-//            @Override
-//            public void getOutline(View view, Outline outline) {
-//                int shapeSize = 120;
-//                outline.setRoundRect(0, 0, shapeSize, shapeSize, shapeSize / 2);
-//            }
-//        });
-//        findViewById(R.id.imageView).setClipToOutline(true);
+        setContentView(R.layout.activity_main);
 
         initView();
         initData();
@@ -66,7 +58,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initView() {
-//        dflMain = (DragFrameLayout) findViewById(R.id.dfl_main);
         toolbar = (Toolbar) findViewById(R.id.tb_main);
         recyclerView = (RecyclerView) findViewById(R.id.rv_main);
         imgBtnFloatButton = (ImageButton) findViewById(R.id.imgbtn_main_float_button);
@@ -84,7 +75,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new SampleDivider(this));
+        //设置Item动画，这里使用系统实现的DefaultItemAnimator类
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        //初始化Adapter
         recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, paperList);
         recyclerView.setAdapter(recyclerViewAdapter);
     }
@@ -99,23 +92,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         });
         imgBtnFloatButton.setClipToOutline(true);
-        //浮动按钮拖拽阴影
-//        dflMain.setOnDragFrameLayoutListener(new OnDragFrameLayoutListener() {
-//
-//            @Override
-//            public void onDragDrop(View view, boolean captured) {
-//                view.animate().translationZ(captured ? 30 : 0).setDuration(100);
-//            }
-//        });
-//        dflMain.addDragView(imgBtnFloatButton);
-//        dflMain.addDragView(findViewById(R.id.circle));
     }
 
+    /**
+     * 初始化数据
+     */
     private void initData() {
+        //初始化/清空数据列表
         if (paperList == null) {
             paperList = new ArrayList<>();
         }
         paperList.clear();
+        //添加一个数据
         addData(0);
     }
 
@@ -134,25 +122,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imgbtn_main_float_button:
+            case R.id.imgbtn_main_float_button://点击后添加/删除一个元素
+                //浮动按钮点击动画
                 Animator animator = createCircularRevealAnimator(v);
                 animator.start();
 
+                //找到第一个可见元素的位置
                 int position = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
+                //如果没有元素，则从第0位插入元素
                 if (position == RecyclerView.NO_POSITION) {
                     position = 0;
                 }
-                if (recyclerViewAdapter.getItemCount() != C.NAMES.length && isAdd) {
+                if (recyclerViewAdapter.getItemCount() != C.NAMES.length && isAdd) {//插入元素
+                    //添加一个元素
                     addData(position);
+                    //通知Adapter，position这里添加了一个元素，动态的把它显示出来
                     recyclerViewAdapter.notifyItemInserted(position);
-                } else {
+                } else {//删除元素
+                    //删除一个元素
                     removeData(position);
+                    //通知Adapter，position位置的元素没了，动态的把它抹掉
                     recyclerViewAdapter.notifyItemRemoved(position);
                 }
-//                recyclerViewAdapter.notifyDataSetChanged();
-//                recyclerView.scrollToPosition(recyclerViewAdapter.getItemCount() - 1);
 
-                //调整增减状态
+                //调整增减状态，即当前点击浮动按钮是应该添加元素，还是删除元素
                 if (recyclerViewAdapter.getItemCount() == 0) {
                     imgBtnFloatButton.setImageDrawable(getDrawable(android.R.drawable.ic_input_add));
                     isAdd = true;
@@ -165,12 +158,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    /**
+     * 进入DetailActivity
+     */
     public void startActivity(final View v, final int position) {
+        //获取点击的Item，也是与DetailActivity的共享元素
         View pic = v.findViewById(R.id.img_list_item_pic);
-        //退出Activity时的组件动画
-        getWindow().setExitTransition(new ChangeBounds().setDuration(300));
-        //共享组件
-        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create((View) toolbar, toolbar.getTransitionName()), Pair.create(pic, position + "pic"), Pair.create((View) imgBtnFloatButton, imgBtnFloatButton.getTransitionName())).toBundle();
+        //共享元素壁纸的TransitionName
+        String picTransitionName =  position + "pic";
+        //声明使用的共享元素
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create(pic,picTransitionName), Pair.create((View) imgBtnFloatButton, imgBtnFloatButton.getTransitionName())).toBundle();
 
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
         intent.putExtra("position", position);

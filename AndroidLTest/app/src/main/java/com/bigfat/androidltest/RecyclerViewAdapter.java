@@ -17,7 +17,6 @@ import java.util.List;
  * @since 2015/3/11
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapter";
 
     private List<Paper> paperList;
     private Context mContext;
