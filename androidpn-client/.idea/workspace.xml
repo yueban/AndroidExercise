@@ -1,7 +1,695 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a990d678-003c-4202-bf3c-7a7ad8edbe45" name="Default" comment="" />
+    <list default="true" id="a990d678-003c-4202-bf3c-7a7ad8edbe45" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/A6Record.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/AAAARecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/AFSDBRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/APLRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ARecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AbstractAttr.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AbstractBody.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/AbstractConnectionListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/AbstractEmptyIterator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/AbstractHashedMap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AbstractIntegerAttr.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/AbstractKeyValue.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/AbstractMapEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/AbstractReferenceMap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/AccessModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/AccountException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/AccountExpiredException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/AccountLockedException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/AccountManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/AccountNotFoundException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/commands/AdHocCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/AdHocCommandData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/AdHocCommandDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/commands/AdHocCommandManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/commands/AdHocCommandNote.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Address.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/Affiliate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/Affiliation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/AffiliationProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/AffiliationsExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/AffiliationsProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/Agent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/history/AgentChatHistory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/history/AgentChatSession.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/AgentInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/AgentRoster.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/AgentRosterListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/AgentSession.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/AgentStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/AgentStatusRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/AgentWorkgroups.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/AndFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/AndroidConnectionConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/de/measite/smack/AndroidDebugger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/ApacheHTTPResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/ApacheHTTPSender.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/AppConfigurationEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/AttentionExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrAccept.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrAck.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrCharsets.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrHold.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrInactivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrMaxPause.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrPause.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrPolling.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrRequests.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrSessionID.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrVersion.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/AttrWait.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/Attributes.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/AuthPermission.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Authentication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/AuthenticationException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/AuthorizeCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHClientConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHClientConnEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHClientConnListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHClientRequestListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHClientResponseListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/BOSHConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/BOSHConnection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BOSHMessageEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/BOSHPacketReader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/Base32Encoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/Base64.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/Base64Encoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/Base64FileUrlEncoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Bind.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BodyParser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BodyParserResults.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BodyParserSAX.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BodyParserXmlPull.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/BodyQName.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bookmark/BookmarkManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bookmark/BookmarkedConference.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bookmark/BookmarkedURL.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bookmark/Bookmarks.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/packet/Bytestream.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/BytestreamListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/BytestreamManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/BytestreamRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/BytestreamSession.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/provider/BytestreamsProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/CERTRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/CMSessionParams.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/CNAMERecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/CRAMMD5HashedSaslClientFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/Cache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Cache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/Callback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/CallbackHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/entitycaps/packet/CapsExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/entitycaps/provider/CapsExtensionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/CapsExtensionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/carbons/Carbon.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/carbons/CarbonManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/Chat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/ChatManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/ChatManagerListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/history/ChatMetadata.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/notes/ChatNotes.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/settings/ChatSetting.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/settings/ChatSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ChatState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/ChatStateExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ChatStateListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ChatStateManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ChildrenAssociationPolicy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/ChoiceCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Client.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/ClientSaslFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ClientSubnetOption.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/packet/Close.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/provider/CloseIQProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/CloseListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/CollectionNode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/ComposableBody.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Compression.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/ConfigEventProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/Configuration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ConfigurationEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ConfigureForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ConfigureNodeFields.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ConfigureProviderManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/ConfirmationCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/Connection.java.orig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/Connection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/ConnectionConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/ConnectionCreationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/ConnectionDetachedPacketCollector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/ConnectionListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/debugger/ConsoleDebugger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/Constants.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/CredentialException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/CredentialExpiredException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/CredentialNotFoundException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Credibility.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DClass.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DHCIDRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DLVRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DNAMERecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DNSInput.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/spi/DNSJavaNameService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/dns/DNSJavaResolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DNSKEYRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DNSOutput.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/dns/DNSResolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DNSSEC.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/windows/DNSServer.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/windows/DNSServer_de.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/windows/DNSServer_fr.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/windows/DNSServer_ja.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/windows/DNSServer_pl.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/DNSUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/DSRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/packet/Data.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/DataForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/DataFormProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/DataListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/packet/DataPacketExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/provider/DataPacketProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/DateFormatType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/DeafOccupantInterceptor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/DefaultMapEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/DefaultMessageEventRequestListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/DefaultPacketExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/DefaultParticipantStatusListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/DefaultPrivateData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/DefaultUserStatusListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/DelayInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/DelayInfoProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/DelayInformation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/DelayInformationProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/receipts/DeliveryReceipt.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/receipts/DeliveryReceiptManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/receipts/DeliveryReceiptRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/DepartQueuePacket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/DestroyFailedException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/Destroyable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/novell/sasl/client/DigestChallenge.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/novell/sasl/client/DigestMD5SaslClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/proxy/DirectSocketFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/novell/sasl/client/DirectiveList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/DiscoverInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/DiscoverInfoProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/DiscoverItems.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/DiscoverItemsProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/DiscussionHistory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/EDNSOption.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/provider/EmbeddedExtensionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/EmbeddedExtensionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/EmbeddedPacketExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/EmptyIterator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/EmptyMapIterator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/EmptyRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/entitycaps/EntityCapsManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/entitycaps/cache/EntityCapsPersistentCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/EventElement.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/EventElementType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/EventProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/parsing/ExceptionLoggingCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/parsing/ExceptionThrowingCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ExtendedFlags.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ExtendedResolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/novell/sasl/client/ExternalSaslClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/FailedLoginException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/FaultTolerantNegotiator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/FileTransfer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/FileTransferListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/FileTransferManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/FileTransferNegotiator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/FileTransferRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Flags.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/Form.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/FormField.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/FormNode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/FormNodeProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/FormNodeType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/FormType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/FormattedTime.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/forward/Forwarded.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/FromContainsFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/FromMatchesFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/GPOSRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/GZIPCodec.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/Gateway.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/GatewayManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Generator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/GenericEDNSOption.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/settings/GenericSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/GetItemsRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/GroupChatInvitation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/HINFORecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/utils/HMAC.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/HTTPExchange.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/proxy/HTTPProxySocketFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/HTTPResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/HTTPSender.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/Header.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Header.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/HeaderProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/HeadersExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/HeadersProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/dns/HostAddress.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/HostedRoom.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/IBBTransferNegotiator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/IPSECKEYRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/IQ.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/provider/IQProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/IQTypeFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ISDNRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/InBandBytestreamListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/InBandBytestreamManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/InBandBytestreamRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/InBandBytestreamSession.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/IncomingFileTransfer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/InitStaticCode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/InitiationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/InitiationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/InvalidDClassException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/InvalidTTLException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/InvalidTypeException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/InvitationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/InvitationRejectionListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/InvitationRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/Item.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ItemDeleteEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/listener/ItemDeleteListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/listener/ItemEventListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/ItemProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ItemPublishEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ItemReply.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/ItemsExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/ItemsProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/IterableMap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/JCAProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/compression/Java7ZlibInputOutputStream.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/compression/JzlibInputOutputStream.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/KEYBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/KEYRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/KXRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/KeyValue.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/LOCRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/LanguageCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/LastActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/LastActivityManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/LeafNode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/util/ListenerEventDispatcher.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/commands/LocalCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/commands/LocalCommandFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/LoginContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/login/LoginException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/spi/LoginModule.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Lookup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/MBRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/MDRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/MFRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/MGRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/MINFORecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/MRRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/MUCAdmin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/MUCAdminProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/MUCInitialPresence.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/MUCOwner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/MUCOwnerProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/MUCUser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/MUCUserProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/MXRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/macros/Macro.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/macros/MacroGroup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/macros/Macros.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/MapIterator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Master.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Message.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Message.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/MessageEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/MessageEventManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/MessageEventNotificationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/MessageEventProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/MessageEventRequestListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/MessageListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/MessageTypeFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/MetaData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/MetaDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/util/MetaDataUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Mnemonic.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/util/ModelUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/MonitorPacket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/MultiUserChat.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/MultipleAddresses.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/MultipleAddressesProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/MultipleRecipientInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/MultipleRecipientManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NAPTRRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NSAPRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NSAP_PTRRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NSEC3PARAMRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NSEC3Record.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NSECRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NSIDOption.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NSRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NULLRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NXTRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Name.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/NameCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/NameTooLongException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/Nick.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/Node.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/listener/NodeConfigListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/NodeEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/NodeExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/NodeInformationProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/NodeType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/util/NodeUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/NonSASLAuthentication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/NotFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/OPTRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/ObservableReader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/ObservableWriter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/Occupant.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/OccupantsInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/Offer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/OfferConfirmation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/OfferConfirmationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/OfferContent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/OfferListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/OfferRequestProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/OfferRevokeProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/OfflineMessageHeader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/OfflineMessageInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/OfflineMessageManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/OfflineMessageRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/settings/OfflineSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Opcode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/packet/Open.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/ibb/provider/OpenIQProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/OpenTrustManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Options.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/OptionsExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/OrFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/OutgoingFileTransfer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/PEPEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/PEPItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/PEPListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/PEPManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/PEPProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/PEPPubSub.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/PTRRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/PXRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Packet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketCollector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/PacketExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/PacketExtensionFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/provider/PacketExtensionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/PacketFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/PacketIDFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketInterceptor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/PacketMultiplexListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/PacketParserUtils.java.orig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/PacketParserUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketReader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/PacketTypeFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketWriter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/novell/sasl/client/ParsedDirective.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/parsing/ParsingExceptionCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/ParticipantStatusListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/PasswordCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/PayloadItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ping/packet/Ping.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ping/PingFailedListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ping/PingManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ping/provider/PingProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/PlainSaslClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ping/packet/Pong.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Presence.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/PresenceState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Privacy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/PrivacyItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PrivacyList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PrivacyListListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PrivacyListManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/provider/PrivacyProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/PrivateCredentialPermission.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/PrivateData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/PrivateDataManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/PrivateDataProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/provider/ProviderManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/proxy/ProxyException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/proxy/ProxyInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/packet/PubSub.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/PubSubElementType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/PubSubManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/packet/PubSubNamespace.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/PubSubProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/PublishItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/PublishModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/QName.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/QueueDetails.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/user/QueueListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/QueueOverview.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/QueueUpdate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/QueueUser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/QueueUsersListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/RPRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/RRSIGRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/RRset.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/RTRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Rcode.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/ReaderListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/RealmCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/RealmChoiceCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/receipts/ReceiptReceivedListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/ReconnectionManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Record.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/ReferenceMap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/RefreshFailedException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/Refreshable.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Registration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/RelativeNameException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/commands/RemoteCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/RemoteRosterEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ReportedData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/RequestIDSequence.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/collections/ResettableIterator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ResolveThread.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Resolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ResolverConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ResolverListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/novell/sasl/client/ResponseAuth.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/RetractEventProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/RetractItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ReverseMap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/RevokedOffer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/RoomInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/RoomInvitation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/RoomListenerMultiplexor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/RoomTransfer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/Roster.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/RosterEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/RosterExchange.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/RosterExchangeListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/RosterExchangeManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/RosterExchangeProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/RosterGroup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/RosterListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/RosterPacket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/RosterStorage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLAnonymous.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/SASLAuthentication.java.orig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/SASLAuthentication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLCramMD5Mechanism.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLDigestMD5Mechanism.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLExternalMechanism.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLFacebookConnect.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLGSSAPIMechanism.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLMechanism.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/SASLPlainMechanism.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SIG0.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SIGBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SIGRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SOARecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SPFRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/dns/SRVRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SRVRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SSHFPRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/de/measite/smack/Sasl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/Sasl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/SaslClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/de/measite/smack/SaslClientFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/SaslClientFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/SaslException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/SaslProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/SaslServer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/sasl/SaslServerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/settings/SearchSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Section.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Serial.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ping/ServerPingTask.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/ServerTrustManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/ServiceDiscoveryManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/ServiceLib.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Session.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/SessionID.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SetResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bookmark/SharedBookmark.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/SharedGroupManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/SharedGroupsInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/entitycaps/cache/SimpleDirectoryPersistentCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/SimpleNodeProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/SimplePayload.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SimpleResolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/search/SimpleUserSearch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SingleCompressedNameBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/SingleNameBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/SmackAndroid.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/SmackConfiguration.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/debugger/SmackDebugger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/proxy/Socks4ProxySocketFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5BytestreamListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5BytestreamManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5BytestreamRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5BytestreamSession.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5Client.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5ClientForInitiator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5Proxy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/proxy/Socks5ProxySocketFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/Socks5TransferNegotiator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/bytestreams/socks5/Socks5Utils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/settings/SoundSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/StaticBody.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/StreamError.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/StreamInitiation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/StreamInitiationProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/filetransfer/StreamNegotiator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/StringEncoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/StringUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/Subject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/SubjectDomainCombiner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/SubjectUpdatedListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/SubscribeExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/SubscribeForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/SubscribeOptionFields.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/Subscription.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/SubscriptionEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/SubscriptionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/SubscriptionsExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/provider/SubscriptionsProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/SyncPacketSend.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/packet/SyncPacketSend.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TCPClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TKEYRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TLSARecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TSIG.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TSIGRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TTL.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TXTBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TXTRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/TerminalBindingCondition.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/TextInputCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/TextOutputCallback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TextParseException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/ThreadFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/Time.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/ToContainsFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/novell/sasl/client/TokenParser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Tokenizer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/Transcript.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/TranscriptManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/TranscriptProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/TranscriptSearch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/TranscriptSearchManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/Transcripts.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/TranscriptsProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/TransferRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Type.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/TypeBitmap.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/U16NameBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/UDPClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/UNKRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/parsing/UnparsablePacket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/UnsubscribeExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/harmony/javax/security/auth/callback/UnsupportedCallbackException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Update.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/UserAuthentication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/UserID.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/UserPasswordCallbackHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/UserRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/search/UserSearch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/search/UserSearchManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/UserStatusListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/apache/qpid/management/common/sasl/UsernameHashedPasswordCallbackHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/VCard.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/VCardProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/Version.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/WKSRecord.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/WireParseException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/user/Workgroup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/ext/forms/WorkgroupForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/packet/WorkgroupInformation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/WorkgroupInvitation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/WorkgroupInvitationListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/settings/WorkgroupProperties.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/WorkgroupQueue.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/WriterListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/X25Record.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/XHTMLExtension.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/XHTMLExtensionProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/XHTMLManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/XHTMLText.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/XMPPConnection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/XMPPError.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/XMPPException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/compression/XMPPInputOutputStream.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/pubsub/util/XmlUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/ZLIBCodec.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/Zone.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ZoneTransferException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/ZoneTransferIn.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/utils/base16.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/utils/base32.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/utils/base64.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/utils/hexdump.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/com/kenai/jbosh/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/debugger/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/filter/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/provider/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/sasl/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/debugger/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/muc/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/packet/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/provider/package.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/tests/primary.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/spi/services/sun.net.spi.nameservice.NameServiceDescriptor" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/asmack/org/xbill/DNS/tests/xfrin.java" />
+      <change type="DELETED" beforePath="D:\github\AndroidExercise\androidpn-client\.idea\libraries\asmack.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties" afterPath="$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="androidpn-client.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,22 +704,139 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="androidpn-client" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="androidpn.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties">
+      <file leaf-file-name="XmppManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/XmppManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.096283786">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="399" column="32" selection-start-line="399" selection-start-column="32" selection-end-line="399" selection-end-column="32" />
+              <folding>
+                <element signature="e#8291#8292#0" expanded="true" />
+                <element signature="e#8350#8351#0" expanded="true" />
+                <element signature="e#9997#9998#0" expanded="true" />
+                <element signature="e#10051#10052#0" expanded="true" />
+                <element signature="e#10606#12631#0" expanded="true" />
+                <element signature="e#12630#12631#0" expanded="true" />
+                <element signature="e#13594#13595#0" expanded="true" />
+                <element signature="e#13653#13654#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Registration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Registration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="IQ.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/IQ.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Offer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/Offer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="209" column="18" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Packet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Packet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XMPPConnection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/XMPPConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="496" column="26" selection-start-line="496" selection-start-column="26" selection-end-line="496" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PacketReader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="341" column="47" selection-start-line="341" selection-start-column="47" selection-end-line="341" selection-end-column="47" />
+              <folding>
+                <element signature="e#2236#2342#0" expanded="true" />
+                <element signature="e#2341#2342#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotificationIQProvider.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/NotificationIQProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.13204226">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PacketParserUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/PacketParserUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="284" column="21" selection-start-line="284" selection-start-column="21" selection-end-line="284" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PacketWriter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+              <folding>
+                <element signature="e#2099#2205#0" expanded="true" />
+                <element signature="e#2204#2205#0" expanded="true" />
+                <element signature="e#3454#3455#0" expanded="true" />
+                <element signature="e#3490#3491#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -454,7 +1259,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4280025107048" />
+        <entry key="$PROJECT_DIR$" value="4280273138758" />
         <entry key="$PROJECT_DIR$/../../OthersProject/MaterialEverywhere" value="4279454724424" />
       </map>
     </option>
@@ -609,7 +1414,6 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/4.0/asm-4.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar" />
-                            <option value="$MODULE_DIR$/libs/asmack.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -739,8 +1543,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties" />
+        <option value="$PROJECT_DIR$/app/src/main/java/org/androidpn/demoapp/DemoAppActivity.java" />
+        <option value="$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/XMPPConnection.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="NamedScopeManager">
@@ -752,7 +1566,7 @@
     <option name="width" value="1932" />
     <option name="height" value="1052" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -763,8 +1577,8 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
-      <flattenPackages />
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages ProjectPane="true" />
       <showMembers />
       <showModules />
       <showLibraryContents />
@@ -775,6 +1589,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -795,24 +1610,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="androidpn-client" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="raw" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -847,13 +1644,22 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="androidpn-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="androidpn-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="androidpn-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -871,8 +1677,20 @@
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_4_API_19" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="2_7_QVGA_API_16" />
     <property name="FullScreen" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\AndroidExercise\androidpn-client\app\src\asmack" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\github\AndroidExercise\androidpn-client\app\asmack" />
+      <recent name="D:\github\AndroidExercise\androidpn-client\app\asmack\java" />
+      <recent name="D:\github\AndroidExercise\androidpn-client\app" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -881,6 +1699,31 @@
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
@@ -914,6 +1757,22 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -934,9 +1793,13 @@
       <envs />
       <patterns />
       <method>
-        <option name="Make" enabled="true" />
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -1032,12 +1895,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1932" height="1052" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1932" height="1052" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5038002" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1050,7 +1913,8 @@
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5320304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.4961998" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1060,7 +1924,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1075,18 +1938,49 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
-    </option>
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="add asmack source code" />
+    <option name="LAST_COMMIT_MESSAGE" value="add asmack source code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1110,10 +2004,252 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/com/novell/sasl/client/DigestChallenge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7037037">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12071#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/xbill/DNS/spi/services/sun.net.spi.nameservice.NameServiceDescriptor">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/ReconnectionThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28641975">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/Notifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/de/measite/smack/Sasl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.005291">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.56">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2972067">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/com/kenai/jbosh/QName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.545977">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8344595">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/InvalidFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19106145">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16983241">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/androidpn.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.096283786">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/demoapp/DemoAppActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/ServiceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="44" selection-start-line="98" selection-start-column="44" selection-end-line="98" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Android/android-sdk-windows/platforms/android-8/android.jar!/java/util/concurrent/ExecutorService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.96">
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/NotificationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="232" column="25" selection-start-line="232" selection-start-column="25" selection-end-line="232" selection-end-column="25" />
+          <folding>
+            <element signature="e#4090#4212#0" expanded="true" />
+            <element signature="e#4211#4212#0" expanded="true" />
+            <element signature="e#4834#4835#0" expanded="true" />
+            <element signature="e#4881#4882#0" expanded="true" />
+            <element signature="e#4932#4933#0" expanded="true" />
+            <element signature="e#4970#4971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smackx/workgroup/agent/Offer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="209" column="18" selection-start-line="209" selection-start-column="18" selection-end-line="209" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Packet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/IQ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/packet/Registration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/XmppManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="399" column="32" selection-start-line="399" selection-start-column="32" selection-end-line="399" selection-end-column="32" />
+          <folding>
+            <element signature="e#8291#8292#0" expanded="true" />
+            <element signature="e#8350#8351#0" expanded="true" />
+            <element signature="e#9997#9998#0" expanded="true" />
+            <element signature="e#10051#10052#0" expanded="true" />
+            <element signature="e#10606#12631#0" expanded="true" />
+            <element signature="e#12630#12631#0" expanded="true" />
+            <element signature="e#13594#13595#0" expanded="true" />
+            <element signature="e#13653#13654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/XMPPConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="496" column="26" selection-start-line="496" selection-start-column="26" selection-end-line="496" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+          <folding>
+            <element signature="e#2099#2205#0" expanded="true" />
+            <element signature="e#2204#2205#0" expanded="true" />
+            <element signature="e#3454#3455#0" expanded="true" />
+            <element signature="e#3490#3491#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/util/PacketParserUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="284" column="21" selection-start-line="284" selection-start-column="21" selection-end-line="284" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/asmack/org/jivesoftware/smack/PacketReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="341" column="47" selection-start-line="341" selection-start-column="47" selection-end-line="341" selection-end-column="47" />
+          <folding>
+            <element signature="e#2236#2342#0" expanded="true" />
+            <element signature="e#2341#2342#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/org/androidpn/client/NotificationIQProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13204226">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
