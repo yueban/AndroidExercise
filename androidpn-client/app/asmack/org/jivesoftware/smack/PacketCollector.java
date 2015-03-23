@@ -20,11 +20,11 @@
 
 package org.jivesoftware.smack;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.TimeUnit;
-
 import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.packet.Packet;
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Provides a mechanism to collect packets into a result queue that pass a
@@ -32,13 +32,13 @@ import org.jivesoftware.smack.packet.Packet;
  * operations on the result queue. So, a PacketCollector is more suitable to
  * use than a {@link PacketListener} when you need to wait for a specific
  * result.<p>
- *
+ * <p/>
  * Each packet collector will queue up a configured number of packets for processing before
- * older packets are automatically dropped.  The default number is retrieved by 
+ * older packets are automatically dropped.  The default number is retrieved by
  * {@link SmackConfiguration#getPacketCollectorSize()}.
  *
- * @see Connection#createPacketCollector(PacketFilter)
  * @author Matt Tucker
+ * @see Connection#createPacketCollector(PacketFilter)
  */
 public class PacketCollector {
 
@@ -51,20 +51,20 @@ public class PacketCollector {
      * Creates a new packet collector. If the packet filter is <tt>null</tt>, then
      * all packets will match this collector.
      *
-     * @param conection the connection the collector is tied to.
+     * @param conection    the connection the collector is tied to.
      * @param packetFilter determines which packets will be returned by this collector.
      */
     protected PacketCollector(Connection conection, PacketFilter packetFilter) {
-    	this(conection, packetFilter, SmackConfiguration.getPacketCollectorSize());
+        this(conection, packetFilter, SmackConfiguration.getPacketCollectorSize());
     }
 
     /**
      * Creates a new packet collector. If the packet filter is <tt>null</tt>, then
      * all packets will match this collector.
      *
-     * @param conection the connection the collector is tied to.
+     * @param conection    the connection the collector is tied to.
      * @param packetFilter determines which packets will be returned by this collector.
-     * @param maxSize the maximum number of packets that will be stored in the collector.
+     * @param maxSize      the maximum number of packets that will be stored in the collector.
      */
     protected PacketCollector(Connection conection, PacketFilter packetFilter, int maxSize) {
         this.connection = conection;
@@ -101,10 +101,10 @@ public class PacketCollector {
      * result queue.
      *
      * @return the next packet result, or <tt>null</tt> if there are no more
-     *      results.
+     * results.
      */
     public Packet pollResult() {
-    	return resultQueue.poll();
+        return resultQueue.poll();
     }
 
     /**
@@ -115,11 +115,10 @@ public class PacketCollector {
      */
     public Packet nextResult() {
         try {
-			return resultQueue.take();
-		}
-		catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
+            return resultQueue.take();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -131,12 +130,11 @@ public class PacketCollector {
      * @return the next available packet.
      */
     public Packet nextResult(long timeout) {
-    	try {
-			return resultQueue.poll(timeout, TimeUnit.MILLISECONDS);
-		}
-		catch (InterruptedException e) {
-			throw new RuntimeException(e);
-		}
+        try {
+            return resultQueue.poll(timeout, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -149,12 +147,12 @@ public class PacketCollector {
         if (packet == null) {
             return;
         }
-        
+
         if (packetFilter == null || packetFilter.accept(packet)) {
-        	while (!resultQueue.offer(packet)) {
-        		// Since we know the queue is full, this poll should never actually block.
-        		resultQueue.poll();
-        	}
+            while (!resultQueue.offer(packet)) {
+                // Since we know the queue is full, this poll should never actually block.
+                resultQueue.poll();
+            }
         }
     }
 }
