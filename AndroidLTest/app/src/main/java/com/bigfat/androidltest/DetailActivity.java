@@ -39,7 +39,7 @@ public class DetailActivity extends Activity implements View.OnClickListener {
         //开启转场动画功能
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         //设置转场动画
-        getWindow().setEnterTransition(new Explode().setDuration(1000));
+        getWindow().setEnterTransition(new Explode().setDuration(500));
         getWindow().setExitTransition(null);
 
         setContentView(R.layout.activity_detail);

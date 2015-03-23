@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         //设置转场动画
         getWindow().setEnterTransition(new ChangeBounds().setDuration(1000));
-        getWindow().setExitTransition(new Explode().setDuration(300));
+        getWindow().setExitTransition(new ChangeBounds().setDuration(500));
 
         setContentView(R.layout.activity_main);
 
