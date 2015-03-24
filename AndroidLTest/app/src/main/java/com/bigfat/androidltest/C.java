@@ -18,4 +18,5 @@ public class C {
             {R.mipmap.p4_01, R.mipmap.p4_02, R.mipmap.p4_03, R.mipmap.p4_04},
             {R.mipmap.p5_01, R.mipmap.p5_02, R.mipmap.p5_03, R.mipmap.p5_04, R.mipmap.p5_05},
             {R.mipmap.p6_01, R.mipmap.p6_02, R.mipmap.p6_03, R.mipmap.p6_04, R.mipmap.p6_05, R.mipmap.p6_06, R.mipmap.p6_07}};
+
 }
