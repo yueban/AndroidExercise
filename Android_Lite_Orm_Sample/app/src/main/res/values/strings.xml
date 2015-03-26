@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LiteOrm</string>
+    <string name="title">LiteLab-ORM</string>
+    <string name="title_single">ORM-Simple-Single</string>
+    <string name="title_cascade">ORM-Cascade</string>
+    <string name="sub_title">Result in The Log</string>
+    <string name="test_single">single persistence TEST</string>
+    <string name="test_cascade">cascade persistence TEST</string>
+
+    <string-array name="orm_test_list">
+        <item>Save(Insert Or Update)</item>
+        <item>Insert</item>
+        <item>Update</item>
+        <item>Update Column</item>
+        <item>Query All</item>
+        <item>Query By WhereBuilder</item>
+        <item>Query By ID</item>
+        <item>Query Any U Want</item>
+        <item>Relation Restore</item>
+        <item>Delete</item>
+        <item>Delete By Index</item>
+        <item>Delete By WhereBuilder</item>
+        <item>Delete All</item>
+    </string-array>
+
+</resources>
