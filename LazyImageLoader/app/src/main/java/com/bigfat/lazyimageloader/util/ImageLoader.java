@@ -33,11 +33,15 @@ public class ImageLoader {
         this.defaultImageResId = defaultImageResId;
     }
 
-    public void displayImage(LazyImage lazyImage, ImageView imageView) {
-        displaImage(lazyImage, imageView, true);
+    public void displayImage(String imageUrl, ImageView imageView) {
+        displayImage(imageUrl, imageView);
     }
 
-    public void displaImage(LazyImage lazyImage, ImageView imageView, boolean saveDisk) {
+    public void displayImage(String imageUrl, ImageView imageView, boolean saveDisk) {
+        displayImage(new LazyImage(imageUrl), imageView, saveDisk);
+    }
+
+    private void displayImage(LazyImage lazyImage, ImageView imageView, boolean saveDisk) {
         imageViews.put(imageView, lazyImage.toFileName());
         if (lazyImage.getBitmap() != null) {
             imageView.setImageBitmap(lazyImage.getBitmap());

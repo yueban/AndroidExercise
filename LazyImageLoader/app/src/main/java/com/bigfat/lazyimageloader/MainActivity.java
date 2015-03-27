@@ -1,13 +1,12 @@
 package com.bigfat.lazyimageloader;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.bigfat.lazyimageloader.util.ImageLoader;
-import com.bigfat.lazyimageloader.util.LazyImage;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -22,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
         imageView1 = (ImageView) findViewById(R.id.imageView1);
 
         ImageLoader imageLoader = new ImageLoader(this,R.mipmap.ic_launcher);
-        imageLoader.displayImage(new LazyImage("http://i2.tietuku.com/0cdca4e03a01b079.png"),imageView1);
+        imageLoader.displayImage("http://i2.tietuku.com/0cdca4e03a01b079.png",imageView1);
     }
 
     @Override
