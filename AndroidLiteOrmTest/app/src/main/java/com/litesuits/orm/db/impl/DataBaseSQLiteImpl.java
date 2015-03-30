@@ -321,7 +321,7 @@ public class DataBaseSQLiteImpl extends SQLiteClosable implements DataBase {
             // 删除关系映射
             final MapInfo mapTable = SQLBuilder.buildDelAllMappingSql(claxx);
             if (mapTable != null && !mapTable.isEmpty()) {
-                Transaction.execute(db, new Transaction.Worker<Boolean>() {
+                Transaction.execute(db, new Worker<Boolean>() {
                     @Override
                     public Boolean doTransaction(SQLiteDatabase db) throws Exception {
                         if (mapTable.delOldRelationSQL != null) {

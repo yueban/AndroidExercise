@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bigfat.androidliteormtest.model.User;
-import com.litesuits.android.log.Log;
 import com.litesuits.orm.LiteOrm;
 import com.litesuits.orm.db.DataBase;
 import com.litesuits.orm.db.assit.WhereBuilder;
@@ -99,7 +98,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private void testQuery(){
         List<User> users = db.queryAll(User.class);
         for(User user : users){
-            Log.i(user);
+//            Log.i(user);
         }
     }
 
