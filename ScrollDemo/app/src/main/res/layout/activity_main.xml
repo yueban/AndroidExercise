@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:descendantFocusability="blocksDescendants">
+
+    <com.bigfat.scrolldemo.ExtendedCalendarView
+        android:id="@+id/calendar"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
+    <ScrollView
+        android:visibility="gone"
+        android:id="@+id/scv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="@string/hello_world"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/black"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:text="@string/hello_world"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/black"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:text="@string/hello_world"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/black"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_remain"
+        android:text="@string/hello_world"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+</RelativeLayout>
