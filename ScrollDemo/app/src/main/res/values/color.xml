@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="unPresentMonth_FontColor">#d9d8d8</color>
+    <color name="darkdarkgray">#ffB9B9B9</color>
+    <color name="Calendar_WeekBgColor">#f3f3f3</color>
+    <color name="Calendar_WeekFontColor">#666666</color>
+    <color name="Calendar_DayBgColor">#ffffff</color>
+    <color name="isHoliday_BgColor">#999999</color>
+    <color name="isPresentMonth_FontColor">#333333</color>
+    <color name="isToday_BgColor">#f2f2f2</color>
+    <color name="specialReminder">#84b9fa</color>
+    <color name="commonReminder">#BDBAB5</color>
+</resources>

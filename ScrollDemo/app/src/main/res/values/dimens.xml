@@ -2,9 +2,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="first_day_margin">10dp</dimen>
-    <dimen name="day_margin">24dp</dimen>
-    <dimen name="text_height_width">30dp</dimen>
-    <dimen name="min_cell_height">50dp</dimen>
-    <dimen name="min_cell_width">50dp</dimen>
+
+    <!-- 日程详情 和 修改日程界面中 字体的大小 -->
+    <dimen name="sch_text_size">16sp</dimen>
+    <dimen name="sch_text_size_little">14sp</dimen>
 </resources>

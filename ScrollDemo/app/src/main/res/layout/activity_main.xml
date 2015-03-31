@@ -5,14 +5,57 @@
     tools:context=".MainActivity"
     android:descendantFocusability="blocksDescendants">
 
-    <com.bigfat.scrolldemo.ExtendedCalendarView
-        android:id="@+id/calendar"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+    <LinearLayout
+        android:id="@+id/ll_frag_calendar_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:paddingTop="5dp"
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="#f3f3f3">
+
+            <TextView
+                android:id="@+id/tv_frag_calendar_current_date"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal|center"
+                android:textColor="#333333"
+                android:textSize="19sp" />
+
+            <ImageButton
+                android:id="@+id/btn_frag_calendar_pre"
+                android:layout_width="40dip"
+                android:layout_height="30dip"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:background="@null"
+                android:src="@mipmap/arrow_left" />
+
+            <ImageButton
+                android:id="@+id/btn_frag_calendar_next"
+                android:layout_width="40dip"
+                android:layout_height="30dip"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@null"
+                android:src="@mipmap/arrow_right" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <ScrollView
-        android:visibility="gone"
-        android:id="@+id/scv_main"
+        android:layout_below="@id/ll_frag_calendar_top"
+        android:id="@+id/scv_frag_calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -22,50 +65,22 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/ll_top"
+                android:id="@+id/ll_frag_calendar_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:text="@string/hello_world"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/black"
-                    android:textSize="24sp"
-                    android:textColor="@android:color/white" />
-
-                <TextView
-                    android:text="@string/hello_world"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/black"
-                    android:textSize="24sp"
-                    android:textColor="@android:color/white" />
-
-                <TextView
-                    android:text="@string/hello_world"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/black"
-                    android:textSize="24sp"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                android:orientation="vertical" />
 
             <ListView
-                android:id="@+id/lv_main"
+                android:id="@+id/lv_frag_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/tv_remain"
-        android:text="@string/hello_world"
+    <LinearLayout
+        android:id="@+id/ll_frag_calendar_content_float"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/black"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"
-        android:visibility="gone" />
+        android:orientation="vertical"
+        android:layout_below="@id/ll_frag_calendar_top" />
 </RelativeLayout>
