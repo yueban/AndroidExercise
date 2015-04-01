@@ -4,6 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!-- 日程详情 和 修改日程界面中 字体的大小 -->
-    <dimen name="sch_text_size">16sp</dimen>
     <dimen name="sch_text_size_little">14sp</dimen>
+    <dimen name="sch_text_size">16sp</dimen>
+    <dimen name="sch_text_size_bottom">10sp</dimen>
 </resources>

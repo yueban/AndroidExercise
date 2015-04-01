@@ -31,6 +31,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public static int special_Reminder;
     public static int common_Reminder;
     public static int Calendar_WeekFontColor;
+    private static int firstDayOfWeek = Calendar.SUNDAY;
     //测量值
     int calendarCurrentWeekHeight;//日历当前周那一行距离顶部的高度
     int screenWidth;//屏幕宽度
@@ -38,8 +39,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     //标识值
     private int currentMonth;
     private int currentYear;
-    private int firstDayOfWeek = Calendar.SUNDAY;
-    private boolean isCurrentWeekInCalendar;
+    private boolean isSelectedWeekInCalendar;
     //容器类
     private ScrollView scrollView;
     private LinearLayout llCalendarTop;
@@ -57,6 +57,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private Calendar calStartDate = Calendar.getInstance();//日历起始日期
     private Calendar calToday = Calendar.getInstance();//今天
     private Calendar calSelected = Calendar.getInstance();//当前选中日期
+    // 点击日历，触发事件
+    private DateWidgetDayCell.OnItemClick onDayCellClickEvent = new DateWidgetDayCell.OnItemClick() {
+        public void OnClick(DateWidgetDayCell item) {
+            setCalSelected(item.getDate());
+        }
+    };
+
+    public static Calendar GetTodayDate() {
+        Calendar cal_Today = Calendar.getInstance();
+        cal_Today.set(Calendar.HOUR_OF_DAY, 0);
+        cal_Today.set(Calendar.MINUTE, 0);
+        cal_Today.set(Calendar.SECOND, 0);
+        cal_Today.setFirstDayOfWeek(firstDayOfWeek);
+        return cal_Today;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,18 +131,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void initCalendarView() {
+        Log.i(TAG, "calStartDate--1->" + calStartDate.get(Calendar.YEAR) + " " + calStartDate.get(Calendar.MONTH) + " " + calStartDate.get(Calendar.DAY_OF_MONTH));
         calStartDate.setTimeInMillis(System.currentTimeMillis());
+        Log.i(TAG, "calStartDate--2->" + calStartDate.get(Calendar.YEAR) + " " + calStartDate.get(Calendar.MONTH) + " " + calStartDate.get(Calendar.DAY_OF_MONTH));
         calStartDate.setFirstDayOfWeek(firstDayOfWeek);
+        Log.i(TAG, "calStartDate--3->" + calStartDate.get(Calendar.YEAR) + " " + calStartDate.get(Calendar.MONTH) + " " + calStartDate.get(Calendar.DAY_OF_MONTH));
         calToday = GetTodayDate();
-        updateCalendarStartDate();
-        // 计算本月日历中的第一天(一般是上月的某天)，并更新日历
+        calSelected.setTimeInMillis(calToday.getTimeInMillis());
+        //绘制日历空白模板
         llCalendarTop.addView(generateCalendarTop());
         llCalendarContent.addView(generateCalendarContent());
         llCalendarContentFloat.addView(generateCalendarContentFloat());
-
-        DateWidgetDayCell daySelected = updateCalendar();
-        if (daySelected != null)
-            daySelected.requestFocus();
+        // 计算本月日历中的第一天(一般是上月的某天)，并更新日历
+        updateCalendarStartDate();
     }
 
     private void initListView() {
@@ -168,7 +184,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 calStartDate.set(Calendar.YEAR, currentYear);
 
                 updateCalendarStartDate();
-                updateCalendar();
                 break;
 
             case R.id.btn_frag_calendar_next://下个月
@@ -183,19 +198,34 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 calStartDate.set(Calendar.YEAR, currentYear);
 
                 updateCalendarStartDate();
-                updateCalendar();
                 break;
         }
     }
 
+    /**
+     * 处理界面滚动事件
+     */
     private void executeScvScrollEvent() {
 //                Log.i(TAG, "scrollView.getY()--->" + scrollView.getScrollY());
 //                Log.i(TAG, "calendarCurrentWeekHeight--->" + calendarCurrentWeekHeight);
-        if (isCurrentWeekInCalendar && scrollView.getScrollY() > calendarCurrentWeekHeight) {
+        if (isSelectedWeekInCalendar && scrollView.getScrollY() > calendarCurrentWeekHeight) {
             llCalendarContentFloat.setVisibility(View.VISIBLE);
         } else {
             llCalendarContentFloat.setVisibility(View.GONE);
         }
+    }
+
+    /**
+     * 设置当前选中日期
+     */
+    private void setCalSelected(Calendar calendar) {
+        calSelected.setTimeInMillis(calendar.getTimeInMillis());
+        updateCalendarSelectedWeekHeight();
+
+//            if (adapter != null)
+//                adapter.jump2today(item.getDate().getTime());
+
+        updateCalendar();
     }
 
     /**
@@ -209,7 +239,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         calStartDate.set(Calendar.HOUR_OF_DAY, 0);
         calStartDate.set(Calendar.MINUTE, 0);
         calStartDate.set(Calendar.SECOND, 0);
+        //默认选择当前月第一天
+        calSelected.setTimeInMillis(calStartDate.getTimeInMillis());
 
+        //计算当前月日历视图中真正的起始天
         int iDay = 0;
         int iStartDay = firstDayOfWeek;
         if (iStartDay == Calendar.MONDAY) {
@@ -223,32 +256,23 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 iDay = 6;
         }
         calStartDate.add(Calendar.DAY_OF_WEEK, -iDay);
-
+        //根据当前选择更新视图
+        setCalSelected(calSelected);
         //刷新顶部当前月文本
         updateCurrentMonthDisplay();
-        //判断当前周（今天）是否在日历列表中
-        int startDay = calStartDate.get(Calendar.DAY_OF_YEAR);
-        int today = calToday.get(Calendar.DAY_OF_YEAR);
-        Log.i(TAG, "startDay--->" + startDay);
-        Log.i(TAG, "today--->" + today);
-        isCurrentWeekInCalendar = today >= startDay && today <= startDay + 41;
-        Log.i(TAG, "isCurrentWeekInCalendar--->" + isCurrentWeekInCalendar);
-    }
-
-    public Calendar GetTodayDate() {
-        Calendar cal_Today = Calendar.getInstance();
-        cal_Today.set(Calendar.HOUR_OF_DAY, 0);
-        cal_Today.set(Calendar.MINUTE, 0);
-        cal_Today.set(Calendar.SECOND, 0);
-        cal_Today.setFirstDayOfWeek(firstDayOfWeek);
-        return cal_Today;
+        //判断当前选择周（天）是否在日历列表中，作为顶部周视图是否显示的判断
+        long startMills = calStartDate.getTimeInMillis();
+        long selectedMills = calSelected.getTimeInMillis();
+        Log.i(TAG, "startMills--->" + startMills);
+        Log.i(TAG, "selectedMills--->" + selectedMills);
+        isSelectedWeekInCalendar = selectedMills >= startMills && selectedMills <= startMills + 41 * 24 * 60 * 60 * (long) 1000;
     }
 
     /**
      * 更新日历标题上显示的年月
      */
     private void updateCurrentMonthDisplay() {
-        String date = calStartDate.get(Calendar.YEAR) + "年" + (calStartDate.get(Calendar.MONTH) + 1) + "月";
+        String date = calStartDate.get(Calendar.YEAR) + "年" + (currentMonth + 1) + "月";
         tvCurrentDate.setText(date);
     }
 
@@ -285,6 +309,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         for (int iDay = 0; iDay < 7; iDay++) {
             DateWidgetDayCell dayCell = new DateWidgetDayCell(this, cellWidth, cellWidth * 4 / 5);
+            dayCell.setItemClick(onDayCellClickEvent);
             daysFloat.add(dayCell);
             layRow.addView(dayCell);
         }
@@ -300,7 +325,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         for (int iDay = 0; iDay < 7; iDay++) {
             DateWidgetDayCell dayCell = new DateWidgetDayCell(this, cellWidth, cellWidth * 4 / 5);
-//            dayCell.setItemClick(mOnDayCellClick);
+            dayCell.setItemClick(onDayCellClickEvent);
             days.add(dayCell);
             layRow.addView(dayCell);
         }
@@ -308,17 +333,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return layRow;
     }
 
-    private DateWidgetDayCell updateCalendar() {
-        //计算当前周这一行之前日历的高度
-        llCalendarContentFloat.post(new Runnable() {
-            @Override
-            public void run() {
-                //计算当前周之前一共有几行
-                int rows = (calToday.get(Calendar.DAY_OF_YEAR) - calStartDate.get(Calendar.DAY_OF_YEAR)) / 7;
-                calendarCurrentWeekHeight = llCalendarContentFloat.getHeight() * rows;
-                executeScvScrollEvent();
-            }
-        });
+    private void updateCalendar() {
+        updateCalendarSelectedWeekHeight();
         // 更新日历
         Calendar calCalendar = Calendar.getInstance();
         DateWidgetDayCell daySelected = null;
@@ -327,8 +343,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         final int iSelectedMonth = calSelected.get(Calendar.MONTH);
         final int iSelectedDay = calSelected.get(Calendar.DAY_OF_MONTH);
         calCalendar.setTimeInMillis(calStartDate.getTimeInMillis());
-        //当前周起始索引
-        int currentWeekStartDayIndex = (calToday.get(Calendar.DAY_OF_YEAR) - calStartDate.get(Calendar.DAY_OF_YEAR)) / 7 * 7;
+        //当前选中周起始索引
+        long currentWeekStartDayIndex = (calSelected.getTimeInMillis() - calStartDate.getTimeInMillis()) / 1000 / 60 / 60 / 24 / 7 * 7;
+        Log.i(TAG, "updateCalendar");
+        Log.i(TAG, "currentMonth--->" + currentMonth);
         for (int i = 0; i < days.size(); i++) {
             final int iYear = calCalendar.get(Calendar.YEAR);
             final int iMonth = calCalendar.get(Calendar.MONTH);
@@ -338,7 +356,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             // 判断是否当天
             boolean bToday = false;
-
             if (calToday.get(Calendar.YEAR) == iYear) {
                 if (calToday.get(Calendar.MONTH) == iMonth) {
                     if (calToday.get(Calendar.DAY_OF_MONTH) == iDay) {
@@ -347,48 +364,58 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 }
             }
 
-            // check holiday
+            // 是否是周末
             boolean bHoliday = false;
             if ((iDayOfWeek == Calendar.SATURDAY) || (iDayOfWeek == Calendar.SUNDAY))
                 bHoliday = true;
 
             // 是否被选中
             boolean bSelected = false;
-
             if (bIsSelection)
                 if ((iSelectedDay == iDay) && (iSelectedMonth == iMonth)
                         && (iSelectedYear == iYear)) {
                     bSelected = true;
                 }
+            if (bSelected)
+                daySelected = dayCell;
 
             // 是否有日程
             boolean hasRecord = false;
-
 //            if (data != null) {
 //                hasRecord = data.containsKey(DateUtil.getStr(
 //                        calCalendar.getTime(),
 //                        DateUtil.DAY));
 //            }
-            if (bSelected)
-                daySelected = dayCell;
+
             //设置日期Cell状态
-            dayCell.setSelected(bSelected);
-            dayCell.setData(iYear, iMonth, iDay, bToday, bHoliday,
-                    currentMonth, hasRecord);
+            dayCell.setData(iYear, iMonth, iDay, bToday, bHoliday, currentMonth, hasRecord, bSelected);
             dayCell.invalidate();
             //如果是当前周，则顶部当前周数据也要设置
             if (i >= currentWeekStartDayIndex && i < currentWeekStartDayIndex + 7) {
-                DateWidgetDayCell dayCellFloat = daysFloat.get(i - currentWeekStartDayIndex);
-                dayCellFloat.setSelected(bSelected);
-                dayCellFloat.setData(iYear, iMonth, iDay, bToday, bHoliday,
-                        currentMonth, hasRecord);
+                DateWidgetDayCell dayCellFloat = daysFloat.get(i - (int)currentWeekStartDayIndex);
+                dayCellFloat.setData(iYear, iMonth, iDay, bToday, bHoliday, currentMonth, hasRecord, bSelected);
                 dayCellFloat.invalidate();
             }
+            //下一天
             calCalendar.add(Calendar.DAY_OF_MONTH, 1);
         }
         llCalendarContent.invalidate();
         llCalendarContentFloat.invalidate();
-        return daySelected;
+    }
+
+    /**
+     * 计算当前周这一行之前日历的高度
+     */
+    private void updateCalendarSelectedWeekHeight() {
+        llCalendarContentFloat.post(new Runnable() {
+            @Override
+            public void run() {
+                //计算当前周之前一共有几行
+                long rows = (calSelected.getTimeInMillis() - calStartDate.getTimeInMillis()) / 1000 / 60 / 60 / 24 / 7;
+                calendarCurrentWeekHeight = llCalendarContentFloat.getHeight() * (int)rows;
+                executeScvScrollEvent();
+            }
+        });
     }
 
     // 生成布局

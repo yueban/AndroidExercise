@@ -3,13 +3,11 @@ package com.bigfat.scrolldemo;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout.LayoutParams;
 
 import java.util.Calendar;
@@ -21,51 +19,51 @@ import java.util.Calendar;
  * @FileName: DateWidgetDayCell.java
  */
 public class DateWidgetDayCell extends View {
-    // 字体大小
-    //private static final int fTextSize = 24;
-
-    public static int ANIM_ALPHA_DURATION = 100;
     // 基本元素
     private OnItemClick itemClick = null;
-    private Paint pt = new Paint();
+    private Paint ptBg = new Paint();//画背景
+    private Paint ptNumber = new Paint();//话数字
+    private Paint ptBottomText = new Paint();//画底部文本
     private RectF rect = new RectF();
-    private String sDate = "";
+    private String sDate;
+    private int textSizeNumber;//数字文本大小
+    private int textSizeBottom;//底部文本大小
     // 当前日期
-    private int iDateYear = 0;
-    private int iDateMonth = 0;
-    private int iDateDay = 0;
+    private int iDateYear;
+    private int iDateMonth;
+    private int iDateDay;
     // 布尔变量
-    private boolean bSelected = false;
-    private boolean bIsActiveMonth = false;
-    private boolean bToday = false;
-    private boolean bTouchedDown = false;
-    private boolean bHoliday = false;
-    private boolean hasRecord = false;
+    private boolean bSelected;
+    private boolean bIsActiveMonth;
+    private boolean bToday;
+    private boolean bTouchedDown;
+    private boolean bHoliday;
+    private boolean hasRecord;
+    //农历
+    private Lunar lunar;
+    private int radius;//背景圆的半径
 
     // 构造函数
     public DateWidgetDayCell(Context context, int iWidth, int iHeight) {
         super(context);
         setFocusable(true);
         setLayoutParams(new LayoutParams(iWidth, iHeight));
-        int sizeOfText = (int) this.getResources().getDimension(R.dimen.sch_text_size);
-        pt.setTextSize(sizeOfText);
-    }
+        textSizeNumber = (int) this.getResources().getDimension(R.dimen.sch_text_size);
+        textSizeBottom = (int) this.getResources().getDimension(R.dimen.sch_text_size_bottom);
 
-    // 根据条件返回不同颜色值
-    public static int getColorBkg(boolean bHoliday, boolean bToday) {
-        if (bToday)
-            return MainActivity.isToday_BgColor;
-        // if (bHoliday) //如需周末有特殊背景色，可去掉注释
-        // return Calendar_TestActivity.isHoliday_BgColor;
-        return MainActivity.Calendar_DayBgColor;
-    }
+        ptBg.setAntiAlias(true);
 
-    // 不透明度渐变
-    public static void startAlphaAnimIn(View view) {
-        AlphaAnimation anim = new AlphaAnimation(0.5F, 1);
-        anim.setDuration(ANIM_ALPHA_DURATION);
-        anim.startNow();
-        view.startAnimation(anim);
+        ptNumber.setTextSize(textSizeNumber);
+        ptNumber.setTypeface(null);
+        ptNumber.setAntiAlias(true);
+        ptNumber.setShader(null);
+        ptNumber.setUnderlineText(false);
+
+        ptBottomText.setTextSize(textSizeBottom);
+        ptBottomText.setTypeface(null);
+        ptBottomText.setAntiAlias(true);
+        ptBottomText.setShader(null);
+        ptBottomText.setUnderlineText(false);
     }
 
     public boolean isbToday() {
@@ -87,17 +85,20 @@ public class DateWidgetDayCell extends View {
     }
 
     // 设置变量值
-    public void setData(int iYear, int iMonth, int iDay, Boolean bToday,
-                        Boolean bHoliday, int iActiveMonth, boolean hasRecord) {
-        iDateYear = iYear;
-        iDateMonth = iMonth;
-        iDateDay = iDay;
-
+    public void setData(int iYear, int iMonth, int iDay, Boolean bToday, Boolean bHoliday, int iActiveMonth, boolean hasRecord, boolean bSelected) {
+        this.iDateYear = iYear;
+        this.iDateMonth = iMonth;
+        this.iDateDay = iDay;
+        this.lunar = new Lunar(iYear, iMonth, iDay);
         this.sDate = Integer.toString(iDateDay);
         this.bIsActiveMonth = (iDateMonth == iActiveMonth);
         this.bToday = bToday;
         this.bHoliday = bHoliday;
         this.hasRecord = hasRecord;
+        this.bSelected = bSelected;
+
+        ptNumber.measureText(sDate);
+        ptBottomText.measureText(lunar.toString());
     }
 
     // 重载绘制方法
@@ -108,125 +109,103 @@ public class DateWidgetDayCell extends View {
         rect.set(0, 0, this.getWidth(), this.getHeight());
         rect.inset(1, 1);
 
-        final boolean bFocused = IsViewFocused();
-
-        drawDayView(canvas, bFocused);
+        drawDayView(canvas, IsViewFocused());
         drawDayNumber(canvas);
+        drawDaBottomText(canvas);
     }
 
     public boolean IsViewFocused() {
         return (this.isFocused() || bTouchedDown);
     }
 
-    // 绘制日历方格
+    /**
+     * 绘制日历方格
+     */
     private void drawDayView(Canvas canvas, boolean bFocused) {
         final int iPosX = this.getWidth() / 2;
-//        final int iPosY = this.getHeight() / 2 - (int)pt.getFontMetrics().bottom;
-        final int iPosY = this.getHeight() / 2;
+        final int iPosY = this.getHeight() / 2 - getHeight() / 6;
+        radius = getTextHeight() / 2 + getHeight() / 30;
 
-        pt.setAntiAlias(true);
-
+        ptBg.setColor(0x00ffffff);
+        //画背景圆
         if (bSelected || bFocused) {
-            LinearGradient lGradBkg = null;
-
-            if (bFocused) {
-//				lGradBkg = new LinearGradient(rect.left, 0, rect.right, 0, 0xffffffff, 0xffffffff, Shader.TileMode.CLAMP);
-                pt.setColor(Color.parseColor("#ffffffff"));
-            }
             //选中状态
             if (bSelected) {
-//				lGradBkg = new LinearGradient(rect.left, 0, rect.right, 0, 0xff3696f8, 0xff3696f8, Shader.TileMode.CLAMP);
-//              pt.setShader(lGradBkg);
-                pt.setColor(Color.parseColor("#FF2D2D"));
-//                canvas.drawCircle(iPosX-1, iPosY-1, getTextHeight()/2+5, pt);
-                canvas.drawCircle(iPosX, iPosY, getTextHeight() / 2 + 6, pt);
+                ptBg.setColor(Color.parseColor("#FFFF2D2D"));
             }
-
-            pt.setShader(null);
-
         } else if (bToday) {
-//			pt.setColor(MainActivity.isToday_BgColor);
-//			canvas.drawRect(rect, pt);
-//			pt.setStrokeWidth(1);
-//			canvas.drawRect(rect, pt);
-//			canvas.clipRect(rect.left+1, rect.top, rect.right-1, rect.bottom);
-            pt.setColor(getResources().getColor(R.color.unPresentMonth_FontColor));
-            canvas.drawCircle(iPosX, iPosY - 4, getTextHeight() / 2 + 6, pt);
+            ptBg.setColor(MainActivity.isToday_BgColor);
         }
+        canvas.drawCircle(iPosX, iPosY, radius, ptBg);
 
-        pt.setColor(getContext().getResources().getColor(R.color.darkdarkgray));  //#525252
-        pt.setStrokeWidth(1.5f);
+        //画底部的线
+        ptBg.setColor(getContext().getResources().getColor(R.color.darkdarkgray));  //#525252
+        ptBg.setStrokeWidth(1.5f);
         float[] pts = new float[4];
         pts[0] = rect.left - 1;
         pts[1] = rect.bottom + 1;
         pts[2] = rect.right + 1;
         pts[3] = rect.bottom + 1;
-        canvas.drawLines(pts, pt);
+        canvas.drawLines(pts, ptBg);
 
-        pt.setStrokeWidth(0);
+        //画日程小点
+        ptBg.setStrokeWidth(0);
         if (hasRecord) {
             CreateReminder(canvas, MainActivity.special_Reminder);
         }
-        // else if (!hasRecord && !bToday && !bSelected) {
-        // CreateReminder(canvas, Calendar_TestActivity.Calendar_DayBgColor);
-        // }
     }
 
-    // 绘制日历中的数字
+    /**
+     * 绘制日历中的数字
+     */
     public void drawDayNumber(Canvas canvas) {
-        // draw day number
-        pt.setTypeface(null);
-        pt.setAntiAlias(true);
-        pt.setShader(null);
-//		pt.setFakeBoldText(true);
+        final int iPosX = (int) rect.left + ((int) rect.width() >> 1) - ((int) ptNumber.measureText(sDate) >> 1);
+        final int iPosY = (int) (this.getHeight() - (this.getHeight() - getTextHeight()) / 2 - ptNumber.getFontMetrics().bottom) - getHeight() / 6;
 
-        pt.setColor(MainActivity.isPresentMonth_FontColor);
-        pt.setUnderlineText(false);
+        ptNumber.setColor(MainActivity.isPresentMonth_FontColor);
 
         //如果是周末
         if (bHoliday) {
-            pt.setColor(Color.parseColor("#999999"));
+            ptNumber.setColor(Color.parseColor("#999999"));
         }
         //如果非本月
         if (!bIsActiveMonth) {
-            pt.setColor(MainActivity.unPresentMonth_FontColor);
-//			pt.setFakeBoldText(false);
+            ptNumber.setColor(MainActivity.unPresentMonth_FontColor);
         }
-
         //如果是选中态下，是白色
         if (bSelected) {
-            pt.setColor(0xffffffff);
+            ptNumber.setColor(0xffffffff);
         }
 
-        //如果是今天 就加下划线，我们就不加了
-//		if (bToday)
-//			pt.setUnderlineText(true);
-
-        final int iPosX = (int) rect.left + ((int) rect.width() >> 1)
-                - ((int) pt.measureText(sDate) >> 1);
-//
-//        //文字居中
-        final int iPosY = (int) (this.getHeight() - (this.getHeight() - getTextHeight()) / 2 - pt.getFontMetrics().bottom);
-
-//        //文字偏上
-//        final int iPosY = (int) (this.getHeight() / 2);
-
-        canvas.drawText(sDate, iPosX, iPosY, pt);
-        pt.setUnderlineText(false);
+        canvas.drawText(sDate, iPosX, iPosY, ptNumber);
     }
 
-    // 得到字体高度
+    /**
+     * 绘制底部文本（节日，节气，农历）
+     */
+    private void drawDaBottomText(Canvas canvas) {
+        final int iPosX = (int) rect.left + ((int) rect.width() >> 1) - ((int) ptBottomText.measureText(lunar.toString()) >> 1);
+        final int iPosY = (int) (this.getHeight() - ptBottomText.getFontMetrics().bottom) - getHeight() / 10;
+
+        ptBottomText.setColor(MainActivity.isPresentMonth_FontColor);
+
+        //如果是周末
+        if (bHoliday) {
+            ptBottomText.setColor(Color.parseColor("#999999"));
+        }
+        //如果非本月
+        if (!bIsActiveMonth) {
+            ptBottomText.setColor(MainActivity.unPresentMonth_FontColor);
+        }
+
+        canvas.drawText(lunar.toString(), iPosX, iPosY, ptBottomText);
+    }
+
+    /**
+     * 得到数字文本高度
+     */
     private int getTextHeight() {
-        return (int) (-pt.ascent() + pt.descent());
-    }
-
-    // 设置是否被选中
-    @Override
-    public void setSelected(boolean bEnable) {
-        if (this.bSelected != bEnable) {
-            this.bSelected = bEnable;
-            this.invalidate();
-        }
+        return (int) (-ptNumber.ascent() + ptNumber.descent());
     }
 
     public void setItemClick(OnItemClick itemClick) {
@@ -246,7 +225,6 @@ public class DateWidgetDayCell extends View {
             bHandled = true;
             bTouchedDown = true;
             invalidate();
-            startAlphaAnimIn(DateWidgetDayCell.this);
         }
         if (event.getAction() == MotionEvent.ACTION_CANCEL) {
             bHandled = true;
@@ -274,19 +252,12 @@ public class DateWidgetDayCell extends View {
     }
 
     public void CreateReminder(Canvas canvas, int Color) {
-        pt.setStyle(Paint.Style.FILL_AND_STROKE);
-        pt.setColor(Color);
-//		Path path = new Path();
-//		path.moveTo(rect.right - rect.width() / 4, rect.top);
-//		path.lineTo(rect.right, rect.top);
-//		path.lineTo(rect.right, rect.top + rect.width() / 4);
-//		path.lineTo(rect.right - rect.width() / 4, rect.top);
-//		path.close();
-        canvas.drawCircle(rect.right - rect.width() / 2, rect.height() - rect.height() / 6.5f, rect.height() / 15, pt);// 绘制圆
-        //canvas.drawPath(path, pt);
+        ptBg.setStyle(Paint.Style.FILL_AND_STROKE);
+        ptBg.setColor(Color);
+        canvas.drawCircle(rect.right - rect.width() / 2, rect.height() - rect.height() / 6.5f, rect.height() / 15, ptBg);// 绘制圆
     }
 
     public interface OnItemClick {
-        public void OnClick(DateWidgetDayCell item);
+        void OnClick(DateWidgetDayCell item);
     }
 }

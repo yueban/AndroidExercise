@@ -7,7 +7,7 @@
     <color name="Calendar_DayBgColor">#ffffff</color>
     <color name="isHoliday_BgColor">#999999</color>
     <color name="isPresentMonth_FontColor">#333333</color>
-    <color name="isToday_BgColor">#f2f2f2</color>
+    <color name="isToday_BgColor">#eaeaea</color>
     <color name="specialReminder">#84b9fa</color>
     <color name="commonReminder">#BDBAB5</color>
 </resources>
