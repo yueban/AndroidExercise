@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="unPresentMonth_FontColor">#d9d8d8</color>
+    <color name="calendar_day_current_month_text">#d9d8d8</color>
+    <color name="calendar_day_normal_month_text">#333333</color>
+    <color name="calendar_day_holiday_text">#999999</color>
+    <color name="calendar_day_select_text">#ffffffff</color>
+    <color name="calendar_reminder">#84b9fa</color>
+    <color name="calendar_reminder_common">#BDBAB5</color>
+    <color name="calendar_day_today_bg">#eaeaea</color>
+    <color name="calendar_day_select_bg">#FFFF2D2D</color>
+    <color name="calendar_header_bg">#f3f3f3</color>
+    <color name="calendar_header_normal_text">#666666</color>
+    <color name="calendar_header_holiday_text">#999999</color>
     <color name="darkdarkgray">#ffB9B9B9</color>
-    <color name="Calendar_WeekBgColor">#f3f3f3</color>
-    <color name="Calendar_WeekFontColor">#666666</color>
-    <color name="Calendar_DayBgColor">#ffffff</color>
-    <color name="isHoliday_BgColor">#999999</color>
-    <color name="isPresentMonth_FontColor">#333333</color>
-    <color name="isToday_BgColor">#eaeaea</color>
-    <color name="specialReminder">#84b9fa</color>
-    <color name="commonReminder">#BDBAB5</color>
 </resources>

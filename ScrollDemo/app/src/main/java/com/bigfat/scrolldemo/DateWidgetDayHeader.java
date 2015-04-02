@@ -44,7 +44,7 @@ public class DateWidgetDayHeader extends View {
 
     private void drawDayHeader(Canvas canvas) {
         // 画矩形，并设置矩形画笔的颜色
-        pt.setColor(MainActivity.Calendar_WeekBgColor);
+        pt.setColor(MainActivity.headerBgColor);
         canvas.drawRect(rect, pt);
 
         // 写入日历头部，设置画笔参数
@@ -57,9 +57,9 @@ public class DateWidgetDayHeader extends View {
         // draw day name
         final String sDayName = DayStyle.getWeekDayName(iWeekDay);
         if (iWeekDay == 1 || iWeekDay == 7) {
-            pt.setColor(MainActivity.isHoliday_BgColor);
+            pt.setColor(MainActivity.headerHolidayTextColor);
         } else {
-            pt.setColor(MainActivity.Calendar_WeekFontColor);
+            pt.setColor(MainActivity.headerNormalTextColor);
         }
         final int iPosX = (int) rect.left + ((int) rect.width() >> 1)
                 - ((int) pt.measureText(sDayName) >> 1);

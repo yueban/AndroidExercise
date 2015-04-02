@@ -22,21 +22,22 @@ import java.util.Calendar;
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     //颜色值
-    public static int Calendar_WeekBgColor;
-    public static int Calendar_DayBgColor;
-    public static int isHoliday_BgColor;
-    public static int unPresentMonth_FontColor;
-    public static int isPresentMonth_FontColor;
-    public static int isToday_BgColor;
-    public static int special_Reminder;
-    public static int common_Reminder;
-    public static int Calendar_WeekFontColor;
-    private static int firstDayOfWeek = Calendar.SUNDAY;
+    public static int headerBgColor;
+    public static int headerNormalTextColor;
+    public static int headerHolidayTextColor;
+    public static int dayCurrentMonthText;
+    public static int dayHolidayText;
+    public static int daySelectText;
+    public static int dayNormalMonthText;
+    public static int todayBgColor;
+    public static int selectedDayBgColor;
+    public static int reminderColor;
     //测量值
     int calendarCurrentWeekHeight;//日历当前周那一行距离顶部的高度
     int screenWidth;//屏幕宽度
     int cellWidth;//日历单元格宽度
     //标识值
+    private static int firstDayOfWeek = Calendar.SUNDAY;
     private int currentMonth;
     private int currentYear;
     private boolean isSelectedWeekInCalendar;
@@ -95,21 +96,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void initColor() {
-        Calendar_WeekBgColor = this.getResources().getColor(
-                R.color.Calendar_WeekBgColor);
-        Calendar_DayBgColor = this.getResources().getColor(
-                R.color.Calendar_DayBgColor);
-        isHoliday_BgColor = this.getResources().getColor(
-                R.color.isHoliday_BgColor);
-        unPresentMonth_FontColor = this.getResources().getColor(
-                R.color.unPresentMonth_FontColor);
-        isPresentMonth_FontColor = this.getResources().getColor(
-                R.color.isPresentMonth_FontColor);
-        isToday_BgColor = this.getResources().getColor(R.color.isToday_BgColor);
-        special_Reminder = this.getResources().getColor(R.color.specialReminder);
-        common_Reminder = this.getResources().getColor(R.color.commonReminder);
-        Calendar_WeekFontColor = this.getResources().getColor(
-                R.color.Calendar_WeekFontColor);
+        headerBgColor = this.getResources().getColor(R.color.calendar_header_bg);
+        headerHolidayTextColor = this.getResources().getColor(R.color.calendar_header_holiday_text);
+        headerNormalTextColor = this.getResources().getColor(R.color.calendar_header_normal_text);
+        dayNormalMonthText = this.getResources().getColor(R.color.calendar_day_normal_month_text);
+        dayCurrentMonthText = this.getResources().getColor(R.color.calendar_day_current_month_text);
+        dayHolidayText = this.getResources().getColor(R.color.calendar_day_holiday_text);
+        daySelectText = this.getResources().getColor(R.color.calendar_day_select_text);
+        todayBgColor = this.getResources().getColor(R.color.calendar_day_today_bg);
+        selectedDayBgColor = this.getResources().getColor(R.color.calendar_day_select_bg);
+        reminderColor = this.getResources().getColor(R.color.calendar_reminder);
     }
 
     private void initData() {
@@ -131,11 +127,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void initCalendarView() {
-        Log.i(TAG, "calStartDate--1->" + calStartDate.get(Calendar.YEAR) + " " + calStartDate.get(Calendar.MONTH) + " " + calStartDate.get(Calendar.DAY_OF_MONTH));
         calStartDate.setTimeInMillis(System.currentTimeMillis());
-        Log.i(TAG, "calStartDate--2->" + calStartDate.get(Calendar.YEAR) + " " + calStartDate.get(Calendar.MONTH) + " " + calStartDate.get(Calendar.DAY_OF_MONTH));
         calStartDate.setFirstDayOfWeek(firstDayOfWeek);
-        Log.i(TAG, "calStartDate--3->" + calStartDate.get(Calendar.YEAR) + " " + calStartDate.get(Calendar.MONTH) + " " + calStartDate.get(Calendar.DAY_OF_MONTH));
         calToday = GetTodayDate();
         calSelected.setTimeInMillis(calToday.getTimeInMillis());
         //绘制日历空白模板
@@ -173,7 +166,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_frag_calendar_pre://上个月
                 Log.i(TAG, "btn_frag_calendar_pre");
-//                calSelected.setTimeInMillis(0);
                 currentMonth--;
                 if (currentMonth == -1) {
                     currentMonth = 11;
@@ -263,8 +255,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         //判断当前选择周（天）是否在日历列表中，作为顶部周视图是否显示的判断
         long startMills = calStartDate.getTimeInMillis();
         long selectedMills = calSelected.getTimeInMillis();
-        Log.i(TAG, "startMills--->" + startMills);
-        Log.i(TAG, "selectedMills--->" + selectedMills);
         isSelectedWeekInCalendar = selectedMills >= startMills && selectedMills <= startMills + 41 * 24 * 60 * 60 * (long) 1000;
     }
 
@@ -300,7 +290,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         for (int iRow = 0; iRow < 6; iRow++) {
             layContentDays.addView(generateCalendarRow());
         }
-//        layContentDays.setBackgroundResource(R.drawable.main_bg0top0bottom0left0right);
         return layContentDays;
     }
 
@@ -337,7 +326,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         updateCalendarSelectedWeekHeight();
         // 更新日历
         Calendar calCalendar = Calendar.getInstance();
-        DateWidgetDayCell daySelected = null;
         final boolean bIsSelection = (calSelected.getTimeInMillis() != 0);
         final int iSelectedYear = calSelected.get(Calendar.YEAR);
         final int iSelectedMonth = calSelected.get(Calendar.MONTH);
@@ -376,8 +364,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         && (iSelectedYear == iYear)) {
                     bSelected = true;
                 }
-            if (bSelected)
-                daySelected = dayCell;
 
             // 是否有日程
             boolean hasRecord = false;
@@ -392,7 +378,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             dayCell.invalidate();
             //如果是当前周，则顶部当前周数据也要设置
             if (i >= currentWeekStartDayIndex && i < currentWeekStartDayIndex + 7) {
-                DateWidgetDayCell dayCellFloat = daysFloat.get(i - (int)currentWeekStartDayIndex);
+                DateWidgetDayCell dayCellFloat = daysFloat.get(i - (int) currentWeekStartDayIndex);
                 dayCellFloat.setData(iYear, iMonth, iDay, bToday, bHoliday, currentMonth, hasRecord, bSelected);
                 dayCellFloat.invalidate();
             }
@@ -412,7 +398,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             public void run() {
                 //计算当前周之前一共有几行
                 long rows = (calSelected.getTimeInMillis() - calStartDate.getTimeInMillis()) / 1000 / 60 / 60 / 24 / 7;
-                calendarCurrentWeekHeight = llCalendarContentFloat.getHeight() * (int)rows;
+                calendarCurrentWeekHeight = llCalendarContentFloat.getHeight() * (int) rows;
                 executeScvScrollEvent();
             }
         });

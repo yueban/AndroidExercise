@@ -2,7 +2,6 @@ package com.bigfat.scrolldemo;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.KeyEvent;
@@ -131,10 +130,10 @@ public class DateWidgetDayCell extends View {
         if (bSelected || bFocused) {
             //选中状态
             if (bSelected) {
-                ptBg.setColor(Color.parseColor("#FFFF2D2D"));
+                ptBg.setColor(MainActivity.selectedDayBgColor);
             }
         } else if (bToday) {
-            ptBg.setColor(MainActivity.isToday_BgColor);
+            ptBg.setColor(MainActivity.todayBgColor);
         }
         canvas.drawCircle(iPosX, iPosY, radius, ptBg);
 
@@ -151,7 +150,7 @@ public class DateWidgetDayCell extends View {
         //画日程小点
         ptBg.setStrokeWidth(0);
         if (hasRecord) {
-            CreateReminder(canvas, MainActivity.special_Reminder);
+            CreateReminder(canvas, MainActivity.reminderColor);
         }
     }
 
@@ -162,15 +161,15 @@ public class DateWidgetDayCell extends View {
         final int iPosX = (int) rect.left + ((int) rect.width() >> 1) - ((int) ptNumber.measureText(sDate) >> 1);
         final int iPosY = (int) (this.getHeight() - (this.getHeight() - getTextHeight()) / 2 - ptNumber.getFontMetrics().bottom) - getHeight() / 6;
 
-        ptNumber.setColor(MainActivity.isPresentMonth_FontColor);
+        ptNumber.setColor(MainActivity.dayNormalMonthText);
 
         //如果是周末
         if (bHoliday) {
-            ptNumber.setColor(Color.parseColor("#999999"));
+            ptNumber.setColor(MainActivity.dayHolidayText);
         }
         //如果非本月
         if (!bIsActiveMonth) {
-            ptNumber.setColor(MainActivity.unPresentMonth_FontColor);
+            ptNumber.setColor(MainActivity.dayCurrentMonthText);
         }
         //如果是选中态下，是白色
         if (bSelected) {
@@ -187,15 +186,15 @@ public class DateWidgetDayCell extends View {
         final int iPosX = (int) rect.left + ((int) rect.width() >> 1) - ((int) ptBottomText.measureText(lunar.toString()) >> 1);
         final int iPosY = (int) (this.getHeight() - ptBottomText.getFontMetrics().bottom) - getHeight() / 10;
 
-        ptBottomText.setColor(MainActivity.isPresentMonth_FontColor);
+        ptBottomText.setColor(MainActivity.dayNormalMonthText);
 
         //如果是周末
         if (bHoliday) {
-            ptBottomText.setColor(Color.parseColor("#999999"));
+            ptBottomText.setColor(MainActivity.dayHolidayText);
         }
         //如果非本月
         if (!bIsActiveMonth) {
-            ptBottomText.setColor(MainActivity.unPresentMonth_FontColor);
+            ptBottomText.setColor(MainActivity.dayCurrentMonthText);
         }
 
         canvas.drawText(lunar.toString(), iPosX, iPosY, ptBottomText);
