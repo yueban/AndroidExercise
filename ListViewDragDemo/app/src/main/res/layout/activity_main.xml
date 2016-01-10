@@ -1,0 +1,9 @@
+<!--<com.bigfat.listviewdragdemo.MyHorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:id="@+id/scrollView"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:overScrollMode="never"--><!--tools:context=".MainActivity"/>-->
+
+<!--<ListView xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:id="@+id/listView"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:overScrollMode="never"--><!--tools:context=".MainActivity" />-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" />

@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.github.florent37.materialviewpager.MaterialViewPager
+        android:id="@+id/materialViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:viewpager_animatedHeaderImage="true"
+        app:viewpager_color="@color/colorPrimary"
+        app:viewpager_disableToolbar="true"
+        app:viewpager_displayToolbarWhenSwipe="false"
+        app:viewpager_enableToolbarElevation="false"
+        app:viewpager_header="@layout/header"
+        app:viewpager_headerAdditionalHeight="0dp"
+        app:viewpager_headerHeight="200dp"
+        app:viewpager_headerAlpha="1.0"
+        app:viewpager_hideLogoWithFade="false"
+        app:viewpager_hideToolbarAndTitle="false"
+        app:viewpager_pagerTitleStrip="@layout/material_view_pager_pagertitlestrip_standard"
+        app:viewpager_parallaxHeaderFactor="0.0"
+        app:viewpager_transparentToolbar="false" />
+</RelativeLayout>

@@ -64,22 +64,22 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         Log.i(TAG, "width--->" + bitmap.getWidth());
         Log.i(TAG, "height--->" + bitmap.getHeight());
 
-        int flag = 100;
+        int flag = 10;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        int widthPeroid = width / flag + 1;
-        int heightPeroid = height / flag + 1;
+        int widthPeriod = width / flag + 1;
+        int heightPeriod = height / flag + 1;
 
         ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<>();
         int mostColorCount = 0;
 
         for (int i = 0; i < flag; i++) {
-            int widthIndex = widthPeroid * i;
+            int widthIndex = widthPeriod * i;
             if (widthIndex > width - 1) {
                 break;
             }
             for (int j = 0; j < flag; j++) {
-                int heightIndex = heightPeroid * i;
+                int heightIndex = heightPeriod * i;
                 if (heightIndex > height - 1) {
                     break;
                 }
@@ -124,6 +124,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         public void run() {
             if (bitmap != null) {
                 int color = getMostColorFromBitmap(bitmap);
+                bitmap.recycle();
                 mHandler.sendEmptyMessage(color);
             }
         }

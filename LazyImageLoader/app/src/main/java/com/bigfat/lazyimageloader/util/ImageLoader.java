@@ -34,7 +34,7 @@ public class ImageLoader {
     }
 
     public void displayImage(String imageUrl, ImageView imageView) {
-        displayImage(imageUrl, imageView);
+        displayImage(imageUrl, imageView, false);
     }
 
     public void displayImage(String imageUrl, ImageView imageView, boolean saveDisk) {

@@ -2,6 +2,7 @@ package com.bigfat.viewpageranim;
 
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
-    private ViewPagerWithTransformerAnim mViewPager;
+    private ViewPager mViewPager;
     private int[] mImgIds = {
             R.mipmap.guide_image1,
             R.mipmap.guide_image2,
@@ -30,12 +31,12 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-//        mViewPager = (ViewPagerCompat) findViewById(R.id.id_viewpager);
+        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
 //        mViewPager.setPageTransformer(true, new DepthPageTransformer());
-//        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
 //        mViewPager.setPageTransformer(true, new RotateDownPageTransformer());
 
-        mViewPager = (ViewPagerWithTransformerAnim) findViewById(R.id.id_viewpager);
+//        mViewPager = (ViewPagerWithTransformerAnim) findViewById(R.id.id_viewpager);
         mViewPager.setAdapter(new PagerAdapter() {
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
@@ -44,14 +45,14 @@ public class MainActivity extends ActionBarActivity {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 container.addView(imageView);
                 mImages.add(imageView);
-                mViewPager.setViewForPosition(imageView, position);
+//                mViewPager.setViewForPosition(imageView, position);
                 return imageView;
             }
 
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
                 container.removeView(mImages.get(position));
-                mViewPager.removeViewFromPosition(position);
+//                mViewPager.removeViewFromPosition(position);
             }
 
             @Override

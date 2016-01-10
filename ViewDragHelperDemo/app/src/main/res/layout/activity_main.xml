@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bigfat.viewdraghelperdemo.DragLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.bigfat.viewdraghelperdemo.MainActivity"
+    >
+
+  <TextView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_gravity="center"
+      android:layout_margin="10dp"
+      android:background="#44ff0000"
+      android:gravity="center"
+      android:clickable="true"
+      android:text="I can be dragged !"
+      />
+
+  <TextView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_gravity="center"
+      android:layout_margin="10dp"
+      android:background="#4400ff00"
+      android:gravity="center"
+      android:text="I will autoback !"
+      />
+
+  <TextView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_gravity="center"
+      android:layout_margin="10dp"
+      android:background="#440000ff"
+      android:gravity="center"
+      android:text="I can be edge dragged !"
+      />
+</com.bigfat.viewdraghelperdemo.DragLayout>
