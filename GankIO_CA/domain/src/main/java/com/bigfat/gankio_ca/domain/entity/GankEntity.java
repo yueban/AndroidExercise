@@ -28,6 +28,9 @@ public class GankEntity {
     private String createdAt;
     private String updatedAt;
 
+    public int width;
+    public int height;
+
     public String getWho() {
         return who;
     }

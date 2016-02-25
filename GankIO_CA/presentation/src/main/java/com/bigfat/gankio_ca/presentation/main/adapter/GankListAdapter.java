@@ -12,6 +12,9 @@ import com.bigfat.gankio_ca.domain.entity.GankEntity;
 import com.bigfat.gankio_ca.presentation.R;
 import com.bigfat.gankio_ca.presentation.util.GlideUtil;
 import com.bigfat.gankio_ca.presentation.widget.RatioImageView;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import java.util.Collection;
 import java.util.List;
 
@@ -42,11 +45,36 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        GankEntity gankEntity = mData.get(position);
+        final GankEntity gankEntity = mData.get(position);
+
+        holder.mIvBg.setOriginalSize(gankEntity.width, gankEntity.height);
+        holder.itemView.setTag(gankEntity.getUrl());
         GlideUtil
             .url(mContext)
             .load(gankEntity.getUrl())
-            .centerCrop()
+            .listener(new RequestListener<String, GlideDrawable>() {
+                @Override
+                public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target,
+                    boolean isFromMemoryCache,
+                    boolean isFirstResource) {
+
+                    int width = resource.getIntrinsicWidth();
+                    int height = resource.getIntrinsicHeight();
+
+                    gankEntity.width = width;
+                    gankEntity.height = height;
+                    if (holder.itemView.getTag().equals(gankEntity.getUrl())) {
+                        holder.mIvBg.setOriginalSize(width, height);
+                    }
+
+                    return false;
+                }
+            })
             .into(holder.mIvBg);
         holder.mTvDate.setText(gankEntity.getDesc());
     }
@@ -65,8 +93,6 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-
-            mIvBg.setOriginalSize(50, 50);
         }
     }
 }
