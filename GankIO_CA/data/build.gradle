@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.fernandocejas.frodo'
+
+android {
+    defaultPublishConfig "debug"
+
+    def globalConfig = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfig.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfig.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfig.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfig.getAt("androidTargetSdkVersion")
+        versionCode globalConfig.getAt("androidVersionCode")
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    lintOptions {
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    def dataDependencies = rootProject.ext.dataDependencies
+
+    compile project(":domain")
+    apt dataDependencies.daggerCompiler
+    provided dataDependencies.javaxAnnotation
+    compile dataDependencies.retrofit
+    compile dataDependencies.retrofitGson
+    compile dataDependencies.retrofitAdapterRxJava
+    compile dataDependencies.okhttpLogging
+    compile dataDependencies.dagger
+    compile dataDependencies.rxJava
+    compile dataDependencies.rxAndroid
+}

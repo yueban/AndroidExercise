@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bigfat.drawerlayoutdemo.LeftDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bigfat.drawerlayoutdemo.MainActivity">
+
+    <TextView
+        android:id="@id/id_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffff0000"
+        android:text="Content"/>
+
+    <TextView
+        android:id="@id/id_drawer"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:background="#ff00ff00"
+        android:text="Drawer" />
+</com.bigfat.drawerlayoutdemo.LeftDrawerLayout>

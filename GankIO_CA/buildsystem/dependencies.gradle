@@ -1,0 +1,63 @@
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+ext {
+    //Android
+    androidBuildToolsVersion = "23.0.2"
+    androidMinSdkVersion = 14
+    androidTargetSdkVersion = 23
+    androidCompileSdkVersion = 23
+    androidVersionName = "0.0.1"
+    androidVersionCode = 1
+
+    //Libraries
+    supportVersion = "23.1.1"
+    retrofitVersion = "2.0.0-beta4"
+    retrofitGsonVersion = "2.0.0-beta4"
+    retrofitAdapterRxJavaVersion = "2.0.0-beta4"
+    okhttpLoggingVersion = "3.0.1"
+    rxAndroid = "1.1.0"
+    rxJava = "1.1.0"
+    daggerVersion = "2.0.2"
+    javaxAnnotationVersion = "1.0"
+    gsonVersion = "2.6.1"
+    butterknifeVersion = "7.0.1"
+    glideVersion = "3.7.0"
+
+    presentationDependencies = [
+        support        : "com.android.support:support-v4:${supportVersion}",
+        appcompat      : "com.android.support:appcompat-v7:${supportVersion}",
+        design         : "com.android.support:design:${supportVersion}",
+        rxAndroid      : "io.reactivex:rxandroid:${rxAndroid}",
+        rxJava         : "io.reactivex:rxjava:${rxJava}",
+        daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+        dagger         : "com.google.dagger:dagger:${daggerVersion}",
+        javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+        butterknife    : "com.jakewharton:butterknife:${butterknifeVersion}",
+        glide          : "com.github.bumptech.glide:glide:${glideVersion}",
+    ]
+
+    domainDependencies = [
+        rxJava         : "io.reactivex:rxjava:${rxJava}",
+        daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+        dagger         : "com.google.dagger:dagger:${daggerVersion}",
+        javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+        gson           : "com.google.code.gson:gson:${gsonVersion}",
+    ]
+
+    dataDependencies = [
+        retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+        retrofitGson         : "com.squareup.retrofit2:converter-gson:${retrofitGsonVersion}",
+        retrofitAdapterRxJava: "com.squareup.retrofit2:adapter-rxjava:${retrofitAdapterRxJavaVersion}",
+        okhttpLogging        : "com.squareup.okhttp3:logging-interceptor:${okhttpLoggingVersion}",
+        rxAndroid            : "io.reactivex:rxandroid:${rxAndroid}",
+        rxJava               : "io.reactivex:rxjava:${rxJava}",
+        daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+        dagger               : "com.google.dagger:dagger:${daggerVersion}",
+        javaxAnnotation      : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+    ]
+}

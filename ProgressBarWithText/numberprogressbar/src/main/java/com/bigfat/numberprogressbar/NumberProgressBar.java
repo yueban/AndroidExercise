@@ -145,14 +145,17 @@ public class NumberProgressBar extends View {
                 defStyleAttr, 0);
 
         mProgressBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_color, default_progress_color);
-        mSecondaryBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_secondary_color, default_secondary_color);
+        mSecondaryBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_secondary_color,
+                default_secondary_color);
         mTextColor = attributes.getColor(R.styleable.NumberProgressBar_progress_text_color, default_text_color);
         mTextSize = attributes.getDimension(R.styleable.NumberProgressBar_progress_text_size, default_text_size);
 
         mBarHeight = attributes.getDimension(R.styleable.NumberProgressBar_progress_bar_height, default_bar_height);
-        mOffset = attributes.getDimension(R.styleable.NumberProgressBar_progress_text_offset, default_progress_text_offset);
+        mOffset = attributes.getDimension(R.styleable.NumberProgressBar_progress_text_offset,
+                default_progress_text_offset);
 
-        int textVisible = attributes.getInt(R.styleable.NumberProgressBar_progress_text_visibility, PROGRESS_TEXT_VISIBLE);
+        int textVisible = attributes.getInt(R.styleable.NumberProgressBar_progress_text_visibility,
+                PROGRESS_TEXT_VISIBLE);
         if (textVisible != PROGRESS_TEXT_VISIBLE) {
             mIfDrawText = false;
         }
@@ -233,7 +236,8 @@ public class NumberProgressBar extends View {
     private void calculateDrawRectFWithoutProgressText() {
         mProgressRectF.left = getPaddingLeft();
         mProgressRectF.top = getHeight() / 2.0f - mBarHeight / 2.0f;
-        mProgressRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getProgress() + getPaddingLeft();
+        mProgressRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getProgress
+                () + getPaddingLeft();
         mProgressRectF.bottom = getHeight() / 2.0f + mBarHeight / 2.0f;
 
         mSecondaryRectF.left = getPaddingLeft();
@@ -261,7 +265,8 @@ public class NumberProgressBar extends View {
             mDrawProgressBar = true;
             mProgressRectF.left = getPaddingLeft();
             mProgressRectF.top = getHeight() / 2.0f - mBarHeight / 2.0f;
-            mProgressRectF.right = getPaddingLeft() + (mSecondaryRectF.right - mSecondaryRectF.left) * getProgress() / (getMax() * 1.0f);
+            mProgressRectF.right = getPaddingLeft() + (mSecondaryRectF.right - mSecondaryRectF.left) * getProgress()
+                    / (getMax() * 1.0f);
             mProgressRectF.bottom = getHeight() / 2.0f + mBarHeight / 2.0f;
         }
     }
@@ -315,10 +320,15 @@ public class NumberProgressBar extends View {
     }
 
     public void setProgress(float progress) {
-        if (progress <= getMax() && progress >= 0) {
-            this.mCurrentProgress = progress;
-            invalidate();
+        if (progress < 0) {
+            return;
         }
+        if (progress <= getMax()) {
+            this.mCurrentProgress = progress;
+        } else {
+            this.mCurrentProgress = mMaxProgress;
+        }
+        invalidate();
     }
 
     public float getMax() {
@@ -328,6 +338,9 @@ public class NumberProgressBar extends View {
     public void setMax(float maxProgress) {
         if (maxProgress > 0) {
             this.mMaxProgress = maxProgress;
+            if (mCurrentProgress > mMaxProgress) {
+                mCurrentProgress = mMaxProgress;
+            }
             invalidate();
         }
     }

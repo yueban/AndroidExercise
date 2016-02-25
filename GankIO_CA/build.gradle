@@ -1,0 +1,16 @@
+apply from: 'buildsystem/dependencies.gradle'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.0.0-beta5'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath "com.fernandocejas.frodo:frodo-plugin:0.8.2"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
