@@ -2,7 +2,7 @@ package com.bigfat.gankio_ca.presentation.common.navigator;
 
 import android.content.Context;
 import android.content.Intent;
-import com.bigfat.gankio_ca.presentation.main.view.MainActivity;
+import com.bigfat.gankio_ca.presentation.ui.meizhi.view.MeizhiActivity;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -19,7 +19,7 @@ public class Navigator {
 
     public void navigateToMain(Context context) {
         if (context != null) {
-            Intent intentToLaunch = MainActivity.getCallingIntent(context);
+            Intent intentToLaunch = MeizhiActivity.getCallingIntent(context);
             context.startActivity(intentToLaunch);
         }
     }

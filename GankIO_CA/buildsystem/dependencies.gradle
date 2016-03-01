@@ -2,6 +2,7 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -27,6 +28,7 @@ ext {
     gsonVersion = "2.6.1"
     butterknifeVersion = "7.0.1"
     glideVersion = "3.7.0"
+    dbflowVersion = "3.0.0-beta3"
 
     presentationDependencies = [
         support        : "com.android.support:support-v4:${supportVersion}",
@@ -59,5 +61,8 @@ ext {
         daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
         dagger               : "com.google.dagger:dagger:${daggerVersion}",
         javaxAnnotation      : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+        dbflowProcessor      : "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflowVersion}",
+        dbflowCore           : "com.github.Raizlabs.DBFlow:dbflow-core:${dbflowVersion}",
+        dbflow               : "com.github.Raizlabs.DBFlow:dbflow:${dbflowVersion}",
     ]
 }

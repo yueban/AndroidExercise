@@ -1,10 +1,11 @@
 package com.bigfat.gankio_ca.presentation.common.di.components;
 
 import android.content.Context;
-import com.bigfat.gankio_ca.domain.repository.GankRepository;
-import com.bigfat.gankio_ca.presentation.common.ui.BaseActivity;
+import com.bigfat.gankio_ca.data.cache.GankCache;
+import com.bigfat.gankio_ca.data.datasource.GankDataStore;
 import com.bigfat.gankio_ca.presentation.common.di.modules.ApplicationModule;
 import com.bigfat.gankio_ca.presentation.common.di.modules.ExecutorModule;
+import com.bigfat.gankio_ca.presentation.common.ui.BaseActivity;
 import dagger.Component;
 import javax.inject.Singleton;
 
@@ -20,5 +21,7 @@ public interface ApplicationComponent extends ExecutorComponent {
 
     Context context();
 
-    GankRepository gankRepository();
+    GankDataStore gankDataStore();
+
+    GankCache gankCache();
 }

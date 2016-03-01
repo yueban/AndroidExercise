@@ -1,7 +1,7 @@
 package com.bigfat.gankio_ca.data.net;
 
-import com.bigfat.gankio_ca.domain.entity.DataEntity;
-import com.bigfat.gankio_ca.domain.entity.DayEntity;
+import com.bigfat.gankio_ca.data.entity.DataEntity;
+import com.bigfat.gankio_ca.data.entity.DayEntity;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;
@@ -42,7 +42,8 @@ public interface GankApi {
     String URL_BASE = "http://gank.avosapps.com/api/";
 
     @GET("data/{type}/{pageSize}/{pageIndex}")
-    Observable<DataEntity> data(@Path("type") String type, @Path("pageSize") int pageSize, @Path("pageIndex") int pageIndex);
+    Observable<DataEntity> data(@Path(value = "type", encoded = true) String type, @Path("pageSize") int pageSize,
+        @Path("pageIndex") int pageIndex);
 
     @GET("day/{date}")
     Observable<DayEntity> day(@Path(value = "date", encoded = true) String date);

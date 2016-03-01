@@ -1,5 +1,6 @@
 package com.bigfat.gankio_ca.presentation.common.di;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import javax.inject.Scope;
 
@@ -11,6 +12,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * QQ: 343278606
  */
 @Scope
+@Documented
 @Retention(RUNTIME)
 public @interface PerActivity {
 }

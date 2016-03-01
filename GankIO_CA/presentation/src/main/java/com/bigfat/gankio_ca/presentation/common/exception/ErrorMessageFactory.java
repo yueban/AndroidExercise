@@ -1,6 +1,7 @@
 package com.bigfat.gankio_ca.presentation.common.exception;
 
 import android.content.Context;
+import com.bigfat.gankio_ca.data.exception.APIException;
 import com.bigfat.gankio_ca.data.exception.NetworkConnectionException;
 import com.bigfat.gankio_ca.presentation.R;
 
@@ -17,6 +18,8 @@ public class ErrorMessageFactory {
         String message = context.getString(R.string.exception_message_generic);
 
         if (exception instanceof NetworkConnectionException) {
+            message = context.getString(R.string.exception_message_no_connection);
+        } else if (exception instanceof APIException) {
             message = context.getString(R.string.exception_message_no_connection);
         }
 

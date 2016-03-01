@@ -1,8 +1,10 @@
 package com.bigfat.gankio_ca.presentation.common.di.modules;
 
 import android.content.Context;
-import com.bigfat.gankio_ca.data.repository.GankDataRepository;
-import com.bigfat.gankio_ca.domain.repository.GankRepository;
+import com.bigfat.gankio_ca.data.cache.GankCache;
+import com.bigfat.gankio_ca.data.cache.GankCacheImpl;
+import com.bigfat.gankio_ca.data.datasource.GankDataStore;
+import com.bigfat.gankio_ca.data.datasource.GankDataStoreNet;
 import com.bigfat.gankio_ca.presentation.common.App;
 import dagger.Module;
 import dagger.Provides;
@@ -29,7 +31,13 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    GankRepository provideGankRepository(GankDataRepository gankDataRepository) {
-        return gankDataRepository;
+    GankDataStore provideGankDataStore(GankDataStoreNet gankDataStoreNet){
+        return gankDataStoreNet;
+    }
+
+    @Provides
+    @Singleton
+    GankCache provideGankCache(GankCacheImpl gankCache){
+        return gankCache;
     }
 }

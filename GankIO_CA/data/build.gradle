@@ -35,8 +35,8 @@ android {
 dependencies {
     def dataDependencies = rootProject.ext.dataDependencies
 
-    compile project(":domain")
     apt dataDependencies.daggerCompiler
+    apt dataDependencies.dbflowProcessor
     provided dataDependencies.javaxAnnotation
     compile dataDependencies.retrofit
     compile dataDependencies.retrofitGson
@@ -45,4 +45,6 @@ dependencies {
     compile dataDependencies.dagger
     compile dataDependencies.rxJava
     compile dataDependencies.rxAndroid
+    compile dataDependencies.dbflowCore
+    compile dataDependencies.dbflow
 }

@@ -1,6 +1,6 @@
 package com.bigfat.gankio_ca.presentation.common.di.modules;
 
-import com.bigfat.gankio_ca.data.executor.WorkExecutor;
+import com.bigfat.gankio_ca.domain.executor.WorkExecutor;
 import com.bigfat.gankio_ca.domain.executor.PostExecutionTread;
 import com.bigfat.gankio_ca.domain.executor.ThreadExecutor;
 import com.bigfat.gankio_ca.presentation.common.executor.UIThread;

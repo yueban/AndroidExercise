@@ -18,7 +18,7 @@
             android:value="GlideModule" />
 
         <activity
-            android:name=".main.view.MainActivity"
+            android:name=".ui.meizhi.view.MeizhiActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
