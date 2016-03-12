@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ui.login.LoginActivity">
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/login"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:inputType="textPassword"
+        tools:text="This is password"/>
+
+    <EditText
+        android:id="@+id/et_account"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/et_password"
+        android:layout_centerHorizontal="true"
+        tools:text="This is account"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/et_account"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/welcome_slogon"
+        tools:src="@drawable/welcome_slogon"/>
+</RelativeLayout>

@@ -47,4 +47,14 @@ public interface GankApi {
 
     @GET("day/{date}")
     Observable<DayEntity> day(@Path(value = "date", encoded = true) String date);
+
+    class Type {
+        public static final String BENEFIT = "福利";
+        public static final String ANDROID = "Android";
+        public static final String IOS = "iOS";
+        public static final String REST = "休息视频";
+        public static final String EXTEND = "拓展资源";
+        public static final String FRONTPAEG = "前端";
+        public static final String ALL = "all";
+    }
 }

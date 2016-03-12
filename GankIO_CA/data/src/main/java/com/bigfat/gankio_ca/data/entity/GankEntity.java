@@ -5,57 +5,86 @@ import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
+import org.parceler.Parcel;
 
 /**
  * Created by yueban on 17:55 23/2/16.
  * Email: fbzhh007@gmail.com
  * QQ: 343278606
  */
+@Parcel
 @Table(database = AppDataBase.class)
 public class GankEntity extends BaseModel {
     /**
-     * who : 张涵宇
-     * publishedAt : 2016-02-23T05:08:46.837Z
-     * desc : 2.23
+     * _id : 56d8eb3a67765967efcbd69c
+     * _ns : ganhuo
+     * createdAt : 2016-03-04T09:56:10.964Z
+     * desc : 3.4
+     * publishedAt : 2016-03-04T12:44:51.926Z
+     * source : chrome
      * type : 福利
-     * url : http://ww4.sinaimg.cn/large/7a8aed7bjw1f19241kkpwj20f00hfabt.jpg
+     * url : http://ww4.sinaimg.cn/large/7a8aed7bjw1f1klhuc8w5j20d30h9gn8.jpg
      * used : true
-     * objectId : 56cbc2d37db2a20051a7227e
-     * createdAt : 2016-02-23T02:24:19.518Z
-     * updatedAt : 2016-02-23T05:08:48.046Z
+     * who : 张涵宇
      */
-    @Column
-    private String who;
-    @Column
-    private String publishedAt;
-    @Column
-    private String desc;
-    @Column
-    private String type;
-    @Column
-    private String url;
-    @Column
-    private boolean used;
     @PrimaryKey
-    private String objectId;
+    protected String _id;
     @Column
-    private String createdAt;
+    protected String _ns;
     @Column
-    private String updatedAt;
+    protected String createdAt;
+    @Column
+    protected String desc;
+    @Column
+    protected String publishedAt;
+    @Column
+    protected String source;
+    @Column
+    protected String type;
+    @Column
+    protected String url;
+    @Column
+    protected boolean used;
+    @Column
+    protected String who;
     /**
      * 为了瀑布流,记录图片宽高
      */
     @Column
-    private int width;
+    protected int width;
     @Column
-    private int height;
+    protected int height;
 
-    public String getWho() {
-        return who;
+    public String get_id() {
+        return _id;
     }
 
-    public void setWho(String who) {
-        this.who = who;
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String get_ns() {
+        return _ns;
+    }
+
+    public void set_ns(String _ns) {
+        this._ns = _ns;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getPublishedAt() {
@@ -66,12 +95,12 @@ public class GankEntity extends BaseModel {
         this.publishedAt = publishedAt;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getSource() {
+        return source;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getType() {
@@ -98,28 +127,12 @@ public class GankEntity extends BaseModel {
         this.used = used;
     }
 
-    public String getObjectId() {
-        return objectId;
+    public String getWho() {
+        return who;
     }
 
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setWho(String who) {
+        this.who = who;
     }
 
     public int getWidth() {
@@ -141,15 +154,16 @@ public class GankEntity extends BaseModel {
     @Override
     public String toString() {
         return "GankEntity{" +
-            "who='" + who + '\'' +
-            ", publishedAt='" + publishedAt + '\'' +
+            "_id='" + _id + '\'' +
+            ", _ns='" + _ns + '\'' +
+            ", createdAt='" + createdAt + '\'' +
             ", desc='" + desc + '\'' +
+            ", publishedAt='" + publishedAt + '\'' +
+            ", source='" + source + '\'' +
             ", type='" + type + '\'' +
             ", url='" + url + '\'' +
             ", used=" + used +
-            ", objectId='" + objectId + '\'' +
-            ", createdAt='" + createdAt + '\'' +
-            ", updatedAt='" + updatedAt + '\'' +
+            ", who='" + who + '\'' +
             ", width=" + width +
             ", height=" + height +
             '}';

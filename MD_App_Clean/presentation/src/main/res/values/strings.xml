@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MD_App_Clean</string>
+    <string name="exception_message_generic">未知错误</string>
+    <string name="exception_message_no_connection">检查下网络再试试~~</string>
+    <string name="exception_message_api_unknown_error">未知api错误</string>
+    <string name="exception_message_api_data_parse_error">服务器数据解析出错</string>
+    <string name="login">login</string>
+</resources>

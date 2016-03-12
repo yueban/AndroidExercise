@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.fernandocejas.frodo'
+
+android {
+    def globalConfig = rootProject.extensions.getByName("ext");
+
+    compileSdkVersion globalConfig.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfig.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        applicationId "com.bigfat.md_app_clean"
+        minSdkVersion globalConfig.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfig.getAt("androidTargetSdkVersion")
+        versionCode globalConfig.getAt("androidVersionCode")
+        versionName globalConfig.getAt("androidVersionName")
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+dependencies {
+    def presentationDependencies = rootProject.ext.presentationDependencies
+
+    compile project(":data")
+    compile project(":domain")
+    apt presentationDependencies.daggerCompiler
+    provided presentationDependencies.javaxAnnotation
+    compile presentationDependencies.support
+    compile presentationDependencies.appcompat
+    compile presentationDependencies.design
+    compile presentationDependencies.vectorDrawable
+    compile presentationDependencies.animatedVectorDrawable
+    compile presentationDependencies.rxAndroid
+    compile presentationDependencies.rxJava
+    compile presentationDependencies.dagger
+    compile presentationDependencies.butterknife
+    compile presentationDependencies.glide
+    compile presentationDependencies.stetho
+    compile presentationDependencies.stethoOkhttp3
+}

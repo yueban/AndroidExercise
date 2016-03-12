@@ -1,7 +1,7 @@
 package com.bigfat.gankio_ca.presentation.ui.meizhi.presenter;
 
-import com.bigfat.gankio_ca.data.entity.DayEntity;
 import com.bigfat.gankio_ca.data.entity.GankEntity;
+import com.bigfat.gankio_ca.data.net.GankApi;
 import com.bigfat.gankio_ca.domain.exception.DefaultErrorBundle;
 import com.bigfat.gankio_ca.domain.exception.ErrorBundle;
 import com.bigfat.gankio_ca.domain.interactor.DefaultSubscriber;
@@ -10,11 +10,8 @@ import com.bigfat.gankio_ca.presentation.common.di.PerActivity;
 import com.bigfat.gankio_ca.presentation.common.exception.ErrorMessageFactory;
 import com.bigfat.gankio_ca.presentation.common.ui.Presenter;
 import com.bigfat.gankio_ca.presentation.ui.meizhi.view.MeizhiView;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.inject.Inject;
-import rx.Subscriber;
 
 /**
  * Created by yueban on 17:25 24/2/16.
@@ -23,10 +20,10 @@ import rx.Subscriber;
  */
 @PerActivity
 public class MeizhiPresenter implements Presenter {
+    private static final String TYPE = GankApi.Type.BENEFIT;
     private final GankUseCase mGankUseCase;
     private MeizhiView mView;
     private int mPageIndex = 1;
-    private String mType = "福利";
     private boolean isRefreshing = false;
 
     @Inject
@@ -72,31 +69,11 @@ public class MeizhiPresenter implements Presenter {
         } else {
             mPageIndex++;
         }
-        mGankUseCase.data(mType, mPageIndex, new DataSubscriber(isRefresh));
+        mGankUseCase.data(TYPE, mPageIndex, new DataSubscriber(isRefresh));
     }
 
     public void onGankEntityClicked(GankEntity gankEntity) {
-        try {
-            String date = new SimpleDateFormat("yyyy/MM/dd").format(
-                new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(gankEntity.getPublishedAt()));
-            mGankUseCase.day(date, new Subscriber<DayEntity>() {
-                @Override
-                public void onCompleted() {
-
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                }
-
-                @Override
-                public void onNext(DayEntity dayEntity) {
-                }
-            });
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        this.mView.viewGankEntity(gankEntity);
+        this.mView.viewDay(gankEntity);
     }
 
     private void showViewLoading() {
@@ -147,7 +124,7 @@ public class MeizhiPresenter implements Presenter {
         @Override
         public void onError(Throwable e) {
             MeizhiPresenter.this.hideViewLoading();
-            MeizhiPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
+            MeizhiPresenter.this.showErrorMessage(new DefaultErrorBundle(new Exception(e)));
             isRefreshing = false;
         }
 

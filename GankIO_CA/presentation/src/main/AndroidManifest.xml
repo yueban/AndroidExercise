@@ -15,18 +15,21 @@
 
         <meta-data
             android:name="com.bigfat.gankio_ca.presentation.util.CustomGlideModule"
-            android:value="GlideModule" />
+            android:value="GlideModule"/>
 
         <activity
             android:name=".ui.meizhi.view.MeizhiActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.day.view.DayActivity"
+            android:launchMode="singleTop"/>
     </application>
 
 </manifest>

@@ -37,6 +37,7 @@ dependencies {
 
     apt dataDependencies.daggerCompiler
     apt dataDependencies.dbflowProcessor
+    apt dataDependencies.parcelerApt
     provided dataDependencies.javaxAnnotation
     compile dataDependencies.retrofit
     compile dataDependencies.retrofitGson
@@ -47,4 +48,5 @@ dependencies {
     compile dataDependencies.rxAndroid
     compile dataDependencies.dbflowCore
     compile dataDependencies.dbflow
+    compile dataDependencies.parceler
 }

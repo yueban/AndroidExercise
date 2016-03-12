@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 import com.bigfat.gankio_ca.data.entity.GankEntity;
 import com.bigfat.gankio_ca.presentation.R;
 import com.bigfat.gankio_ca.presentation.common.di.HasComponent;
@@ -68,6 +67,9 @@ public class MeizhiActivity extends BaseActivity implements HasComponent<UseCase
 
     @Override
     public void onGankEntityClick(GankEntity gankEntity) {
-        Toast.makeText(this, gankEntity.toString(), Toast.LENGTH_SHORT).show();
+        getNavigator().navigateToDay(MeizhiActivity.this, gankEntity);
+        //DayClickEvent dayClickEvent = new DayClickEvent();
+        //dayClickEvent.setGankEntity(gankEntity);
+        //sendEvent(dayClickEvent);
     }
 }

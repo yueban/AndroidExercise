@@ -5,6 +5,8 @@ import com.bigfat.gankio_ca.data.cache.GankCache;
 import com.bigfat.gankio_ca.data.datasource.GankDataStore;
 import com.bigfat.gankio_ca.presentation.common.di.modules.ApplicationModule;
 import com.bigfat.gankio_ca.presentation.common.di.modules.ExecutorModule;
+import com.bigfat.gankio_ca.presentation.common.navigator.Navigator;
+import com.bigfat.gankio_ca.presentation.common.rxbus.RxBus;
 import com.bigfat.gankio_ca.presentation.common.ui.BaseActivity;
 import dagger.Component;
 import javax.inject.Singleton;
@@ -24,4 +26,8 @@ public interface ApplicationComponent extends ExecutorComponent {
     GankDataStore gankDataStore();
 
     GankCache gankCache();
+
+    Navigator navigator();
+
+    RxBus rxBus();
 }

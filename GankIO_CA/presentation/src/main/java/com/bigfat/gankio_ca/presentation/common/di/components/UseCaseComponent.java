@@ -3,6 +3,7 @@ package com.bigfat.gankio_ca.presentation.common.di.components;
 import com.bigfat.gankio_ca.presentation.common.di.PerActivity;
 import com.bigfat.gankio_ca.presentation.common.di.modules.ActivityModule;
 import com.bigfat.gankio_ca.presentation.common.di.modules.UseCaseModule;
+import com.bigfat.gankio_ca.presentation.ui.day.view.DayActivity;
 import com.bigfat.gankio_ca.presentation.ui.meizhi.view.MeizhiFragment;
 import dagger.Component;
 
@@ -13,6 +14,8 @@ import dagger.Component;
  */
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = { ActivityModule.class, UseCaseModule.class })
-public interface UseCaseComponent extends ActivityComponent{
+public interface UseCaseComponent extends ActivityComponent {
     void inject(MeizhiFragment mainActivityFragment);
+
+    void inject(DayActivity dayActivity);
 }

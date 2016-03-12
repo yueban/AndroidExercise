@@ -12,7 +12,7 @@ import java.util.Collection;
 public interface MeizhiView extends LoadDataView {
     void renderDataList(Collection<GankEntity> gankEntityCollection, boolean isRefresh);
 
-    void viewGankEntity(GankEntity gankEntity);
+    void viewDay(GankEntity gankEntity);
 
     void loadMoreData();
 }

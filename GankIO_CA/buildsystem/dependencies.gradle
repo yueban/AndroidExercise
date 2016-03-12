@@ -29,6 +29,7 @@ ext {
     butterknifeVersion = "7.0.1"
     glideVersion = "3.7.0"
     dbflowVersion = "3.0.0-beta3"
+    parcelerVersion = "1.0.4"
 
     presentationDependencies = [
         support        : "com.android.support:support-v4:${supportVersion}",
@@ -64,5 +65,7 @@ ext {
         dbflowProcessor      : "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflowVersion}",
         dbflowCore           : "com.github.Raizlabs.DBFlow:dbflow-core:${dbflowVersion}",
         dbflow               : "com.github.Raizlabs.DBFlow:dbflow:${dbflowVersion}",
+        parceler             : "org.parceler:parceler-api:${parcelerVersion}",
+        parcelerApt          : "org.parceler:parceler:${parcelerVersion}",
     ]
 }

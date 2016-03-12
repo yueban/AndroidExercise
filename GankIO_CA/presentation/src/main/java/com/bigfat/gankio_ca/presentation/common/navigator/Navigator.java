@@ -2,6 +2,9 @@ package com.bigfat.gankio_ca.presentation.common.navigator;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import com.bigfat.gankio_ca.data.entity.GankEntity;
+import com.bigfat.gankio_ca.presentation.ui.day.view.DayActivity;
 import com.bigfat.gankio_ca.presentation.ui.meizhi.view.MeizhiActivity;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -24,7 +27,10 @@ public class Navigator {
         }
     }
 
-    public void nagivateToDay() {
-
+    public void navigateToDay(Context context, @NonNull GankEntity gankEntity) {
+        if (context != null) {
+            Intent intentToLaunch = DayActivity.getCallingIntent(context, gankEntity);
+            context.startActivity(intentToLaunch);
+        }
     }
 }

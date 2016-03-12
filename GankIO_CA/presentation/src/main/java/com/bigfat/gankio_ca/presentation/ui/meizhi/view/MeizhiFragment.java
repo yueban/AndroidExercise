@@ -15,10 +15,10 @@ import butterknife.ButterKnife;
 import com.bigfat.gankio_ca.data.entity.GankEntity;
 import com.bigfat.gankio_ca.presentation.R;
 import com.bigfat.gankio_ca.presentation.common.di.components.UseCaseComponent;
+import com.bigfat.gankio_ca.presentation.common.listeners.OnItemClickListener;
 import com.bigfat.gankio_ca.presentation.common.ui.BaseFragment;
 import com.bigfat.gankio_ca.presentation.ui.meizhi.presenter.MeizhiPresenter;
 import com.bigfat.gankio_ca.presentation.ui.meizhi.view.adapter.MeizhiListAdapter;
-import com.bigfat.gankio_ca.presentation.common.listeners.OnItemClickListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.inject.Inject;
@@ -28,13 +28,10 @@ import javax.inject.Inject;
  */
 public class MeizhiFragment extends BaseFragment implements MeizhiView {
 
-    @Inject
-    MeizhiPresenter mPresenter;
+    @Inject MeizhiPresenter mPresenter;
 
-    @Bind(R.id.srl_gank)
-    SwipeRefreshLayout mSrlGank;
-    @Bind(R.id.rv_gank)
-    RecyclerView mRvGank;
+    @Bind(R.id.srl_gank) SwipeRefreshLayout mSrlGank;
+    @Bind(R.id.rv_gank) RecyclerView mRvGank;
 
     private Listener mListener;
     private MeizhiListAdapter mAdapter;
@@ -51,9 +48,9 @@ public class MeizhiFragment extends BaseFragment implements MeizhiView {
         }
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-        Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, true);
         ButterKnife.bind(this, view);
 
@@ -131,7 +128,7 @@ public class MeizhiFragment extends BaseFragment implements MeizhiView {
     }
 
     @Override
-    public void viewGankEntity(GankEntity gankEntity) {
+    public void viewDay(GankEntity gankEntity) {
         if (mListener != null) {
             mListener.onGankEntityClick(gankEntity);
         }
