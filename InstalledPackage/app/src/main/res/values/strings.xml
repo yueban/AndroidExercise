@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">InstalledPackage</string>
+    <string name="menu_import">导入</string>
+    <string name="menu_export">导出</string>
+    <string name="export_failed">导出失败</string>
+    <string formatted="false" name="app_list_save_to_format">应用列表已保存至: %s</string>
+    <string name="cancel_select">取消选择</string>
+    <string name="load_file_failed">读取文件失败</string>
+</resources>
