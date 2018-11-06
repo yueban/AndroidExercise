@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:startDestination="@+id/launcher_home">
+
+    <fragment android:id="@+id/launcher_home"
+              android:label="Home"
+              android:name="com.yueban.androidkotlindemo.ui.main.MainFragment">
+
+        <action android:id="@+id/end_action" app:destination="@id/end_dest"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/end_dest"
+              android:name="com.yueban.androidkotlindemo.ui.main.EndFragment"
+              android:label="End">
+
+    </fragment>
+</navigation>
