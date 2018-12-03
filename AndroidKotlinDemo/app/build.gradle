@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion versions.target_sdk
+    compileSdkVersion versions.compile_sdk
     defaultConfig {
         applicationId "com.yueban.androidkotlindemo"
         minSdkVersion versions.min_sdk
@@ -25,9 +25,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "com.android.support:appcompat-v7:$versions.support"
-    implementation "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
-    implementation "android.arch.lifecycle:extensions:$versions.lifecycle"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
     implementation "android.arch.navigation:navigation-fragment-ktx:$versions.navigation"
     implementation "android.arch.navigation:navigation-ui-ktx:$versions.navigation"
     testImplementation 'junit:junit:4.12'

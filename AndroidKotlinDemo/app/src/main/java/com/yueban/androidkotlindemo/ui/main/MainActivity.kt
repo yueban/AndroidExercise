@@ -1,13 +1,13 @@
-package com.yueban.androidkotlindemo
+package com.yueban.androidkotlindemo.ui.main
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.yueban.androidkotlindemo.R
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_main)
     }
-
 }

@@ -1,14 +1,14 @@
 package com.yueban.androidkotlindemo.ui.main
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.yueban.androidkotlindemo.R
+import kotlinx.android.synthetic.main.fragment_end.*
 
 /**
  * @author yueban
@@ -28,14 +28,14 @@ class EndFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.end_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_end, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(EndViewModel::class.java)
         viewModel.data.observe(this, Observer { data ->
-            view?.findViewById<TextView>(R.id.text_end)?.text = data
+            text_end.text = data
         })
     }
 }

@@ -1,8 +1,8 @@
 package com.yueban.androidkotlindemo.ui.main
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 /**
  * @author yueban
@@ -10,12 +10,12 @@ import android.arch.lifecycle.ViewModel
  * @email fbzhh007@gmail.com
  */
 class EndViewModel : ViewModel() {
-  private val _data = MutableLiveData<String>()
+    private val _data = MutableLiveData<String>()
 
-  val data: LiveData<String>
-    get() = _data
+    val data: LiveData<String>
+        get() = _data
 
-  init {
-    _data.value = "Good Bye!"
-  }
+    init {
+        _data.value = "Good Bye!"
+    }
 }
