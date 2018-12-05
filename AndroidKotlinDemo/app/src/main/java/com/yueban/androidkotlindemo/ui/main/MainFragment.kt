@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import com.yueban.androidkotlindemo.R
 import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity1
 import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity2
+import com.yueban.androidkotlindemo.ui.livedata.LiveDataActivity1
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
@@ -46,6 +47,9 @@ class MainFragment : Fragment() {
         }
         goto_lifecycle_activity_2.setOnClickListener {
             startActivity(Intent(activity, LifecycleActivity2::class.java))
+        }
+        goto_livedata_activity_1.setOnClickListener {
+            startActivity(Intent(activity, LiveDataActivity1::class.java))
         }
     }
 }
