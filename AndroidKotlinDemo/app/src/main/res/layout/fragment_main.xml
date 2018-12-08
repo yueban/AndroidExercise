@@ -44,4 +44,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/goto_lifecycle_activity_1"/>
 
+    <Button
+            android:id="@+id/goto_room_activity_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="goto_RoomActivity1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/goto_livedata_activity_1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
