@@ -14,6 +14,8 @@ import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity1
 import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity2
 import com.yueban.androidkotlindemo.ui.livedata.LiveDataActivity1
 import com.yueban.androidkotlindemo.ui.room.RoomActivity1
+import com.yueban.androidkotlindemo.ui.viewmodel.ViewModelActivity1
+import com.yueban.androidkotlindemo.ui.viewmodel.ViewModelActivity2
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
@@ -54,6 +56,12 @@ class MainFragment : Fragment() {
         }
         goto_room_activity_1.setOnClickListener {
             startActivity(Intent(activity, RoomActivity1::class.java))
+        }
+        goto_viewmodel_activity_1.setOnClickListener {
+            startActivity(Intent(activity, ViewModelActivity1::class.java))
+        }
+        goto_viewmodel_activity_2.setOnClickListener {
+            startActivity(Intent(activity, ViewModelActivity2::class.java))
         }
     }
 }

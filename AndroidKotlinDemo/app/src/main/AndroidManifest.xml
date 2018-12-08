@@ -21,6 +21,8 @@
         <activity android:name=".ui.lifecycle.LifecycleActivity2"/>
         <activity android:name=".ui.livedata.LiveDataActivity1"/>
         <activity android:name=".ui.room.RoomActivity1"/>
+        <activity android:name=".ui.viewmodel.ViewModelActivity1"/>
+        <activity android:name=".ui.viewmodel.ViewModelActivity2"/>
     </application>
 
 </manifest>
