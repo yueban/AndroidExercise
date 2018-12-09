@@ -14,6 +14,7 @@ buildscript {
     versions.room = "2.1.0-alpha03"
     versions.coroutines = "1.0.1"
     versions.design = "1.1.0-alpha01"
+    versions.arch_core_testing = "2.0.0"
     ext.versions = versions
 
     repositories {

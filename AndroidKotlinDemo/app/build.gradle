@@ -45,4 +45,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:1.0.0"
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation "androidx.room:room-testing:$versions.room"
+    androidTestImplementation "androidx.arch.core:core-testing:$versions.arch_core_testing"
+
+
 }
