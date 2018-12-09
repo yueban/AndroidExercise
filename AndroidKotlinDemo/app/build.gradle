@@ -35,10 +35,14 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$versions.navigation"
     implementation "androidx.room:room-runtime:$versions.room"
     kapt "androidx.room:room-compiler:$versions.room"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+    implementation "com.google.android.material:material:$versions.design"
 
     // test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation "androidx.test.ext:junit:1.0.0"
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "androidx.room:room-testing:$versions.room"
 }

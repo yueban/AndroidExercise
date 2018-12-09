@@ -70,4 +70,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/goto_viewmodel_activity_1"/>
+
+    <Button
+            android:id="@+id/goto_room_with_view_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="goto_RoomWithViewActivity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/goto_viewmodel_activity_2"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

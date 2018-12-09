@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.yueban.androidkotlindemo.R
+import com.yueban.androidkotlindemo.ui.demo.roomwithview.ui.RoomWithViewActivity
 import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity1
 import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity2
 import com.yueban.androidkotlindemo.ui.livedata.LiveDataActivity1
@@ -62,6 +63,9 @@ class MainFragment : Fragment() {
         }
         goto_viewmodel_activity_2.setOnClickListener {
             startActivity(Intent(activity, ViewModelActivity2::class.java))
+        }
+        goto_room_with_view_activity.setOnClickListener {
+            startActivity(Intent(activity, RoomWithViewActivity::class.java))
         }
     }
 }

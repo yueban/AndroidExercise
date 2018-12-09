@@ -23,6 +23,11 @@
         <activity android:name=".ui.room.RoomActivity1"/>
         <activity android:name=".ui.viewmodel.ViewModelActivity1"/>
         <activity android:name=".ui.viewmodel.ViewModelActivity2"/>
+        <activity
+                android:name=".ui.demo.roomwithview.ui.RoomWithViewActivity"
+                android:label="RoomWithViewActivity"
+                android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.demo.roomwithview.ui.NewWordActivity"/>
     </application>
 
 </manifest>
