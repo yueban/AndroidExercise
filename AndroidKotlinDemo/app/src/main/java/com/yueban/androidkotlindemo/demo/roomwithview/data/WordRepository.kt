@@ -1,9 +1,9 @@
-package com.yueban.androidkotlindemo.ui.demo.roomwithview.data
+package com.yueban.androidkotlindemo.demo.roomwithview.data
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.db.WordDao
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.entity.Word
+import com.yueban.androidkotlindemo.demo.roomwithview.data.db.WordDao
+import com.yueban.androidkotlindemo.demo.roomwithview.data.entity.Word
 
 /**
  * @author yueban

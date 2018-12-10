@@ -1,4 +1,4 @@
-package com.yueban.androidkotlindemo.ui.demo.roomwithview.ui
+package com.yueban.androidkotlindemo.demo.roomwithview.ui
 
 import android.app.Activity
 import android.content.Intent

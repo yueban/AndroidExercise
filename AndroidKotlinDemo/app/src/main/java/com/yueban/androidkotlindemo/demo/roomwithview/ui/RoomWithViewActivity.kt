@@ -1,4 +1,4 @@
-package com.yueban.androidkotlindemo.ui.demo.roomwithview.ui
+package com.yueban.androidkotlindemo.demo.roomwithview.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -9,9 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yueban.androidkotlindemo.R
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.entity.Word
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.ui.adapter.WordListAdapter
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.ui.viewmodel.WordViewModel
+import com.yueban.androidkotlindemo.demo.roomwithview.data.entity.Word
+import com.yueban.androidkotlindemo.demo.roomwithview.ui.adapter.WordListAdapter
+import com.yueban.androidkotlindemo.demo.roomwithview.ui.viewmodel.WordViewModel
 import kotlinx.android.synthetic.main.activity_room_with_view.*
 import kotlinx.android.synthetic.main.content_main.*
 

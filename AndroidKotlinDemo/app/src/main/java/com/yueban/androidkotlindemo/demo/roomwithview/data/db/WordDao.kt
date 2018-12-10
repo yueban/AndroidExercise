@@ -1,11 +1,11 @@
-package com.yueban.androidkotlindemo.ui.demo.roomwithview.data.db
+package com.yueban.androidkotlindemo.demo.roomwithview.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.entity.Word
+import com.yueban.androidkotlindemo.demo.roomwithview.data.entity.Word
 
 /**
  * @author yueban

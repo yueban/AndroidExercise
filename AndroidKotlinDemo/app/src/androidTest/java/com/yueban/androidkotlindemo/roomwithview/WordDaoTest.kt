@@ -5,9 +5,9 @@ import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.yueban.androidkotlindemo.roomwithview.util.waitForValue
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.db.WordDao
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.db.WordRoomDatabase
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.entity.Word
+import com.yueban.androidkotlindemo.demo.roomwithview.data.db.WordDao
+import com.yueban.androidkotlindemo.demo.roomwithview.data.db.WordRoomDatabase
+import com.yueban.androidkotlindemo.demo.roomwithview.data.entity.Word
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

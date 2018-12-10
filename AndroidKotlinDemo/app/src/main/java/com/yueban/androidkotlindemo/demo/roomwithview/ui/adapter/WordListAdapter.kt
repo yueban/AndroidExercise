@@ -1,4 +1,4 @@
-package com.yueban.androidkotlindemo.ui.demo.roomwithview.ui.adapter
+package com.yueban.androidkotlindemo.demo.roomwithview.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yueban.androidkotlindemo.R
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.entity.Word
+import com.yueban.androidkotlindemo.demo.roomwithview.data.entity.Word
 
 /**
  * @author yueban

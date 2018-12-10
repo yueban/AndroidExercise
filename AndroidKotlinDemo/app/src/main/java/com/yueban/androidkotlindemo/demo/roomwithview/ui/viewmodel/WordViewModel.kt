@@ -1,11 +1,11 @@
-package com.yueban.androidkotlindemo.ui.demo.roomwithview.ui.viewmodel
+package com.yueban.androidkotlindemo.demo.roomwithview.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.WordRepository
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.db.WordRoomDatabase
-import com.yueban.androidkotlindemo.ui.demo.roomwithview.data.entity.Word
+import com.yueban.androidkotlindemo.demo.roomwithview.data.WordRepository
+import com.yueban.androidkotlindemo.demo.roomwithview.data.db.WordRoomDatabase
+import com.yueban.androidkotlindemo.demo.roomwithview.data.entity.Word
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

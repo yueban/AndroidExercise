@@ -1,4 +1,4 @@
-package com.yueban.androidkotlindemo.ui.demo.roomwithview.data.entity
+package com.yueban.androidkotlindemo.demo.roomwithview.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
