@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
 import com.yueban.androidkotlindemo.demo.paging.data.GithubRepository
 import com.yueban.androidkotlindemo.demo.paging.model.entity.Repo
 import com.yueban.androidkotlindemo.demo.paging.model.wrapper.RepoSearchResult
@@ -23,7 +24,7 @@ class SearchRepositoriesViewModel(private val repository: GithubRepository) : Vi
         repository.search(it)
     }
 
-    val repos: LiveData<List<Repo>> = Transformations.switchMap(repoResult) {
+    val repos: LiveData<PagedList<Repo>> = Transformations.switchMap(repoResult) {
         it.data
     }
     val networkErrors: LiveData<String> = Transformations.switchMap(repoResult) {

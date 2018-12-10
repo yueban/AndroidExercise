@@ -1,7 +1,7 @@
 package com.yueban.androidkotlindemo.demo.paging.db
 
 import android.util.Log
-import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import com.yueban.androidkotlindemo.demo.paging.model.entity.Repo
 import java.util.concurrent.Executor
 
@@ -22,7 +22,7 @@ class GithubLocalCache(
         }
     }
 
-    fun getReposByName(name: String): LiveData<List<Repo>> {
+    fun getReposByName(name: String): DataSource.Factory<Int, Repo> {
         val query = "%${name.replace(' ', '%')}%"
         return repoDao.getReposByName(query)
     }

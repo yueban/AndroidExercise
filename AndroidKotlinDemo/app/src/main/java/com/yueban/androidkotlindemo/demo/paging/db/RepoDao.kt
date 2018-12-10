@@ -1,6 +1,6 @@
 package com.yueban.androidkotlindemo.demo.paging.db
 
-import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -18,5 +18,5 @@ interface RepoDao {
     fun insert(repos: List<Repo>)
 
     @Query("select * from repos where (name like :query) or (description like :query) order by stars desc, name asc")
-    fun getReposByName(query: String): LiveData<List<Repo>>
+    fun getReposByName(query: String): DataSource.Factory<Int, Repo>
 }

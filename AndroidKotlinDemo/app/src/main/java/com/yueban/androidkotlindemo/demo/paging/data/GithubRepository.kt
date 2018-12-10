@@ -2,6 +2,7 @@ package com.yueban.androidkotlindemo.demo.paging.data
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.paging.LivePagedListBuilder
 import com.yueban.androidkotlindemo.demo.paging.api.GithubService
 import com.yueban.androidkotlindemo.demo.paging.api.searchRepos
 import com.yueban.androidkotlindemo.demo.paging.db.GithubLocalCache
@@ -24,10 +25,9 @@ class GithubRepository(
 
     fun search(query: String): RepoSearchResult {
         Log.d(TAG, "New query: $query")
-        lastRequestedPage = 1
-        requestAndSaveData(query)
 
-        val data = cache.getReposByName(query)
+        val dataSourceFactory = cache.getReposByName(query)
+        val data = LivePagedListBuilder(dataSourceFactory, DATABASE_PAGE_SIZE).build()
 
         return RepoSearchResult(data, networkErrors)
     }
@@ -54,5 +54,6 @@ class GithubRepository(
     companion object {
         private const val TAG = "GithubRepository"
         private const val NETWORK_PAGE_SIZE = 50
+        private const val DATABASE_PAGE_SIZE = 20
     }
 }

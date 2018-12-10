@@ -1,8 +1,8 @@
 package com.yueban.androidkotlindemo.demo.paging.ui
 
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.yueban.androidkotlindemo.demo.paging.model.entity.Repo
 
@@ -11,7 +11,7 @@ import com.yueban.androidkotlindemo.demo.paging.model.entity.Repo
  * @date 2018/12/10
  * @email fbzhh007@gmail.com
  */
-class ReposAdapter : ListAdapter<Repo, RecyclerView.ViewHolder>(REPO_COMPARATOR) {
+class ReposAdapter : PagedListAdapter<Repo, RecyclerView.ViewHolder>(REPO_COMPARATOR) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return RepoViewHolder.create(parent)
     }
