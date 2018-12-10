@@ -5,4 +5,9 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="buttonLabel">#d3d3d3</color>
+
+    <!-- paging demo -->
+    <color name="titleColor">#1F75FE</color>
+    <color name="titleColorAlpha">#551F75FE</color>
+    <color name="greyAlpha">#55999999</color>
 </resources>

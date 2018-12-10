@@ -38,6 +38,12 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
     implementation "com.google.android.material:material:$versions.design"
+    implementation "androidx.paging:paging-runtime-ktx:$versions.paging"
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    implementation "com.squareup.retrofit2:retrofit-mock:$versions.retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
 
     // test
     testImplementation 'junit:junit:4.12'

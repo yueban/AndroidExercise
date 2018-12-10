@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.yueban.androidkotlindemo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -29,6 +31,9 @@
                 android:label="RoomWithViewActivity"
                 android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".demo.roomwithview.ui.NewWordActivity"/>
+
+        <!-- paging demo -->
+        <activity android:name=".demo.paging.ui.SearchRepositoriesActivity"/>
     </application>
 
 </manifest>

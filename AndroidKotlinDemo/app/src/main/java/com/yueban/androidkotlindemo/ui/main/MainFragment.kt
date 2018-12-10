@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.yueban.androidkotlindemo.R
+import com.yueban.androidkotlindemo.demo.paging.ui.SearchRepositoriesActivity
 import com.yueban.androidkotlindemo.demo.roomwithview.ui.RoomWithViewActivity
 import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity1
 import com.yueban.androidkotlindemo.ui.lifecycle.LifecycleActivity2
@@ -66,6 +67,9 @@ class MainFragment : Fragment() {
         }
         goto_room_with_view_activity.setOnClickListener {
             startActivity(Intent(activity, RoomWithViewActivity::class.java))
+        }
+        goto_search_repositories_activity.setOnClickListener {
+            startActivity(Intent(activity, SearchRepositoriesActivity::class.java))
         }
     }
 }

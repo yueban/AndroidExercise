@@ -3,4 +3,11 @@
     <string name="hint_word">Word...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
+
+    <!-- paging demo -->
+    <string name="loading">Loading</string>
+    <string name="language">Language: %s</string>
+    <string name="search_hint">GitHub Repository</string>
+    <string name="no_results">No results 😓</string>
+    <string name="unknown">\?</string>
 </resources>
