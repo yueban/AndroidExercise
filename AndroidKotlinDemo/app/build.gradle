@@ -39,6 +39,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
     implementation "com.google.android.material:material:$versions.design"
     implementation "androidx.paging:paging-runtime-ktx:$versions.paging"
+    implementation "android.arch.work:work-runtime-ktx:$versions.work"
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
