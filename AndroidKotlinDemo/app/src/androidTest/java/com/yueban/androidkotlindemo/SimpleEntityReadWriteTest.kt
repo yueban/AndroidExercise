@@ -3,9 +3,9 @@ package com.yueban.androidkotlindemo
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.yueban.androidkotlindemo.ui.room.db.AppDataBase
-import com.yueban.androidkotlindemo.ui.room.db.User
-import com.yueban.androidkotlindemo.ui.room.db.UserDao
+import com.yueban.androidkotlindemo.room.db.AppDataBase
+import com.yueban.androidkotlindemo.room.db.User
+import com.yueban.androidkotlindemo.room.db.UserDao
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before

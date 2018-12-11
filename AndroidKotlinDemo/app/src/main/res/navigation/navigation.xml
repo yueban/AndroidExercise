@@ -6,14 +6,14 @@
 
     <fragment android:id="@+id/launcher_home"
               android:label="Home"
-              android:name="com.yueban.androidkotlindemo.ui.main.MainFragment">
+              android:name="com.yueban.androidkotlindemo.main.MainFragment">
 
         <action android:id="@+id/end_action" app:destination="@id/end_dest"/>
 
     </fragment>
 
     <fragment android:id="@+id/end_dest"
-              android:name="com.yueban.androidkotlindemo.ui.main.EndFragment"
+              android:name="com.yueban.androidkotlindemo.main.EndFragment"
               android:label="End">
 
     </fragment>
