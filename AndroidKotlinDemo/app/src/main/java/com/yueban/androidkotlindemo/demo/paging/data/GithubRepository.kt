@@ -14,7 +14,6 @@ import com.yueban.androidkotlindemo.demo.paging.model.wrapper.RepoSearchResult
  * @email fbzhh007@gmail.com
  */
 
-
 class GithubRepository(
     private val service: GithubService,
     private val cache: GithubLocalCache

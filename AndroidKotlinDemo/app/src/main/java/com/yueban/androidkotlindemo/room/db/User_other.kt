@@ -1,7 +1,15 @@
 package com.yueban.androidkotlindemo.room.db
 
 import android.graphics.Bitmap
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.DatabaseView
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Fts4
+import androidx.room.Ignore
+import androidx.room.Index
+import androidx.room.PrimaryKey
 
 /**
  * @author yueban
@@ -17,7 +25,6 @@ data class User2(
     @Ignore var picture: Bitmap?
 )
 
-
 /********** ignore **********/
 open class User3 {
     var picture: Bitmap? = null
@@ -27,7 +34,6 @@ open class User3 {
 data class RemoteUser(
     var hasVpn: Boolean
 ) : User3()
-
 
 /********** fts **********/
 @Fts4(languageId = "lid")
@@ -39,7 +45,6 @@ data class User4(
     @ColumnInfo(name = "first_name") var firstName: String?,
     @ColumnInfo(name = "lid") var languageId: Int
 )
-
 
 /********** indices **********/
 @Entity(indices = [Index(value = ["lastName", "address"])])
@@ -62,7 +67,6 @@ data class User6(
     @ColumnInfo(name = "last_name") var lastName: String?,
     @Ignore var picture: Bitmap?
 )
-
 
 /********** foreignKey **********/
 @Entity
@@ -87,7 +91,6 @@ data class Book(
     var userId: Int
 )
 
-
 /********** embedded **********/
 data class Address(
     var street: String?,
@@ -102,7 +105,6 @@ data class User8(
     @ColumnInfo var firstName: String?,
     @Embedded var address: Address
 )
-
 
 /********** Database view **********/
 @Entity

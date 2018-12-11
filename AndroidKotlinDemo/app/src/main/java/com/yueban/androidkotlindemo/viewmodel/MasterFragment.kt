@@ -29,7 +29,7 @@ class MasterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         model = activity?.run { ViewModelProviders.of(this).get(SharedViewModel::class.java) } ?:
-                throw Exception("Invalid Activity")
+            throw Exception("Invalid Activity")
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             model.select(checkedId)

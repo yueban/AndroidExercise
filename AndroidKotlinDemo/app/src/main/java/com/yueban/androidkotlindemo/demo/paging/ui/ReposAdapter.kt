@@ -28,7 +28,6 @@ class ReposAdapter : PagedListAdapter<Repo, RecyclerView.ViewHolder>(REPO_COMPAR
             override fun areItemsTheSame(oldItem: Repo, newItem: Repo): Boolean = oldItem.fullName == newItem.fullName
 
             override fun areContentsTheSame(oldItem: Repo, newItem: Repo): Boolean = oldItem == newItem
-
         }
     }
 }

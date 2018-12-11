@@ -3,7 +3,11 @@ package com.yueban.androidkotlindemo.work
 import android.content.Context
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ProcessLifecycleOwner
-import androidx.work.*
+import androidx.work.Result
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
+import androidx.work.Worker
+import androidx.work.WorkerParameters
 
 /**
  * @author yueban
@@ -16,7 +20,6 @@ class WorkDemo {
             /********** demo 1 **********/
 //            val compressionWork = OneTimeWorkRequestBuilder<CompressWorker>().build()
 //            enqueueCompressionWork(compressionWork)
-
 
             /********** demo 2.1 **********/
 //            val myConstraints = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -40,11 +43,9 @@ class WorkDemo {
 //            /********** demo 2.3 **********/
 //            WorkManager.getInstance().cancelAllWorkByTag("compression")
 
-
             /********** demo 3 **********/
 //            val compressionWork = PeriodicWorkRequestBuilder<CompressWorker>(12, TimeUnit.HOURS).build()
 //            enqueueCompressionWork(compressionWork)
-
 
             /********** demo 4 **********/
 //            val workA = OneTimeWorkRequestBuilder<CompressWorker>().build()
@@ -82,7 +83,6 @@ class WorkDemo {
 //                .then(workD)
 //                .then(workE)
 //                .enqueue()
-
 
             /********** demo 5 **********/
 //            val data: Data = workDataOf(

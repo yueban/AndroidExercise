@@ -36,7 +36,6 @@ class LiveDataActivity1 : AppCompatActivity() {
             }
         }
 
-
         /********** demo 2.1 **********/
         val myPriceListener: LiveData<BigDecimal> = StockLiveData("milk")
         myPriceListener.observe(this, Observer<BigDecimal> { price: BigDecimal? ->
@@ -49,7 +48,6 @@ class LiveDataActivity1 : AppCompatActivity() {
 //        myPriceListener.observe(this, Observer<BigDecimal> { price: BigDecimal? ->
 //            // Update the UI.
 //        })
-
 
         /********** demo 3.1 **********/
         val liveData: LiveData<BigDecimal> = StockLiveData("milk")

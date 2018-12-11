@@ -1,7 +1,7 @@
 package com.yueban.androidkotlindemo.room.db
 
 import androidx.room.TypeConverter
-import java.util.*
+import java.util.Date
 
 /**
  * @author yueban

@@ -2,8 +2,12 @@ package com.yueban.androidkotlindemo.room.db
 
 import android.database.Cursor
 import androidx.lifecycle.LiveData
-import androidx.room.*
-import java.util.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Update
+import java.util.Date
 
 /**
  * @author yueban

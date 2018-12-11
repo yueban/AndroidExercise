@@ -4,7 +4,11 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.*
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
+import androidx.lifecycle.OnLifecycleEvent
 
 /**
  * implement custom LifecycleRegistry
@@ -27,7 +31,6 @@ class LifecycleActivity2 : AppCompatActivity(), LifecycleOwner {
         // 自定义 mLifecycleRegistry 篡改 Lifecycle 调用逻辑
         mLifecycleRegistry.markState(Lifecycle.State.DESTROYED)
 //        mLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-
     }
 
     override fun getLifecycle(): Lifecycle {

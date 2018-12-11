@@ -1,7 +1,11 @@
 package com.yueban.androidkotlindemo.work
 
 import android.content.Context
-import androidx.work.*
+import androidx.work.Data
+import androidx.work.Result
+import androidx.work.Worker
+import androidx.work.WorkerParameters
+import androidx.work.workDataOf
 
 /**
  * @author yueban
@@ -18,7 +22,6 @@ class MathWorker(context: Context, params: WorkerParameters) : Worker(context, p
         val x = inputData.getInt(KEY_X_ARG, 0)
         val y = inputData.getInt(KEY_Y_ARG, 0)
         val result = doMathOperation(x, y)
-
 
         val output: Data = workDataOf(KEY_RESULT to result)
         return Result.success(output)
