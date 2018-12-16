@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_include_fragments"
+            app:startDestination="@id/navigationFragment22">
+
+    <fragment
+        android:id="@+id/navigationFragment22"
+        android:name="com.yueban.androidkotlindemo.navigation.NavigationFragment2"
+        android:label="fragment_navigation_2"
+        tools:layout="@layout/fragment_navigation_2">
+        <action
+            android:id="@+id/action_navigationFragment22_to_navigationFragment43"
+            app:destination="@id/navigationFragment43"/>
+    </fragment>
+    <fragment
+        android:id="@+id/navigationFragment43"
+        android:name="com.yueban.androidkotlindemo.navigation.NavigationFragment4"
+        android:label="fragment_navigation_4"
+        tools:layout="@layout/fragment_navigation_4"/>
+</navigation>

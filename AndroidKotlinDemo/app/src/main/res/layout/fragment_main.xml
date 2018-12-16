@@ -1,91 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".main.MainFragment">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.MainFragment">
 
     <Button
-            android:id="@+id/goto_end_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_EndFragment"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        android:id="@+id/goto_end_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_EndFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-            android:id="@+id/goto_lifecycle_activity_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_LifecycleActivity1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_end_fragment"/>
+        android:id="@+id/goto_lifecycle_activity_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_LifecycleActivity1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_end_fragment"/>
 
     <Button
-            android:id="@+id/goto_lifecycle_activity_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_LifecycleActivity2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_lifecycle_activity_1"/>
+        android:id="@+id/goto_lifecycle_activity_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_LifecycleActivity2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_lifecycle_activity_1"/>
 
     <Button
-            android:id="@+id/goto_livedata_activity_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_LiveDataActivity1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_lifecycle_activity_1"/>
+        android:id="@+id/goto_livedata_activity_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_LiveDataActivity1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_lifecycle_activity_1"/>
 
     <Button
-            android:id="@+id/goto_room_activity_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_RoomActivity1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_livedata_activity_1"/>
+        android:id="@+id/goto_room_activity_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_RoomActivity1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_livedata_activity_1"/>
 
     <Button
-            android:id="@+id/goto_viewmodel_activity_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_ViewModelActivity1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_room_activity_1"/>
+        android:id="@+id/goto_viewmodel_activity_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_ViewModelActivity1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_room_activity_1"/>
 
     <Button
-            android:id="@+id/goto_viewmodel_activity_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_ViewModelActivity2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_viewmodel_activity_1"/>
+        android:id="@+id/goto_viewmodel_activity_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_ViewModelActivity2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_viewmodel_activity_1"/>
 
     <Button
-            android:id="@+id/goto_room_with_view_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_RoomWithViewActivity"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_viewmodel_activity_2"/>
+        android:id="@+id/goto_room_with_view_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_RoomWithViewActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_viewmodel_activity_2"/>
 
     <Button
-            android:id="@+id/goto_search_repositories_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="goto_SearchRepositoriesActivity"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/goto_room_with_view_activity"/>
+        android:id="@+id/goto_search_repositories_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_SearchRepositoriesActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_room_with_view_activity"/>
+
+    <Button
+        android:id="@+id/goto_navigation_activity_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goto_NavigationActivity1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_search_repositories_activity"/>
+
+    <Button
+        android:id="@+id/start_navigation_deep_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start navigation deep link"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goto_navigation_activity_1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/navigationFragment1">
+
+    <fragment
+        android:id="@+id/navigationFragment1"
+        android:name="com.yueban.androidkotlindemo.navigation.NavigationFragment1"
+        android:label="fragment_navigation_1"
+        tools:layout="@layout/fragment_navigation_1">
+        <action
+            android:id="@+id/action_navigationFragment1_to_navigationFragment2"
+            app:destination="@id/navigationFragment2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="userId"
+                android:defaultValue="emptyUserId"/>
+        </action>
+        <action
+            android:id="@+id/action_navigationFragment1_to_nested_navigation"
+            app:destination="@id/nested_navigation"/>
+        <action
+            android:id="@+id/action_navigationFragment1_to_nav_include_fragments"
+            app:destination="@id/nav_include_fragments"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationFragment2"
+        android:name="com.yueban.androidkotlindemo.navigation.NavigationFragment2"
+        android:label="fragment_navigation_2"
+        tools:layout="@layout/fragment_navigation_2">
+        <action
+            android:id="@+id/action_navigationFragment2_to_navigationFragment32"
+            app:destination="@id/navigationFragment32"/>
+        <argument
+            android:name="userId"
+            app:argType="string"/>
+    </fragment>
+
+    <navigation
+        android:id="@+id/nested_navigation"
+        app:startDestination="@id/navigationFragment3">
+
+        <fragment
+            android:id="@+id/navigationFragment3"
+            android:name="com.yueban.androidkotlindemo.navigation.NavigationFragment3"
+            android:label="fragment_navigation_3"
+            tools:layout="@layout/fragment_navigation_3">
+            <action
+                android:id="@+id/action_navigationFragment3_to_navigationFragment4"
+                app:destination="@id/navigationFragment4"/>
+        </fragment>
+
+        <fragment
+            android:id="@+id/navigationFragment4"
+            android:name="com.yueban.androidkotlindemo.navigation.NavigationFragment4"
+            android:label="fragment_navigation_4"
+            tools:layout="@layout/fragment_navigation_4">
+            <deepLink app:uri="www.yueban.com/navigation/{param}"/>
+        </fragment>
+    </navigation>
+    <include app:graph="@navigation/nav_include_fragments"/>
+    <fragment
+        android:id="@+id/navigationFragment32"
+        android:name="com.yueban.androidkotlindemo.navigation.NavigationFragment3"
+        android:label="fragment_navigation_3"
+        tools:layout="@layout/fragment_navigation_3"/>
+    <action
+        android:id="@+id/action_global_navigationFragment1"
+        app:destination="@id/navigationFragment1"
+        app:launchSingleTop="true"/>
+</navigation>

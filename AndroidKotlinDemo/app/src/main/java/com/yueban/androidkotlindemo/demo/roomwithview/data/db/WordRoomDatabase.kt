@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
  * @date 2018/12/9
  * @email fbzhh007@gmail.com
  */
-@Database(entities = [Word::class], version = 1)
+@Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class WordRoomDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao
 
