@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "com.yueban.sunflower"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def appDependencies = rootProject.appDependencies
+    implementation appDependencies.kotlin
+    implementation appDependencies.kotlinxCoroutinesCore
+    implementation appDependencies.kotlinxCoroutinesAndroid
+    implementation appDependencies.coreKtx
+    implementation appDependencies.appcompat
+    implementation appDependencies.room
+    kapt appDependencies.roomCompiler
+    implementation appDependencies.lifecycle
+    kapt appDependencies.lifecycleCompiler
+    implementation appDependencies.navigationFragmentKtx
+    implementation appDependencies.navigationUiKtx
+    implementation appDependencies.work
+    implementation appDependencies.constraintlayout
+    implementation appDependencies.design
+    implementation appDependencies.glide
+    kapt appDependencies.glideCompiler
+    implementation appDependencies.gson
+
+    def appTestDependencies = rootProject.appTestDependencies
+    testImplementation appTestDependencies.junit
+    androidTestImplementation appTestDependencies.testRunner
+    androidTestImplementation appTestDependencies.extJunit
+    androidTestImplementation appTestDependencies.roomTesting
+    androidTestImplementation appTestDependencies.archCoreTesting
+    androidTestImplementation appTestDependencies.espressoContrib
+    androidTestImplementation appTestDependencies.espressoCore
+    androidTestImplementation appTestDependencies.espressoIntents
+    androidTestImplementation appTestDependencies.uiautomator
+}
