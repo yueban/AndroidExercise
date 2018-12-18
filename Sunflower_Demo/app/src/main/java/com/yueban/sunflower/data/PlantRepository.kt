@@ -8,7 +8,7 @@ package com.yueban.sunflower.data
 class PlantRepository private constructor(private val plantDao: PlantDao) {
     fun getPlants() = plantDao.getPlants()
 
-    fun getPlantsBy(id: String) = plantDao.getPlant(id)
+    fun getPlant(id: String) = plantDao.getPlant(id)
 
     fun getPlantsWithGrowZoneNumber(growZoneNumber: Int) = plantDao.getPlantsWithGrowZoneNumber(growZoneNumber)
 
