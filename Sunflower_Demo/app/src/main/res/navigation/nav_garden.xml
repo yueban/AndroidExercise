@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_garden"
+            app:startDestination="@id/gardenFragment">
+
+    <fragment
+        android:id="@+id/gardenFragment"
+        android:name="com.yueban.sunflower.GardenFragment"
+        android:label="GardenFragment"
+        tools:layout="@layout/fragment_garden">
+        <action
+            android:id="@+id/action_gardenFragment_to_plantDetailFragment"
+            app:destination="@id/plantDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/plantListFragment"
+        android:name="com.yueban.sunflower.PlantListFragment"
+        android:label="PlantListFragment"
+        tools:layout="@layout/fragment_plant_list">
+        <action
+            android:id="@+id/action_plantListFragment_to_plantDetailFragment"
+            app:destination="@id/plantDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/plantDetailFragment"
+        android:name="com.yueban.sunflower.PlantDetailFragment"
+        android:label="PlantDetailFragment"
+        tools:layout="@layout/fragment_plant_detail">
+        <argument
+            android:name="plantId"
+            app:argType="string"/>
+    </fragment>
+</navigation>

@@ -2,7 +2,6 @@ package com.yueban.sunflower.workers
 
 import android.content.Context
 import android.util.Log
-import androidx.work.Result
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.google.gson.Gson

@@ -1,11 +1,12 @@
 package com.yueban.sunflower.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.yueban.sunflower.GardenFragmentDirections
 import com.yueban.sunflower.data.PlantAndGardenPlantings
 import com.yueban.sunflower.databinding.ItemGardenPlantingBinding
 import com.yueban.sunflower.vm.PlantAndGardenPlantingVM
@@ -15,7 +16,7 @@ import com.yueban.sunflower.vm.PlantAndGardenPlantingVM
  * @date 2018/12/18
  * @email fbzhh007@gmail.com
  */
-class GardenPlantingAdapter(private val context: Context) :
+class GardenPlantingAdapter :
     ListAdapter<PlantAndGardenPlantings, GardenPlantingAdapter.ViewHolder>(GardenPlantDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,7 +34,8 @@ class GardenPlantingAdapter(private val context: Context) :
 
     private fun createOnClickListener(plantId: String): View.OnClickListener {
         return View.OnClickListener {
-            TODO("navigate to PlantDetailView by navigation graph")
+            val direction = GardenFragmentDirections.actionGardenFragmentToPlantDetailFragment(plantId)
+            it.findNavController().navigate(direction)
         }
     }
 

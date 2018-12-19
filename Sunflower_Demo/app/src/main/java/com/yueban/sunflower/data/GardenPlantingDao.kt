@@ -21,7 +21,7 @@ interface GardenPlantingDao {
     fun getGardenPlating(id: Long): LiveData<GardenPlanting>
 
     @Query("select * from gardenplanting where plantId=:plantId")
-    fun getGardenPlantingByPlant(plantId: String): LiveData<List<GardenPlanting>>
+    fun getGardenPlantingByPlant(plantId: String): LiveData<GardenPlanting>
 
     @Transaction
     @Query("select * from plant")

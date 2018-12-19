@@ -18,7 +18,7 @@ import com.yueban.sunflower.R
  */
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
-    if (imageUrl.isNullOrEmpty()) {
+    if (!imageUrl.isNullOrEmpty()) {
         Glide.with(view.context)
             .load(imageUrl)
             .transition(DrawableTransitionOptions.withCrossFade())

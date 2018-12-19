@@ -2,6 +2,7 @@ package com.yueban.sunflower.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import java.util.Calendar
 
 /**
@@ -11,7 +12,7 @@ import java.util.Calendar
  */
 @Entity
 data class Plant(
-    @PrimaryKey val id: String,
+    @PrimaryKey @SerializedName("plantId") val id: String,
     val name: String,
     val description: String,
     val growZoneNumber: Int,
