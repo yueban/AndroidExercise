@@ -3,7 +3,6 @@ package com.yueban.androidkotlindemo.work
 import android.content.Context
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ProcessLifecycleOwner
-import androidx.work.Result
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
 import androidx.work.Worker

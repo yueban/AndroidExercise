@@ -2,7 +2,6 @@ package com.yueban.androidkotlindemo.work
 
 import android.content.Context
 import androidx.work.Data
-import androidx.work.Result
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
