@@ -22,6 +22,7 @@ buildscript {
         retrofitVersion = '2.5.0'
         okhttpVersion = '3.12.0'
         workVersion = '1.0.0-alpha13'
+        glideVersion = '4.8.0'
 
         //Testing
         junitVersion = '4.12'

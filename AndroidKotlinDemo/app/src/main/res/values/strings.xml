@@ -12,4 +12,21 @@
     <string name="unknown">\?</string>
 
     <string name="filter_http">filter_http</string>
+
+    <!-- dataBinding demo -->
+    <string-array name="str_arr">
+        <item>str_arr a</item>
+        <item>str_arr b</item>
+        <item>str_arr c</item>
+    </string-array>
+    <array name="arr">
+        <item>arr 1</item>
+        <item>arr 2</item>
+        <item>arr 3</item>
+    </array>
+    <integer-array name="int_arr">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
 </resources>

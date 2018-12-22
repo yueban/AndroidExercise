@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".databinding.DataBindingActivity1">
+
+    <data>
+
+        <variable
+            name="message"
+            type="String"/>
+
+        <variable
+            name="handler"
+            type="com.yueban.androidkotlindemo.databinding.MyHandler"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="messageVisible"
+            type="Boolean"/>
+
+        <variable
+            name="includeTitle"
+            type="String"/>
+
+        <variable
+            name="user"
+            type="com.yueban.androidkotlindemo.databinding.User"/>
+
+        <variable
+            name="customObservable"
+            type="com.yueban.androidkotlindemo.databinding.CustomObservable"/>
+
+        <import type="com.yueban.androidkotlindemo.databinding.Converters"/>
+    </data>
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{message}"
+                android:visibility="@{messageVisible ? View.VISIBLE : View.GONE}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_string_array"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ (@stringArray/str_arr)[0] }"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_message"/>
+
+            <TextView
+                android:id="@+id/tv_array"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{ (@stringArray/arr)[0] }"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_string_array"/>
+
+            <Button
+                android:id="@+id/btn_method_reference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{handler::onClick}"
+                android:text="btn_method_reference"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_array"/>
+
+            <Button
+                android:id="@+id/btn_listener_binding1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view)->handler.onCallback(view.getClass().simpleName)}"
+                android:text="btn_listener_binding1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_method_reference"/>
+
+            <Button
+                android:id="@+id/btn_listener_binding2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->handler.onCallback(`no tag name`)}"
+                android:text="btn_listener_binding2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_listener_binding1"/>
+
+            <include
+                layout="@layout/include_title"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_listener_binding2"
+                app:title="@{includeTitle}"/>
+
+            <TextView
+                android:id="@+id/tv_observable_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.name}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"/>
+
+            <TextView
+                android:id="@+id/tv_observable_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(user.age)}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_observable_name"/>
+
+            <TextView
+                android:id="@+id/tv_live_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.liveName}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_observable_age"/>
+
+            <TextView
+                android:id="@+id/tv_live_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(user.liveAge)}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_live_name"/>
+
+            <TextView
+                android:id="@+id/tv_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.map.message}"
+                android:textColor="@{user.map.color}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_live_age"/>
+
+            <TextView
+                android:id="@+id/tv_custom_observable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{customObservable.value}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_map"/>
+
+            <TextView
+                android:id="@+id/tv_binding_methods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tv_binding_methods"
+                android:textColorHint="@{ @android:color/holo_red_dark }"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_custom_observable"/>
+
+            <TextView
+                android:id="@+id/tv_binding_adapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@{ @dimen/big_padding }"
+                android:text="@{`tv_binding_adapter`}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_binding_methods"/>
+
+            <ImageView
+                android:id="@+id/iv_binding_adapter1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:imageUrl="@{ `https://kotlinlang.org/assets/images/open-graph/kotlin_250x250.png` }"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_binding_adapter"
+                app:thumbnail="@{ @drawable/ic_eye }"/>
+
+            <ImageView
+                android:id="@+id/iv_binding_adapter2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:onLayoutChange="@{ () -> handler.onLayoutChanged() }"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_binding_adapter1"
+                app:thumbnail="@{ @drawable/ic_eye }"/>
+
+            <TextView
+                android:id="@+id/tv_binding_adapter3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@{ true ? @android:color/holo_red_dark: @android:color/holo_blue_dark }"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_binding_adapter2"/>
+
+            <EditText
+                android:id="@+id/et_two_way_data_binding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={customObservable.value}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_binding_adapter3"/>
+
+            <com.yueban.androidkotlindemo.databinding.CustomTextView
+                android:id="@+id/tv_two_way_data_binding2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="et_two_way_data_binding"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_two_way_data_binding"
+                app:time="@={customObservable.num}"/>
+
+            <EditText
+                android:id="@+id/tv_two_way_data_binding3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={Converters.dateToString(customObservable.time)}"
+                android:textSize="24sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_two_way_data_binding2"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.yueban.androidkotlindemo.R
+import com.yueban.androidkotlindemo.databinding.DataBindingActivity1
 import com.yueban.androidkotlindemo.demo.paging.ui.SearchRepositoriesActivity
 import com.yueban.androidkotlindemo.demo.roomwithview.ui.RoomWithViewActivity
 import com.yueban.androidkotlindemo.lifecycle.LifecycleActivity1
@@ -122,6 +123,9 @@ class MainFragment : Fragment() {
 //                    notify(0, notification)
 //                }
 //            }
+        }
+        start_databinding_activity_1.setOnClickListener {
+            startActivity(Intent(activity, DataBindingActivity1::class.java))
         }
     }
 }

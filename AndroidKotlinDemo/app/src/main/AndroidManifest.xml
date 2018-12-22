@@ -43,6 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <nav-graph android:value="@navigation/nav_graph"/>
         </activity>
+        <activity android:name=".databinding.DataBindingActivity1"/>
     </application>
 
 </manifest>
