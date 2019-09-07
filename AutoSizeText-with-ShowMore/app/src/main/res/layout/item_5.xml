@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/text_view"
+    android:layout_width="200dp"
+    android:layout_height="150dp"
+    android:padding="16dp"
+    app:autoSizePresetSizes="@array/autosize_text_sizes"
+    app:autoSizeTextType="uniform"/>
