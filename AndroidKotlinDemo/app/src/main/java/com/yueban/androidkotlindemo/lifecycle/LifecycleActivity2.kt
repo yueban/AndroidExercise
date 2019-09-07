@@ -4,11 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LifecycleRegistry
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 
 /**
  * implement custom LifecycleRegistry
@@ -27,9 +23,9 @@ class LifecycleActivity2 : AppCompatActivity(), LifecycleOwner {
 
         lifecycle.addObserver(MyObserver(this))
 
-        mLifecycleRegistry.markState(Lifecycle.State.CREATED)
+        mLifecycleRegistry.currentState = Lifecycle.State.CREATED
         // 自定义 mLifecycleRegistry 篡改 Lifecycle 调用逻辑
-        mLifecycleRegistry.markState(Lifecycle.State.DESTROYED)
+        mLifecycleRegistry.currentState = Lifecycle.State.DESTROYED
 //        mLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     }
 

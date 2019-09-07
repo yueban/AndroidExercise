@@ -1,7 +1,6 @@
 package com.yueban.androidkotlindemo.databinding
 
 import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -34,28 +33,6 @@ fun loadImage(view: ImageView, url: String?, thumbnail: Drawable?) {
         view.setImageDrawable(thumbnail)
     } else {
         Glide.with(view).load(url).thumbnail(Glide.with(view).load(thumbnail)).into(view)
-    }
-}
-
-@BindingAdapter("android:paddingLeft")
-fun setPaddingLeftPlus200(view: View, oldPadding: Float, newPadding: Float) {
-    Log.d("BindingAdapters", "oldPadding: $oldPadding")
-    if (oldPadding != newPadding) {
-        view.setPadding(newPadding.toInt() + 200, view.paddingTop, view.paddingRight, view.paddingBottom)
-    }
-}
-
-@BindingAdapter("android:onLayoutChange")
-fun setOnLayoutChangeListener(
-    view: View,
-    oldValue: View.OnLayoutChangeListener?,
-    newValue: View.OnLayoutChangeListener?
-) {
-    if (oldValue != null) {
-        view.removeOnLayoutChangeListener(oldValue)
-    }
-    if (newValue != null) {
-        view.addOnLayoutChangeListener(newValue)
     }
 }
 
