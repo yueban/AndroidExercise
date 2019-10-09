@@ -4,7 +4,12 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.BackgroundColorSpan
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     var mCurrentWord: String? = null
+    val COLOR_DELETE: Int = Color.parseColor("#ffe6e6")
+    val COLOR_INSERT: Int = Color.parseColor("#e6fee6")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,27 +70,56 @@ class MainActivity : AppCompatActivity() {
         val etVerify: EditText = findViewById(R.id.et_verify)
         val tvVerifyResult: TextView = findViewById(R.id.tv_verify_result)
 
-        val result = StringBuilder()
+        val result = SpannableStringBuilder()
 
         // 验证 editText 中字符串
-        val editTextEquals = mCurrentWord?.equals(etVerify.text.toString()) ?: false
         result.append("输入框: ")
-            .append(if (editTextEquals) "匹配成功" else "匹配失败")
-            .append("\n")
+        compareText(etVerify.text.toString(), result)
+        result.append("\n\n")
 
         // 验证剪切板中字符串
+        result.append("剪切板: ")
         val clipboardManager: ClipboardManager =
             getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         clipboardManager.primaryClip?.getItemAt(0)?.text?.toString()?.let {
-            val clipboardEquals = mCurrentWord?.equals(it) ?: false
-            result.append("剪切板: ")
-                .append(if (clipboardEquals) "匹配成功" else "匹配失败")
+            compareText(it, result)
         } ?: kotlin.run {
             // 剪切板内容没有内容
             result.append("剪切板没有内容")
         }
 
         tvVerifyResult.text = result
+    }
+
+    private fun compareText(
+        targetString: String,
+        result: SpannableStringBuilder
+    ) {
+        val dmp = diff_match_patch()
+        val diff = dmp.diff_main(mCurrentWord, targetString)
+
+        for (diffItem in diff) {
+            val str = SpannableString(diffItem.text)
+
+            when (diffItem.operation) {
+                diff_match_patch.Operation.DELETE -> str.setSpan(
+                    BackgroundColorSpan(COLOR_DELETE),
+                    0,
+                    str.length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                diff_match_patch.Operation.INSERT -> str.setSpan(
+                    BackgroundColorSpan(COLOR_INSERT),
+                    0,
+                    str.length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                diff_match_patch.Operation.EQUAL -> {
+                }
+            }
+
+            result.append(str)
+        }
     }
 
     private fun copyToClipBoard() {
