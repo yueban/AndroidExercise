@@ -6,10 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
     var mCurrentWord: String? = null
@@ -17,13 +16,37 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val allWords: Array<String> = resources.getStringArray(R.array.arabic_words);
+
+        val spinner = findViewById<Spinner>(R.id.sp_words)
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.arabic_words, android.R.layout.simple_spinner_item
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                mCurrentWord = ""
+                findViewById<TextView>(R.id.tv_current_word).text = "未选择单词"
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                mCurrentWord = allWords[position]
+                findViewById<TextView>(R.id.tv_current_word).text = mCurrentWord
+            }
+
+        }
     }
 
     fun onClick(view: View) {
         when (view.id) {
-            R.id.btn_new_word -> {
-                nextWord()
-            }
             R.id.btn_verify -> {
                 verify()
             }
@@ -36,15 +59,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun nextWord() {
-        if (wordsGenerator.hasNext()) {
-            mCurrentWord = wordsGenerator.next()
-            findViewById<TextView>(R.id.tv_current_word).text = mCurrentWord
-        } else {
-            Toast.makeText(this, "没有更多单词", Toast.LENGTH_SHORT).show()
-        }
-    }
-
     private fun verify() {
         val etVerify: EditText = findViewById(R.id.et_verify)
         val tvVerifyResult: TextView = findViewById(R.id.tv_verify_result)
@@ -54,15 +68,16 @@ class MainActivity : AppCompatActivity() {
         // 验证 editText 中字符串
         val editTextEquals = mCurrentWord?.equals(etVerify.text.toString()) ?: false
         result.append("输入框: ")
-                .append(if (editTextEquals) "匹配成功" else "匹配失败")
-                .append("\n")
+            .append(if (editTextEquals) "匹配成功" else "匹配失败")
+            .append("\n")
 
         // 验证剪切板中字符串
-        val clipboardManager: ClipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipboardManager: ClipboardManager =
+            getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         clipboardManager.primaryClip?.getItemAt(0)?.text?.toString()?.let {
             val clipboardEquals = mCurrentWord?.equals(it) ?: false
             result.append("剪切板: ")
-                    .append(if (clipboardEquals) "匹配成功" else "匹配失败")
+                .append(if (clipboardEquals) "匹配成功" else "匹配失败")
         } ?: kotlin.run {
             // 剪切板内容没有内容
             result.append("剪切板没有内容")
@@ -73,7 +88,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun copyToClipBoard() {
         mCurrentWord?.let {
-            val clipboardManager: ClipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clipboardManager: ClipboardManager =
+                getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clipData = ClipData.newPlainText("arabic", mCurrentWord)
             clipboardManager.setPrimaryClip(clipData)
         }

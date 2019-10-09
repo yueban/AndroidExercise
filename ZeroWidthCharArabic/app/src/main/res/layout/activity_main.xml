@@ -19,15 +19,12 @@
             android:columnCount="2"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_new_word"
+            <Spinner
+                android:id="@+id/sp_words"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:onClick="onClick"
-                android:padding="16dp"
-                android:text="next word" />
+                android:layout_gravity="fill_horizontal|center_vertical" />
 
             <Button
                 android:id="@+id/btn_verify"
