@@ -1,0 +1,3 @@
+<sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="com.yueban.contactmimetype"
+    android:contentAuthority="com.android.contacts" />

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ContactMimeType</string>
+    <string name="AccountSettings">Account Settings</string>
+    <string name="Settings">Settings</string>
+
+</resources>
