@@ -7,9 +7,11 @@
     tools:context=".View2Activity">
 
     <TextView
+        android:id="@+id/content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="call activity"
+        android:gravity="center"
+        android:text="密话界面"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

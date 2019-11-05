@@ -2,15 +2,15 @@
 
 <ContactsSource xmlns:android="http://schemas.android.com/apk/res/android">
     <ContactsDataKind
-        android:detailColumn="data3"
+        android:detailColumn="data2"
         android:detailSocialSummary="true"
-        android:icon="@mipmap/ic_launcher"
-        android:mimeType="vnd.android.cursor.item/vnd.com.yueban.contactmimetype.android.profile"
+        android:icon="@mipmap/icon_nsm"
+        android:mimeType="vnd.android.cursor.item/vnd.com.yueban.contactmimetype.android.message"
         android:summaryColumn="data2" />
     <ContactsDataKind
-        android:detailColumn="data3"
+        android:detailColumn="data2"
         android:detailSocialSummary="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:mimeType="vnd.android.cursor.item/vnd.com.yueban.contactmimetype.android.call"
         android:summaryColumn="data2" />
 </ContactsSource>
