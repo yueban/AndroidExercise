@@ -51,6 +51,19 @@ public class ContactManager {
 
         ops.add(ContentProviderOperation.newInsert(addCallerIsSyncAdapterParameter(ContactsContract.Data.CONTENT_URI, true))
             .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
+            .withValue(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE)
+            .withValue(ContactsContract.CommonDataKinds.Phone.NUMBER, phoneNumber)
+            .build());
+
+//                ops.add(ContentProviderOperation.newInsert(addCallerIsSyncAdapterParameter(ContactsContract.Data.CONTENT_URI,
+//                true))
+//                    .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
+//                    .withValue(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Email.CONTENT_ITEM_TYPE)
+//                    .withValue(ContactsContract.CommonDataKinds.Email.DATA, "sample@email.com")
+//                    .build());
+
+        ops.add(ContentProviderOperation.newInsert(addCallerIsSyncAdapterParameter(ContactsContract.Data.CONTENT_URI, true))
+            .withValueBackReference(ContactsContract.Data.RAW_CONTACT_ID, 0)
             .withValue(ContactsContract.Data.MIMETYPE, "vnd.android.cursor.item/vnd.com.yueban.contactmimetype.android.message")
             .withValue(ContactsContract.Data.DATA1, phoneNumber)
             .withValue(ContactsContract.Data.DATA2, "密信: " + phoneNumber)
