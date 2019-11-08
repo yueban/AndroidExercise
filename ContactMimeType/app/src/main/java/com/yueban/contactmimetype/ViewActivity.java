@@ -17,11 +17,12 @@ public class ViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view);
 
         Uri data = getIntent().getData();
-        if (data == null) {
+        final String type = getIntent().getType();
+        if (data == null || type == null) {
             showError();
             return;
         }
-        Log.d("view activity", data.toString());
+        Log.d("view activity", type + "\t" + data.toString());
 
         Cursor cursor = getContentResolver().query(data, null, null, null, null);
         if (cursor == null) {
