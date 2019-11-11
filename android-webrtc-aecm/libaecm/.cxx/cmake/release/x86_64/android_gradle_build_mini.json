@@ -1,0 +1,19 @@
+{
+  "buildFiles": [
+    "/Users/yueban/Library/Android/sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/CMakeLists.txt",
+    "/Users/yueban/Library/Android/sdk/ndk-bundle/build/cmake/android.toolchain.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/yueban/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64\" clean"
+  ],
+  "buildTargetsCommand": "/Users/yueban/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "AEC-Release-x86_64": {
+      "artifactName": "AEC",
+      "buildCommand": "/Users/yueban/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64\" AEC",
+      "abi": "x86_64",
+      "output": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/build/intermediates/cmake/release/obj/x86_64/libAEC.so"
+    }
+  }
+}

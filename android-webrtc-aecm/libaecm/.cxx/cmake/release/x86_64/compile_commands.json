@@ -1,0 +1,103 @@
+[
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/randomization_functions.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/randomization_functions.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/randomization_functions.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/spl_sqrt_floor.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/spl_sqrt_floor.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/spl_sqrt_floor.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/division_operations.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/division_operations.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/division_operations.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/vector_scaling_operations.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/vector_scaling_operations.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/vector_scaling_operations.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/downsample_fast.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/downsample_fast.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/downsample_fast.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/cross_correlation.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/cross_correlation.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/cross_correlation.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/spl_init.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/spl_init.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/spl_init.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/min_max_operations.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/min_max_operations.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/min_max_operations.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/complex_fft.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/complex_fft.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/complex_fft.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/complex_bit_reverse.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/complex_bit_reverse.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/complex_bit_reverse.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/real_fft.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/real_fft.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/real_fft.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/delay_estimator.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/delay_estimator.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/delay_estimator.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/delay_estimator_wrapper.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/delay_estimator_wrapper.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/delay_estimator_wrapper.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/ring_buffer.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/ring_buffer.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/ring_buffer.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/aecm_core.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/aecm_core.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/aecm_core.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/lib/echo_control_mobile.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/echo_control_mobile.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/echo_control_mobile.c"
+},
+
+{
+  "directory": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64",
+  "command": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=x86_64-none-linux-android21 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -o CMakeFiles/AEC.dir/aecm/AEC.c.o   -c /Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/aecm/AEC.c",
+  "file": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/aecm/AEC.c"
+}
+]

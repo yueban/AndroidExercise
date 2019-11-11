@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/x86_64'
+ninja: no work to do.

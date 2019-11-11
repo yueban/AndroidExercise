@@ -1,0 +1,76 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "/Users/yueban/github/android/android-webrtc-aecm",
+      "sdkFolder": "/Users/yueban/Library/Android/sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/build/intermediates",
+      "gradleModulePathName": ":libaecm",
+      "moduleRootFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm",
+      "makeFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "/Users/yueban/github/android/android-webrtc-aecm/.cxx",
+      "cxxFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx",
+      "ndkFolder": "/Users/yueban/Library/Android/sdk/ndk-bundle",
+      "ndkVersion": "20.1.5948944",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [
+      "-DANDROID_TOOLCHAIN\u003dclang",
+      "-DANDROID_PLATFORM\u003dandroid-16",
+      "-DANDROID_STL\u003dc++_static"
+    ],
+    "cFlagList": [],
+    "cppFlagsList": [
+      "-std\u003dc++11 -frtti -fexceptions"
+    ],
+    "variantName": "release",
+    "soFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/build/intermediates/cmake/release/lib",
+    "objFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/build/intermediates/cmake/release/obj",
+    "jsonFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release",
+    "gradleBuildOutputFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARMEABI_V7A",
+  "abiPlatformVersion": 16,
+  "cxxBuildFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a",
+  "jsonFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a/android_gradle_build.json",
+  "gradleBuildOutputFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a",
+  "objFolder": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/build/intermediates/cmake/release/obj/armeabi-v7a",
+  "buildCommandFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a/build_command.txt",
+  "buildOutputFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a/build_output.txt",
+  "modelOutputFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a/build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a/CMakeLists.txt",
+    "toolchainWrapperFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a/android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a/build_generation_state.json",
+    "cacheKeyFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a/compiler_cache_key.json",
+    "compilerCacheUseFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a/compiler_cache_use.json",
+    "compilerCacheWriteFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a/compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cxx/release/armeabi-v7a/compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a/json_generation_record.json",
+  "compileCommandsJsonFile": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a/compile_commands.json"
+}

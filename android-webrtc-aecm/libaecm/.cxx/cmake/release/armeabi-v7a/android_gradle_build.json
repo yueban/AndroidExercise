@@ -1,0 +1,122 @@
+{
+  "stringTable": {
+    "0": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi16 --gcc-toolchain=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -DAEC_EXPORTS -DWEBRTC_POSIX -I/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -Oz -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "/Users/yueban/Library/Android/sdk/ndk-bundle/build/cmake/platforms.cmake",
+    "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/CMakeLists.txt",
+    "/Users/yueban/Library/Android/sdk/ndk-bundle/build/cmake/android.toolchain.cmake"
+  ],
+  "cleanCommands": [
+    "/Users/yueban/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "/Users/yueban/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "AEC-Release-armeabi-v7a": {
+      "buildCommand": "/Users/yueban/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/release/armeabi-v7a\" AEC",
+      "buildType": "release",
+      "toolchain": "3429981375",
+      "abi": "armeabi-v7a",
+      "artifactName": "AEC",
+      "files": [
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/randomization_functions.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/spl_sqrt_floor.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/division_operations.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/vector_scaling_operations.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/downsample_fast.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/cross_correlation.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/spl_init.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/min_max_operations.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/complex_fft.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/complex_bit_reverse.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/real_fft.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/delay_estimator.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/delay_estimator_wrapper.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/ring_buffer.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/aecm_core.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/lib/echo_control_mobile.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/src/main/cpp/aecm/AEC.c",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "/Users/yueban/github/android/android-webrtc-aecm/libaecm/build/intermediates/cmake/release/obj/armeabi-v7a/libAEC.so"
+    }
+  },
+  "toolchains": {
+    "3429981375": {
+      "cCompilerExecutable": "/Users/yueban/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

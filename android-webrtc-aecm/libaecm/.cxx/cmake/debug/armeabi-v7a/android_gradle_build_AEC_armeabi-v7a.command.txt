@@ -1,0 +1,7 @@
+Executable : /Users/yueban/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/Users/yueban/github/android/android-webrtc-aecm/libaecm/.cxx/cmake/debug/armeabi-v7a
+AEC
+jvmArgs : 
+
