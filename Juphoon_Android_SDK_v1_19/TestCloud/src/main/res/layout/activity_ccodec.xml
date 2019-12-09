@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layoutCall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_audio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_more_audio"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/rv_audio"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="50dp"
+            android:text="@string/more_audio_codec" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_more_audio"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tv_more_video"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/rv_video"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="50dp"
+            android:text="@string/more_video_codec" />
+    </RelativeLayout>
+</ScrollView>

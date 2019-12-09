@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutConference"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConferenceFragment">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editChannelId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_channelid"
+            android:inputType="textCapCharacters"
+            android:maxLines="1" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textPasswordLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_password"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnJoin"
+        style="@style/JCButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/conference_join"
+        app:layout_constraintLeft_toLeftOf="@+id/textPasswordLayout"
+        app:layout_constraintRight_toLeftOf="@+id/btnQuery"
+        app:layout_constraintTop_toBottomOf="@+id/textPasswordLayout" />
+
+    <Button
+        android:id="@+id/btnQuery"
+        style="@style/JCButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/conference_query"
+        app:layout_constraintLeft_toRightOf="@+id/btnJoin"
+        app:layout_constraintRight_toRightOf="@+id/textPasswordLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textPasswordLayout" />
+
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@+id/btnJoin"
+        app:layout_constraintRight_toRightOf="@+id/btnQuery"
+        app:layout_constraintStart_toEndOf="@+id/switchUriMode"
+        app:layout_constraintTop_toBottomOf="@+id/btnJoin"
+        tools:text="会议信息" />
+
+    <Button
+        android:id="@+id/btnPstnCall"
+        style="@style/JCButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:enabled="false"
+        android:text="@string/conference_pstn"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@+id/textInputLayout"
+        app:layout_constraintRight_toLeftOf="@+id/btnQuery"
+        app:layout_constraintTop_toBottomOf="@+id/switchUriMode" />
+
+    <CheckBox
+        android:id="@+id/checkPstnCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/conference_pstn_check"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnPstnCall"
+        app:layout_constraintLeft_toRightOf="@+id/btnPstnCall" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/conference_pstn_info"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@+id/btnJoin"
+        app:layout_constraintRight_toRightOf="@+id/btnQuery"
+        app:layout_constraintTop_toBottomOf="@+id/btnPstnCall" />
+
+    <Switch
+        android:id="@+id/switchUriMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="UriMode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnJoin" />
+
+</android.support.constraint.ConstraintLayout>

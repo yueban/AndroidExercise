@@ -1,0 +1,26 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:numeric="integer"
+        android:maxLength="3"
+        android:key="@string/cloud_setting_key_call_max_num"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:defaultValue="1"
+        android:title="@string/pref_title_call_max_num" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/cloud_setting_key_call_audio_conference"
+        android:summary="@string/cloud_setting_call_audio_conference_summary"
+        android:title="@string/cloud_setting_call_audio_conference_title" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:title="@string/pref_title_call_smooth_mode"
+        android:key="@string/cloud_setting_key_call_smooth_mode"/>
+    <Preference
+        android:key="@string/cloud_setting_key_c_codec"
+        android:title="@string/pref_title_c_codec" />
+</PreferenceScreen>

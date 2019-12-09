@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.juphoon.cloud.sample.ConferenceActivity"
+    android:id="@+id/contentView">
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toLeftOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/partpLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:onClick="onFullScreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1">
+
+    </FrameLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/controlLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/partpLayout">
+
+        <Button
+            android:id="@+id/btnUri"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onUri"
+            android:text="Uri"
+            app:layout_constraintBottom_toTopOf="@+id/btnSip"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/videoPicSize"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRequestVideoPicSize"
+            android:text="VideoPicSize"
+            app:layout_constraintBottom_toTopOf="@+id/btnEnableScreenShare"
+            app:layout_constraintLeft_toRightOf="@id/btnUri" />
+
+        <Button
+            android:id="@+id/AssignmentStatistics"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onConfStatistics"
+            android:text="ConfStatistics"
+            app:layout_constraintBottom_toTopOf="@+id/btnEnableScreenShare"
+            app:layout_constraintLeft_toRightOf="@id/videoPicSize" />
+
+        <Button
+            android:id="@+id/btnSip"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSip"
+            android:text="@string/conference_sip"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnShowScreenShare" />
+
+        <Button
+            android:id="@+id/btnEnableScreenShare"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onEnableScreenShare"
+            android:text="@string/conference_enable_screen_share"
+            app:layout_constraintLeft_toRightOf="@+id/btnSip"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnShowScreenShare" />
+
+        <Button
+            android:id="@+id/btnStop"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onStop"
+            android:text="@string/conference_stop"
+            app:layout_constraintLeft_toRightOf="@+id/btnEnableScreenShare"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnShowScreenShare" />
+
+        <Button
+            android:id="@+id/btnRotate"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRotate"
+            android:text="@string/conference_rotate"
+            app:layout_constraintLeft_toRightOf="@+id/btnStop"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnShowScreenShare" />
+
+        <Button
+            android:id="@+id/btnDoodleVideo"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onStartDoodle"
+            android:text="@string/conference_startDoodle"
+            app:layout_constraintBottom_toTopOf="@+id/btnShowScreenShare"
+            app:layout_constraintLeft_toRightOf="@+id/btnRotate"/>
+
+        <Button
+            android:id="@+id/btnShowScreenShare"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onScreenShare"
+            android:text="@string/conference_screen_share"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwitchCamera" />
+
+        <Button
+            android:id="@+id/btnCdn"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCdn"
+            android:text="@string/conference_cdn"
+            android:layout_marginTop="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwitchCamera"
+            app:layout_constraintLeft_toRightOf="@+id/btnShowScreenShare"/>
+
+        <Button
+            android:id="@+id/btnRecord"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRecord"
+            android:text="@string/conference_record"
+            app:layout_constraintLeft_toRightOf="@+id/btnCdn"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwitchCamera" />
+
+        <Button
+            android:id="@+id/btnStatistics"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onStatistics"
+            android:text="@string/conference_statistics"
+            app:layout_constraintLeft_toRightOf="@+id/btnRecord"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwitchCamera" />
+
+        <Button
+            android:id="@+id/btnSendMessage"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/conference_message"
+            android:onClick="onSendMessage"
+            app:layout_constraintLeft_toRightOf="@+id/btnStatistics"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwitchCamera" />
+
+        <Button
+            android:id="@+id/btnSendCommand"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/conference_command"
+            android:onClick="onSendCommand"
+            app:layout_constraintLeft_toRightOf="@+id/btnSendMessage"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwitchCamera" />
+
+        <Button
+            android:id="@+id/btnSwitchCamera"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSwitchCamera"
+            android:text="@string/conference_switch_camera"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/btnSendAudio"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSendAudio"
+            android:text="@string/conference_send_audio"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnSwitchCamera" />
+
+        <Button
+            android:id="@+id/btnSendVideo"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSendVideo"
+            android:text="@string/conference_send_video"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnSendAudio" />
+
+        <Button
+            android:id="@+id/btnAudioOut"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onAudioOut"
+            android:text="@string/conference_audio_out"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnSendVideo" />
+
+        <Button
+            android:id="@+id/btnSpeaker"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSpeaker"
+            android:text="@string/conference_speaker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnAudioOut" />
+
+        <Button
+            android:id="@+id/btnLeave"
+            style="@style/JCButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLeave"
+            android:text="@string/conference_leave"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnSpeaker" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textStatistics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:background="#a0aaaaaa"
+        android:typeface="monospace"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/doodle_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/newTextStatistics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="#000000"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:typeface="monospace"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:onClick="onStatisticClose"
+                android:text="close"
+                android:textColor="#ffff"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/local_statistic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/send_statistic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#ffff" />
+
+                <TextView
+
+                    android:id="@+id/recv_statistic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#ffff" />
+            </LinearLayout>
+
+            <TextView
+
+                android:id="@+id/partP_statistic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/local_statistic"
+                android:textColor="#ffff" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

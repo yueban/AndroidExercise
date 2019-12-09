@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="242dp"
+    android:layout_height="56dp">
+
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/stroke_seek_bar_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/stroke_seek_bar_preview"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/eraser_stroke_seek_bar_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/eraser_stroke_seek_bar_preview"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginStart="46dp"
+        android:maxHeight="2dp"
+        android:paddingBottom="17dp"
+        android:paddingTop="17dp"
+        android:progressDrawable="@drawable/stroke_seek_bar_progress"
+        android:thumb="@drawable/stroke_seek_bar_thumb" />
+</RelativeLayout>

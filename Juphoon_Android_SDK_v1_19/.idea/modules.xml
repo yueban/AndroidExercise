@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Juphoon_Android_SDK_v1_19.iml" filepath="$PROJECT_DIR$/Juphoon_Android_SDK_v1_19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestCloud/TestCloud.iml" filepath="$PROJECT_DIR$/TestCloud/TestCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud/cloud.iml" filepath="$PROJECT_DIR$/cloud/cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doodle/doodle.iml" filepath="$PROJECT_DIR$/doodle/doodle.iml" />
+    </modules>
+  </component>
+</project>

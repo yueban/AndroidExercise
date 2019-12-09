@@ -1,0 +1,96 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="6"
+        android:key="@string/cloud_setting_key_conference_max_num"
+        android:maxLength="2"
+        android:maxLines="1"
+        android:numeric="integer"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_conference_max_num" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/cloud_setting_key_conference_audio_enable"
+        android:title="@string/pref_title_conference_audio_enable" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/cloud_setting_key_conference_video_enable"
+        android:title="@string/pref_title_conference_video_enable" />
+
+    <ListPreference
+        android:defaultValue="3"
+        android:entries="@array/request_video_size_title"
+        android:entryValues="@array/request_video_size_value"
+        android:key="@string/cloud_setting_key_conference_request_video_size"
+        android:title="@string/pref_title_conference_request_video_size" />
+
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/max_resolution_title"
+        android:entryValues="@array/max_resolution_value"
+        android:key="@string/cloud_setting_key_conference_max_resolution"
+        android:title="@string/pref_title_conference_max_resolution" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="@string/cloud_setting_key_conference_key_interval"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_conference_key_interval" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="@string/cloud_setting_key_conference_cdn_address"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_conference_cdn_address" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/cloud_setting_key_conference_qiniu_enable"
+        android:title="@string/pref_title_conference_qiniu_enable" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="@string/cloud_setting_key_conference_qiniu_bucket_name"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_conference_qiniu_bucket_name" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="@string/cloud_setting_key_conference_qiniu_secret_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_conference_qiniu_secret_key" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="@string/cloud_setting_key_conference_qiniu_access_key"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_conference_qiniu_access_key" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:inputType="textCapWords"
+        android:key="@string/cloud_setting_key_conference_qiniu_file_name"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_conference_qiniu_file_name" />
+
+</PreferenceScreen>

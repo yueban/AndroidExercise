@@ -1,0 +1,21 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="com.juphoon.cloud.sample.SettingsActivity$GeneralPreferenceFragment"
+        android:title="@string/pref_header_general" />
+
+    <header
+        android:fragment="com.juphoon.cloud.sample.SettingsActivity$CallPreferenceFragment"
+        android:title="@string/pref_header_call" />
+
+    <header
+        android:fragment="com.juphoon.cloud.sample.SettingsActivity$ConferencePreferenceFragment"
+        android:title="@string/pref_header_conference" />
+
+    <header
+        android:fragment="com.juphoon.cloud.sample.SettingsActivity$AboutPreferenceFragment"
+        android:title="@string/pref_header_about" />
+
+</preference-headers>

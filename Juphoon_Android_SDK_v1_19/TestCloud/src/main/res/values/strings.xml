@@ -1,0 +1,278 @@
+<resources>
+    <string name="app_name">JCSample</string>
+
+    <string name="title_activity_settings">设置</string>
+
+    <!-- settings -->
+    <string name="pref_header_general">通用</string>
+    <string name="pref_header_call">一对一通话</string>
+    <string name="pref_header_conference">多方通话</string>
+    <string name="pref_header_about">关于</string>
+
+    <string name="pref_title_display_name">昵称</string>
+    <string name="pref_title_server">服务器</string>
+    <string name="pref_title_appkey">Appkey-设置完重启应用</string>
+    <string name="pref_title_c_codec">编解码</string>
+    <string name="pref_title_call_max_num">最大通话数(>=1)</string>
+    <string name="pref_title_call_smooth_mode">平滑模式</string>
+    <string name="pref_title_conference_max_num">多方人数(2-16)</string>
+    <string name="pref_title_conference_audio_enable">发送音频</string>
+    <string name="pref_title_conference_video_enable">发送视频</string>
+    <string name="pref_title_conference_request_video_size">请求视频尺寸</string>
+    <string name="pref_title_conference_max_resolution">最大分辨率</string>
+    <string name="pref_title_conference_cdn_address">推流地址</string>
+    <string name="pref_title_conference_key_interval">推流关键帧间隔</string>
+    <string name="pref_title_conference_qiniu_enable">打开七牛录制</string>
+    <string name="pref_title_conference_qiniu_bucket_name">BucketName</string>
+    <string name="pref_title_conference_qiniu_secret_key">SecretKey</string>
+    <string name="pref_title_conference_qiniu_access_key">AccessKey</string>
+    <string name="pref_title_conference_qiniu_file_name">FileName</string>
+    <string name="pref_server_default_value">http:router.justalkcloud.com:8080</string>
+    <string name="pref_title_about_app_version">JCSample</string>
+    <string name="pref_title_about_avatar_version">Avatar</string>
+    <string name="pref_title_about_giraffe_version">Giraffe</string>
+    <string name="pref_title_about_grape_version">Grape</string>
+    <string name="pref_title_about_jsm_version">JSM</string>
+    <string name="pref_title_about_lemon_version">Lemon</string>
+    <string name="pref_title_about_melon_version">Melon</string>
+    <string name="pref_title_about_watermelon_version">Watermelon</string>
+    <string name="pref_about_version_template">%1$s(build:%2$s)</string>
+    <string name="pref_title_about_upload_log">上传日志</string>
+
+    <!-- Strings prompt -->
+    <string name="prompt_login_userid">数字,字母,\'+.-_\',小于64位,不能以\'-._\'开头</string>
+    <string name="prompt_userid">用户ID</string>
+    <string name="prompt_password">密码</string>
+    <string name="prompt_file_type">文件类型</string>
+    <string name="prompt_content_uri">内容/链接</string>
+    <string name="prompt_file_path">路径/链接</string>
+    <string name="prompt_group">群名/用户ID/昵称/群ID/内容</string>
+    <string name="prompt_group_item">"长按进入消息界面"</string>
+    <string name="prompt_login_fail">登录失败</string>
+    <string name="prompt_proxy">Https代理(192.168.18.207:3128)</string>
+    <string name="prompt_reason">原因</string>
+
+    <!-- Strings related to login -->
+    <string name="title_activity_login">登录</string>
+    <string name="action_login">登录</string>
+
+    <string name="action_logout">登出</string>
+    <string name="action_settings">设置</string>
+
+    <!-- Cloud Setting  -->
+    <string name="cloud_setting_key_server">Server</string>
+    <string name="cloud_setting_key_display_name">DisplayName</string>
+    <string name="cloud_setting_key_appkey">Appkey</string>
+    <string name="cloud_setting_key_c_codec">C-Codec</string>
+    <string name="cloud_setting_key_call_max_num">CallMaxNum</string>
+    <string name="cloud_setting_key_call_audio_conference">CallAudioConference</string>
+    <string name="cloud_setting_call_audio_conference_title">音频会议模式</string>
+    <string name="cloud_setting_key_call_smooth_mode">Default Smooth Mode</string>
+    <string name="cloud_setting_call_audio_conference_summary">所有通话能互相听到各自声音</string>
+    <string name="cloud_setting_key_conference_max_num">ConferenceMaxNum</string>
+    <string name="cloud_setting_key_conference_audio_enable">AudioEnable</string>
+    <string name="cloud_setting_key_conference_video_enable">VideoEnable</string>
+    <string name="cloud_setting_key_conference_request_video_size">RequestVideoSize</string>
+    <string name="cloud_setting_key_conference_max_resolution">MaxResolution</string>
+    <string name="cloud_setting_key_conference_cdn_address">CDNAddress</string>
+    <string name="cloud_setting_key_conference_key_interval">KeyInterval</string>
+    <string name="cloud_setting_key_conference_qiniu_enable">QiniuEnable</string>
+    <string name="cloud_setting_key_conference_qiniu_bucket_name">BucketName</string>
+    <string name="cloud_setting_key_conference_qiniu_secret_key">SecretKey</string>
+    <string name="cloud_setting_key_conference_qiniu_access_key">AccessKey</string>
+    <string name="cloud_setting_key_conference_qiniu_file_name">FileName</string>
+    <string name="cloud_setting_key_about_app_version">JCSample</string>
+    <string name="cloud_setting_key_about_avatar_version">Avatar</string>
+    <string name="cloud_setting_key_about_giraffe_version">Giraffe</string>
+    <string name="cloud_setting_key_about_grape_version">Grape</string>
+    <string name="cloud_setting_key_about_jsm_version">JSM</string>
+    <string name="cloud_setting_key_about_lemon_version">Lemon</string>
+    <string name="cloud_setting_key_about_melon_version">Melon</string>
+    <string name="cloud_setting_key_about_watermelon_version">Watermelon</string>
+    <string name="cloud_setting_key_about_upload_log">UploadLog</string>
+
+    <string name="cloud_setting_last_login_user_id">LastLoginUserId</string>
+    <string name="cloud_setting_last_login_password">LastLoginPassword</string>
+
+    <string name="cloud_setting_video_size_none">None</string>
+    <string name="cloud_setting_video_size_min">Min</string>
+    <string name="cloud_setting_video_size_small">Small</string>
+    <string name="cloud_setting_video_size_large">Large</string>
+    <string name="cloud_setting_video_size_max">Max</string>
+
+    <string name="cloud_setting_video_max_resolution_360">640 X 360</string>
+    <string name="cloud_setting_video_max_resolution_720">1280 X 720</string>
+    <string name="cloud_setting_video_max_resolution_1080">1920 X 1080</string>
+
+    <!-- CallFragment -->
+    <string name="call_audio">音频呼叫</string>
+    <string name="call_video">视频呼叫</string>
+    <string name="call_conference">会议模式(音频)</string>
+    <string name="call_max_call_setting_fmt">最大通话数=%1$d\n会议模式=%2$b</string>
+
+    <!-- MessageFragment -->
+    <string name="message_send_text">发送文本</string>
+    <string name="message_send_file">发送文件</string>
+    <string name="message_clear">清空</string>
+
+    <!-- StorageFragment -->
+    <string name="storage_text">Storage Text</string>
+    <string name="storage_upload">上传</string>
+    <string name="storage_download">下载</string>
+    <string name="storage_choose">选择</string>
+    <string name="storage_transferring">传输中: </string>
+    <string name="storage_download_ok">下载成功 </string>
+    <string name="storage_upload_ok">上传成功</string>
+    <string name="storage_transfer_failed">传输失败</string>
+    <string name="storage_download_uri">下载链接: </string>
+
+    <!-- AccountFragment -->
+    <string name="account_query_user_status">查询用户状态</string>
+    <string name="account_query_tip">多个用户用\",\"间隔</string>
+
+    <!-- CallActivity -->
+    <string name="call_term">挂断</string>
+    <string name="call_audio_answer">音频接听</string>
+    <string name="call_video_answer">视频接听</string>
+    <string name="call_hold">挂起</string>
+    <string name="call_mute">静音</string>
+    <string name="call_switch_camera">切换摄像头</string>
+    <string name="call_onoff_camera">开/关 摄像头</string>
+    <string name="call_speaker">扬声器</string>
+    <string name="call_add">添加</string>
+    <string name="call_statistics">统计</string>
+    <string name="tip_answer_call">接听?</string>
+    <string name="tip_enter_userid">输入用户</string>
+    <string name="start_doodle">涂鸦</string>
+    <string name="call_audio_record">录音</string>
+    <string name="local_snapshot">本端截图</string>
+    <string name="remote_snapshot">远端截图</string>
+    <string name="local_video_record">本端录音</string>
+    <string name="remote_video_record">远端录音</string>
+
+    <!-- ConferenceFragment -->
+    <string name="prompt_channelid">频道号</string>
+    <string name="conference_join">加入</string>
+    <string name="conference_query">查询</string>
+    <string name="conference_pstn">Pstn Call</string>
+    <string name="conference_pstn_check">Pstn Call</string>
+    <string name="conference_pstn_info">要测试PSTN落地呼叫，请确保AppKey对应后台已对接了落地服务，然后ChannelId填入号码点击"Pstn Call"按钮进行落地呼叫</string>
+    <string name="conference_join_fail">加入失败</string>
+    <string name="conference_join_fail_reason_invalid_password">密码无效</string>
+    <string name="conference_join_fail_reason_other">其他错误</string>
+    <string name="conference_uri_mode">Uri模式</string>
+
+    <!-- GroupFragment -->
+    <string name="group_fetch">获取</string>
+    <string name="group_fetch_info">获取详情</string>
+    <string name="group_create">创建(群主)</string>
+    <string name="group_dissolve">解散(群主)</string>
+    <string name="group_leave">离开(成员)</string>
+    <string name="group_add_member">添加成员</string>
+    <string name="group_kick_member">踢人(群主)</string>
+    <string name="group_modify_displayname">更改昵称</string>
+    <string name="group_modify_groupname">更改群名称</string>
+    <string name="group_send_message">发送消息</string>
+
+    <!-- ConferenceActivity -->
+    <string name="conference_leave">离开</string>
+    <string name="conference_switch_camera">切换摄像头</string>
+    <string name="conference_speaker">扬声器</string>
+    <string name="conference_send_audio">发送音频</string>
+    <string name="conference_send_video">发送视频</string>
+    <string name="conference_audio_out">音频输出</string>
+    <string name="conference_screen_share">显示屏幕共享</string>
+    <string name="conference_enable_screen_share">屏幕共享</string>
+    <string name="conference_cdn">推流</string>
+    <string name="conference_sip">Sip</string>
+    <string name="conference_record">录制</string>
+    <string name="conference_statistics">统计</string>
+    <string name="conference_statistics2">统计2</string>
+    <string name="conference_message">消息</string>
+    <string name="conference_command">命令</string>
+    <string name="conference_stop">结束</string>
+    <string name="conference_rotate">旋转</string>
+    <string name="conference_startDoodle">涂鸦</string>
+    <string name="conference_video_picture">视频尺寸</string>
+
+    <!-- CCodecActivity -->
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="video_codec">视频编解码</string>
+    <string name="audio_codec">音频编解码</string>
+    <string name="more_video_codec">更多视频编解码c</string>
+    <string name="more_audio_codec">更多音频编解码</string>
+
+    <!-- IMActivity -->
+    <string name="im_send">发送</string>
+
+    <!-- Error -->
+    <string name="error_field_required">请填写</string>
+    <string name="error_call_function">调用失败</string>
+
+    <!-- Common -->
+    <string name="tip">提示</string>
+    <string name="answer">接听</string>
+    <string name="decline">挂断</string>
+    <string name="not_login">未登录</string>
+    <string name="logining">登录中</string>
+    <string name="repress_back_exit">再按一次退出</string>
+    <string name="me">我</string>
+
+    <string name="title_activity_statistics">统计</string>
+
+    <string-array name="tab_titles">
+        <item>1对1</item>
+        <item>多方</item>
+        <item>消息</item>
+        <item>存储</item>
+        <item>群</item>
+        <item>账号</item>
+    </string-array>
+
+    <string-array name="commands">
+        <item>StartForward</item>
+        <item>StopForward</item>
+        <item>ChangeTitle</item>
+        <item>SetPartpProp</item>
+        <item>ReplayApplyLayout</item>
+        <item>ReplayApplyMode</item>
+    </string-array>
+
+    <string-array name="request_video_size_title">
+        <item>@string/cloud_setting_video_size_none</item>
+        <item>@string/cloud_setting_video_size_min</item>
+        <item>@string/cloud_setting_video_size_small</item>
+        <item>@string/cloud_setting_video_size_large</item>
+        <item>@string/cloud_setting_video_size_max</item>
+    </string-array>
+
+    <string-array name="request_video_size_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="max_resolution_title">
+        <item>@string/cloud_setting_video_max_resolution_360</item>
+        <item>@string/cloud_setting_video_max_resolution_720</item>
+        <!--<item>@string/cloud_setting_video_max_resolution_1080</item>-->
+    </string-array>
+
+    <string-array name="max_resolution_value">
+        <item>0</item>
+        <item>1</item>
+        <!--<item>2</item>-->
+    </string-array>
+
+    <string-array name="pic_size">
+        <item>@string/cloud_setting_video_size_none</item>
+        <item>@string/cloud_setting_video_size_min</item>
+        <item>@string/cloud_setting_video_size_small</item>
+        <item>@string/cloud_setting_video_size_large</item>
+        <item>@string/cloud_setting_video_size_max</item>
+    </string-array>
+
+</resources>

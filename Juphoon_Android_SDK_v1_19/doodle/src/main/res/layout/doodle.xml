@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/doodle_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/floating_sticker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/floating_sticker_delete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/doodle_sticker_delete_background"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/doodle_layout_margin_right"
+        android:layout_marginRight="@dimen/doodle_layout_margin_right"
+        android:layout_marginTop="@dimen/doodle_layout_margin_top">
+
+        <View
+            android:id="@+id/operation_background"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/onlineShare"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/doodle_exit"
+            android:layout_marginBottom="-14dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/doodle_operations_background" />
+
+        <ImageView
+            android:id="@+id/doodle_exit"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="28dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/doodle_exit" />
+
+        <ImageView
+            android:id="@+id/face_mode"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/doodle_exit"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/doodle_face_mode_background" />
+
+        <ImageView
+            android:id="@+id/color"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/face_mode"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/doodle_select_color_border_shape" />
+
+        <com.juphoon.cloud.doodle.DotView
+            android:id="@+id/color_dot"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/face_mode"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="12dp" />
+
+        <ImageView
+            android:id="@+id/stroke"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/color"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/doodle_stroke" />
+
+        <ImageView
+            android:id="@+id/eraser"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/stroke"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/doodle_eraser" />
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/eraser"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/doodle_delete_background" />
+
+        <ImageView
+            android:id="@+id/sticker"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/delete"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/doodle_sticker" />
+
+        <ImageView
+            android:id="@+id/onlineShare"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/sticker"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="-4dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/doodle_share_background" />
+
+        <com.juphoon.cloud.doodle.StrokeSeekBar
+            android:id="@+id/stroke_seek_bar"
+            android:layout_width="242dp"
+            android:layout_height="56dp"
+            android:layout_alignTop="@id/stroke"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="-4dp"
+            android:layout_toLeftOf="@id/stroke"
+            android:layout_toStartOf="@id/stroke"
+            android:background="@drawable/doodle_black_shape"
+            android:visibility="invisible" />
+
+        <com.juphoon.cloud.doodle.StrokeSeekBar
+            android:id="@+id/eraser_stroke_seek_bar"
+            android:layout_width="242dp"
+            android:layout_height="56dp"
+            android:layout_alignTop="@id/eraser"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="-4dp"
+            android:layout_toLeftOf="@id/stroke"
+            android:layout_toStartOf="@id/stroke"
+            android:background="@drawable/doodle_black_shape"
+            android:visibility="invisible" />
+
+        <com.juphoon.cloud.doodle.StickerSelector
+            android:id="@+id/sticker_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/sticker"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/sticker"
+            android:layout_toStartOf="@id/sticker"
+            android:background="@drawable/doodle_black_shape"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:visibility="invisible" />
+
+        <com.juphoon.cloud.doodle.ColorSelector
+            android:id="@+id/color_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/color"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/color"
+            android:layout_toStartOf="@id/color"
+            android:background="@drawable/doodle_black_shape"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

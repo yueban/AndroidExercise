@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutCall"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:onClick="onFullScreen"
+    tools:context=".CallActivity">
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtUserId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="userid" />
+
+    <TextView
+        android:id="@+id/txtCallInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserId"
+        tools:text="CallInfo" />
+
+    <TextView
+        android:id="@+id/txtNetStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCallInfo"
+        tools:text="NetStatus" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutVideoInCall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/btnLocalVideoRecord"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onVideoRecord"
+            android:text="@string/local_video_record"
+            app:layout_constraintBottom_toTopOf="@id/btnLocalSnapshot"
+            app:layout_constraintHorizontal_weight="1"
+            android:enabled="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnRemoteVideoRecord" />
+
+        <Button
+            android:id="@+id/btnRemoteVideoRecord"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onVideoRecord"
+            android:text="@string/remote_video_record"
+            app:layout_constraintBottom_toTopOf="@id/btnLocalSnapshot"
+            app:layout_constraintHorizontal_weight="1"
+            android:enabled="false"
+            app:layout_constraintLeft_toRightOf="@id/btnLocalVideoRecord"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnLocalSnapshot"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onSnapshot"
+            android:text="@string/local_snapshot"
+            app:layout_constraintBottom_toTopOf="@id/btnStatisticsVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            android:enabled="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnRemoteSnapshot" />
+
+        <Button
+            android:id="@+id/btnRemoteSnapshot"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onSnapshot"
+            android:text="@string/remote_snapshot"
+            app:layout_constraintBottom_toTopOf="@id/btnStatisticsVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            android:enabled="false"
+            app:layout_constraintLeft_toRightOf="@id/btnLocalSnapshot"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnDoodleVideoInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onStartDoodle"
+            android:text="@string/start_doodle"
+            app:layout_constraintBottom_toTopOf="@+id/btnSpeakerVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnStatisticsVideoInCall"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnStatisticsVideoInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:onClick="onStatistics"
+            android:text="@string/call_statistics"
+            app:layout_constraintBottom_toTopOf="@+id/btnMuteVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnDoodleVideoInCall" />
+
+        <Button
+            android:id="@+id/btnSpeakerVideoInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onSpeaker"
+            android:text="@string/call_speaker"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwichtCameraVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnMuteVideoInCall"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnMuteVideoInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:onClick="onMute"
+            android:text="@string/call_mute"
+            app:layout_constraintBottom_toTopOf="@+id/btnSwichtCameraVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnSpeakerVideoInCall" />
+
+        <Button
+            android:id="@+id/btnCameraVideoInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onOpenCloseCamera"
+            android:text="@string/call_onoff_camera"
+            app:layout_constraintBottom_toTopOf="@+id/btnTermVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnSwichtCameraVideoInCall"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnSwichtCameraVideoInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onSwitchCamera"
+            android:text="@string/call_switch_camera"
+            app:layout_constraintBottom_toTopOf="@+id/btnTermVideoInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnCameraVideoInCall" />
+
+        <Button
+            android:id="@+id/btnTermVideoInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onTerm"
+            android:text="@string/call_term"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutVideoIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/btnVideoAnswerVideoIn"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onVideoAnswer"
+            android:text="@string/call_video_answer"
+            app:layout_constraintBottom_toTopOf="@+id/btnTermVideoIn"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnAudioAnswerVideoIn"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnAudioAnswerVideoIn"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onAudioAnswer"
+            android:text="@string/call_audio_answer"
+            app:layout_constraintBottom_toTopOf="@+id/btnTermVideoIn"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnVideoAnswerVideoIn" />
+
+        <Button
+            android:id="@+id/btnTermVideoIn"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onTerm"
+            android:text="@string/call_term"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAudioIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/btnAnswerAudioIn"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:onClick="onAudioAnswer"
+            android:text="@string/answer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnTermAudioIn"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnTermAudioIn"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onTerm"
+            android:text="@string/call_term"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnAnswerAudioIn" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAudioInCall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+        <Button
+            android:id="@+id/btnAudioRecord"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onAudioRecord"
+            android:text="@string/call_audio_record"
+            android:enabled="false"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddAudioInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnDoodleAudioInCall"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnDoodleAudioInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="onStartDoodle"
+            android:text="@string/start_doodle"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddAudioInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnStatisticsInCall" />
+
+        <Button
+            android:id="@+id/btnAddAudioInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onAdd"
+            android:text="@string/call_add"
+            app:layout_constraintBottom_toTopOf="@+id/btnHoldAudioInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnStatisticsInCall" />
+
+        <Button
+            android:id="@+id/btnStatisticsInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onStatistics"
+            android:text="@string/call_statistics"
+            app:layout_constraintBottom_toTopOf="@+id/btnHoldAudioInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnAddAudioInCall"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnSpeakerAudioInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onSpeaker"
+            android:text="@string/call_speaker"
+            app:layout_constraintBottom_toTopOf="@+id/btnTermAudioInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnHoldAudioInCall"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnHoldAudioInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onHold"
+            android:text="@string/call_hold"
+            app:layout_constraintBottom_toTopOf="@+id/btnTermAudioInCall"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnSpeakerAudioInCall" />
+
+        <Button
+            android:id="@+id/btnMuteAudioInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="0dp"
+            android:onClick="onMute"
+            android:text="@string/call_mute"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/btnTermAudioInCall"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/btnTermAudioInCall"
+            style="@style/JCButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:onClick="onTerm"
+            android:text="@string/call_term"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnMuteAudioInCall" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listCalls"
+        android:layout_width="342dp"
+        android:layout_height="209dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textStatistics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="24dp"
+        android:background="#a0aaaaaa"
+        android:typeface="monospace"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/doodle_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

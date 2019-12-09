@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    // for doodle
+    <dimen name="doodle_layout_margin_top">0dp</dimen>
+    <dimen name="doodle_layout_margin_right">0dp</dimen>
+    <dimen name="doodle_seekbar_margin_right">56dp</dimen>
+
+    <dimen name="color_selector_width">48dp</dimen>
+    <dimen name="color_selector_radius">9dp</dimen>
+    <dimen name="color_palette_radius">11dp</dimen>
+
+    <dimen name="doodle_sticker_size">48dp</dimen>
+    <dimen name="doodle_sticker_padding">8dp</dimen>
+    <dimen name="doodle_sticker_emoji_default_text_size">24sp</dimen>
+    <dimen name="doodle_sticker_emoji_max_text_size">52sp</dimen>
+    <dimen name="doodle_sticker_emoji_max_size">108dp</dimen>
+    <dimen name="doodle_sticker_emoji_min_size">24dp</dimen>
+    <dimen name="doodle_floating_sticker_default_size">96dp</dimen>
+    <dimen name="doodle_floating_sticker_padding">24dp</dimen>
+    <dimen name="sticker_recycler_width">250dp</dimen>
+
+    <dimen name="doodle_sticker_width_cry">220dp</dimen>
+    <dimen name="doodle_sticker_width_tongue">172dp</dimen>
+    <dimen name="doodle_sticker_width_hearteyes">216dp</dimen>
+    <dimen name="doodle_sticker_width_redlips">154dp</dimen>
+    <dimen name="doodle_sticker_width_sunglass">244dp</dimen>
+    <dimen name="doodle_sticker_width_rabbit">260dp</dimen>
+    <dimen name="doodle_sticker_width_cat">224dp</dimen>
+    <dimen name="doodle_sticker_width_pig">260dp</dimen>
+    <dimen name="doodle_sticker_width_dog">260dp</dimen>
+    <dimen name="doodle_sticker_width_grassonhead">124dp</dimen>
+    <dimen name="doodle_sticker_width_superman">322dp</dimen>
+    <dimen name="doodle_sticker_width_purpleman">292dp</dimen>
+    <dimen name="doodle_sticker_width_blackman">208dp</dimen>
+    <dimen name="doodle_sticker_width_armman">272dp</dimen>
+    <dimen name="doodle_sticker_width_greenman">264dp</dimen>
+
+    <dimen name="doodle_sticker_height_cry">140dp</dimen>
+    <dimen name="doodle_sticker_height_tongue">168dp</dimen>
+    <dimen name="doodle_sticker_height_hearteyes">104dp</dimen>
+    <dimen name="doodle_sticker_height_redlips">164dp</dimen>
+    <dimen name="doodle_sticker_height_sunglass">112dp</dimen>
+    <dimen name="doodle_sticker_height_rabbit">420dp</dimen>
+    <dimen name="doodle_sticker_height_cat">304dp</dimen>
+    <dimen name="doodle_sticker_height_pig">204dp</dimen>
+    <dimen name="doodle_sticker_height_dog">312dp</dimen>
+    <dimen name="doodle_sticker_height_grassonhead">90dp</dimen>
+    <dimen name="doodle_sticker_height_superman">266dp</dimen>
+    <dimen name="doodle_sticker_height_purpleman">252dp</dimen>
+    <dimen name="doodle_sticker_height_blackman">266dp</dimen>
+    <dimen name="doodle_sticker_height_armman">290dp</dimen>
+    <dimen name="doodle_sticker_height_greenman">266dp</dimen>
+</resources>

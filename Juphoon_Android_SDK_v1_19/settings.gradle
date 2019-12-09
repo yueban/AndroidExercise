@@ -1,0 +1,1 @@
+include ':TestCloud', ':cloud', ':doodle'

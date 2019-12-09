@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="@string/pref_title_about_app_version"
+        android:title="@string/cloud_setting_key_about_app_version" />
+
+    <Preference
+        android:key="@string/pref_title_about_avatar_version"
+        android:title="@string/cloud_setting_key_about_avatar_version" />
+
+    <Preference
+        android:key="@string/pref_title_about_giraffe_version"
+        android:title="@string/cloud_setting_key_about_giraffe_version" />
+
+    <Preference
+        android:key="@string/pref_title_about_grape_version"
+        android:title="@string/cloud_setting_key_about_grape_version" />
+
+    <Preference
+        android:key="@string/pref_title_about_jsm_version"
+        android:title="@string/cloud_setting_key_about_jsm_version" />
+
+    <Preference
+        android:key="@string/pref_title_about_lemon_version"
+        android:title="@string/cloud_setting_key_about_lemon_version" />
+
+    <Preference
+        android:key="@string/pref_title_about_melon_version"
+        android:title="@string/cloud_setting_key_about_melon_version" />
+
+    <Preference
+        android:key="@string/pref_title_about_watermelon_version"
+        android:title="@string/cloud_setting_key_about_watermelon_version" />
+
+    <Preference
+        android:title="@string/pref_title_about_upload_log"
+        android:key="@string/cloud_setting_key_about_upload_log" />
+
+</PreferenceScreen>
