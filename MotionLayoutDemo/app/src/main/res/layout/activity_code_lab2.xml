@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_code_lab_2"
+    app:showPaths="true"
+    tools:context=".CodeLab2Activity">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background" />
+
+    <ImageView
+        android:id="@+id/left_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@android:color/darker_gray"
+        app:srcCompat="@drawable/ic_star_outline" />
+
+    <ImageView
+        android:id="@+id/right_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@android:color/darker_gray"
+        app:srcCompat="@drawable/ic_star_outline" />
+
+    <ImageView
+        android:id="@+id/red_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="#ff7043"
+        app:srcCompat="@drawable/ic_star_outline" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

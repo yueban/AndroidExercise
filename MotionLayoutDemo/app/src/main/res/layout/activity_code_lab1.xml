@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_code_lab_1"
+    app:showPaths="true"
+    tools:context=".CodeLab1Activity">
+
+    <ImageView
+        android:id="@+id/red_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:tint="#ff7043"
+        app:srcCompat="@drawable/ic_star_outline" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

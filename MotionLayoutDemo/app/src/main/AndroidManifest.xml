@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CodeLab8Activity"></activity>
+        <activity android:name=".CodeLab7Activity" />
+        <activity android:name=".CodeLab6Activity" />
+        <activity android:name=".CodeLab5Activity" />
+        <activity android:name=".CodeLab4Activity" />
+        <activity android:name=".CodeLab3Activity" />
+        <activity android:name=".CodeLab2Activity" />
+        <activity android:name=".CodeLab1Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

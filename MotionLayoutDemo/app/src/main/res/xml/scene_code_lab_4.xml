@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="2000">
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/moon" />
+
+        <!--<KeyFrameSet>
+            <KeyPosition
+                app:framePosition="50"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentY="0.5" />
+
+            <KeyPosition
+                app:framePosition="25"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentY="0.6" />
+
+            <KeyPosition
+                app:framePosition="75"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentY="0.6" />
+        </KeyFrameSet>-->
+
+        <KeyFrameSet>
+            <KeyPosition
+                app:framePosition="25"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentX="0.1"
+                app:percentY="0.6" />
+
+            <KeyPosition
+                app:framePosition="50"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentX="0.3"
+                app:percentY="0.5" />
+
+            <KeyPosition
+                app:framePosition="75"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentX="0.1"
+                app:percentY="0.6" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/moon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/moon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet>
+</MotionScene>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="2000">
+
+        <!--<OnSwipe
+            app:touchAnchorId="@id/moon"
+            app:touchAnchorSide="bottom" />-->
+
+        <!--<OnSwipe
+            app:touchAnchorId="@id/moon"
+            app:touchAnchorSide="right" />-->
+
+        <OnSwipe
+            app:dragDirection="dragRight"
+            app:touchAnchorId="@id/moon"
+            app:touchAnchorSide="bottom" />
+
+        <KeyFrameSet>
+            <KeyPosition
+                app:framePosition="50"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentY="0.5" />
+
+            <KeyPosition
+                app:framePosition="25"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentY="0.6" />
+
+            <KeyPosition
+                app:framePosition="75"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/moon"
+                app:percentY="0.6" />
+
+            <KeyAttribute
+                android:rotation="-360"
+                android:scaleX="2.0"
+                android:scaleY="2.0"
+                app:framePosition="50"
+                app:motionTarget="@id/moon" />
+
+            <KeyAttribute
+                android:rotation="-720"
+                app:framePosition="100"
+                app:motionTarget="@id/moon" />
+
+            <KeyAttribute
+                android:alpha="0.0"
+                app:framePosition="85"
+                app:motionTarget="@id/banner" />
+
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/moon">
+
+                <CustomAttribute
+                    app:attributeName="colorFilter"
+                    app:customColorValue="#ffffff" />
+            </KeyAttribute>
+
+            <KeyAttribute
+                app:framePosition="50"
+                app:motionTarget="@id/moon">
+
+                <CustomAttribute
+                    app:attributeName="colorFilter"
+                    app:customColorValue="#ffb612" />
+            </KeyAttribute>
+
+            <KeyAttribute
+                app:framePosition="100"
+                app:motionTarget="@id/moon">
+
+                <CustomAttribute
+                    app:attributeName="colorFilter"
+                    app:customColorValue="#ffffff" />
+            </KeyAttribute>
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@id/moon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@id/banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@id/moon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@id/banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+</MotionScene>
