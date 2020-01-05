@@ -17,4 +17,22 @@
         android:layout_height="wrap_content"
         android:onClick="gotoPart2Ex5"
         android:text="part 2 example 5" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoPart3CoordinatorLayout"
+        android:text="part 3 CoordinatorLayout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoPart3DrawerLayout"
+        android:text="part 3 DrawerLayout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoPart3ViewPager"
+        android:text="part 3 ViewPager" />
 </LinearLayout>

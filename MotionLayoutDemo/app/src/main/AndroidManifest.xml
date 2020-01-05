@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".medium.MediumPart3ViewPagerActivity" />
+        <activity android:name=".medium.MediumPart3DrawerLayoutActivity" />
+        <activity android:name=".medium.MediumPart3CoordinatorLayoutActivity" />
         <activity android:name=".medium.MediumPart2Ex5Activity" />
         <activity android:name=".medium.MediumPart2Ex4Activity" />
         <activity android:name=".medium.MediumMainActivity" />
