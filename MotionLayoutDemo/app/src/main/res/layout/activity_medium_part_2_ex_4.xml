@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_medium_part_2_ex_4"
+    app:showPaths="true">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/avatar_01"
+        app:altSrc="@drawable/avatar_02" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
