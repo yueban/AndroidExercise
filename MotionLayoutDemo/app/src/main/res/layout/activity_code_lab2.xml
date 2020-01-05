@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/scene_code_lab_2"
     app:showPaths="true"
-    tools:context=".CodeLab2Activity">
+    tools:context=".codelab.CodeLab2Activity">
 
     <ImageView
         android:id="@+id/background"

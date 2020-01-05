@@ -1,13 +1,15 @@
-package com.yueban.motionlayoutdemo;
+package com.yueban.motionlayoutdemo.codelab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CodeLab5Activity extends AppCompatActivity {
+import com.yueban.motionlayoutdemo.R;
+
+public class CodeLab6Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_code_lab5);
+        setContentView(R.layout.activity_code_lab6);
     }
 }

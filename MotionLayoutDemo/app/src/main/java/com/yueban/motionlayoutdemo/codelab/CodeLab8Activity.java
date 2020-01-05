@@ -1,8 +1,9 @@
-package com.yueban.motionlayoutdemo;
+package com.yueban.motionlayoutdemo.codelab;
 
 import android.os.Bundle;
 
 import com.google.android.material.appbar.AppBarLayout;
+import com.yueban.motionlayoutdemo.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;

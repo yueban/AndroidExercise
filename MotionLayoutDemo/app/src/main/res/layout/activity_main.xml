@@ -1,90 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?><!-- activity_main.xml -->
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/scene_02"
-    tools:context=".MainActivity"
-    tools:showPaths="true">
-
-    <View
-        android:id="@+id/button"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@color/colorAccent"
-        android:text="Button" />
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_code_lab_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab1View"
-        android:text="code lab 1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_code_lab_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab2View"
-        android:text="code lab 2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_code_lab_1" />
-
-    <Button
-        android:id="@+id/btn_code_lab_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab3View"
-        android:text="code lab 3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_code_lab_2" />
-
-    <Button
-        android:id="@+id/btn_code_lab_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab4View"
-        android:text="code lab 4"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_code_lab_3" />
-
-    <Button
-        android:id="@+id/btn_code_lab_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab5View"
-        android:text="code lab 5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_code_lab_4" />
-
-    <Button
-        android:id="@+id/btn_code_lab_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab6View"
-        android:text="code lab 6"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_code_lab_5" />
-
-    <Button
-        android:id="@+id/btn_code_lab_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab7View"
-        android:text="code lab 7"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_code_lab_6" />
-
-    <Button
-        android:id="@+id/btn_code_lab_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="gotoCodeLab8View"
-        android:text="code lab 8"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_code_lab_7" />
-</androidx.constraintlayout.motion.widget.MotionLayout>
+        android:onClick="gotoCodeLabDemo"
+        android:text="code lab demos" />
+</LinearLayout>

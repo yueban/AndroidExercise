@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CodeLab8Activity">
+    tools:context=".codelab.CodeLab8Activity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_layout"

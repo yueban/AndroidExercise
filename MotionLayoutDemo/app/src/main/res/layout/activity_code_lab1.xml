@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/scene_code_lab_1"
     app:showPaths="true"
-    tools:context=".CodeLab1Activity">
+    tools:context=".codelab.CodeLab1Activity">
 
     <ImageView
         android:id="@+id/red_star"
