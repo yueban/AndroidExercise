@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import com.csizg.voip.natives.XDNatives;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.juphoon.cloud.JCAccount;
 import com.juphoon.cloud.JCAccountCallback;
@@ -59,41 +60,54 @@ import java.util.List;
 /**
  * 本类主要是对Juphoon Cloud SDK 的简单封装
  */
-public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChannelCallback, JCMediaDeviceCallback,
-        JCStorageCallback, JCGroupCallback, JCMessageChannelCallback, JCAccountCallback {
+public class JCManager
+    implements JCClientCallback, JCCallCallback, JCMediaChannelCallback, JCMediaDeviceCallback, JCStorageCallback,
+    JCGroupCallback, JCMessageChannelCallback, JCAccountCallback {
+    private static final String MIPUSH_APP_ID = "2882303761517642469";
 
+    private static final String MIPUSH_APP_KEY = "5921764251469";
+
+    private static final int PUSH_TYPE_MI = 1;
+
+    private static final int PUSH_TYPE_HMS = 2;
+
+    private static final int PUSH_TYPE_GCM = 3;
+
+    public Boolean pstnMode = false; // 会议的Pstn落地模式
+
+    public JCClient client;
+
+    public JCCall call;
+
+    public JCMediaDevice mediaDevice;
+
+    public JCMediaChannel mediaChannel;
+
+    public JCMessageChannel messageChannel;
+
+    public JCStorage storage;
+
+    public JCGroup group;
+
+    public JCPush push;
+
+    public JCAccount account;
+
+    public JCConfig config;
+
+    private Context mContext;
+
+    private int mPushType = PUSH_TYPE_MI;
 
     public static JCManager getInstance() {
         return JCManagerHolder.INSTANCE;
     }
 
-    public Boolean pstnMode = false; // 会议的Pstn落地模式
-
-    private Context mContext;
-    public JCClient client;
-    public JCCall call;
-    public JCMediaDevice mediaDevice;
-    public JCMediaChannel mediaChannel;
-    public JCMessageChannel messageChannel;
-    public JCStorage storage;
-    public JCGroup group;
-    public JCPush push;
-    public JCAccount account;
-    public JCConfig config;
-
-    private static final String MIPUSH_APP_ID = "2882303761517642469";
-    private static final String MIPUSH_APP_KEY = "5921764251469";
-
-    private static final int PUSH_TYPE_MI = 1;
-    private static final int PUSH_TYPE_HMS = 2;
-    private static final int PUSH_TYPE_GCM = 3;
-
-    private int mPushType = PUSH_TYPE_MI;
-
     public boolean initialize(Context context) {
         mContext = context;
 
-        String appkey = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.cloud_setting_key_appkey), "");
+        String appkey = PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(context.getString(R.string.cloud_setting_key_appkey), "");
 
         client = JCClient.create(context, TextUtils.isEmpty(appkey) ? "" : appkey, this, null);
         mediaDevice = JCMediaDevice.create(client, this);
@@ -109,15 +123,15 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
         generateDefaultConfig(context);
 
         client.setDisplayName(PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.getString(R.string.cloud_setting_key_display_name), ""));
-        client.setConfig(JCClient.CONFIG_KEY_SERVER_ADDRESS,
-                PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.cloud_setting_key_server), ""));
-        call.maxCallNum = Integer.valueOf(
-                PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.cloud_setting_key_call_max_num), ""));
-        call.setConference(
-                PreferenceManager.getDefaultSharedPreferences(context).getBoolean(context.getString(R.string.cloud_setting_key_call_audio_conference), false));
-        mediaChannel.setConfig(JCMediaChannel.CONFIG_CAPACITY,
-                PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.cloud_setting_key_conference_max_num), ""));
+            .getString(context.getString(R.string.cloud_setting_key_display_name), ""));
+        client.setConfig(JCClient.CONFIG_KEY_SERVER_ADDRESS, PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(context.getString(R.string.cloud_setting_key_server), ""));
+        call.maxCallNum = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(context.getString(R.string.cloud_setting_key_call_max_num), ""));
+        call.setConference(PreferenceManager.getDefaultSharedPreferences(context)
+            .getBoolean(context.getString(R.string.cloud_setting_key_call_audio_conference), false));
+        mediaChannel.setConfig(JCMediaChannel.CONFIG_CAPACITY, PreferenceManager.getDefaultSharedPreferences(context)
+            .getString(context.getString(R.string.cloud_setting_key_conference_max_num), ""));
 
         // 本程序设置为固定方向
         mediaDevice.autoRotate = false;
@@ -152,6 +166,9 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
     public void onLogin(boolean result, @JCClient.ClientReason int reason) {
         EventBus.getDefault().post(new JCLoginEvent(result, reason));
         if (result) {
+            XDNatives xdNatives = new XDNatives();
+            xdNatives.init("init");
+
             switch (mPushType) {
                 case PUSH_TYPE_MI:
                     MiPushClient.registerPush(mContext, MIPUSH_APP_ID, MIPUSH_APP_KEY);
@@ -241,7 +258,8 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
     }
 
     @Override
-    public void onMediaChannelStateChange(@JCMediaChannel.MediaChannelState int state, @JCMediaChannel.MediaChannelState int oldState) {
+    public void onMediaChannelStateChange(@JCMediaChannel.MediaChannelState int state,
+        @JCMediaChannel.MediaChannelState int oldState) {
 
     }
 
@@ -272,7 +290,8 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
     }
 
     @Override
-    public void onQuery(int operationId, boolean result, @JCMediaChannel.MediaChannelReason int reason, JCMediaChannelQueryInfo queryInfo) {
+    public void onQuery(int operationId, boolean result, @JCMediaChannel.MediaChannelReason int reason,
+        JCMediaChannelQueryInfo queryInfo) {
         EventBus.getDefault().post(new JCConfQueryEvent(operationId, result, reason, queryInfo));
     }
 
@@ -332,21 +351,22 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
     // 用于自动登录上次登录着的账号
     public boolean loginIfLastLogined() {
         String userId = PreferenceManager.getDefaultSharedPreferences(mContext)
-                .getString(mContext.getString(R.string.cloud_setting_last_login_user_id), null);
+            .getString(mContext.getString(R.string.cloud_setting_last_login_user_id), null);
         if (TextUtils.isEmpty(userId)) {
             return false;
         }
         String password = PreferenceManager.getDefaultSharedPreferences(mContext)
-                .getString(mContext.getString(R.string.cloud_setting_last_login_password), null);
+            .getString(mContext.getString(R.string.cloud_setting_last_login_password), null);
         return client.login(userId, password);
     }
 
     // 保存最后一次登录账号信息
     public void saveLastLogined(String userId, String password) {
-        PreferenceManager.getDefaultSharedPreferences(mContext).edit()
-                .putString(mContext.getString(R.string.cloud_setting_last_login_user_id), userId)
-                .putString(mContext.getString(R.string.cloud_setting_last_login_password), password)
-                .apply();
+        PreferenceManager.getDefaultSharedPreferences(mContext)
+            .edit()
+            .putString(mContext.getString(R.string.cloud_setting_last_login_user_id), userId)
+            .putString(mContext.getString(R.string.cloud_setting_last_login_password), password)
+            .apply();
     }
 
     // 生成默认配置
@@ -359,7 +379,8 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
         }
         value = sp.getString(context.getString(R.string.cloud_setting_key_server), "");
         if (TextUtils.isEmpty(value)) {
-            editor.putString(context.getString(R.string.cloud_setting_key_server), client.getConfig(JCClient.CONFIG_KEY_SERVER_ADDRESS));
+            editor.putString(context.getString(R.string.cloud_setting_key_server),
+                client.getConfig(JCClient.CONFIG_KEY_SERVER_ADDRESS));
         }
         value = sp.getString(context.getString(R.string.cloud_setting_key_call_max_num), "");
         if (TextUtils.isEmpty(value)) {
@@ -367,7 +388,8 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
         }
         value = sp.getString(context.getString(R.string.cloud_setting_key_conference_max_num), "");
         if (TextUtils.isEmpty(value)) {
-            editor.putString(context.getString(R.string.cloud_setting_key_conference_max_num), mediaChannel.getConfig(JCMediaChannel.CONFIG_CAPACITY));
+            editor.putString(context.getString(R.string.cloud_setting_key_conference_max_num),
+                mediaChannel.getConfig(JCMediaChannel.CONFIG_CAPACITY));
         }
         editor.apply();
     }
@@ -393,7 +415,8 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
     }
 
     @Override
-    public void onFetchGroups(int operationId, boolean result, @JCGroup.Reason int reason, List<JCGroupItem> groups, long updateTime, boolean fullUpdated) {
+    public void onFetchGroups(int operationId, boolean result, @JCGroup.Reason int reason, List<JCGroupItem> groups,
+        long updateTime, boolean fullUpdated) {
         if (result) {
             JCGroupData.gourpListUpdateTime = updateTime;
             // 演示群列表更新操作，demo是存入内存，实际应同步到数据库
@@ -437,7 +460,8 @@ public class JCManager implements JCClientCallback, JCCallCallback, JCMediaChann
     }
 
     @Override
-    public void onFetchGroupInfo(int operationId, boolean result, @JCGroup.Reason int reason, JCGroupItem groupItem, List<JCGroupMember> members, long updateTime, boolean fullUpdated) {
+    public void onFetchGroupInfo(int operationId, boolean result, @JCGroup.Reason int reason, JCGroupItem groupItem,
+        List<JCGroupMember> members, long updateTime, boolean fullUpdated) {
         if (result) {
             // 演示群列表更新操作，demo是存入内存，实际应同步到数据库
             JCGroupData.setFetchGroupInfoLastTime(groupItem.groupId, updateTime);
