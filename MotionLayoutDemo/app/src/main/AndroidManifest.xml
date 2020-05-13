@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".medium.MediumPart4EasingActivity" />
+        <activity android:name=".medium.MediumPart4ArcMotionActivity" />
+        <activity android:name=".medium.MediumPart4PositionKeyFramesActivity" />
         <activity android:name=".medium.MediumPart3ViewPagerActivity" />
         <activity android:name=".medium.MediumPart3DrawerLayoutActivity" />
         <activity android:name=".medium.MediumPart3CoordinatorLayoutActivity" />

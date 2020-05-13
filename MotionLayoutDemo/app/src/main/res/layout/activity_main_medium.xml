@@ -35,4 +35,22 @@
         android:layout_height="wrap_content"
         android:onClick="gotoPart3ViewPager"
         android:text="part 3 ViewPager" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoPart4PositionKeyFrames"
+        android:text="part 4 Position KeyFrames" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoPart4ArcMotion"
+        android:text="part 4 Arc Motion" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoPart4Easing"
+        android:text="part 4 Easing" />
 </LinearLayout>
