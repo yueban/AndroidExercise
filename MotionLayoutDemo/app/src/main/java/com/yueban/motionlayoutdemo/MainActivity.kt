@@ -7,6 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.yueban.motionlayoutdemo.codelab.CodeLabMainActivity
 import com.yueban.motionlayoutdemo.medium.MediumMainActivity
+import com.yueban.motionlayoutdemo.sample.SampleMainActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     fun gotoCodeLabDemo(view: View) = gotoView(CodeLabMainActivity::class.java)
 
     fun gotoMediumDemo(view: View) = gotoView(MediumMainActivity::class.java)
+
+    fun gotoGoogleSampleDemo(view: View) = gotoView(SampleMainActivity::class.java)
 
     private fun gotoView(clazz: Class<out Activity>) {
         startActivity(Intent(this, clazz))

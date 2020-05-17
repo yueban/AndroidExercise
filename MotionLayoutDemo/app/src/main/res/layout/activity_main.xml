@@ -17,4 +17,10 @@
         android:layout_height="wrap_content"
         android:onClick="gotoMediumDemo"
         android:text="medium demos" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoGoogleSampleDemo"
+        android:text="google sample demos" />
 </LinearLayout>

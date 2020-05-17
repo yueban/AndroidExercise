@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".sample.SampleFragment1Activity" />
+        <activity android:name=".sample.SampleMainActivity" />
+
         <activity android:name=".medium.MediumPart4EasingActivity" />
         <activity android:name=".medium.MediumPart4ArcMotionActivity" />
         <activity android:name=".medium.MediumPart4PositionKeyFramesActivity" />
