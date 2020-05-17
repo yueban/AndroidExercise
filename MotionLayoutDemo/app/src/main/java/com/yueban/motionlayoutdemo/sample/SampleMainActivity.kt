@@ -20,4 +20,6 @@ class SampleMainActivity : AppCompatActivity() {
     fun gotoFragment1(view: View) = startActivity(SampleFragment1Activity::class)
 
     fun gotoFragment2(view: View) = startActivity(SampleFragment2Activity::class)
+
+    fun gotoYoutube(view: View) = startActivity(SampleYoutubeActivity::class)
 }

@@ -9,4 +9,13 @@
     Scelerisque varius morbi enim nunc faucibus a pellentesque. Scelerisque in dictum non consectetur a erat nam at lectus. Sed euismod nisi porta lorem mollis aliquam. Nunc mi ipsum faucibus vitae aliquet. Nibh cras pulvinar mattis nunc. Sed viverra tellus in hac habitasse platea. Ac tortor vitae purus faucibus ornare. Laoreet sit amet cursus sit amet dictum sit amet. Risus sed vulputate odio ut enim. Massa sapien faucibus et molestie ac feugiat sed. Proin libero nunc consequat interdum varius sit amet mattis vulputate. Eget sit amet tellus cras adipiscing enim eu. Ullamcorper dignissim cras tincidunt lobortis feugiat. Arcu ac tortor dignissim convallis aenean et tortor at. Aliquet risus feugiat in ante metus. Sit amet luctus venenatis lectus magna. Egestas maecenas pharetra convallis posuere morbi leo. Auctor neque vitae tempus quam pellentesque nec nam aliquam sem.
 
         Ac orci phasellus egestas tellus rutrum tellus. Ultrices neque ornare aenean euismod elementum nisi quis. Vel pharetra vel turpis nunc eget. Quis lectus nulla at volutpat diam ut venenatis tellus in. Egestas congue quisque egestas diam in arcu. Tincidunt praesent semper feugiat nibh sed pulvinar. Tristique senectus et netus et malesuada fames. Tristique nulla aliquet enim tortor. Aliquet nibh praesent tristique magna sit amet purus. Diam maecenas ultricies mi eget mauris pharetra et ultrices neque. Morbi tristique senectus et netus et malesuada. Venenatis tellus in metus vulputate eu scelerisque felis. Risus pretium quam vulputate dignissim suspendisse in. Ut venenatis tellus in metus vulputate. Turpis in eu mi bibendum. Pellentesque elit eget gravida cum sociis natoque. Tristique risus nec feugiat in fermentum posuere urna. Senectus et netus et malesuada fames ac turpis.</string>
+
+
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="cat">Cat</string>
+    <string name="cat_n">This is Cat: %1$d</string>
 </resources>

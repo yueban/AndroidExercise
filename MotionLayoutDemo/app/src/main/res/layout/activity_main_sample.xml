@@ -17,4 +17,10 @@
         android:layout_height="wrap_content"
         android:onClick="gotoFragment2"
         android:text="fragment 2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoYoutube"
+        android:text="Youtube" />
 </LinearLayout>
