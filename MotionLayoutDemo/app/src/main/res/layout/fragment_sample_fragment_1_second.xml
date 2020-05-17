@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    app:layoutDescription="@xml/scene_sample_fragment_1_fragment_2">
+    app:layoutDescription="@xml/scene_sample_fragment_1_second">
 
     <com.yueban.motionlayoutdemo.sample.FadeIn
         android:id="@+id/fadeIn"

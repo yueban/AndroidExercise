@@ -12,7 +12,7 @@ import kotlin.math.abs
  * @author yueban fbzhh007@gmail.com
  * @date 2020/5/17
  */
-class SampleFragment1Activity : AppCompatActivity(), MotionLayout.TransitionListener {
+class SampleFragment2Activity : AppCompatActivity(), MotionLayout.TransitionListener {
     private lateinit var fragment: Fragment
     private var lastProgress = 0f
 
@@ -23,9 +23,9 @@ class SampleFragment1Activity : AppCompatActivity(), MotionLayout.TransitionList
         if (savedInstanceState == null) {
             fragment = SampleFragment1Fragment1.newInstance().also {
                 supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.container, it)
-                        .commitNow()
+                    .beginTransaction()
+                    .replace(R.id.container, it)
+                    .commitNow()
             }
         }
         motion_layout.setTransitionListener(this)
@@ -42,22 +42,22 @@ class SampleFragment1Activity : AppCompatActivity(), MotionLayout.TransitionList
             // from start to end
             val atEnd = abs(p3 - 1f) < 0.1f
             if (atEnd && fragment is SampleFragment1Fragment1) {
-                fragment = SampleFragment1Fragment2.newInstance().also {
+                fragment = SampleFragment2ListFragment.newInstance().also {
                     supportFragmentManager.beginTransaction()
-                            .setCustomAnimations(R.animator.show, 0)
-                            .replace(R.id.container, it)
-                            .commitNow()
+                        .setCustomAnimations(R.animator.show, 0)
+                        .replace(R.id.container, it)
+                        .commitNow()
                 }
             }
         } else {
             // from end to start
             val atStart = p3 < 0.9f
-            if (atStart && fragment is SampleFragment1Fragment2) {
+            if (atStart && fragment is SampleFragment2ListFragment) {
                 fragment = SampleFragment1Fragment1.newInstance().also {
                     supportFragmentManager.beginTransaction()
-                            .setCustomAnimations(0, R.animator.hide)
-                            .replace(R.id.container, it)
-                            .commitNow()
+                        .setCustomAnimations(0, R.animator.hide)
+                        .replace(R.id.container, it)
+                        .commitNow()
                 }
             }
         }

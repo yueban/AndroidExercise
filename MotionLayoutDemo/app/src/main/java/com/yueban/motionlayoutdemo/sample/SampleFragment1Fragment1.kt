@@ -14,6 +14,6 @@ class SampleFragment1Fragment1 : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_sample_fragment_1_1, container, false)
+        return inflater.inflate(R.layout.fragment_sample_fragment_main, container, false)
     }
 }
