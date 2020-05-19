@@ -29,4 +29,10 @@
         android:layout_height="wrap_content"
         android:onClick="gotoKeyTrigger"
         android:text="KeyTrigger" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoMultiState"
+        android:text="MultiState" />
 </LinearLayout>

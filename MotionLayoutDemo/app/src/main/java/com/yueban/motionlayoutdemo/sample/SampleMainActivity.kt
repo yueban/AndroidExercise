@@ -24,4 +24,6 @@ class SampleMainActivity : AppCompatActivity() {
     fun gotoYoutube(view: View) = startActivity(SampleYoutubeActivity::class)
 
     fun gotoKeyTrigger(view: View) = startActivity(SampleKeyTriggerActivity::class)
+
+    fun gotoMultiState(view: View) = startActivity(SampleMultistateActivity::class)
 }
