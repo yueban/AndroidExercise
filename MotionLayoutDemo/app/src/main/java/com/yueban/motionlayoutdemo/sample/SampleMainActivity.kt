@@ -26,4 +26,6 @@ class SampleMainActivity : AppCompatActivity() {
     fun gotoKeyTrigger(view: View) = startActivity(SampleKeyTriggerActivity::class)
 
     fun gotoMultiState(view: View) = startActivity(SampleMultistateActivity::class)
+
+    fun gotoHistogram(view: View) = startActivity(SampleHistogramActivity::class)
 }

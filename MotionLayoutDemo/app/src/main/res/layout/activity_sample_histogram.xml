@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/y_axis"
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="@id/x_axis"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/x_axis"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/y_axis" />
+
+    <com.yueban.motionlayoutdemo.sample.HistogramWidget
+        android:id="@+id/histogram"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        app:columns="9"
+        app:layout_constraintBottom_toTopOf="@id/x_axis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/y_axis"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftMarginDp="10"
+        tools:showPaths="true" />
+
+    <Switch
+        android:id="@+id/interruptible_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:onClick="onClickSwitch"
+        android:text="Interruptible Animation"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/both"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:onClick="onClickRandom"
+        android:text="\?"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/sort"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/sort"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:onClick="onClickSort"
+        android:text="/"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/add"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:onClick="onClickAdd"
+        android:text="+"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/x_axis"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

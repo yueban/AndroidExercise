@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".sample.SampleHistogramActivity" />
         <activity android:name=".sample.SampleMultistateActivity" />
         <activity android:name=".sample.SampleKeyTriggerActivity" />
         <activity android:name=".sample.SampleYoutubeActivity" />

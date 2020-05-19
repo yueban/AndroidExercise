@@ -12,19 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b8b8c0a-a11b-4739-96ef-ef97c0d0a066" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/SampleMultistateActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_1_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_2_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_3_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_4_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_5_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_6_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_7_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_8_raster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_keyboard_arrow_right.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_keyboard_arrow_up.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sample_multistate.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/scene_sample_multistate.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/ColorHelper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/HistogramAnimationGuard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/HistogramBarMetaData.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/HistogramWidget.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/NonAnimatingHistogramWidget.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/SampleHistogramActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sample_histogram.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/attr.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/SampleMainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/SampleMainActivity.kt" afterDir="false" />
@@ -55,9 +50,10 @@
         <option value="layoutResourceFile_vertical" />
         <option value="Class" />
         <option value="Kotlin Class" />
-        <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="Kotlin File" />
+        <option value="valueResourceFile" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -69,7 +65,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DEBUGGABLE_DEVICE" value="emulator-5554" />
+    <property name="DEBUGGABLE_DEVICE" value="oneplus-hd1900-80b30c18" />
     <property name="DEBUGGABLE_PROCESS" value="com.yueban.motionlayoutdemo" />
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -243,5 +239,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/yueban/motionlayoutdemo/sample/HistogramWidget.kt</url>
+          <line>113</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
