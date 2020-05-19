@@ -22,4 +22,6 @@ class SampleMainActivity : AppCompatActivity() {
     fun gotoFragment2(view: View) = startActivity(SampleFragment2Activity::class)
 
     fun gotoYoutube(view: View) = startActivity(SampleYoutubeActivity::class)
+
+    fun gotoKeyTrigger(view: View) = startActivity(SampleKeyTriggerActivity::class)
 }

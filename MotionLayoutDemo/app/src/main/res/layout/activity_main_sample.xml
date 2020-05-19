@@ -23,4 +23,10 @@
         android:layout_height="wrap_content"
         android:onClick="gotoYoutube"
         android:text="Youtube" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoKeyTrigger"
+        android:text="KeyTrigger" />
 </LinearLayout>
