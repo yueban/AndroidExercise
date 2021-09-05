@@ -12,10 +12,16 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ContentAlpha
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
@@ -41,8 +47,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PhotographerCard(modifier: Modifier = Modifier) {
-    Row(
-        modifier
+    Row(modifier
             // click area not contains padding
 //            .padding(16.dp)
 //            .clickable { }
@@ -55,13 +60,8 @@ fun PhotographerCard(modifier: Modifier = Modifier) {
             .clip(RoundedCornerShape(4.dp))
             .background(MaterialTheme.colors.surface)
             .clickable { }
-            .padding(16.dp)
-    ) {
-        Surface(
-            modifier = Modifier.size(50.dp),
-            shape = CircleShape,
-            color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
-        ) {
+            .padding(16.dp)) {
+        Surface(modifier = Modifier.size(50.dp), shape = CircleShape, color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)) {
 
         }
         Column(
@@ -77,6 +77,32 @@ fun PhotographerCard(modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun ScaffoldLayout() {
+    Scaffold(topBar = {
+        TopAppBar(title = {
+            Text(text = "app bar text")
+        }, actions = {
+            IconButton(onClick = { /*TODO*/ }) {
+                Icon(imageVector = Icons.Filled.Favorite, contentDescription = null)
+            }
+        })
+    }) { innerPadding ->
+        print("innerPadding: $innerPadding")
+        BodyContent(Modifier.padding(innerPadding))
+    }
+}
+
+@Composable
+fun BodyContent(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Column(Modifier.weight(1.0f, true)) {
+            Text(text = "Hello, Scaffold!")
+            Text(text = "There is some text in body content")
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -87,7 +113,9 @@ fun DefaultPreview() {
 
 @Composable
 fun MainView() {
-    PhotographerCard()
+//    PhotographerCard()
 
 //    SlotButtonDemo()
+
+    ScaffoldLayout()
 }
