@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -22,8 +24,15 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -93,12 +102,34 @@ fun ScaffoldLayout() {
     }
 }
 
+val tabs = listOf(
+    "Phone" to Icons.Filled.Phone,
+    "Home" to Icons.Filled.Home,
+    "Mine" to Icons.Filled.Person,
+)
+
 @Composable
 fun BodyContent(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Column(Modifier.weight(1.0f, true)) {
             Text(text = "Hello, Scaffold!")
             Text(text = "There is some text in body content")
+        }
+
+        var selectedIndex by remember { mutableStateOf(0) }
+        BottomNavigation {
+            tabs.forEachIndexed { index, item ->
+                BottomNavigationItem(
+                    icon = {
+                        Icon(imageVector = item.second, contentDescription = null)
+                    },
+                    label = {
+                        Text(text = item.first)
+                    },
+                    selected = selectedIndex == index,
+                    onClick = { selectedIndex = index },
+                    alwaysShowLabel = false)
+            }
         }
     }
 }
