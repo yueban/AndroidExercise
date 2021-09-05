@@ -88,4 +88,6 @@ fun DefaultPreview() {
 @Composable
 fun MainView() {
     PhotographerCard()
+
+//    SlotButtonDemo()
 }
