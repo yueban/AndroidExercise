@@ -32,14 +32,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.yueban.jetpack.ui.NamePicker
-import com.yueban.jetpack.ui.theme.JetpackComposeDemoTheme
+import com.yueban.jetpack.ui.theme.JetpackComposeBasicsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            JetpackComposeDemoTheme {
+            JetpackComposeBasicsTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     MainView()
@@ -145,7 +144,7 @@ fun Conversation(messages: List<Message>) {
 )
 @Composable
 fun DefaultPreview() {
-    JetpackComposeDemoTheme {
+    JetpackComposeBasicsTheme {
         MainView()
     }
 }
