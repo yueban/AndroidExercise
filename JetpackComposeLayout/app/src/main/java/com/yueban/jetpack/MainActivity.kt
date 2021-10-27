@@ -3,16 +3,22 @@ package com.yueban.jetpack
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Button
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -32,6 +38,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,7 +46,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.rememberImagePainter
 import com.yueban.jetpack.ui.theme.JetpackComposeLayoutTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,6 +112,50 @@ fun ScaffoldLayout() {
     }
 }
 
+@ExperimentalCoilApi
+@Composable
+fun ListLayout() {
+//    val scrollState = rememberScrollState()
+
+    val listSize = 100
+    val scrollState = rememberLazyListState(initialFirstVisibleItemIndex = 30)
+    val coroutineScope = rememberCoroutineScope()
+
+    Column {
+        Row {
+            Button(
+                onClick = { coroutineScope.launch { scrollState.animateScrollToItem(0) } },
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(text = "scroll to top")
+            }
+            Button(
+                onClick = { coroutineScope.launch { scrollState.animateScrollToItem(listSize - 1) } },
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(text = "scroll to bottom")
+            }
+        }
+        LazyColumn(state = scrollState, modifier = Modifier.fillMaxWidth()) {
+            items(listSize) {
+                ImageItem(it)
+            }
+        }
+    }
+}
+
+@ExperimentalCoilApi
+@Composable
+fun ImageItem(index: Int) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Image(painter = rememberImagePainter(data = "https://developer.android.com/images/brand/Android_Robot.png"),
+              contentDescription = "Robot",
+              modifier = Modifier.size(50.dp))
+        Spacer(modifier = Modifier.size(4.dp))
+        Text("Item $index")
+    }
+}
+
 val tabs = listOf(
     "Phone" to Icons.Filled.Phone,
     "Home" to Icons.Filled.Home,
@@ -148,5 +202,7 @@ fun MainView() {
 
 //    SlotButtonDemo()
 
-    ScaffoldLayout()
+//    ScaffoldLayout()
+
+    ListLayout()
 }
