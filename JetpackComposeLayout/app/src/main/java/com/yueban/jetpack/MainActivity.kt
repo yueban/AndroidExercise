@@ -45,6 +45,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.FirstBaseline
+import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -163,6 +164,23 @@ fun Modifier.firstBaselineToTop(firstBaselineToTop: Dp) = this.then(layout { mea
 })
 
 @Composable
+fun CustomColumn(
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit) {
+    Layout(modifier = modifier, content = content) { measurables, constraints ->
+        val placeables = measurables.map { measurable -> measurable.measure(constraints) }
+
+        var yPos = 0
+        layout(constraints.maxWidth, constraints.maxHeight) {
+            placeables.forEach { placeable ->
+                placeable.placeRelative(0, yPos)
+                yPos += placeable.height
+            }
+        }
+    }
+}
+
+@Composable
 fun TextWithPaddingToBaseline() {
     Text("Just do it", Modifier.firstBaselineToTop(32.dp))
 }
@@ -234,6 +252,12 @@ fun MainView() {
 
 //    ListLayout()
 
-    TextWithPaddingToBaseline()
-    TextWithNormalPadding()
+//    TextWithPaddingToBaseline()
+//    TextWithNormalPadding()
+
+    CustomColumn {
+        repeat(10) {
+            Text("text $it")
+        }
+    }
 }
