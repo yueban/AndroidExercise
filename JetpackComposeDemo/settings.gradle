@@ -6,5 +6,6 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "JetpackComposeBasics"
-include ':app'
+rootProject.name = "JetpackComposeDemo"
+include ':basics'
+include ':layout'

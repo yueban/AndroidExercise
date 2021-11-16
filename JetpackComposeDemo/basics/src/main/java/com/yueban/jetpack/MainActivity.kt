@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.yueban.jetpack.ui.NamePicker
 import com.yueban.jetpack.ui.theme.JetpackComposeBasicsTheme
 
 class MainActivity : ComponentActivity() {
@@ -65,16 +66,16 @@ private fun MainView() {
 //    }.start()
 
     // TODO: 实际上没有跳过 composable 方法？
-//    var header by remember { mutableStateOf("header") }
-//    var names by remember { mutableStateOf(listOf("Bob", "Tom", "Alice")) }
-//    NamePicker(header = header, names = names, onNameClicked = {
-//        if (it == "Bob") {
-//            header = it
-//        }
-//        if (it == "Tom") {
-//            names = listOf("Bob", "a", "Alice")
-//        }
-//    })
+    var header by remember { mutableStateOf("header") }
+    var names by remember { mutableStateOf(listOf("Bob", "Tom", "Alice")) }
+    NamePicker(header = header, names = names, onNameClicked = {
+        if (it == "Bob") {
+            header = it
+        }
+        if (it == "Tom") {
+            names = listOf("Bob", "a", "Alice")
+        }
+    })
 }
 
 data class Message(val author: String, val body: String)
