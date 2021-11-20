@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/basics" />
             <option value="$PROJECT_DIR$/layout" />
+            <option value="$PROJECT_DIR$/state" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
