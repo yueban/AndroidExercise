@@ -10,8 +10,10 @@ class TodoVM : ViewModel() {
     val todoItems: LiveData<List<TodoItem>> = _todoItems
 
     fun addItem(item: TodoItem) {
+        _todoItems.value = _todoItems.value!! + listOf(item)
     }
 
     fun removeItem(item: TodoItem) {
+        _todoItems.value = _todoItems.value!!.toMutableList().also { it.remove(item) }
     }
 }
