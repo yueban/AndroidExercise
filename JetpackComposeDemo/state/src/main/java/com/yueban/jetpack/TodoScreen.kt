@@ -1,10 +1,13 @@
 package com.yueban.jetpack
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -27,6 +30,7 @@ import com.yueban.jetpack.util.generateRandomTodoItem
 import kotlin.random.Random
 
 @ExperimentalComposeUiApi
+@ExperimentalAnimationApi
 @Composable
 fun TodoScreen(
     items: List<TodoItem>,
@@ -57,31 +61,45 @@ fun TodoScreen(
     }
 }
 
+@ExperimentalAnimationApi
 @ExperimentalComposeUiApi
 @Composable
 fun TodoItemInput(onItemComplete: (TodoItem) -> Unit) {
     val (text, setText) = remember { mutableStateOf("") }
-    Row(
-        modifier = Modifier
-            .padding(horizontal = 16.dp)
-            .padding(top = 8.dp)
-    ) {
-        TodoInputText(
-            text = text,
-            onTextChange = setText,
+    val (icon, setIcon) = remember { mutableStateOf(TodoIcon.Default) }
+    val iconVisible = text.isNotBlank()
+    val submit = {
+        onItemComplete(TodoItem(text, icon))
+        setIcon(TodoIcon.Default)
+        setText("")
+    }
+    Column {
+        Row(
             modifier = Modifier
-                .weight(1f)
-                .padding(end = 8.dp),
-        )
-        TodoEditButton(
-            onClick = {
-                onItemComplete(TodoItem(text))
-                setText("")
-            },
-            text = "Add",
-            modifier = Modifier.align(Alignment.CenterVertically),
-            enabled = text.isNotBlank(),
-        )
+                .padding(horizontal = 16.dp)
+                .padding(top = 8.dp)
+        ) {
+            TodoInputText(
+                text = text,
+                onTextChange = setText,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 8.dp),
+                onImeAction = submit
+            )
+            TodoEditButton(
+                onClick = submit,
+                text = "Add",
+                modifier = Modifier.align(Alignment.CenterVertically),
+                enabled = text.isNotBlank(),
+            )
+        }
+
+        if (iconVisible) {
+            AnimatedIconRow(icon = icon, onIconChange = setIcon, modifier = Modifier.padding(8.dp))
+        } else {
+            Spacer(modifier = Modifier.height(16.dp))
+        }
     }
 }
 
@@ -109,6 +127,7 @@ private fun randomTint(): Float {
 }
 
 @ExperimentalComposeUiApi
+@ExperimentalAnimationApi
 @Preview
 @Composable
 fun PreviewTodoScreen() {
