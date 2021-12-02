@@ -4,13 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
-import com.yueban.jetpack.data.TodoItem
+import androidx.compose.ui.ExperimentalComposeUiApi
 import com.yueban.jetpack.ui.theme.JetpackComposeStateTheme
 
+@ExperimentalAnimationApi
+@ExperimentalComposeUiApi
 class MainActivity : ComponentActivity() {
     private val todoVM by viewModels<TodoVM>()
 
@@ -27,11 +28,12 @@ class MainActivity : ComponentActivity() {
 }
 
 //@Preview(showBackground = true)
+@ExperimentalAnimationApi
+@ExperimentalComposeUiApi
 @Composable
 private fun TodoScreenView(vm: TodoVM) {
-    val items :List<TodoItem> by vm.todoItems.observeAsState(listOf())
     TodoScreen(
-        items = items,
+        items = vm.todoItems,
         onAddItem = vm::addItem,
         onRemoveItem = vm::removeItem
     )
