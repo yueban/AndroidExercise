@@ -33,7 +33,6 @@ import androidx.compose.ui.unit.dp
 import com.yueban.jetpack.data.TodoIcon
 import com.yueban.jetpack.data.TodoItem
 import com.yueban.jetpack.util.generateRandomTodoItem
-import kotlin.random.Random
 
 @ExperimentalComposeUiApi
 @ExperimentalAnimationApi
@@ -195,7 +194,6 @@ fun TodoRow(
     todoItem: TodoItem,
     onItemClicked: (TodoItem) -> Unit,
     modifier: Modifier = Modifier,
-    iconTint: Float = remember(key1 = todoItem.id) { randomTint() }
 ) {
     Row(
         modifier = modifier
@@ -204,13 +202,9 @@ fun TodoRow(
     ) {
         Text(todoItem.task)
         Icon(imageVector = todoItem.icon.imageVector,
-             tint = LocalContentColor.current.copy(alpha = iconTint),
+             tint = LocalContentColor.current.copy(alpha = todoItem.iconTint),
              contentDescription = stringResource(id = todoItem.icon.contentDescription))
     }
-}
-
-private fun randomTint(): Float {
-    return Random.nextFloat().coerceIn(0.3f, 0.9f)
 }
 
 @ExperimentalComposeUiApi
