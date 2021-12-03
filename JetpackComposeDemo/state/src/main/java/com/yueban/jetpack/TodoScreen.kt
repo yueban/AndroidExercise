@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalContentColor
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -22,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yueban.jetpack.data.TodoIcon
@@ -34,19 +36,45 @@ import kotlin.random.Random
 @Composable
 fun TodoScreen(
     items: List<TodoItem>,
+    currentEditItem: TodoItem?,
     onAddItem: (TodoItem) -> Unit,
-    onRemoveItem: (TodoItem) -> Unit) {
+    onRemoveItem: (TodoItem) -> Unit,
+    onEditStart: (TodoItem) -> Unit,
+    onEditItemChange: (TodoItem) -> Unit,
+    onEditDone: () -> Unit) {
     Column {
-        TodoItemInputBackground(elevate = true, modifier = Modifier.fillMaxWidth()) {
-            TodoItemEntryInput(onItemComplete = onAddItem)
+        val enableInputHeader = currentEditItem == null
+        TodoItemInputBackground(elevate = enableInputHeader, modifier = Modifier.fillMaxWidth()) {
+            if (enableInputHeader) {
+                TodoItemEntryInput(onItemComplete = onAddItem)
+            } else {
+                Text(
+                    "Editing item",
+                    style = MaterialTheme.typography.h6,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(16.dp)
+                        .fillMaxWidth()
+                )
+            }
         }
         LazyColumn(modifier = Modifier.weight(1f),
                    contentPadding = PaddingValues(top = 8.dp)) {
             items(items) {
-                TodoRow(todoItem = it,
-                        onItemClicked = { onRemoveItem(it) },
+                if (it.id == currentEditItem?.id) {
+                    TodoItemInlineEditor(
+                        item = currentEditItem,
+                        onEditItemChange = onEditItemChange,
+                        onEditDone = onEditDone
+                    )
+                } else {
+                    TodoRow(
+                        todoItem = it,
+                        onItemClicked = { onEditStart(it) },
                         modifier = Modifier.fillParentMaxWidth()
-                )
+                    )
+                }
             }
         }
 
@@ -59,6 +87,24 @@ fun TodoScreen(
             Text("Add random item")
         }
     }
+}
+
+@ExperimentalComposeUiApi
+@ExperimentalAnimationApi
+@Composable
+fun TodoItemInlineEditor(
+    item: TodoItem,
+    onEditItemChange: (TodoItem) -> Unit,
+    onEditDone: () -> Unit
+) {
+    TodoItemInput(
+        text = item.task,
+        onTextChange = { onEditItemChange(item.copy(task = it)) },
+        icon = item.icon,
+        onIconChange = { onEditItemChange(item.copy(icon = it)) },
+        iconVisible = true,
+        submit = onEditDone
+    )
 }
 
 @ExperimentalAnimationApi
@@ -156,7 +202,7 @@ fun PreviewTodoScreen() {
         TodoItem("Apply state", TodoIcon.Done),
         TodoItem("Build dynamic UIs", TodoIcon.Square)
     )
-    TodoScreen(items = items, onAddItem = {}, onRemoveItem = {})
+    TodoScreen(items, null, {}, {}, {}, {}, {})
 }
 
 @Preview

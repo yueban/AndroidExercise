@@ -34,7 +34,11 @@ class MainActivity : ComponentActivity() {
 private fun TodoScreenView(vm: TodoVM) {
     TodoScreen(
         items = vm.todoItems,
+        currentEditItem = vm.currentEditItem,
         onAddItem = vm::addItem,
-        onRemoveItem = vm::removeItem
+        onRemoveItem = vm::removeItem,
+        onEditStart = vm::onEditItemSelected,
+        onEditItemChange = vm::onEditItemChange,
+        onEditDone = vm::onEditDone
     )
 }
