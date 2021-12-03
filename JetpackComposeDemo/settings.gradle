@@ -10,3 +10,4 @@ rootProject.name = "JetpackComposeDemo"
 include ':basics'
 include ':layout'
 include ':state'
+include ':theming'
