@@ -2,6 +2,9 @@ package com.yueban.jetpack.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.splineBasedDecay
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -141,8 +144,10 @@ fun Home() {
     val lazyListState = rememberLazyListState()
 
     // The background color. The value is changed by the current tab.
-    // TODO 1: Animate this color change.
-    val backgroundColor = if (tabPage == TabPage.Home) Purple200 else Green300
+    val backgroundColor by animateColorAsState(
+        targetValue = if (tabPage == TabPage.Home) Purple200 else Green300,
+        animationSpec = tween(durationMillis = 1000, easing = LinearOutSlowInEasing)
+    )
 
     // The coroutine scope for event handlers calling suspend functions.
     val coroutineScope = rememberCoroutineScope()
