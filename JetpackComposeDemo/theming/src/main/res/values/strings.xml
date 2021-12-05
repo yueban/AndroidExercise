@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">theming</string>
+    <string name="app_title">Jetnews</string>
+    <string name="top">Top Story</string>
+    <string name="popular">Popular</string>
+    <string name="read_time">%1$d min read</string>
 </resources>
