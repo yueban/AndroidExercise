@@ -7,7 +7,9 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDp
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.slideInVertically
@@ -445,14 +447,34 @@ private fun HomeTabIndicator(
     tabPositions: List<TabPosition>,
     tabPage: TabPage
 ) {
-    val transition = updateTransition(tabPage)
-    val indicatorLeft by transition.animateDp { page ->
+    val transition = updateTransition(tabPage, label = "tab indicator")
+    val indicatorLeft by transition.animateDp(
+        transitionSpec = {
+            if (TabPage.Home isTransitioningTo TabPage.Work) {
+                spring(stiffness = Spring.StiffnessVeryLow)
+            } else {
+                spring(stiffness = Spring.StiffnessMedium)
+            }
+        },
+        label = "indicator left"
+    ) { page ->
         tabPositions[page.ordinal].left
     }
-    val indicatorRight by transition.animateDp { page ->
+    val indicatorRight by transition.animateDp(
+        transitionSpec = {
+            if (TabPage.Home isTransitioningTo TabPage.Work) {
+                spring(stiffness = Spring.StiffnessMedium)
+            } else {
+                spring(stiffness = Spring.StiffnessVeryLow)
+            }
+        },
+        label = "indicator right"
+    ) { page ->
         tabPositions[page.ordinal].right
     }
-    val color by transition.animateColor { page ->
+    val color by transition.animateColor(
+        label = "indicator color",
+    ) { page ->
         if (page == TabPage.Home) Purple700 else Green800
     }
 
