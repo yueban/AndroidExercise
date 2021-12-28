@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/animation" />
             <option value="$PROJECT_DIR$/basics" />
             <option value="$PROJECT_DIR$/layout" />
+            <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/state" />
             <option value="$PROJECT_DIR$/theming" />
           </set>
