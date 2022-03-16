@@ -30,6 +30,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import com.yueban.jetpack.data.UserData
 import com.yueban.jetpack.ui.accounts.AccountsBody
 import com.yueban.jetpack.ui.accounts.SingleAccountBody
@@ -91,6 +92,11 @@ fun RallyApp() {
                     arguments = listOf(
                         navArgument("name") {
                             type = NavType.StringType
+                        }
+                    ),
+                    deepLinks = listOf(
+                        navDeepLink {
+                            uriPattern = "rally://${RallyScreen.Accounts.name}/{name}"
                         }
                     )
                 ) { entry: NavBackStackEntry ->
