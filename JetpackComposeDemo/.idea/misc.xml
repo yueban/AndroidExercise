@@ -18,6 +18,10 @@
         <entry key="../../../../../layout/compose-model-1638605172868.xml" value="0.335" />
         <entry key="../../../../../layout/compose-model-1638605650974.xml" value="0.335" />
         <entry key="../../../../../layout/compose-model-1638696730517.xml" value="0.335" />
+        <entry key="migration/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1715" />
+        <entry key="migration/src/main/res/drawable/ic_my_garden_inactive.xml" value="0.1715" />
+        <entry key="migration/src/main/res/drawable/ic_plant_list_inactive.xml" value="0.1715" />
+        <entry key="migration/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1715" />
       </map>
     </option>
   </component>

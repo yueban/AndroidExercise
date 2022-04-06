@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdk rootProject.compileSdk
+
+    defaultConfig {
+        applicationId "com.yueban.jetpack"
+        minSdk rootProject.minSdk
+        targetSdk rootProject.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        dataBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+        freeCompilerArgs = ['-Xjvm-default=compatibility']
+    }
+}
+
+dependencies {
+    kapt "androidx.room:room-compiler:$rootProject.room_version"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glide_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompat_version"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraint_layout_version"
+    implementation "androidx.core:core-ktx:$rootProject.core_ktx_version"
+    implementation "androidx.fragment:fragment-ktx:$rootProject.fragment_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycle_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigation_version"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recycler_view_version"
+    implementation "androidx.room:room-runtime:$rootProject.room_version"
+    implementation "androidx.room:room-ktx:$rootProject.room_version"
+    implementation "androidx.viewpager2:viewpager2:$rootProject.view_pager_version"
+    implementation "androidx.work:work-runtime-ktx:$rootProject.work_version"
+    implementation "com.github.bumptech.glide:glide:$rootProject.glide_version"
+    implementation "com.google.android.material:material:$rootProject.material_version"
+    implementation "com.google.code.gson:gson:$rootProject.gson_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines_version"
+
+    // Compose
+    implementation "androidx.compose.runtime:runtime:$rootProject.compose_version"
+    implementation "androidx.compose.ui:ui:$rootProject.compose_version"
+    implementation "androidx.compose.foundation:foundation:$rootProject.compose_version"
+    implementation "androidx.compose.foundation:foundation-layout:$rootProject.compose_version"
+    implementation "androidx.compose.material:material:$rootProject.compose_version"
+    implementation "androidx.compose.runtime:runtime-livedata:$rootProject.compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$rootProject.compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$rootProject.compose_version"
+
+    implementation "com.google.android.material:compose-theme-adapter:$rootProject.material_compose_adapter_version"
+
+    // Testing dependencies
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.core_testing_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espresso_version"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.junit_ext_version"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$rootProject.ui_automator_version"
+    androidTestImplementation "androidx.work:work-testing:$rootProject.work_version"
+    androidTestImplementation "com.google.truth:truth:$rootProject.truth_version"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$rootProject.compose_version"
+    testImplementation "junit:junit:$rootProject.junit_version"
+}
