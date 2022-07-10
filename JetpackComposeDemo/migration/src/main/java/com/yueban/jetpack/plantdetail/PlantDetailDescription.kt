@@ -38,6 +38,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
+import com.google.android.material.composethemeadapter.MdcTheme
 import com.yueban.jetpack.R
 import com.yueban.jetpack.data.Plant
 import com.yueban.jetpack.viewmodels.PlantDetailViewModel
@@ -126,7 +127,7 @@ private fun PlantNamePreview() {
         wateringInterval = 30,
         imageUrl = ""
     )
-    MaterialTheme {
+    MdcTheme {
         PlantDetailContent(plant = plant)
     }
 }
