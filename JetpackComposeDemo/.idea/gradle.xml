@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/layout" />
             <option value="$PROJECT_DIR$/migration" />
             <option value="$PROJECT_DIR$/navigation" />
+            <option value="$PROJECT_DIR$/sideeffects" />
             <option value="$PROJECT_DIR$/state" />
             <option value="$PROJECT_DIR$/testing" />
             <option value="$PROJECT_DIR$/theming" />
