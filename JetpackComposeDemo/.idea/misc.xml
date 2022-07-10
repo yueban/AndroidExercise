@@ -18,9 +18,17 @@
         <entry key="../../../../../layout/compose-model-1638605172868.xml" value="0.335" />
         <entry key="../../../../../layout/compose-model-1638605650974.xml" value="0.335" />
         <entry key="../../../../../layout/compose-model-1638696730517.xml" value="0.335" />
+        <entry key="../../../../../layout/compose-model-1649216121564.xml" value="0.1" />
+        <entry key="../../../../../layout/compose-model-1649227057859.xml" value="0.25277777777777777" />
+        <entry key="../../../../../layout/compose-model-1649410146249.xml" value="0.5064814814814815" />
+        <entry key="../../../../../layout/compose-model-1649641913375.xml" value="0.5064814814814815" />
+        <entry key="../../../../../layout/compose-model-1649642762584.xml" value="0.30925925925925923" />
+        <entry key="../../../../../layout/compose-model-1650273967244.xml" value="0.3175925925925926" />
+        <entry key="migration/src/main/java/com/yueban/jetpack/plantdetail/PlantDetailDescription.kt" value="0.5074074074074074" />
         <entry key="migration/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1715" />
         <entry key="migration/src/main/res/drawable/ic_my_garden_inactive.xml" value="0.1715" />
         <entry key="migration/src/main/res/drawable/ic_plant_list_inactive.xml" value="0.1715" />
+        <entry key="migration/src/main/res/layout/fragment_plant_detail.xml" value="0.178125" />
         <entry key="migration/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1715" />
       </map>
     </option>

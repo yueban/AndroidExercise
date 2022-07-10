@@ -16,13 +16,117 @@
 
 package com.yueban.jetpack.plantdetail
 
+import android.text.method.LinkMovementMethod
+import android.widget.TextView
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.text.HtmlCompat
+import com.yueban.jetpack.R
+import com.yueban.jetpack.data.Plant
+import com.yueban.jetpack.viewmodels.PlantDetailViewModel
 
 @Composable
-fun PlantDetailDescription() {
+fun PlantDetailDescription(plantDetailViewModel: PlantDetailViewModel) {
+    val plant by plantDetailViewModel.plant.observeAsState()
+
+    plant?.let {
+        PlantDetailContent(plant = it)
+    }
+}
+
+@Composable
+fun PlantDetailContent(plant: Plant) {
     Surface {
-        Text("Hello Compose")
+        Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.margin_normal))) {
+            PlantName(name = plant.name)
+            PlantWatering(waterInterval = plant.wateringInterval)
+            PlantDescription(description = plant.description)
+        }
+    }
+}
+
+@Composable
+private fun PlantName(name: String) {
+    Text(
+        text = name,
+        style = MaterialTheme.typography.h5,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = dimensionResource(id = R.dimen.margin_small))
+            .wrapContentWidth(Alignment.CenterHorizontally)
+    )
+}
+
+@Composable
+fun PlantWatering(waterInterval: Int) {
+    Column(Modifier.fillMaxWidth()) {
+        val centerWithPaddingModifier = Modifier
+            .padding(horizontal = dimensionResource(R.dimen.margin_small))
+            .align(Alignment.CenterHorizontally)
+
+        Text(
+            text = stringResource(id = R.string.watering_needs_prefix),
+            color = MaterialTheme.colors.primaryVariant,
+            fontWeight = FontWeight.Bold,
+            modifier = centerWithPaddingModifier.padding(top = dimensionResource(id = R.dimen.margin_normal))
+        )
+
+        val waterIntervalText =
+            LocalContext.current.resources.getQuantityString(R.plurals.watering_next, waterInterval, waterInterval)
+
+        Text(
+            text = waterIntervalText,
+            modifier = centerWithPaddingModifier.padding(bottom = dimensionResource(id = R.dimen.margin_normal))
+        )
+    }
+}
+
+@Composable
+private fun PlantDescription(description: String) {
+    val descriptionHtml = remember {
+        HtmlCompat.fromHtml(description, HtmlCompat.FROM_HTML_MODE_COMPACT)
+    }
+    AndroidView(
+        factory = { context ->
+            TextView(context).apply {
+                movementMethod = LinkMovementMethod.getInstance()
+            }
+        },
+        update = {
+            it.text = descriptionHtml
+        }
+    )
+}
+
+@Preview
+@Composable
+private fun PlantNamePreview() {
+    val plant = Plant(
+        plantId = "id",
+        name = "Apple",
+        description = "HTML<br><br>description",
+        growZoneNumber = 3,
+        wateringInterval = 30,
+        imageUrl = ""
+    )
+    MaterialTheme {
+        PlantDetailContent(plant = plant)
     }
 }
