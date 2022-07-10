@@ -79,7 +79,9 @@ dependencies {
 
     // Testing dependencies
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.core_testing_version"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espresso_version"
+    androidTestImplementation('androidx.test.espresso:espresso-contrib:3.4.0') {
+        exclude group: 'org.checkerframework', module: 'checker'
+    }
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espresso_version"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.junit_ext_version"
